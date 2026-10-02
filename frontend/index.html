@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="ui.9d6cc6598ae9">CloudHub • Cloud infrastructure for your needs</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="redesign.css"><link rel="stylesheet" href="workspace.css"><link rel="stylesheet" href="maintenance.css">
+</head>
+<body class="workspace-layout">
+  <div class="app-layout">
+    <!-- Desktop Left Sidebar: 240px width -->
+    <aside data-i18n-aria-label="ui.51f19b4c4c32" class="app-sidebar" aria-label="CloudHub dashboard">
+      <div class="sidebar-brand">
+        <a data-i18n-aria-label="ui.1546a8dc0e6d" class="brand" href="./" aria-label="CloudHub home">
+          <svg class="brand-logo-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+          </svg>
+          <span class="brand-text">Cloud<span>Hub</span></span>
+        </a>
+        <span class="brand-edition-badge">AWS</span>
+      </div>
+
+      <div class="workspace-switch"><span class="workspace-symbol">C</span><div><strong data-i18n="workspace.workspace">Personal workspace</strong><small data-i18n="workspace.workspaceHint">Your cloud resources</small></div></div><div class="sidebar-nav-container">
+        <div data-i18n="ui.d45f670a13e8" class="sidebar-group-title">YOUR WORKSPACE</div>
+        <div id="portal-nav"></div>
+      </div>
+
+      <div class="sidebar-footer-widget">
+        <div class="quota-widget-card">
+          <div class="quota-widget-header">
+            <svg class="quota-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+            <span data-i18n="ui.492e0a8ea696" class="quota-widget-title">Account quotas</span>
+          </div>
+          <div id="quota-visual" hidden></div>
+          <p id="quota-guest" class="quota-summary-text" data-i18n="ui.3c6ade442f0b">Sign in to view remaining quotas.</p>
+          <button id="quota-signin" type="button" class="btn btn-primary" data-i18n="ui.9a402bdfdea7">Sign in</button>
+          <details id="quota-explanation" class="quota-explanation">
+            <summary data-i18n="redesign.quotaDetails">Quota policy and details</summary>
+            <p data-i18n="ui.3c6ade442f0b" id="limits-summary" class="quota-summary-text">Sign in to view remaining quotas.</p>
+          </details>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main-wrapper">
+      <!-- Top Bar Header -->
+      <header class="app-topbar"><button id="workspace-menu" class="workspace-icon-button" type="button" aria-label="Open navigation" data-i18n-aria-label="workspace.menu">☰</button><div class="workspace-breadcrumb"><span>Workspace</span><span>/</span><strong id="workspace-route-title">CloudHub</strong></div>
+        <div id="topbar-search" class="topbar-search"></div>
+        <div class="topbar-actions">
+          <label class="theme-control"><span data-i18n="theme.label">Theme</span><select id="theme-select" aria-label="Theme" data-i18n-aria-label="theme.label"><option value="system" data-i18n="theme.system">System</option><option value="light" data-i18n="theme.light">Light</option><option value="dark" data-i18n="theme.dark">Dark</option></select></label>
+          <label class="language-control"><span data-i18n="language.label">Language</span><select id="language-select" aria-label="Language" data-i18n-aria-label="language.label"></select><span id="language-status" role="status" hidden></span></label>
+          <button data-i18n="ui.09128ce8ce34" id="account-settings" class="btn btn-secondary" hidden>Account</button>
+          <button data-i18n="ui.cb18c60444eb" id="signup" class="btn btn-secondary">Sign up</button>
+          <button data-i18n="ui.9a402bdfdea7" id="login" class="btn btn-primary">Sign in</button>
+          <button data-i18n="ui.c9e0facd692a" id="logout" class="btn btn-outline" hidden>Sign out</button>
+        </div>
+      </header>
+
+      <!-- Main Canvas Container -->
+      <main class="app-content">
+        <aside data-maintenance-notice hidden></aside>
+        <!-- Compact Hero -->
+        <div class="hero"><div class="hero-copy"><span class="hero-eyebrow"><i></i><span data-i18n="workspace.heroTag">Building on AWS, made simpler</span></span><h1 data-i18n="workspace.hero">Your next idea. Its infrastructure, sorted.</h1><p data-i18n="workspace.heroHint">Choose what you want to build. Configure, understand costs, and get started on AWS.</p><button id="recommend-config" type="button" class="btn btn-primary" data-i18n="workspace.help">Help me choose</button><p class="workspace-no-aws" data-i18n="ux.noAwsAccount">You do not need an AWS account or access key.</p><div class="hero-facts"><span data-i18n="workspace.nineTemplates">9 ready-to-use templates</span><span data-i18n="workspace.threeRegions">3 deployment regions</span><span data-i18n="workspace.estimateFirst">Review costs before creating</span></div></div><div class="hero-visual" aria-hidden="true"><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="cloud-illustration"><svg viewBox="0 0 120 88" fill="none"><path d="M85 70H34C11 70 8 37 29 32C35 6 73 5 83 31C110 26 119 67 85 70Z" fill="currentColor"/><path d="M42 45L57 54L80 40M57 54V69" stroke="white" stroke-width="3.5" stroke-linecap="round"/></svg></div><span class="floating-node node-left">EC2<span>Compute</span></span><span class="floating-node node-right">S3<span>Storage</span></span><span class="floating-node node-bottom">λ<span>Serverless</span></span></div></div>
+<p data-i18n="ui.f7bd3ba97449" id="notice" class="global-notice-status" role="status">Browse all 9 templates. Select a template to sign in and configure your environment.</p>
+        <div id="expiry-notifications" class="expiry-notifications-container" role="status" aria-live="polite"></div>
+
+        <!-- Overview Snapshot (Status Metrics & Cost Breakdown) -->
+        <div id="workspace-page-heading"><div><span class="page-eyebrow">YOUR WORKSPACE</span><h1 data-i18n="workspace.welcome">Your cloud workspace.</h1><p data-i18n="workspace.welcomeHint">From an idea to infrastructure. Everything in one place.</p></div><button class="btn btn-primary workspace-open-catalog" data-i18n="workspace.create">Create environment</button></div><div id="overview-snapshot"></div><div id="workspace-dashboard"></div>
+
+        <!-- Section: Catalog Templates -->
+        <section id="catalog-section" class="content-section" aria-labelledby="catalog-title">
+          <div class="section-head">
+            <h2 data-i18n="ui.7f2a1283bf8f" id="catalog-title">Environment template</h2>
+          </div>
+          <div id="catalog-tools" class="catalog-tools"></div>
+          <div id="catalog" class="grid" aria-busy="true">
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+            <article class="card skeleton-card" aria-hidden="true"><i></i><i></i><i></i><i></i></article>
+          </div>
+        </section>
+
+        <!-- Section: User Environments -->
+        <section id="environments-section" class="content-section">
+          <div class="section-head">
+            <h2 data-i18n="ui.a239629e1b17">Your environments</h2>
+            <button data-i18n="ui.b4c61340c8f4" id="refresh" class="btn btn-secondary">Refresh</button>
+          </div>
+          <label class="test-data-toggle"><input type="checkbox" data-include-test><span data-i18n="testData.show">Show test data</span></label>
+          <p data-test-summary="environment" class="warning" role="status" hidden></p>
+          <div class="filters">
+            <label>Tìm kiếm <input data-i18n-placeholder="ui.2f3f403e4412" id="environment-search" type="search" maxlength="128" placeholder="Environment or template ID"></label>
+            <label>Trạng thái <select id="environment-status"><option data-i18n="ui.49c73a3150d7" value="">All</option><option data-i18n="ui.d654065d13f4" value="READY">Ready</option><option data-i18n="ui.a919ce7fbdb6" value="PAUSED">Paused</option><option data-i18n="ui.e40cc1b782e8" value="PAUSING">Pausing</option><option data-i18n="ui.75f9ad677614" value="RESTARTING">Restarting</option><option data-i18n="ui.da7b559f5be4" value="PROVISIONING">Provisioning</option><option data-i18n="ui.ed47bc2df524" value="BACKING_UP">Backing up</option><option data-i18n="ui.37488d76a81a" value="RETIRING">Retiring resources</option><option data-i18n="ui.ed99253ed923" value="DELETED">Retired</option><option data-i18n="ui.90b5025aa399" value="RESIDUAL">Resources remain</option><option data-i18n="ui.d8d98e990207" value="ERROR_RETAINED">Error, data preserved</option><option data-i18n="ui.667c6ae33cc5" value="CREATE_FAILED">Provisioning failed</option></select></label>
+            <label>Mẫu <select id="environment-template"><option data-i18n="ui.2135d73ac0e8" value="">All templates</option></select></label>
+          </div>
+          <div id="environments" class="grid"><p data-i18n="ui.cbc82964aad7" class="empty-state-message">Sign in to view environments.</p></div>
+        </section>
+
+        <!-- Section: History -->
+        <section id="history-section" class="content-section">
+          <div class="section-head">
+            <h2 data-i18n="ui.68c626eecf38">Retired environment history</h2>
+          </div>
+          <label class="test-data-toggle"><input type="checkbox" data-include-test><span data-i18n="testData.show">Show test data</span></label>
+          <p data-test-summary="environment" class="warning" role="status" hidden></p>
+          <div id="environment-history" class="grid"><p data-i18n="ui.346f0661441d" class="empty-state-message">Sign in to view history.</p></div>
+        </section>
+
+        <!-- Section: Backups & Recovery -->
+        <section id="backups-section" class="content-section">
+          <div class="section-head">
+            <h2 data-i18n="ui.c856cadf22f9">Backups and restoration</h2>
+          </div>
+          <div id="backups" class="grid"></div>
+        </section>
+
+        <!-- Section: Operations Tracker -->
+        <section id="operations-section" class="content-section">
+          <div class="section-head">
+            <h2 data-i18n="ui.5132d6338bfa">Tracked operations</h2>
+          </div>
+          <div id="operations" class="operations-stream" aria-live="polite"></div>
+        </section>
+
+        <!-- Section: Admin Management -->
+        <section id="admin" class="content-section admin-section" hidden>
+          <div class="section-head">
+            <h2 data-i18n="ui.249d6a3df931">Administration</h2>
+            <button data-i18n="ui.a73200b44ec0" id="admin-refresh" class="btn btn-secondary">Load administration data</button>
+          </div>
+          <label class="test-data-toggle"><input type="checkbox" data-include-test><span data-i18n="testData.show">Show test data</span></label>
+          <p data-i18n="testData.note">Disabled test accounts and retired test environments are hidden by default. Cost history is preserved.</p>
+          <p data-test-summary="admin-environment" class="warning" role="status" hidden></p>
+          <p data-test-summary="account" role="status" hidden></p>
+
+          <div class="admin-subsection">
+            <h3 data-i18n="ui.bb98381a8779">Operational alerts</h3>
+            <p id="sns-status" class="admin-status-text"></p>
+            <button data-i18n="ui.c8cc5cf46cf5" id="sns-test" class="btn btn-outline" disabled>Send test email</button>
+          </div>
+
+          <div class="admin-subsection">
+            <h3 data-i18n="ui.0e632a811f62">Attention required</h3>
+            <div id="attention" class="admin-attention-grid"></div>
+          </div>
+
+          <div class="admin-subsection">
+            <h3 data-i18n="ui.d99807fc9dba">All environments</h3>
+            <div class="filters">
+              <label class="admin-directory-search"><span data-i18n="adminDirectory.environmentSearch">Find environments</span><input data-i18n-placeholder="adminDirectory.environmentPlaceholder" id="admin-search" type="search" maxlength="128" placeholder="Owner email, environment ID or template"></label>
+            </div>
+            <div id="admin-environments" class="grid"></div>
+          </div>
+
+          <div class="admin-subsection">
+            <h3 data-i18n="ui.a76306a9d4ee">Default quotas for new accounts</h3>
+            <form id="signup-defaults-form" class="admin-form-compact">
+              <label>Số môi trường tối đa <input id="signup-default-count" type="number" min="0" step="1" required></label>
+              <label><span data-i18n="wallet.adminCredit">Tổng mức cấp cho ví (USD dự toán)</span> <input id="signup-default-budget" type="number" min="0" step="0.001" required></label>
+              <button data-i18n="ui.7b55108a3820" class="btn btn-primary">Save default quotas</button>
+            </form>
+            <p data-i18n="ui.9967a6833a3a" class="admin-help-text">Applied when a new account verifies email and signs in for the first time; existing accounts keep their individual quotas.</p>
+            <p id="signup-defaults-notice" class="admin-notice-status" role="status"></p>
+          </div>
+
+          <div class="admin-subsection">
+            <h3 data-i18n="ui.3150b67cd444">Accounts and quotas</h3>
+            <label class="admin-directory-search"><span data-i18n="adminDirectory.accountSearch">Find accounts</span><input id="admin-user-search" type="search" maxlength="128" autocomplete="off" data-i18n-placeholder="adminDirectory.accountPlaceholder" placeholder="Email, username or account ID"></label>
+            <p id="admin-user-search-status" role="status" aria-live="polite"></p>
+            <form id="admin-user-form" class="admin-form-compact">
+              <label>Email tài khoản mới <input id="admin-user-email" type="email" required maxlength="254"></label>
+              <button data-i18n="ui.ec0e992fcaa5" id="admin-create-user" class="btn btn-primary">Create and send invitation</button>
+            </form>
+            <div id="admin-users" class="grid"></div>
+            <button data-i18n="ui.abd835cb1529" id="admin-more-users" class="btn btn-secondary" hidden>More accounts</button>
+          </div>
+        </section>
+
+        <!-- All Interactive Dialogs (Preserving all exact IDs, forms, inputs) -->
+        <dialog id="login-dialog" aria-labelledby="login-title">
+          <h2 data-i18n="ui.a2d7437ebf63" id="login-title">Sign in to CloudHub</h2>
+          <form id="login-form">
+            <label>Email <input id="login-email" type="email" autocomplete="username" maxlength="254" required></label>
+            <div id="login-password-fields">
+              <label>Mật khẩu <input id="login-password" type="password" autocomplete="current-password" maxlength="256" required></label>
+            </div>
+            <div id="login-new-fields" hidden>
+              <label>Mật khẩu mới <input id="login-new-password" type="password" autocomplete="new-password" minlength="12" maxlength="256"></label>
+              <p data-i18n="ui.a17297a1a86e" class="dialog-field-hint">At least 12 characters, with uppercase, lowercase, numbers and symbols.</p>
+            </div>
+            <div id="login-code-fields" hidden>
+              <label>Mã xác thực <input id="login-code" autocomplete="one-time-code" inputmode="numeric" maxlength="2048"></label>
+            </div>
+            <label class="remember-session"><input id="login-remember" type="checkbox" checked aria-describedby="login-remember-hint"><span data-i18n="session.remember">Keep me signed in for up to 24 hours</span></label>
+            <p id="login-remember-hint" class="dialog-field-hint" data-i18n="session.shared">Uncheck this on a shared computer. Signing out clears the saved session on this browser.</p>
+            <p id="login-notice" class="dialog-notice-status" role="status"></p>
+            <button data-i18n="ui.63b5af5b157a" id="forgot-password" type="button" class="btn btn-ghost">Forgot password</button>
+            <div class="actions">
+              <button data-i18n="ui.5d54c2a1a341" id="login-close" type="button" class="btn btn-secondary">Close</button>
+              <button data-i18n="ui.9a402bdfdea7" id="login-submit" class="btn btn-primary">Sign in</button>
+            </div>
+          </form>
+          <p class="auth-switch"><button type="button" id="login-to-signup" class="btn btn-ghost" data-i18n="auth.switchToSignup">New to CloudHub? Create an account</button></p>
+        </dialog>
+
+        <dialog id="signup-dialog" aria-labelledby="signup-title">
+          <h2 data-i18n="ui.1b2c91979631" id="signup-title">Sign up for CloudHub</h2>
+          <p data-i18n="ui.a43f6434eaae" class="dialog-subtitle">Create a CloudHub account with email. You do not need an AWS account or access key.</p>
+          <form id="signup-form">
+            <label>Email <input id="signup-email" type="email" autocomplete="username" required maxlength="254"></label>
+            <label>Mật khẩu <input id="signup-password" type="password" autocomplete="new-password" minlength="12" maxlength="256" required></label>
+            <label>Nhập lại mật khẩu <input id="signup-password-confirm" type="password" autocomplete="new-password" minlength="12" maxlength="256" required></label>
+            <p data-i18n="ui.5aa451a60abb" class="dialog-field-hint">At least 12 characters, with uppercase, lowercase, numbers and symbols. Administrators set quotas for new accounts.</p>
+            <p id="signup-notice" class="dialog-notice-status" role="status"></p>
+            <div class="actions">
+              <button data-i18n="ui.5d54c2a1a341" id="signup-close" type="button" class="btn btn-secondary">Close</button>
+              <button data-i18n="ui.cb18c60444eb" id="signup-submit" class="btn btn-primary">Sign up</button>
+            </div>
+          </form>
+          <p id="signup-policy" class="dialog-field-hint"></p>
+          <p class="auth-switch"><button type="button" id="signup-to-login" class="btn btn-ghost" data-i18n="auth.switchToLogin">Already have an account? Sign in</button></p>
+        </dialog>
+
+        <dialog id="verification-dialog" aria-labelledby="verification-title">
+          <h2 data-i18n="ui.d6beef0647a6" id="verification-title">Verify email</h2>
+          <form id="verification-form">
+            <label>Email <input id="verification-email" type="email" autocomplete="username" required maxlength="254"></label>
+            <label>Mã xác thực <input id="verification-code" autocomplete="one-time-code" inputmode="numeric" required maxlength="6" pattern="[0-9]{6}"></label>
+            <p id="verification-notice" class="dialog-notice-status" role="status"></p>
+            <div class="actions">
+              <button data-i18n="ui.5d54c2a1a341" id="verification-close" type="button" class="btn btn-secondary">Close</button>
+              <button data-i18n="ui.ebe1a91c5d29" id="verification-resend" type="button" class="btn btn-outline">Resend code</button>
+              <button data-i18n="ui.d6beef0647a6" id="verification-submit" class="btn btn-primary">Verify email</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="preview-dialog" class="preview-dialog" aria-labelledby="preview-title">
+          <h2 id="preview-title" data-i18n="preview.title">Template preview</h2>
+          <p data-i18n="preview.readonly" class="dialog-field-hint">Read-only reference. Sign in to review a current quote and create an environment.</p>
+          <div class="preview-controls">
+            <label><span data-i18n="preview.region">Deployment location</span><select id="preview-region"></select></label>
+            <label><span data-i18n="preview.profile">Configuration</span><select id="preview-profile"></select></label>
+            <label><span data-i18n="preview.horizon">Estimate preview</span><select id="preview-hours"><option value="1">1 h</option><option value="4">4 h</option><option value="8">8 h</option></select></label>
+          </div>
+          <p data-i18n="preview.periodExplanation" class="dialog-field-hint">The preview period does not set a shutdown deadline.</p>
+          <p id="preview-status" role="status"></p><button id="preview-retry" type="button" data-i18n="ui.a4240dfd28c1" hidden>Retry</button>
+          <div class="preview-panels">
+            <section><h3 data-i18n="preview.hardware">Resources and limits</h3><dl id="preview-hardware" class="preview-facts"></dl></section>
+            <section><h3 data-i18n="preview.price">Indicative first-period estimate</h3><div id="preview-cost"></div></section>
+          </div>
+          <details id="preview-advanced"><summary data-i18n="preview.priceDetails">Unit prices, assumptions and exclusions</summary><div id="preview-price-details"></div></details>
+          <section><h3 data-i18n="preview.architecture">Service architecture</h3><div id="preview-architecture"></div><p data-i18n="preview.architectureNote" class="dialog-field-hint">Illustrative service flow, not a live inventory. Backups and management services are shown separately in environment details.</p></section>
+          <div class="actions"><button id="preview-close" type="button" class="btn btn-secondary" data-i18n="ui.5d54c2a1a341">Close</button><button id="preview-login" type="button" class="btn btn-primary" data-i18n="preview.signin">Sign in to continue</button></div>
+        </dialog>
+
+        <dialog id="create-dialog">
+          <form id="create-form">
+            <h2 data-i18n="ui.f461ab2d8dc0" id="create-title">Create environment</h2>
+            <p id="configuration-description"></p>
+            <p id="create-limits"></p>
+            <label>Cấu hình <select id="configuration-variant"><option data-i18n="ui.67f6dc83c0d4" value="standard">Verified standard configuration</option></select></label>
+            <label>Khoảng xem dự toán (không quyết định lịch tắt) <select id="hours"><option data-i18n="ui.d06edd9a88f1" value="1">1 hour</option><option data-i18n="ui.081d2a061e6a" value="2">2 hours</option><option data-i18n="ui.b9d441fcd3f6" value="4">4 hours</option><option data-i18n="ui.1f522cde5fc6" value="8">8 hours</option></select></label>
+            <label>Chế độ vận hành <select id="operating-mode"><option data-i18n="ui.cb445c400428" value="AUTO_OFF">Automatic shutdown</option><option data-i18n="ui.0b686847e426" value="AUTO_RENEW">Automatic renewal</option></select></label>
+            <label>Chu kỳ từ khi sẵn sàng <select id="operating-period"><option data-i18n="ui.e98d21d5aef5" value="5">5 minutes</option><option data-i18n="ui.43786c01e7ed" value="15">15 minutes</option><option data-i18n="ui.d06edd9a88f1" value="60" selected>1 hour</option><option data-i18n="ui.b9d441fcd3f6" value="240">4 hours</option><option data-i18n="ui.1f522cde5fc6" value="480">8 hours</option></select></label>
+            <label>Chính sách khi kết thúc hoặc không thể gia hạn <select id="ending-policy"></select></label>
+            <p id="pause-support"></p>
+            <label id="operating-budget-field" hidden>Giới hạn dự toán cộng dồn của môi trường (USD) <input id="operating-budget" type="number" min="0.001" step="0.001" value="10"></label>
+            <p id="operating-explanation"></p>
+            <div id="quote"></div>
+            <p id="backup-description"></p>
+            <label><input id="confirm-cost" type="checkbox" required> Tôi xác nhận dự toán, chế độ vận hành và tác động dữ liệu của chính sách kết thúc.</label>
+            <div class="actions">
+              <button data-i18n="ui.74fcd3522be7" type="button" id="cancel">Cancel</button>
+              <button data-i18n="ui.fbb8938773fa" id="confirm" disabled>Confirm creation</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="files-dialog">
+          <h2 id="files-title" data-i18n="ui.84fec93361c8">Environment files</h2>
+          <p id="file-notice" class="dialog-field-hint"></p>
+          <div id="file-list" class="dialog-list-container"></div>
+          <form id="file-form">
+            <div id="file-dropzone" class="file-dropzone" data-i18n="experience.dropFile">Drop a file here or choose a file</div>
+            <p id="file-selection" role="status"></p>
+            <label>Chọn file <input id="file-input" type="file" required></label>
+            <label>Tên hoặc đường dẫn <input id="file-key" maxlength="128" placeholder="demo.txt" required></label>
+            <div class="actions">
+              <button data-i18n="ui.5d54c2a1a341" id="file-close" type="button" class="btn btn-secondary">Close</button>
+              <button data-i18n="ui.9b2ba8e1964c" id="file-submit" class="btn btn-primary">Upload file</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="records-dialog">
+          <h2 data-i18n="experience.dataExplorer">Data explorer</h2>
+          <p id="record-notice" class="dialog-field-hint"></p>
+          <div id="record-result" class="data-result" role="region" data-i18n-aria-label="experience.dataExplorer" aria-label="Data explorer"></div>
+          <form id="record-form">
+            <label>Mã bản ghi <input id="record-id" maxlength="64" pattern="[A-Za-z0-9_-]+" required></label>
+            <label>Nội dung <textarea id="record-text" maxlength="256" required></textarea></label>
+            <div class="actions">
+              <button data-i18n="ui.5d54c2a1a341" id="record-close" type="button" class="btn btn-secondary">Close</button>
+              <button data-i18n="ui.41bba4f1cb05" id="record-read" type="button" class="btn btn-outline">Read data</button>
+              <button data-i18n="ui.c179be6e3bda" id="record-submit" class="btn btn-primary">Save record</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="ssh-dialog" aria-labelledby="ssh-title">
+          <h2 id="ssh-title" data-i18n="experience.sshTitle">Connect to your server</h2>
+          <label><span data-i18n="experience.sshCommand">SSH command</span><input id="ssh-command" readonly translate="no"></label>
+          <p id="ssh-notice" role="status"></p>
+          <div class="actions"><button id="ssh-copy" type="button" data-i18n="experience.copy">Copy command</button><button id="ssh-close" type="button" data-i18n="ui.5d54c2a1a341">Close</button></div>
+        </dialog>
+        <dialog id="password-dialog" aria-labelledby="password-title">
+          <h2 data-i18n="ui.63b5af5b157a" id="password-title">Forgot password</h2>
+          <form id="forgot-form">
+            <label>Email tài khoản <input id="forgot-email" type="email" autocomplete="username" required maxlength="254"></label>
+            <button data-i18n="ui.bdb58127e6fd" class="btn btn-primary">Send recovery code</button>
+          </form>
+          <form id="reset-form" hidden>
+            <label>Mã xác nhận <input id="reset-code" inputmode="numeric" autocomplete="one-time-code" required maxlength="2048"></label>
+            <label>Mật khẩu mới <input id="reset-password" type="password" autocomplete="new-password" minlength="12" maxlength="256" required></label>
+            <button data-i18n="ui.5b496de79ddc" class="btn btn-primary">Set new password</button>
+          </form>
+          <p id="password-notice" class="dialog-notice-status" role="status"></p>
+          <div class="actions">
+            <button data-i18n="ui.5d54c2a1a341" id="password-close" type="button" class="btn btn-secondary">Close</button>
+          </div>
+        </dialog>
+
+        <dialog id="account-dialog">
+          <h2 data-i18n="ui.09128ce8ce34">Account</h2>
+          <form id="change-password-form">
+            <label>Mật khẩu hiện tại <input id="previous-password" type="password" autocomplete="current-password" required maxlength="256"></label>
+            <label>Mật khẩu mới <input id="new-password" type="password" autocomplete="new-password" minlength="12" maxlength="256" required></label>
+            <button data-i18n="ui.4598a6662fd1" class="btn btn-primary">Change password</button>
+          </form>
+          <div class="account-verification-section">
+            <h3 data-i18n="ui.b5c69dd07546">Verify email to manage environments and recover your password</h3>
+            <button data-i18n="ui.5477b865cecf" id="verify-email-send" type="button" class="btn btn-outline">Send email verification code</button>
+            <form id="verify-email-form">
+              <label>Mã xác minh <input id="verify-email-code" inputmode="numeric" autocomplete="one-time-code" required maxlength="2048"></label>
+              <button data-i18n="ui.29b26ed35941" class="btn btn-primary">Verify email</button>
+            </form>
+          </div>
+          <p id="account-notice" class="dialog-notice-status" role="status"></p>
+          <div class="actions">
+            <button data-i18n="ui.5d54c2a1a341" id="account-close" type="button" class="btn btn-secondary">Close</button>
+          </div>
+        </dialog>
+
+        <dialog id="action-dialog">
+          <form id="action-form">
+            <h2 id="action-title"></h2>
+            <p id="action-description" class="dialog-field-hint"></p>
+            <div id="action-fields" class="dialog-fields-wrapper"></div>
+            <p id="action-notice" class="dialog-notice-status" role="status"></p>
+            <div class="actions">
+              <button data-i18n="ui.74fcd3522be7" id="action-cancel" type="button" class="btn btn-secondary">Cancel</button>
+              <button data-i18n="ui.1503b0d05f3d" id="action-submit" class="btn btn-primary">Confirm</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="management-dialog" aria-labelledby="management-title">
+          <h2 data-i18n="ui.983b51c2b445" id="management-title">Manage operation</h2>
+          <form id="management-form">
+            <p id="management-description" class="dialog-field-hint"></p>
+            <div id="management-fields" class="dialog-fields-wrapper"></div>
+            <div id="management-quote" class="quote-preview-box"></div>
+            <label class="checkbox-label"><input id="management-confirmed" type="checkbox" required> <span data-i18n="ui.d5667ce809a9">I confirm the additional estimate and its data/resource impact.</span></label>
+            <p id="management-notice" class="dialog-notice-status" role="status"></p>
+            <div class="actions">
+              <button data-i18n="ui.74fcd3522be7" id="management-close" type="button" class="btn btn-secondary">Cancel</button>
+              <button data-i18n="ui.1503b0d05f3d" id="management-submit" class="btn btn-primary" disabled>Confirm</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="environment-detail-dialog" aria-labelledby="environment-detail-title">
+          <h2 data-i18n="ui.e784bfa7e8d1" id="environment-detail-title">Environment details</h2>
+          <div id="environment-detail" class="environment-detail-content"></div>
+          <div class="actions">
+            <button data-i18n="ui.5d54c2a1a341" id="environment-detail-close" type="button" class="btn btn-secondary">Close</button>
+          </div>
+        </dialog>
+      </main>
+
+      <!-- Clean SaaS Footer -->
+      <footer class="app-footer">
+        <p data-i18n="ui.18418c3ee2a6">CloudHub · Resources managed in the team's AWS account · Unverified templates cannot be created.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script type="module" src="maintenance-banner.js"></script><script type="module" src="app.js"></script><script type="module" src="workspace-ui.js"></script>
+</body>
+</html>
