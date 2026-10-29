@@ -1,9 +1,13 @@
-# Cách nhận phần việc
+# Làm việc trong nhóm
 
-Repository public này đang nhận mã theo từng người. Đợt đầu chỉ có TV1, không có toàn bộ ứng dụng. Clone main rồi tạo nhánh cho phần việc của mình; không push đè hoặc copy nguyên snapshot của người khác.
+Nhóm trưởng là TV4 — Hoàng Đường Anh Tú. Phân công chi tiết ở TV1.md–TV4.md và FILE_OWNERSHIP.md, theo trách nhiệm của báo cáo v2.
 
-`file-ownership.json` là danh mục đầy đủ của bản nguồn bàn giao, gồm cả file chưa được đưa lên. Checker chỉ chấp nhận file có owner, đồng thời liệt kê dependency đang chờ. `TV1.md` và `FILE_OWNERSHIP.md` là trách nhiệm bàn giao, không phải bằng chứng tác giả hay giờ công.
+1. Clone main mới nhất vào thư mục riêng; tạo nhánh `team/tv1`, `team/tv2`, `team/tv3` hoặc `team/tv4` cho công việc của mình.
+2. Giữ cấu trúc thư mục chuẩn. Review những file đã có; chỉ commit thay đổi thật của phần được giao. Không xóa rồi thêm lại nội dung giống nhau.
+3. Chạy kiểm tra phù hợp và ghi rõ phần còn thiếu dependency. Tách unit/mock, browser và AWS; kết quả từ loại này không thay cho loại khác.
+4. Mở PR vào main, nêu hành vi, file liên quan, kết quả test và rủi ro dữ liệu/chi phí nếu có. Nhờ owner review khi thay đổi helper dùng chung.
+5. Đồng bộ main sau khi đã lưu công việc của mình. Không force push vào main hoặc ghi đè công việc của người khác.
 
-TV1 dùng tài khoản chủ repo `tuhitomi`. Hai tài khoản `thaidao2601`, `NHDuong2612` đã được mời Write nhưng chưa được gán TV2/TV3/TV4 khi chưa biết vai trò. Không tự sinh CODEOWNERS với tài khoản đoán mò.
+Tên/GitHub chỉ được điền khi đã xác nhận. `members.json` dùng null cho handle chưa rõ; CODEOWNERS và quyền collaborator không tự phát sinh từ bảng owner.
 
-AuthorDate và CommitDate trong đợt nhập này đều là mốc giai đoạn do chủ dự án chọn. Mã được nhập thực tế ngày 29/10/2026; metadata ngày được viết lại ngày 30/10/2026. Xem `WEEKLY_IMPORT.md`. Không dùng lịch này thay báo cáo học tập, nhật ký AWS hoặc kết quả kiểm thử thực tế.
+Khi thực hành AWS, dùng quyền đúng nhiệm vụ, không chia sẻ root/access key. Nêu rõ tài nguyên, dữ liệu được bảo vệ, cách đọc lại sau khôi phục và phần có thể còn phát sinh phí. Các giờ trong báo cáo là kế hoạch, không phải nhật ký thực tế.

@@ -1,18 +1,22 @@
 {
   "TV1": {
-    "name": "TV1",
-    "github": "tuhitomi"
+    "name": "Đào Quang Thái",
+    "github": null,
+    "role": "Thành viên"
   },
   "TV2": {
-    "name": "TV2",
-    "github": null
+    "name": "Ngô Quang Dũng",
+    "github": null,
+    "role": "Thành viên"
   },
   "TV3": {
-    "name": "TV3",
-    "github": null
+    "name": "Nguyễn Hải Dương",
+    "github": null,
+    "role": "Thành viên"
   },
   "TV4": {
-    "name": "TV4",
-    "github": null
+    "name": "Hoàng Đường Anh Tú",
+    "github": "tuhitomi",
+    "role": "Nhóm trưởng"
   }
 }

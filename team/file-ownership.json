@@ -1,1971 +1,2311 @@
 {
   "schema": 1,
-  "recorded_date": "2026-10-29",
-  "assignment_type": "RESPONSIBILITY_NOT_HISTORICAL_AUTHORSHIP",
+  "basis": "CloudHub_Bao_cao_v2.docx tables 3.1 and 3.2; file-level responsibility mapping",
+  "report_sha256": "32a3c81506a2cd748f612c6d7bb0b8794075c8b6bca315ee529a92885276e8f3",
   "members": [
     "TV1",
     "TV2",
     "TV3",
     "TV4"
   ],
+  "leader": "TV4",
+  "allow_pending_files": true,
   "files": [
     {
       "path": ".gitattributes",
-      "owner": "TV1",
-      "reason": "Repository, dependencies và CI",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": ".github/CODEOWNERS.example",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": ".github/workflows/ci.yml",
-      "owner": "TV1",
-      "reason": "Repository, dependencies và CI",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": ".gitignore",
-      "owner": "TV1",
-      "reason": "Repository, dependencies và CI",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "README.md",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/__init__.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/access.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/accounts.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/actual_cost.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/admin_directory.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/announcements.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/api.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/application_driver.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/applications.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/archive.py",
       "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "task": "KH15",
+      "reason": "Điều phối backup, restore, export, retention và thu hồi; giữ nguồn khi backup lỗi, kiểm readiness và audit trước khi trả quota.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/aws_driver.py",
-      "owner": "TV1",
-      "reason": "Linux/EC2/EBS và EFS T01/T08",
+      "owner": "TV3",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/backup_export.py",
       "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "task": "KH15",
+      "reason": "Điều phối backup, restore, export, retention và thu hồi; giữ nguồn khi backup lỗi, kiểm readiness và audit trước khi trả quota.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/benchmark-scenarios.json",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
-      "generated": true
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
+      "generated": false
     },
     {
       "path": "backend/cloudhub/benchmark_agent.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/benchmarks.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/catalog.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/cf_common.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/container_app.py",
-      "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/content_app.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/content_routing.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV3",
+      "task": "KH12",
+      "reason": "Xây dựng driver T02, T07, T09; tích hợp staging, checksum, publish/rollback và dữ liệu API; cung cấp inventory cùng thao tác backup/restore theo mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/cost.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/data_api_app.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH12",
+      "reason": "Xây dựng driver T02, T07, T09; tích hợp staging, checksum, publish/rollback và dữ liệu API; cung cấp inventory cùng thao tác backup/restore theo mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/data_driver.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH12",
+      "reason": "Xây dựng driver T02, T07, T09; tích hợp staging, checksum, publish/rollback và dữ liệu API; cung cấp inventory cùng thao tác backup/restore theo mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/data_template.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH12",
+      "reason": "Xây dựng driver T02, T07, T09; tích hợp staging, checksum, publish/rollback và dữ liệu API; cung cấp inventory cùng thao tác backup/restore theo mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/driver_router.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV4",
+      "task": "KH13",
+      "reason": "Thống nhất hợp đồng service–worker–driver; xây dựng operation, phase, checkpoint và state machine Tick/Wait/Retry/Catch để chạy công việc dài.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/ecs_driver.py",
-      "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/ecs_template.py",
-      "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/efs_driver.py",
-      "owner": "TV1",
-      "reason": "Linux/EC2/EBS và EFS T01/T08",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/efs_records.py",
-      "owner": "TV1",
-      "reason": "Linux/EC2/EBS và EFS T01/T08",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/efs_template.py",
-      "owner": "TV1",
-      "reason": "Linux/EC2/EBS và EFS T01/T08",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/errors.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/ledger.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/lifecycle.py",
       "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "task": "KH14",
+      "reason": "Xây dựng expiry, sweep, gia hạn, PAUSE/resume và đồng bộ lịch; dùng revision, generation và khóa để bỏ callback cũ và sửa lịch lỗi.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/lifecycle_scheduler.py",
       "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "task": "KH14",
+      "reason": "Xây dựng expiry, sweep, gia hạn, PAUSE/resume và đồng bộ lịch; dùng revision, generation và khóa để bỏ callback cũ và sửa lịch lỗi.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/notification_email.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/notifications.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/operating_policy.py",
       "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "task": "KH14",
+      "reason": "Xây dựng expiry, sweep, gia hạn, PAUSE/resume và đồng bộ lịch; dùng revision, generation và khóa để bỏ callback cũ và sửa lịch lỗi.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/portal.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/portal_api.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/public_catalog.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/quotes.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/rds_app.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/rds_driver.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/rds_template.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/recommendations.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/recovery_actions.py",
       "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "task": "KH15",
+      "reason": "Điều phối backup, restore, export, retention và thu hồi; giữ nguồn khi backup lỗi, kiểm readiness và audit trước khi trả quota.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/redshift_driver.py",
-      "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/redshift_template.py",
-      "owner": "TV4",
-      "reason": "Vận hành/thu hồi/Docker; module cũ không thuộc danh mục hoạt động",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/regions.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/registration.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/releases.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/runtime.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV4",
+      "task": "KH13",
+      "reason": "Thống nhất hợp đồng service–worker–driver; xây dựng operation, phase, checkpoint và state machine Tick/Wait/Retry/Catch để chạy công việc dài.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/s3_driver.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV3",
+      "task": "KH12",
+      "reason": "Xây dựng driver T02, T07, T09; tích hợp staging, checksum, publish/rollback và dữ liệu API; cung cấp inventory cùng thao tác backup/restore theo mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/s3_files.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/s3_template.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV3",
+      "task": "KH12",
+      "reason": "Xây dựng driver T02, T07, T09; tích hợp staging, checksum, publish/rollback và dữ liệu API; cung cấp inventory cùng thao tác backup/restore theo mẫu.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/service.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH06",
+      "reason": "Xây dựng metadata, version, khóa, quota và Idempotency-Key; tiếp nhận lệnh bằng giao dịch có điều kiện và trả operation để theo dõi.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/stack_driver.py",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/store.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH06",
+      "reason": "Xây dựng metadata, version, khóa, quota và Idempotency-Key; tiếp nhận lệnh bằng giao dịch có điều kiện và trả operation để theo dõi.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/template_view.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/templates.py",
-      "owner": "TV1",
-      "reason": "Linux/EC2/EBS và EFS T01/T08",
+      "owner": "TV3",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/test_visibility.py",
-      "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/ui_context.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/uploads.py",
       "owner": "TV2",
-      "reason": "Auth/admin, file/hosting, Region và quyền đọc stack",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/viewer_prices.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/wallet.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/worker.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV4",
+      "task": "KH13",
+      "reason": "Thống nhất hợp đồng service–worker–driver; xây dựng operation, phase, checkpoint và state machine Tick/Wait/Retry/Catch để chạy công việc dài.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/workload_cost.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/cloudhub/workloads.py",
-      "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "backend/requirements.txt",
       "owner": "TV3",
-      "reason": "API, dữ liệu, workflow adapter, quote/ledger, tư vấn và ứng dụng T03/T09",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "benchmarks/http.js",
-      "owner": "TV4",
-      "reason": "Công cụ đo tải và kiểm giới hạn",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "config/application-releases.example.json",
-      "owner": "TV3",
-      "reason": "Cấu hình giá, ứng dụng và tư vấn",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "config/cloudfront-viewer-prices.review.json",
-      "owner": "TV3",
-      "reason": "Cấu hình giá, ứng dụng và tư vấn",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "config/deployment.example.json",
-      "owner": "TV2",
-      "reason": "Cấu hình triển khai/hosting/Region mẫu",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "config/hosting.example.json",
-      "owner": "TV2",
-      "reason": "Cấu hình triển khai/hosting/Region mẫu",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "config/hosting.readiness.example.json",
-      "owner": "TV2",
-      "reason": "Cấu hình triển khai/hosting/Region mẫu",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "config/platform-target.example.json",
-      "owner": "TV2",
-      "reason": "Cấu hình triển khai/hosting/Region mẫu",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "config/prices.example.json",
-      "owner": "TV3",
-      "reason": "Cấu hình giá, ứng dụng và tư vấn",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "config/product-release.example.json",
-      "owner": "TV2",
-      "reason": "Cấu hình triển khai/hosting/Region mẫu",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "config/recommendation-policy.example.json",
-      "owner": "TV3",
-      "reason": "Cấu hình giá, ứng dụng và tư vấn",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "config/regions.example.json",
-      "owner": "TV2",
-      "reason": "Cấu hình triển khai/hosting/Region mẫu",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
+    },
+    {
+      "path": "docs/DEVELOPMENT.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "docs/architecture.md",
-      "owner": "TV1",
-      "reason": "Tài liệu tích hợp và kiểm thử",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "docs/backup-restore.md",
       "owner": "TV4",
-      "reason": "Tài liệu bảo vệ dữ liệu và thu hồi",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "docs/deployment.md",
-      "owner": "TV2",
-      "reason": "Tài liệu triển khai và an toàn AWS",
+      "owner": "TV3",
+      "task": "KH23",
+      "reason": "Rà soát role, security group, secret và cấu hình triển khai; xử lý tài nguyên thử còn sót, chốt IaC/driver và hướng dẫn triển khai, sao lưu, thu hồi.",
+      "generated": false
+    },
+    {
+      "path": "docs/linux-efs-handoff.md",
+      "owner": "TV3",
+      "task": "KH23",
+      "reason": "Rà soát role, security group, secret và cấu hình triển khai; xử lý tài nguyên thử còn sót, chốt IaC/driver và hướng dẫn triển khai, sao lưu, thu hồi.",
       "generated": false
     },
     {
       "path": "docs/local-check-results.json",
-      "owner": "TV3",
-      "reason": "Tài liệu sản phẩm, API, giá và giới hạn",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "docs/openapi.json",
-      "owner": "TV3",
-      "reason": "Tài liệu sản phẩm, API, giá và giới hạn",
-      "generated": true
+      "owner": "TV2",
+      "task": "KH22",
+      "reason": "Chốt OpenAPI và cấu trúc lỗi; rà soát cấu hình giá, quota, ví và dữ liệu trả về; sửa lỗi API, kiểm tra hồi quy và hướng dẫn cấu hình backend.",
+      "generated": false
     },
     {
       "path": "docs/platform-portability-runbook.md",
-      "owner": "TV2",
-      "reason": "Runbook chuyển nền tảng, Region, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH23",
+      "reason": "Rà soát role, security group, secret và cấu hình triển khai; xử lý tài nguyên thử còn sót, chốt IaC/driver và hướng dẫn triển khai, sao lưu, thu hồi.",
       "generated": false
     },
     {
       "path": "docs/pricing-and-capacity.md",
-      "owner": "TV3",
-      "reason": "Tài liệu sản phẩm, API, giá và giới hạn",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "docs/product-scope.md",
-      "owner": "TV3",
-      "reason": "Tài liệu sản phẩm, API, giá và giới hạn",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "docs/requirements.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "docs/security.md",
       "owner": "TV2",
-      "reason": "Tài liệu triển khai và an toàn AWS",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
+      "generated": false
+    },
+    {
+      "path": "docs/source-record.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "docs/template-view.md",
       "owner": "TV2",
-      "reason": "Tài liệu triển khai và an toàn AWS",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "docs/testing.md",
-      "owner": "TV1",
-      "reason": "Tài liệu tích hợp và kiểm thử",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "frontend/admin-directory-view.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/announcements.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/app.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/appearance.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/architecture.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/auth.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/catalog-text.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/catalog-view.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/cockpit.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/config.example.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/create-flow.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/create-journal.js",
-      "owner": "TV4",
-      "reason": "UI trạng thái, vòng đời và idempotency",
+      "owner": "TV1",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/create-view.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/error-text.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/i18n.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/index.html",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/lifecycle.js",
-      "owner": "TV4",
-      "reason": "UI trạng thái, vòng đời và idempotency",
+      "owner": "TV1",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/locale-en.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
-      "generated": true
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
+      "generated": false
     },
     {
       "path": "frontend/locale-source.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
-      "generated": true
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
+      "generated": false
     },
     {
       "path": "frontend/locales/de.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/en.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/es.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/fr.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/ja.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/ko.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/vi.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/locales/zh-Hans.json",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/maintenance-banner.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/maintenance-page.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/maintenance.css",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/maintenance.html",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/notifications.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/pages-preview.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/portal.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/presentation-data.js",
-      "owner": "TV4",
-      "reason": "UI trạng thái, vòng đời và idempotency",
+      "owner": "TV1",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/product-view.js",
-      "owner": "TV3",
-      "reason": "UI tích hợp dự toán, dữ liệu và tư vấn",
+      "owner": "TV1",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/public-preview.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/quota-view.js",
-      "owner": "TV3",
-      "reason": "UI tích hợp dự toán, dữ liệu và tư vấn",
+      "owner": "TV1",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/recommendations.js",
-      "owner": "TV3",
-      "reason": "UI tích hợp dự toán, dữ liệu và tư vấn",
+      "owner": "TV1",
+      "task": "KH02",
+      "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
       "generated": false
     },
     {
       "path": "frontend/redesign.css",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/session.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/shell-view.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/style.css",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "frontend/template-view.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/test-data-view.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/uploads.js",
-      "owner": "TV2",
-      "reason": "UI tích hợp auth, hosting, quản trị hoặc S3",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "frontend/workspace-ui.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/workspace-view.js",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "frontend/workspace.css",
       "owner": "TV1",
-      "reason": "Workspace, trải nghiệm, i18n và template-view UI",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
       "path": "infra/container/Dockerfile",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH11",
+      "reason": "Xây dựng driver T06 và T08; cấu hình Fargate, dữ liệu S3, EFS, hai client và AWS Backup; xác định dữ liệu bảo vệ của từng mẫu.",
       "generated": false
     },
     {
       "path": "infra/control-plane.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
-      "generated": true
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
     },
     {
       "path": "infra/hosting/api-domain.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/hosting/certificate-api.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/hosting/certificate-frontend.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/hosting/edge-domain.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/hosting/edge-import.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/hosting/public-zone.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/hosting/shared-routing.example.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "infra/lifecycle.asl.json",
       "owner": "TV4",
-      "reason": "Step Functions và trạng thái vòng đời",
+      "task": "KH13",
+      "reason": "Thống nhất hợp đồng service–worker–driver; xây dựng operation, phase, checkpoint và state machine Tick/Wait/Retry/Catch để chạy công việc dài.",
       "generated": false
     },
     {
       "path": "infra/network.json",
-      "owner": "TV2",
-      "reason": "IaC nền, networking, hosting và IAM",
-      "generated": true
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
     },
     {
       "path": "package-lock.json",
       "owner": "TV1",
-      "reason": "Repository, dependencies và CI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "package.json",
       "owner": "TV1",
-      "reason": "Repository, dependencies và CI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "requirements-dev.txt",
-      "owner": "TV1",
-      "reason": "Repository, dependencies và CI",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "scripts/access_token.py",
       "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "scripts/admin_directory_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/announcement_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/announcement_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/archive_test_data.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/aws_lifecycle.py",
-      "owner": "TV4",
-      "reason": "Kiểm vòng đời, hiệu năng và thu hồi",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "scripts/benchmark.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/benchmark_evidence.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/benchmark_workloads.py",
-      "owner": "TV4",
-      "reason": "Kiểm vòng đời, hiệu năng và thu hồi",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "scripts/build_pages_live.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/build_pages_preview.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/check.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
+      "generated": false
+    },
+    {
+      "path": "scripts/check_leader_handoff.py",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
+      "generated": false
+    },
+    {
+      "path": "scripts/check_local.py",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/check_product_release.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/check_t02_publication.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "scripts/check_team_ownership.py",
-      "owner": "TV1",
-      "reason": "Tooling bàn giao/CI/UI",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/cloudfront_viewer_prices.py",
       "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "scripts/cognito_messages.py",
       "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
       "generated": false
     },
     {
       "path": "scripts/configure_frontend.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV1",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "scripts/generate_benchmark_scenarios.py",
       "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/generate_codeowners.py",
-      "owner": "TV1",
-      "reason": "Tooling bàn giao/CI/UI",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/generate_hosting_examples.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/generate_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/generate_network.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/generate_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/hosting.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/hosting_aws.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/hosting_changeset.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/hosting_upload_cors.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/infra_extensions.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/lifecycle_http.py",
       "owner": "TV4",
-      "reason": "Kiểm vòng đời, hiệu năng và thu hồi",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/lifecycle_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/measure_expiry.py",
       "owner": "TV4",
-      "reason": "Kiểm vòng đời, hiệu năng và thu hồi",
+      "task": "KH14",
+      "reason": "Xây dựng expiry, sweep, gia hạn, PAUSE/resume và đồng bộ lịch; dùng revision, generation và khóa để bỏ callback cũ và sửa lịch lỗi.",
       "generated": false
     },
     {
       "path": "scripts/measure_product_local.py",
       "owner": "TV4",
-      "reason": "Kiểm vòng đời, hiệu năng và thu hồi",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/migrate_account_wallets.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "scripts/migrate_forecast_ledger.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "scripts/migrate_regions.py",
       "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/notification_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/notification_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/package_console.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/portal_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/portal_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/preflight.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/prepare_deployment.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/prepare_hosting.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/prepare_hosting_cutover.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/prepare_platform_target.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/prepare_product_0_8_packet.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/prepare_product_release.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/prepare_recommendations_release.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/prepare_review.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/product_completion_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/product_completion_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/product_experience_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/product_release_preflight.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/public_assets.py",
       "owner": "TV1",
-      "reason": "Tooling bàn giao/CI/UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "scripts/public_catalog_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/publish_hosting_config.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/recommendation_infra.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/recommendation_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/refresh_prices.py",
       "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
       "path": "scripts/region_i18n_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV4",
+      "task": "KH16",
+      "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
       "generated": false
     },
     {
       "path": "scripts/region_i18n_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/regional_runtime.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/restore_aws_frontend.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/review_evidence.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "scripts/run_validation.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "scripts/template_view_infra.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/template_view_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/test_visibility_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "scripts/ui_fixture.py",
       "owner": "TV1",
-      "reason": "Tooling bàn giao/CI/UI",
+      "task": "KH01",
+      "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
       "generated": false
     },
     {
       "path": "scripts/validate_locales.py",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV1",
+      "task": "KH04",
+      "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
       "generated": false
     },
     {
       "path": "scripts/verify_hosting.mjs",
-      "owner": "TV2",
-      "reason": "Triển khai, IAM, hosting và cấu hình nền",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
       "path": "scripts/wallet_openapi.py",
-      "owner": "TV3",
-      "reason": "Contract API, dự toán và dữ liệu chứng cứ",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
       "generated": false
     },
     {
       "path": "team/FILE_OWNERSHIP.md",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
-      "generated": true
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "team/MILESTONES.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
     },
     {
       "path": "team/README.md",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "team/TV1.md",
-      "owner": "TV1",
-      "reason": "Bàn giao riêng của người phụ trách",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "team/TV2.md",
-      "owner": "TV2",
-      "reason": "Bàn giao riêng của người phụ trách",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "team/TV3.md",
-      "owner": "TV3",
-      "reason": "Bàn giao riêng của người phụ trách",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "team/TV4.md",
       "owner": "TV4",
-      "reason": "Bàn giao riêng của người phụ trách",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "team/file-ownership.json",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
-      "generated": true
-    },
-    {
-      "path": "team/handoff-validation.json",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "team/members.json",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
-      "generated": false
-    },
-    {
-      "path": "team/source-provenance.json",
-      "owner": "TV1",
-      "reason": "Điều phối repository và bảng phân công",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
       "path": "tests/admin-directory-view.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/announcements.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/auth.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/catalog-view.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/cockpit.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/content-guard.test.mjs",
-      "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/create-flow.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/create-view.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/fixtures/recommendation-contract.json",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/frontend.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/guest-experience.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/hosting.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/i18n.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/lifecycle.test.mjs",
-      "owner": "TV4",
-      "reason": "Kiểm thử UI vận hành",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/notifications.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/presentation-data.test.mjs",
-      "owner": "TV4",
-      "reason": "Kiểm thử UI vận hành",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/product-view.test.mjs",
-      "owner": "TV3",
-      "reason": "Kiểm thử UI giá/dữ liệu/tư vấn",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/recommendations.test.mjs",
-      "owner": "TV3",
-      "reason": "Kiểm thử UI giá/dữ liệu/tư vấn",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/session.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/shell-view.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/template-view.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/test-data-view.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/test_admin_directory.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_announcements.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_applications.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_asg_inventory.py",
-      "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_benchmark_tools.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_cognito_messages.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_configuration_choices.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_construction_retry.py",
       "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_data_continuous.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_direct_uploads.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_domain.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_ecs_retirement.py",
-      "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_external_frontend.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_failed_source.py",
-      "owner": "TV1",
-      "reason": "Kiểm EC2/EFS/readiness và dữ liệu nguồn",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_forecast_ledger.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_frontend_migration.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_hosting.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_hosting_publish.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_hosting_upload_cors.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_infra.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_lifecycle.py",
       "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_lifecycle_api.py",
-      "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_lifecycle_http.py",
       "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_lifecycle_resume.py",
       "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_lifecycle_scheduler.py",
       "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_platform_target.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_portal.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_portal_sdk.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_processors.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_product_rollout_compatibility.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_product_ux.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_public_catalog.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_publication_observer.py",
-      "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_quotes_continuous.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_rds_key_metadata.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_rds_reconciliation.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_readiness.py",
-      "owner": "TV1",
-      "reason": "Kiểm EC2/EFS/readiness và dữ liệu nguồn",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_recommendation_release.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_recommendations.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_region_shards.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_regional_runtime.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_regions.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_registration.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_review_fixes.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_s3.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_s3_sdk.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_sdk.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_template_view.py",
       "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_termination_review.py",
-      "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_test_visibility.py",
       "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_user_notifications.py",
-      "owner": "TV2",
-      "reason": "Kiểm IAM/auth/hosting/Region/file và quyền đọc",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
       "generated": false
     },
     {
       "path": "tests/test_vpc_metadata.py",
       "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
       "generated": false
     },
     {
       "path": "tests/test_wallet_migration.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_wallets.py",
-      "owner": "TV3",
-      "reason": "Kiểm API/SDK, dữ liệu, giá, idempotency và hợp đồng",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/test_website_releases.py",
-      "owner": "TV4",
-      "reason": "Kiểm race/retry, backup/cleanup, ALB/ECS/publication",
+      "owner": "TV2",
+      "task": "KH18",
+      "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
       "generated": false
     },
     {
       "path": "tests/uploads.test.mjs",
-      "owner": "TV2",
-      "reason": "Kiểm thử UI auth/hosting/file/quản trị",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/wallets.test.mjs",
-      "owner": "TV3",
-      "reason": "Kiểm thử UI giá/dữ liệu/tư vấn",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     },
     {
       "path": "tests/workspace-view.test.mjs",
       "owner": "TV1",
-      "reason": "Kiểm thử frontend/UX và template viewer",
-      "generated": false
-    },
-    {
-      "path": "docs/requirements.md",
-      "owner": "TV1",
-      "reason": "Scoped TV1 source handoff and local verification",
-      "generated": false
-    },
-    {
-      "path": "docs/linux-efs-handoff.md",
-      "owner": "TV1",
-      "reason": "Scoped TV1 source handoff and local verification",
-      "generated": false
-    },
-    {
-      "path": "scripts/check_leader_handoff.py",
-      "owner": "TV1",
-      "reason": "Scoped TV1 source handoff and local verification",
-      "generated": false
-    },
-    {
-      "path": "team/WEEKLY_IMPORT.md",
-      "owner": "TV1",
-      "reason": "Scoped TV1 source handoff and local verification",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
     }
-  ],
-  "partial_handoff": true,
-  "handoff_owner": "TV1"
+  ]
 }

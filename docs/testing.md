@@ -1,7 +1,27 @@
-# Kiểm thử của đợt nhập TV1
+# Kiểm thử
 
-CI chỉ kiểm phần đã có: ownership, cú pháp Python/JS, JSON, tám locale, placeholder và bốn suite Node: i18n, cockpit, shell-view, template-view. `scripts/check_leader_handoff.py` không import driver AWS, không gọi AWS và không sửa kết quả đã lưu trong repository.
+## Phần đang chạy được
 
-Các test còn lại được giữ nguyên mã nhưng chưa chạy độc lập: catalog-view cần quota-view (TV3); create-flow cần create-journal (TV4); create-view cần product-view (TV3); frontend cần portal/auth/quota/notifications; workspace-view cần lifecycle (TV4); content-guard cần content_routing backend (TV2); test_readiness/test_failed_source cần service/store/catalog/router và các driver khác. Chỉ chạy toàn bộ sau khi các owner đưa đủ dependency và kiểm lại kết quả.
+`python scripts/check_team_ownership.py` kiểm mỗi file hiện có có đúng một owner, đồng thời đếm phần đang chờ tích hợp theo phân công v2.
 
-`team/handoff-validation.json` ghi thời điểm chạy local thực tế ngày nhập mã. Không chuyển kết quả 531 Python/229 frontend của snapshot đầy đủ cũ thành kết quả của repo chỉ có TV1. Không có vòng AWS hoặc phép đo hiệu năng mới; website đang chạy không bị thay đổi.
+`python scripts/check_local.py` kiểm cú pháp Python/JavaScript, JSON, đủ khóa và placeholder của tám locale, rồi chạy bốn suite Node: i18n, cockpit, shell-view và template-view. Các bước này không import runtime AWS hoặc tạo tài nguyên. `check_leader_handoff.py` được giữ làm lệnh tương thích và gọi cùng checker.
+
+Kết quả lần chạy gần nhất nằm trong `local-check-results.json`. Phạm vi này chưa phải kiểm thử toàn ứng dụng hoặc một vòng AWS. Lịch sử nguồn và các kết quả cũ nằm trong `source-record.json`.
+
+## Kiểm tra đầy đủ sau khi tích hợp
+
+Một số suite hiện cần module từ API, auth, lifecycle hoặc driver chưa có trên nhánh. Khi đã đủ mã và dependencies:
+
+```sh
+python -m unittest discover -s tests -v
+npm run test:frontend
+python scripts/validate_locales.py
+```
+
+Chỉ ghi PASS sau khi chạy thật. Báo riêng test bị bỏ qua, thiếu dependency hoặc lỗi môi trường. Unit/DOM không chứng minh owner trên API thật, độ trễ AWS hoặc dữ liệu khôi phục.
+
+## Nghiệm thu AWS
+
+Chỉ dùng tài nguyên thử đã được duyệt, kiểm lại account/Region, quota, ledger, inventory và ngân sách trước mỗi vòng. Đối chiếu theo từng mẫu/profile/Region và phiên bản: tạo → truy cập/ghi → backup → thu hồi/audit → restore → đọc/checksum → dọn.
+
+Giữ nguồn khi backup bắt buộc lỗi; phân biệt deleted, retained, residual, unknown và billable. Chỉ công bố số đo hiệu năng với phép đo phù hợp, bao gồm lỗi/throttling. Không dùng trạng thái stack hoặc mock để thay bằng chứng dữ liệu.

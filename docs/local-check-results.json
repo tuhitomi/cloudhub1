@@ -1,0 +1,34 @@
+{
+  "status": "LOCAL_CHECKS_PASS",
+  "recorded_at": "2026-10-30T00:36:22.346725+07:00",
+  "scope": "Syntax, ownership, locale consistency and four available frontend suites",
+  "commands": [
+    "python scripts/check_team_ownership.py",
+    "python scripts/check_local.py"
+  ],
+  "ownership": {
+    "present": 81,
+    "planned": 328,
+    "pending": 247,
+    "unassigned": 0
+  },
+  "checks": {
+    "python_syntax": 13,
+    "javascript_syntax": 29,
+    "json": 14
+  },
+  "locales": 8,
+  "locale_keys": 1244,
+  "frontend_passed": 25,
+  "node_suites": [
+    "tests/i18n.test.mjs",
+    "tests/cockpit.test.mjs",
+    "tests/shell-view.test.mjs",
+    "tests/template-view.test.mjs"
+  ],
+  "markdown_links_checked": true,
+  "old_checker_entry_point_compatible": true,
+  "aws_calls": 0,
+  "full_application_integration_verified": false,
+  "limitations": "Other suites and end-to-end AWS checks require the missing modules and separately authorized resources"
+}

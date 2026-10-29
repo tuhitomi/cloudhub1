@@ -1,4 +1,4 @@
-name: TV1 partial source checks (no AWS)
+name: Local validation
 on:
   push:
     branches: [main]
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 jobs:
-  leader-local:
+  local-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,4 +19,4 @@ jobs:
           node-version: '22'
       - run: npm ci --ignore-scripts
       - run: python scripts/check_team_ownership.py
-      - run: python scripts/check_leader_handoff.py
+      - run: python scripts/check_local.py
