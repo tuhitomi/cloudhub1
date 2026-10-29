@@ -1,0 +1,49 @@
+{
+  "imported_at": "2026-10-29T23:42:28.944286+07:00",
+  "source": "Private CloudHub team handoff; only files assigned to TV1 are imported",
+  "snapshot_commit": "62053548e1203cfa7390c3ed5f7e0cc74c263799",
+  "author_dates": "Requested planning milestones, not historical implementation evidence",
+  "committer_dates": "Requested nonuniform planning milestones, not actual source-import or commit creation times",
+  "historical_authorship_or_aws_claim": false,
+  "other_members_runtime_files_imported": false,
+  "excludes": "Credentials, production config, private operational evidence, billing, binaries, dependencies",
+  "adjusted_for_partial_handoff": [
+    "README/team documentation",
+    "ownership checker",
+    "scoped local checker and CI",
+    "fresh validation record"
+  ],
+  "timestamp_metadata_rewrite": {
+    "performed_at": "2026-10-30T00:18:41.644448+07:00",
+    "requested_dates": [
+      "2026-09-10",
+      "2026-09-18",
+      "2026-09-23",
+      "2026-10-02",
+      "2026-10-09",
+      "2026-10-14",
+      "2026-10-24",
+      "2026-10-29"
+    ],
+    "timezone": "Asia/Bangkok UTC+07",
+    "fields": [
+      "AuthorDate",
+      "CommitDate"
+    ],
+    "commit_message_style": "Subject only",
+    "actual_source_import_preserved_in": "imported_at",
+    "historical_implementation_claim": false
+  },
+  "previous_timestamp_metadata_rewrites": [
+    {
+      "performed_at": "2026-10-30T00:08:54.690255+07:00",
+      "requested_dates": "2026-09-10 through 2026-10-29, seven days apart",
+      "fields": [
+        "AuthorDate",
+        "CommitDate"
+      ],
+      "actual_source_import_preserved_in": "imported_at",
+      "historical_implementation_claim": false
+    }
+  ]
+}
