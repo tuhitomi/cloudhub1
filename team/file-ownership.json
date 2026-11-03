@@ -614,10 +614,45 @@
       "generated": false
     },
     {
+      "path": "config/report-items.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false
+    },
+    {
+      "path": "config/team-allocation.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false
+    },
+    {
+      "path": "docs/DEMO_RUNBOOK.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "TV4 lifecycle fault regression and release review",
+      "generated": false
+    },
+    {
       "path": "docs/DEVELOPMENT.md",
       "owner": "TV4",
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "docs/OPERATIONS_RUNBOOK.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "TV4 lifecycle fault regression and release review",
+      "generated": false
+    },
+    {
+      "path": "docs/TV4_WEEK9_WEEK10.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "TV4 lifecycle fault regression and release review",
       "generated": false
     },
     {
@@ -684,6 +719,13 @@
       "generated": false
     },
     {
+      "path": "docs/report-traceability.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false
+    },
+    {
       "path": "docs/requirements.md",
       "owner": "TV4",
       "task": "KH24",
@@ -705,6 +747,13 @@
       "generated": false
     },
     {
+      "path": "docs/team-allocation.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false
+    },
+    {
       "path": "docs/template-view.md",
       "owner": "TV2",
       "task": "KH08",
@@ -717,6 +766,27 @@
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
+    },
+    {
+      "path": "docs/tv4-release-manifest.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "TV4 lifecycle fault regression and release review",
+      "generated": true
+    },
+    {
+      "path": "docs/tv4-week10-results.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "TV4 lifecycle fault regression and release review",
+      "generated": true
+    },
+    {
+      "path": "docs/tv4-week9-results.json",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "TV4 lifecycle fault regression and release review",
+      "generated": true
     },
     {
       "path": "frontend/admin-directory-view.js",
@@ -1276,6 +1346,13 @@
       "owner": "TV4",
       "task": "KH16",
       "reason": "Tích hợp quản trị, thông báo theo owner, email tùy chọn, CloudWatch và kiểm tra CI; ghép giao diện, API và driver thành luồng chung.",
+      "generated": false
+    },
+    {
+      "path": "scripts/check_tv4.py",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "TV4 lifecycle fault regression and release review",
       "generated": false
     },
     {
@@ -2249,6 +2326,20 @@
       "owner": "TV4",
       "task": "KH20",
       "reason": "Kiểm thử callback cũ, dispatch lỗi, workflow thử lại, schedule_pending, backup lỗi và quyền kiểm kê thiếu; đối chiếu log, trạng thái giữ nguồn và cơ chế phục hồi.",
+      "generated": false
+    },
+    {
+      "path": "tests/test_tv4_failure_paths.py",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "TV4 lifecycle fault regression and release review",
+      "generated": false
+    },
+    {
+      "path": "tests/test_tv4_release_tools.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "TV4 lifecycle fault regression and release review",
       "generated": false
     },
     {

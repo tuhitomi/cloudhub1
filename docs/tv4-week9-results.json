@@ -1,0 +1,1049 @@
+{
+  "recorded_at": "2026-11-03T17:52:29.721366+00:00",
+  "aws_calls": 0,
+  "aws_sdk_transport": "BLOCKED",
+  "full_product_acceptance": false,
+  "covered_files": {
+    "backend/cloudhub/admin_directory.py": "7d32c550cbb840e8ea79d5579478b1fc13b6135caf47b3a0b7b39c6fb251998c",
+    "backend/cloudhub/announcements.py": "f75e13384f93c79348f86ec14ace32fd79c0df26377f890d9232ec9845c814dc",
+    "backend/cloudhub/archive.py": "1e213b740c3609a46724686c2ac9c24f7630e3f5fdbd8661cd00b0cc19ed48fb",
+    "backend/cloudhub/backup_export.py": "1e33cd8eea45e670bfacdda0dca077801323eca7efce3bda396b75d80867c461",
+    "backend/cloudhub/driver_router.py": "28a6609436589ed0bd1b9c2167704cf10fc74c6a7c4e478a3e10bebfdce096e4",
+    "backend/cloudhub/lifecycle.py": "659c129bd57ccd676c3af164bf1964d73aaa0d74087327c3fec84fb96272f423",
+    "backend/cloudhub/lifecycle_scheduler.py": "39585bc7dc7728a32c4a6234a0bca323d24393730e591feea2828786e3dd40ea",
+    "backend/cloudhub/notification_email.py": "c8fa647950f42c20e026202870368e311a2103f1a48d16759a271a22f8040407",
+    "backend/cloudhub/notifications.py": "4b277e94101dae776a7f159e06bf1a004f3fed724c36c315148363b2ef9a86ac",
+    "backend/cloudhub/operating_policy.py": "9c3754ed65daa22f63b742fdacd9b5271e9cca07a4ee1cc50647c50ffbbc5d76",
+    "backend/cloudhub/portal.py": "bd8811352a6f7c83f2dd0e8de4ee5a8a89ebeba847ba1fc661f8884e04de7873",
+    "backend/cloudhub/portal_api.py": "942043f965c05a96f155f2c26a375570e46cd54d6472c08ffd2886bd36ed324b",
+    "backend/cloudhub/recovery_actions.py": "cc999344d1a9376e77cbe561bafdaffd07b0c90f6fe64099fff90778918adb55",
+    "backend/cloudhub/runtime.py": "1a30f1094ebf27b1808218f04ce766f55fa9b89ca968693e7b7a85b9008a2913",
+    "backend/cloudhub/test_visibility.py": "e1c5a5de9f064b9ac31c4f176df5e2afdfefcf8fe56a208530161bb64ca322eb",
+    "backend/cloudhub/worker.py": "e545d09c3134768b5cf17cd02ac99d7275c4b686b5f5ce5fdc70d1e9b1bda44b",
+    "infra/lifecycle.asl.json": "f30cfb1ee3046b00754a66a7dff91e36e2109b009ffece3cdbe310d8a99b4967",
+    "scripts/check_tv4.py": "0f9158e57db27df9214f5b39159ded2b7a9744fd56bb3fcbc6c12094cb37f6a7",
+    "tests/test_admin_directory.py": "7d2416138316eac11406b1b55a8e57c77280ef5ae012fecbb9d650d049f1f60e",
+    "tests/test_announcements.py": "a2a3421f74f95adcb2a66d5f56be4271e7d972ddf0ced644fb983fe8df20a666",
+    "tests/test_construction_retry.py": "35c4b81281f4f72d5e439f49a587c8e31cde4b3e7fe3b4bf18a7da8f081e96bd",
+    "tests/test_lifecycle.py": "5c7537a449cdd3445b2565c72017edf3cbbc1d48a9547b125e65de0717b3041f",
+    "tests/test_lifecycle_http.py": "24260efbfcfed878e5fc2239694e8f06936db7b451c56452f0df38549e390162",
+    "tests/test_lifecycle_resume.py": "f867978aed04552810c5ef0627a44c243f67cdfc7266a97f17ec7487375a884c",
+    "tests/test_lifecycle_scheduler.py": "866a9a1a4a388a0b49fa7d3d940fee59cabd88cb89743b93bbab0c1d0ee6b8fe",
+    "tests/test_portal.py": "e8372b1e5d21beef1a00faa089a0a75fe19f2f4c0f8744050ab8a03ea2d27a9f",
+    "tests/test_portal_sdk.py": "9a1bedf8a20b8ac632b7276b54e83f39a0f55780ae3b1ebe74dc5fa538a90f37",
+    "tests/test_product_rollout_compatibility.py": "967abd2038d920c98ad00ed6f45b6ef0d65d083650686b85b5ad445846c52783",
+    "tests/test_test_visibility.py": "fbc321484659288804defa8ecec29063452fbdc19ca82ad1f094364c85826ed3",
+    "tests/test_tv4_failure_paths.py": "372e5482bec4de1256c9cce19b6c346a12b5e383bc6fb4ef25aaa1716dc01393",
+    "tests/test_user_notifications.py": "b35d9c67cd69716172d3ce3e70885c2937c364ae127a93eab7d5780e0db62bb2"
+  },
+  "status": "LOCAL_TV4_TESTS_PASSED",
+  "passed": true,
+  "scope": "LOCAL_SUPPORT_FIXTURE",
+  "tests_run": 140,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "blocked_network_attempts": 0,
+  "suites": [
+    "test_admin_directory",
+    "test_announcements",
+    "test_construction_retry",
+    "test_lifecycle",
+    "test_lifecycle_http",
+    "test_lifecycle_resume",
+    "test_lifecycle_scheduler",
+    "test_portal",
+    "test_portal_sdk",
+    "test_product_rollout_compatibility",
+    "test_test_visibility",
+    "test_tv4_failure_paths",
+    "test_user_notifications"
+  ],
+  "support_files": [
+    {
+      "path": "backend/cloudhub/__init__.py",
+      "owner": "TV2",
+      "sha256": "5325a52fbe000e0b403216bd973c6c998054f9a642a19afa0f84a0f9b502d23e"
+    },
+    {
+      "path": "backend/cloudhub/access.py",
+      "owner": "TV2",
+      "sha256": "f2d13d5f1fdf285395eb03dcf49eee60453394fb3678e6784a6030c94a85d351"
+    },
+    {
+      "path": "backend/cloudhub/accounts.py",
+      "owner": "TV2",
+      "sha256": "bb33a68feda4c469cf1775281ab4522bc47cc0755ea81ac4c0d54a941bc3fad5"
+    },
+    {
+      "path": "backend/cloudhub/actual_cost.py",
+      "owner": "TV2",
+      "sha256": "d253795e4a89d09912f3d59c9c2800822632e1df72e175cdd139b8fdbc456a41"
+    },
+    {
+      "path": "backend/cloudhub/api.py",
+      "owner": "TV2",
+      "sha256": "c5a2c73d6099ee786c9c60ba5ee33c7b550e14dd4498930253f01e7d54a18d8d"
+    },
+    {
+      "path": "backend/cloudhub/application_driver.py",
+      "owner": "TV3",
+      "sha256": "4cd2f164a7206e3b5328d8a22025453d4f00511ef8dd60ff1909baa6d3b48b2e"
+    },
+    {
+      "path": "backend/cloudhub/applications.py",
+      "owner": "TV2",
+      "sha256": "3e67f95a11a24412362160f19d383f156d3edcd051b3a3ac1a3dc6f299442b69"
+    },
+    {
+      "path": "backend/cloudhub/benchmark-scenarios.json",
+      "owner": "TV2",
+      "sha256": "efa522905a310bb6c0236c8dc77330e180fe408451abdf6b9dbdcecfe4855a23"
+    },
+    {
+      "path": "backend/cloudhub/benchmark_agent.py",
+      "owner": "TV3",
+      "sha256": "9e800b36de31b17ba52a3478897b355c3838d52c9fff344c6fd766f324810a6b"
+    },
+    {
+      "path": "backend/cloudhub/benchmarks.py",
+      "owner": "TV2",
+      "sha256": "4e5aee350559ff85e2745fadaae643678ffc7a4f28def99df9ab188ea4a3e550"
+    },
+    {
+      "path": "backend/cloudhub/catalog.py",
+      "owner": "TV2",
+      "sha256": "2d44af13a10d96485524a6845f38f0d5792b5286c44d704af43796495d97dba0"
+    },
+    {
+      "path": "backend/cloudhub/cf_common.py",
+      "owner": "TV3",
+      "sha256": "f441c68ca41128b948ba1f2320ec8ef10b1c33707151741dd0be9f14d6c1b11e"
+    },
+    {
+      "path": "backend/cloudhub/container_app.py",
+      "owner": "TV3",
+      "sha256": "3194b0ea8e95dcd2752aa065dc29aa3e67f1d1972699204fd8b09f64ebf81919"
+    },
+    {
+      "path": "backend/cloudhub/content_app.py",
+      "owner": "TV3",
+      "sha256": "1512a124238c11dd3d0ad922050a2984d0ab5cfa87b530f702306558cf5db191"
+    },
+    {
+      "path": "backend/cloudhub/content_routing.py",
+      "owner": "TV3",
+      "sha256": "cf6a25471f456db82a5f35e6a303890ed4f58b2939a2c154a94bc755686d2cd3"
+    },
+    {
+      "path": "backend/cloudhub/cost.py",
+      "owner": "TV2",
+      "sha256": "8eebbee425428e6a244384173990214155bfd3a7ae55d5bf7afe73cf8a3968c6"
+    },
+    {
+      "path": "backend/cloudhub/data_api_app.py",
+      "owner": "TV3",
+      "sha256": "8ab79132efdd94723638b110ebdea3d3e6d38e8c27fb5a092ea3eaf1b3523b80"
+    },
+    {
+      "path": "backend/cloudhub/data_driver.py",
+      "owner": "TV3",
+      "sha256": "4efe02ad4b850bef280399261b6991729d7a24d6414345bcfcd8d623d3d818d7"
+    },
+    {
+      "path": "backend/cloudhub/data_template.py",
+      "owner": "TV3",
+      "sha256": "056e8e647c66ec63695c6ab93ec88ab26c9023760c15b44bc9c975a6fcaf0aac"
+    },
+    {
+      "path": "backend/cloudhub/ecs_driver.py",
+      "owner": "TV3",
+      "sha256": "67b4aed02f3d6aa980a622fe79018dbd02b86829e8f8c9ed64fe463b85792b90"
+    },
+    {
+      "path": "backend/cloudhub/ecs_template.py",
+      "owner": "TV3",
+      "sha256": "d314d04cb502f3140ec4aa3a983495b0829e47e8baee9857af838fea7d0731a5"
+    },
+    {
+      "path": "backend/cloudhub/errors.py",
+      "owner": "TV2",
+      "sha256": "cf142fbcf37e00714b29ba34fd541529e3af20e7bf7c31a815a6ca9309e3429e"
+    },
+    {
+      "path": "backend/cloudhub/ledger.py",
+      "owner": "TV2",
+      "sha256": "2d037543e13fd72d1824720886f18106d77dd5c4943983a088a456878b97723b"
+    },
+    {
+      "path": "backend/cloudhub/public_catalog.py",
+      "owner": "TV2",
+      "sha256": "256e110e9fa409738f3adccc8be212c5a65136afee8aa10313f0d64c13b58687"
+    },
+    {
+      "path": "backend/cloudhub/quotes.py",
+      "owner": "TV2",
+      "sha256": "41b1dc41b3284f79f509081e4ad6b688c56bd1c704d21ae7037a6a7a892b895c"
+    },
+    {
+      "path": "backend/cloudhub/rds_app.py",
+      "owner": "TV3",
+      "sha256": "8deeefa526a5ecdb577f979ccb370fba57f994d1f2df9eef170e5548345b19c3"
+    },
+    {
+      "path": "backend/cloudhub/rds_driver.py",
+      "owner": "TV3",
+      "sha256": "8c15e1d96a84bc068e90b874696adbbf84fe83ca410de03c0cb012b60e95e99c"
+    },
+    {
+      "path": "backend/cloudhub/rds_template.py",
+      "owner": "TV3",
+      "sha256": "e5a0dd757ef355b5232752874e70f1432a70dc6a44a4c1add17cff9e51f203f0"
+    },
+    {
+      "path": "backend/cloudhub/recommendations.py",
+      "owner": "TV2",
+      "sha256": "b33f01b020db65f338ab03ec59f146fbe940c9086cbf0beb698e4319b163d2aa"
+    },
+    {
+      "path": "backend/cloudhub/redshift_driver.py",
+      "owner": "TV3",
+      "sha256": "a9462027dbe09148181250c7eeddced70119277b0da2fb93e8c7d40cea337c58"
+    },
+    {
+      "path": "backend/cloudhub/redshift_template.py",
+      "owner": "TV3",
+      "sha256": "69485dd552d0c0ac44e146e2ba86d409c9fd417d3b7800b9ad9cfd8772e7378a"
+    },
+    {
+      "path": "backend/cloudhub/regions.py",
+      "owner": "TV2",
+      "sha256": "e4d8f1135948e68ab1fa65e6e5cf8887bf068631947aa56d6da4addc2466d2be"
+    },
+    {
+      "path": "backend/cloudhub/registration.py",
+      "owner": "TV2",
+      "sha256": "a2aaad31569e4fd378b664456aea20b50f7d591f5bfdd4f0dc9f5704be527dc9"
+    },
+    {
+      "path": "backend/cloudhub/releases.py",
+      "owner": "TV2",
+      "sha256": "c90c068b758b749c56be6c9ba69bd9aa5cec1b38cdfb6ca81cf398d760b6c29b"
+    },
+    {
+      "path": "backend/cloudhub/s3_driver.py",
+      "owner": "TV3",
+      "sha256": "759081c42b1d7b16db1f66f8e779a5ffe2113bc472c11734d19ab6074e769d29"
+    },
+    {
+      "path": "backend/cloudhub/s3_files.py",
+      "owner": "TV2",
+      "sha256": "a4e964350029fa6fefb73f4afce891973bf112f74ee615b255d914a3de4b556a"
+    },
+    {
+      "path": "backend/cloudhub/s3_template.py",
+      "owner": "TV3",
+      "sha256": "dc7990981ac8626c96bf58b681efa824f8b9948a433f0bc3ff0a7e4012e7dae3"
+    },
+    {
+      "path": "backend/cloudhub/service.py",
+      "owner": "TV2",
+      "sha256": "8bce711cd0f74505793ae92b23b578e61e87316f7405af3ffcfc7970bee14127"
+    },
+    {
+      "path": "backend/cloudhub/stack_driver.py",
+      "owner": "TV3",
+      "sha256": "bdaf0c8ac2a84b16ee59c2989f9b2f9b88269e346b26ccdb59ed2df9f258b9a0"
+    },
+    {
+      "path": "backend/cloudhub/store.py",
+      "owner": "TV2",
+      "sha256": "9aebd45a69d9987629918f665781c33d45f74a8de39dae19bf612ed0c582d92a"
+    },
+    {
+      "path": "backend/cloudhub/template_view.py",
+      "owner": "TV2",
+      "sha256": "b3a9cf608fdfed393aa68fc7fd393a8445572f61494d9ab634476f33be6378f6"
+    },
+    {
+      "path": "backend/cloudhub/ui_context.py",
+      "owner": "TV2",
+      "sha256": "3b1b09bc0321b6b9b5c379e15af5be846951649c1a44c217df19e0276bf21f35"
+    },
+    {
+      "path": "backend/cloudhub/uploads.py",
+      "owner": "TV2",
+      "sha256": "b0b3f305f23e6aebaefcfd674dd77e9738d722a2797c4382d5befb2da3147cc6"
+    },
+    {
+      "path": "backend/cloudhub/viewer_prices.py",
+      "owner": "TV2",
+      "sha256": "c7b177065745da8d89d9b1cafb02b9b705d6c2c768b14d67a5f09dfe0cbc5618"
+    },
+    {
+      "path": "backend/cloudhub/wallet.py",
+      "owner": "TV2",
+      "sha256": "e8aa610b122230dad300759181b42d92a78808d8e6f35599f95376e0ba25e821"
+    },
+    {
+      "path": "backend/cloudhub/workload_cost.py",
+      "owner": "TV2",
+      "sha256": "7b5159297818c7e634d87b161a5ecf92e13bfc7e8ab1cf72d0b263124d139802"
+    },
+    {
+      "path": "backend/cloudhub/workloads.py",
+      "owner": "TV2",
+      "sha256": "63a60152e975fbd81cc900e057223459458a14a6eed105fc6a92615dc2d48fd3"
+    },
+    {
+      "path": "benchmarks/http.js",
+      "owner": "TV3",
+      "sha256": "6a6cc9ed2653cbce5042073b264d0d5b8311c0cf9c30040e6972151581144cfd"
+    },
+    {
+      "path": "config/application-releases.example.json",
+      "owner": "TV2",
+      "sha256": "c64ab5ac4e61328a9e4f25260ebf33fdb0df6bcb7cedf78d1daac0d633b2de60"
+    },
+    {
+      "path": "config/cloudfront-viewer-prices.review.json",
+      "owner": "TV2",
+      "sha256": "87d8027978e97268e79cc9a5b92bf38fc9a99d7bd6233d3650a17441a1846a8d"
+    },
+    {
+      "path": "config/deployment.example.json",
+      "owner": "TV3",
+      "sha256": "4ba2492d9c916e4d58124fca883e59a82c1affa3a7ca1811082e00d62213acf2"
+    },
+    {
+      "path": "config/hosting.example.json",
+      "owner": "TV3",
+      "sha256": "660602706fd8f2e80fae4d053296f8eabb2a66b1168faeac78e0d8e65df2aad0"
+    },
+    {
+      "path": "config/hosting.readiness.example.json",
+      "owner": "TV3",
+      "sha256": "4a1e39a7171e021e8762078723fb2519502d0583bfa33d0a48976fe92c2dad7a"
+    },
+    {
+      "path": "config/platform-target.example.json",
+      "owner": "TV3",
+      "sha256": "e74ce35eb1a4e0996fa89b181491ec12c971cf98c62f578fb2feb178f397bc27"
+    },
+    {
+      "path": "config/prices.example.json",
+      "owner": "TV2",
+      "sha256": "4b5d7fcf1e998440185a82c6df93a41cad3a63d87cb6733d132caf9e446253f4"
+    },
+    {
+      "path": "config/recommendation-policy.example.json",
+      "owner": "TV2",
+      "sha256": "6e728aefa65b8116d84587d8b8c7ce2532d923ccd282a06217cd8efc87e9d4cd"
+    },
+    {
+      "path": "config/regions.example.json",
+      "owner": "TV3",
+      "sha256": "46090ed48453eda6f8c2892735d5c0e049b4eda4b527d1b2302fbe192baf8aaa"
+    },
+    {
+      "path": "docs/deployment.md",
+      "owner": "TV3",
+      "sha256": "18b23cddea64cb42226ed2eef621afc09e38a618b1825a3bbcd229613adeea72"
+    },
+    {
+      "path": "docs/openapi.json",
+      "owner": "TV2",
+      "sha256": "e5f8c0508155013f67ccd45648b0dcb3d0a80937d8de8c3a47c263bb5a549ee7"
+    },
+    {
+      "path": "docs/platform-portability-runbook.md",
+      "owner": "TV3",
+      "sha256": "8151fad2561039b7112bccaed77ab4669a7332c158daf5818460714b111dc02a"
+    },
+    {
+      "path": "docs/pricing-and-capacity.md",
+      "owner": "TV2",
+      "sha256": "ac59ab2dd1ffcf9fc94d29b9b43ce4715a7058e91f023b3fe870184596bb1554"
+    },
+    {
+      "path": "docs/security.md",
+      "owner": "TV2",
+      "sha256": "880853730bde1dcb9d2e71bc61f0d9b0f25b7b6abe57924a5a47dd180abce8a7"
+    },
+    {
+      "path": "docs/template-view.md",
+      "owner": "TV2",
+      "sha256": "784da02253897ed1af40184e8f1ed79ac3639ee89c0573a2dc6f4d6c2a9b9666"
+    },
+    {
+      "path": "frontend/admin-directory-view.js",
+      "owner": "TV1",
+      "sha256": "2630d2893292082069b7013dd3358914219bbe50b1e1d0c3b62fcb8712534e15"
+    },
+    {
+      "path": "frontend/announcements.js",
+      "owner": "TV1",
+      "sha256": "4c9770a2ab26348ad2f1432cf430dd3ee9751db48dce7228cae2ca4b9252821b"
+    },
+    {
+      "path": "frontend/auth.js",
+      "owner": "TV1",
+      "sha256": "11c9dd99a56d491d7a404cc742653ca3d64965c3856548d25ddb5dba13af32e8"
+    },
+    {
+      "path": "frontend/create-journal.js",
+      "owner": "TV1",
+      "sha256": "2af61b17cd3299702d58783881bad1e065ff5e963a77e4e092d6e58d89834563"
+    },
+    {
+      "path": "frontend/lifecycle.js",
+      "owner": "TV1",
+      "sha256": "bcb07cef0b346811816ac51eb81663e3b8b87d7e02f5c818b9d4bb84e8cff922"
+    },
+    {
+      "path": "frontend/maintenance-banner.js",
+      "owner": "TV1",
+      "sha256": "08cd8aacfcddf1ae4fd1888c25ce7b578c3e101e0c07a0e1938772d6e0085104"
+    },
+    {
+      "path": "frontend/maintenance-page.js",
+      "owner": "TV1",
+      "sha256": "87d19bad74e10f092ff749ccd591332b26880e19f9b8f1f35c811d50be4f53e2"
+    },
+    {
+      "path": "frontend/notifications.js",
+      "owner": "TV1",
+      "sha256": "ee5fb0e4f1d7b4ce676208fb689ce6a7dd62e791308b41bbdcbdc9686e60c24a"
+    },
+    {
+      "path": "frontend/presentation-data.js",
+      "owner": "TV1",
+      "sha256": "dc134bf34825317fd1310c74130af0aa11407385385d8079369bede300639aaf"
+    },
+    {
+      "path": "frontend/product-view.js",
+      "owner": "TV1",
+      "sha256": "859030f9a9b1e1500c68151c274ca6bf66c9f155aab938ec4871268aa29047cf"
+    },
+    {
+      "path": "frontend/public-preview.js",
+      "owner": "TV1",
+      "sha256": "d5e262053289a080b106c4c05db558939e4ba949a5c040af34d1be0704727632"
+    },
+    {
+      "path": "frontend/quota-view.js",
+      "owner": "TV1",
+      "sha256": "39ea48bb684550963c81bcf006b3ef5ca729d22f4d90ad5a4e9685484f8f288c"
+    },
+    {
+      "path": "frontend/recommendations.js",
+      "owner": "TV1",
+      "sha256": "1148a85a9f83e0cffc94972a4cdc1516ee517f35f065883fe7713eefeba6c174"
+    },
+    {
+      "path": "frontend/session.js",
+      "owner": "TV1",
+      "sha256": "bfd10ab6d7f3765631d264f764333e1136aa8100a31ac8299222c88f76daad1e"
+    },
+    {
+      "path": "frontend/test-data-view.js",
+      "owner": "TV1",
+      "sha256": "057f718b959271fae7e969f3457c332f48d3f93e315aaac43978cdac3ea2c2f5"
+    },
+    {
+      "path": "frontend/uploads.js",
+      "owner": "TV1",
+      "sha256": "a8510d7027c01e461dbf3b285ab616e8fa7f81fc8c494fa908985d47843cbd8d"
+    },
+    {
+      "path": "infra/container/Dockerfile",
+      "owner": "TV3",
+      "sha256": "4809186c54cf18b9d5a6d44fa188f60e39851704c4d9685d0f71af4a8e163c2c"
+    },
+    {
+      "path": "infra/control-plane.json",
+      "owner": "TV3",
+      "sha256": "2fd450066bcbb136630c3ced63a691418918052ce8f505441ed73d56cc218cda"
+    },
+    {
+      "path": "infra/hosting/api-domain.example.json",
+      "owner": "TV3",
+      "sha256": "9041d34cb90b0739d5b4eb815c258e4515c6d0a0b0c85b3378b01aae2479a0a8"
+    },
+    {
+      "path": "infra/hosting/certificate-api.example.json",
+      "owner": "TV3",
+      "sha256": "d8c68dfe199e24aa975d5ab6eeb110a9418e9b8b294b6bd111cc5f9362157884"
+    },
+    {
+      "path": "infra/hosting/certificate-frontend.example.json",
+      "owner": "TV3",
+      "sha256": "791e936e520b705ab11783332b8663c4d0f89b603f1f3b42cca7d3913d41f484"
+    },
+    {
+      "path": "infra/hosting/edge-domain.example.json",
+      "owner": "TV3",
+      "sha256": "7d5c46cb333ead0119991d0fcccd565ac808d81caf7b9531cb9383b5b394206c"
+    },
+    {
+      "path": "infra/hosting/edge-import.example.json",
+      "owner": "TV3",
+      "sha256": "c84910f719474a088757e71f6c81675d00c909d06dc611009701e34a1c76946c"
+    },
+    {
+      "path": "infra/hosting/public-zone.example.json",
+      "owner": "TV3",
+      "sha256": "5ce7f16a40e10aba1b125379e4ff0795100b21e72467f76349248d1359053e40"
+    },
+    {
+      "path": "infra/hosting/shared-routing.example.json",
+      "owner": "TV3",
+      "sha256": "668f7d20ac4cbbfaee8fe39935836875ff9420859816e657755bdab6fe82f5e4"
+    },
+    {
+      "path": "infra/network.json",
+      "owner": "TV3",
+      "sha256": "0fef59e18b3ccb5222c30e195238bf77b93c1e62bfaed4987094039da50e56df"
+    },
+    {
+      "path": "scripts/access_token.py",
+      "owner": "TV2",
+      "sha256": "b183992804028a1c477ec7997af47d07b5ca4991c5481ede5059ae62e439c1b7"
+    },
+    {
+      "path": "scripts/admin_directory_openapi.py",
+      "owner": "TV2",
+      "sha256": "5fde99ba61dc231d69067927ecbd7e1a75f167819e28e1c001081f28c528e88b"
+    },
+    {
+      "path": "scripts/announcement_openapi.py",
+      "owner": "TV2",
+      "sha256": "e8897dfabd7ea734446a8a68ba06b3ac8252d66098ca4a180506977f9801c3ca"
+    },
+    {
+      "path": "scripts/aws_lifecycle.py",
+      "owner": "TV3",
+      "sha256": "fbf6e4a882d2c82963699d6e832a3c5808adb0a47a4e7cb52130a8b80a616d8c"
+    },
+    {
+      "path": "scripts/benchmark_evidence.py",
+      "owner": "TV2",
+      "sha256": "4efc339f8e24f35cf9d7de8a0db3691d8da9152969e14e5accd2b332f3051d24"
+    },
+    {
+      "path": "scripts/benchmark_workloads.py",
+      "owner": "TV3",
+      "sha256": "5b31891326ca874c98a87158ca3e12a9993d74735980467f9c1b8491c51a3534"
+    },
+    {
+      "path": "scripts/build_pages_live.py",
+      "owner": "TV3",
+      "sha256": "7c9c6390b80fc8ef310fe2cafa50ae3b89ba2ef9b58f24306d261fbd446e5c3b"
+    },
+    {
+      "path": "scripts/build_pages_preview.py",
+      "owner": "TV3",
+      "sha256": "6bb9f56350e93669b7e841d023e7ebce0d76506857fb994d706a021f1d80ca0f"
+    },
+    {
+      "path": "scripts/check_t02_publication.py",
+      "owner": "TV3",
+      "sha256": "92136c9d5a3db5480f28cbfc24f58c7a8cd50eae9352bf54d526180d47daca79"
+    },
+    {
+      "path": "scripts/cloudfront_viewer_prices.py",
+      "owner": "TV2",
+      "sha256": "51741a3108310878264fd4e9c8ad87ba9189d6eb7f34caf3c015036a502a5c28"
+    },
+    {
+      "path": "scripts/cognito_messages.py",
+      "owner": "TV2",
+      "sha256": "e44b507d8dac177f9bbc88362f7156bbe5ffac81da13ab13ffedb65d85649f8f"
+    },
+    {
+      "path": "scripts/configure_frontend.py",
+      "owner": "TV1",
+      "sha256": "ad54ff17ad96ac5aec47a7fd53088ba9aa4bf1c19c6f9d3157c3c5cec9d0a986"
+    },
+    {
+      "path": "scripts/generate_benchmark_scenarios.py",
+      "owner": "TV2",
+      "sha256": "6cc9a6939deee06f47fd3659bfe4c36e80d167bdf51657ec0d4133e7ac7e729e"
+    },
+    {
+      "path": "scripts/generate_hosting_examples.py",
+      "owner": "TV3",
+      "sha256": "b93c46780d13b5a8dfec9a73b03c05bb1b39347bc24573696a4a907917ee9b35"
+    },
+    {
+      "path": "scripts/generate_infra.py",
+      "owner": "TV3",
+      "sha256": "6e1a8c5bbc96e6e685e14cb65f7c6fc0b7d2099898f74dbc02ae31259aed5ff3"
+    },
+    {
+      "path": "scripts/generate_network.py",
+      "owner": "TV3",
+      "sha256": "4d10d4ed6aafcd38ca4e34c6c4419bd8c47be588940e89e872f08410ea1c2a25"
+    },
+    {
+      "path": "scripts/generate_openapi.py",
+      "owner": "TV2",
+      "sha256": "c26404d037cdc9148a062adacffff733a675a3d9464f69293e60fc791040ca74"
+    },
+    {
+      "path": "scripts/hosting.py",
+      "owner": "TV3",
+      "sha256": "f193a90a1e417ccd3d40591da08e830f7ff25503d010a0ba9b7c079179acf184"
+    },
+    {
+      "path": "scripts/hosting_aws.py",
+      "owner": "TV3",
+      "sha256": "cff36250153931e831ecba034126edf67b97aff55db5c9596332422e949932e8"
+    },
+    {
+      "path": "scripts/hosting_changeset.py",
+      "owner": "TV3",
+      "sha256": "bd58658d19bbca993409177f9487048c6b21433acc3fda6c837e7a06cf6a4ef7"
+    },
+    {
+      "path": "scripts/hosting_upload_cors.py",
+      "owner": "TV3",
+      "sha256": "852865d51c1c4035f94fb860a665fe492f7ad4abee052fc9598002e96c50de20"
+    },
+    {
+      "path": "scripts/infra_extensions.py",
+      "owner": "TV3",
+      "sha256": "e319783931766a012d43c77af049112c28bf180d7ba70c24b8c79cab9ef6647f"
+    },
+    {
+      "path": "scripts/lifecycle_openapi.py",
+      "owner": "TV2",
+      "sha256": "fe8991dc54117e399c8898ef9627da9fac4f30546064945309f5665a3358cabf"
+    },
+    {
+      "path": "scripts/migrate_account_wallets.py",
+      "owner": "TV2",
+      "sha256": "1c73f2735438935bc56c5c7871577edadc393f027344373768af06b3037017f2"
+    },
+    {
+      "path": "scripts/migrate_forecast_ledger.py",
+      "owner": "TV2",
+      "sha256": "97bd001b1fd88707705c69a0a846988fea25600ecc5f5ed952ab0a3f1f5f51e6"
+    },
+    {
+      "path": "scripts/migrate_regions.py",
+      "owner": "TV2",
+      "sha256": "55da82edc6eaa07854a402c04c14ab92490777fb012acba32bb353a1fa3bc641"
+    },
+    {
+      "path": "scripts/notification_openapi.py",
+      "owner": "TV2",
+      "sha256": "e1717b3c2840f8768fa9c1f1173e1eeefd371422ed1b233a795d075d30d600a4"
+    },
+    {
+      "path": "scripts/portal_openapi.py",
+      "owner": "TV2",
+      "sha256": "cda29454c2f50987c44e4a3c39707a8a8801dd983768167c05e858fad9d87603"
+    },
+    {
+      "path": "scripts/preflight.py",
+      "owner": "TV3",
+      "sha256": "6c15c982e314f3e2686ee0834fe4e99b4a918bcf6b46e93632c8fbf3d3e1ff7d"
+    },
+    {
+      "path": "scripts/prepare_deployment.py",
+      "owner": "TV3",
+      "sha256": "ae342498615e288e0c2024a76ad68f8b844ed1c47bd0fa55d1beb0d77f274770"
+    },
+    {
+      "path": "scripts/prepare_hosting.py",
+      "owner": "TV3",
+      "sha256": "8a1e3b7b599a112c977306f9bce87b5496414a28e341de342c6774b1e95a0e77"
+    },
+    {
+      "path": "scripts/prepare_hosting_cutover.py",
+      "owner": "TV3",
+      "sha256": "75b164dab03e3ea6f8f3b38152038f6bf3779dc68204a99ec4e8f3a213ce417c"
+    },
+    {
+      "path": "scripts/prepare_platform_target.py",
+      "owner": "TV3",
+      "sha256": "174042a9b79774c8853f448fd4924c769cb27b8f71505ae80b0aeed2657707d7"
+    },
+    {
+      "path": "scripts/prepare_review.py",
+      "owner": "TV3",
+      "sha256": "49955d00e5c97612b321e3a55bb5731b2267b36a5c40a8e56028d60803f6fc53"
+    },
+    {
+      "path": "scripts/product_completion_openapi.py",
+      "owner": "TV2",
+      "sha256": "3f300b1d035218d39ac4beb76cdbace7cd8538c167eaa70f54b5a669725930eb"
+    },
+    {
+      "path": "scripts/product_experience_openapi.py",
+      "owner": "TV2",
+      "sha256": "1cf0be7050d01d5b344c608270fb9ce11e5460af4c018425bbc53f0f83cc297f"
+    },
+    {
+      "path": "scripts/public_catalog_openapi.py",
+      "owner": "TV2",
+      "sha256": "338400ff120239a1ce77b8d1fd482e4a0227f6d7fa172e0b30cd9a1a86c67c6d"
+    },
+    {
+      "path": "scripts/publish_hosting_config.py",
+      "owner": "TV3",
+      "sha256": "313fbb6af8acb0bebce9ae51035b09fe3ab66fb7f17e5aec5bc855145896798b"
+    },
+    {
+      "path": "scripts/recommendation_openapi.py",
+      "owner": "TV2",
+      "sha256": "dfde2cb2f18d6d484059c2056c4e75abdd74e62c22548f7906bb21ccd6696f92"
+    },
+    {
+      "path": "scripts/refresh_prices.py",
+      "owner": "TV2",
+      "sha256": "5f8128af264bad6e309b67466a6e40b6bf16a321b1dc9429cb6c991c55cad2b4"
+    },
+    {
+      "path": "scripts/region_i18n_openapi.py",
+      "owner": "TV2",
+      "sha256": "5e05b25e5150b0c4a3c8c3d6acd70c8ed6b4b0574508fd2d5fb456bc7678f6bd"
+    },
+    {
+      "path": "scripts/regional_runtime.py",
+      "owner": "TV3",
+      "sha256": "dd174211603ec3d94dd7fa71c7eb8c5c5f2c5c1236c9fa50648d1a0c08c921fc"
+    },
+    {
+      "path": "scripts/restore_aws_frontend.py",
+      "owner": "TV3",
+      "sha256": "2f169c0fab128803830b1850d191346cc1d49f86c9ab452a0a658fab07be2ffb"
+    },
+    {
+      "path": "scripts/review_evidence.py",
+      "owner": "TV3",
+      "sha256": "03377dc18751d4e861a325d9d14cd0296e9f7a552a0e550a271f008d382609d5"
+    },
+    {
+      "path": "scripts/run_validation.py",
+      "owner": "TV3",
+      "sha256": "8009dea64698f5134596554a5ce4499e639291457210d67d2bf6baa035d60518"
+    },
+    {
+      "path": "scripts/template_view_infra.py",
+      "owner": "TV3",
+      "sha256": "9ee53b085308e5f40bd65836f9d8ebefcdac69720a8cd84f485bf6c902a1529b"
+    },
+    {
+      "path": "scripts/template_view_openapi.py",
+      "owner": "TV2",
+      "sha256": "d555bafd935abf58273a1ad160d444cfa7ce89fe4304cd444f9baff8ed6c6c07"
+    },
+    {
+      "path": "scripts/test_visibility_openapi.py",
+      "owner": "TV2",
+      "sha256": "5bcc10af2fb2f7be4c3d0d529d2d24946bb630a16426884262dc668ebbfde1f0"
+    },
+    {
+      "path": "scripts/validate_locales.py",
+      "owner": "TV1",
+      "sha256": "ecb1e3a4cd7236df520a2afaf794078e73d488c3c4d88a024a5488e853217759"
+    },
+    {
+      "path": "scripts/verify_hosting.mjs",
+      "owner": "TV3",
+      "sha256": "fca7e2aa0c8c1cf70188da0e7d6af12ddafd43b7573be76886e2d40f65566aef"
+    },
+    {
+      "path": "scripts/wallet_openapi.py",
+      "owner": "TV2",
+      "sha256": "9106dd82848976c3a35b99257d4b06351ab0f3b2114a45765cf9d89e5fa46c05"
+    },
+    {
+      "path": "tests/admin-directory-view.test.mjs",
+      "owner": "TV1",
+      "sha256": "55341d404971ca20aec55aa43c88e564c21d250a77cb171cee8b886ed34b97a0"
+    },
+    {
+      "path": "tests/announcements.test.mjs",
+      "owner": "TV1",
+      "sha256": "5433455e814dfc952875ff467c638a7b69ed0f4c7e0118a2a42c943d3f3ddd80"
+    },
+    {
+      "path": "tests/auth.test.mjs",
+      "owner": "TV1",
+      "sha256": "a4af6448b910f225204f45fdc8f925b22540c9de9269eb6b892090a60c2a44cc"
+    },
+    {
+      "path": "tests/fixtures/recommendation-contract.json",
+      "owner": "TV2",
+      "sha256": "7b8f7b55da1815b8bd4c2feacb5844f0f5b67b6404f909abeb9459a7f200762e"
+    },
+    {
+      "path": "tests/guest-experience.test.mjs",
+      "owner": "TV1",
+      "sha256": "bd9eb8c7346890fe9976e7cd9fa262435b1bccf2d74e09d29eeaaeb3d8961ef8"
+    },
+    {
+      "path": "tests/hosting.test.mjs",
+      "owner": "TV3",
+      "sha256": "cb83d1d28e1ec1207940f0ffa794c57a627b059a76e8514674fa5af26537c896"
+    },
+    {
+      "path": "tests/lifecycle.test.mjs",
+      "owner": "TV1",
+      "sha256": "61e68ca02a0ce797edad64e0108491cf9842921637b8f257587cc44b21fae394"
+    },
+    {
+      "path": "tests/notifications.test.mjs",
+      "owner": "TV1",
+      "sha256": "c90cbfe70e8ef22acf4458153bec24aa49e7a71c937c889cc33f70846b8148e7"
+    },
+    {
+      "path": "tests/presentation-data.test.mjs",
+      "owner": "TV1",
+      "sha256": "bb7a67e45c3cf9c6c1bb684d3d1ea9b6bda9371c2d57ef48ecce708959219873"
+    },
+    {
+      "path": "tests/product-view.test.mjs",
+      "owner": "TV1",
+      "sha256": "5193b15f8977325dcaca1bc742ae7bb45bccc9c4969ab9d3991d6b317d2fba9e"
+    },
+    {
+      "path": "tests/recommendations.test.mjs",
+      "owner": "TV1",
+      "sha256": "ef3ad2df4acc426e2b603b8c852f1ea09138693a5c8f6e17122c690d3d544f3b"
+    },
+    {
+      "path": "tests/session.test.mjs",
+      "owner": "TV1",
+      "sha256": "decf4c8fe45ba45d717626881fb98a64af70b2c4993af1b9ada3848602205fe2"
+    },
+    {
+      "path": "tests/test-data-view.test.mjs",
+      "owner": "TV1",
+      "sha256": "813f17833545f6505ea04329a2bc19cec36afa066b4ec1d7aa8c32eaf479d1dc"
+    },
+    {
+      "path": "tests/test_applications.py",
+      "owner": "TV2",
+      "sha256": "f240eecb23258182a713486e3a291fa52a2235155104a6e5450903e68ce6988b"
+    },
+    {
+      "path": "tests/test_asg_inventory.py",
+      "owner": "TV3",
+      "sha256": "5fed7d507565745cd6c6ecc554987d3bf03fe9061d913af9d99b4dcc44c69d81"
+    },
+    {
+      "path": "tests/test_benchmark_tools.py",
+      "owner": "TV3",
+      "sha256": "b1d1d03f9417cf45461289c528182db04c8b358fefe6de2d3018bb4c21240cd4"
+    },
+    {
+      "path": "tests/test_cognito_messages.py",
+      "owner": "TV2",
+      "sha256": "987515276b5a9d122962a9bdf47e1f66eabede0afb5c37aec5d5fa42db607cbe"
+    },
+    {
+      "path": "tests/test_configuration_choices.py",
+      "owner": "TV2",
+      "sha256": "83487c7611202d5cf71ab3a746b66d6ad1a9008b5b092125a2e53d6856921e92"
+    },
+    {
+      "path": "tests/test_data_continuous.py",
+      "owner": "TV3",
+      "sha256": "f0e7b215e8863d0228f515936127325909388493b0744195794020850320130a"
+    },
+    {
+      "path": "tests/test_direct_uploads.py",
+      "owner": "TV2",
+      "sha256": "79706c2a0ef676c46591601431745408e33e1810edc39ae882e39bf88cceb9f9"
+    },
+    {
+      "path": "tests/test_domain.py",
+      "owner": "TV2",
+      "sha256": "458ac02a6a17755136685affeda2e387511dd9f93a2e66750f0c73a37668ba71"
+    },
+    {
+      "path": "tests/test_ecs_retirement.py",
+      "owner": "TV3",
+      "sha256": "228f5793b4818646e6ebc6bb25c2608f694c4edfc2c4c6757f94d0810d406023"
+    },
+    {
+      "path": "tests/test_external_frontend.py",
+      "owner": "TV3",
+      "sha256": "5c4f4e495b38b4007693458f9b7517b20216d6bc8f301d9c76fef0d26c25249e"
+    },
+    {
+      "path": "tests/test_forecast_ledger.py",
+      "owner": "TV2",
+      "sha256": "008ff2ea12eb2ccbee2619e64881918ef688f34f1914611f3ff6eab3893a3bae"
+    },
+    {
+      "path": "tests/test_frontend_migration.py",
+      "owner": "TV3",
+      "sha256": "dbdcfab28966ebcbde659ff0f7d2240586843dd0166a8a4a1527cfabcc08da64"
+    },
+    {
+      "path": "tests/test_hosting.py",
+      "owner": "TV3",
+      "sha256": "c1c44e706bfa3ba435ff38c219981ae9b600cc11343247f49d344e311f296737"
+    },
+    {
+      "path": "tests/test_hosting_publish.py",
+      "owner": "TV3",
+      "sha256": "505504bb09d48bd1e68279c1fc178f99afe775b9bbfd119e17e1c866a55236f1"
+    },
+    {
+      "path": "tests/test_hosting_upload_cors.py",
+      "owner": "TV3",
+      "sha256": "333b9ab884881775ebc997891eefaf5396e2b4d5e59084d118dcb5dba7c4aaa4"
+    },
+    {
+      "path": "tests/test_infra.py",
+      "owner": "TV3",
+      "sha256": "5fba45ccd7cf7ba11fd48f3dbd3a59d83eee88b792cdaf5cbc6f69e26a16a11c"
+    },
+    {
+      "path": "tests/test_lifecycle_api.py",
+      "owner": "TV2",
+      "sha256": "138ee151052ae5346ae937c7512bc1eba7fa41ea93c2a00654f47f965d9ba44c"
+    },
+    {
+      "path": "tests/test_platform_target.py",
+      "owner": "TV3",
+      "sha256": "617af36538ef7de2edfb0d5cc5e8439fdfc7097fdb4328e9a07b63ac6d13e556"
+    },
+    {
+      "path": "tests/test_processors.py",
+      "owner": "TV3",
+      "sha256": "0d87e204312804daa19ec066a296f3ec5a20b1220e4b93e53063a208069da370"
+    },
+    {
+      "path": "tests/test_product_ux.py",
+      "owner": "TV2",
+      "sha256": "54096340eb15299ead039f98dbaa51445cb2f8a5d6e0f422030c3361d36f2ee3"
+    },
+    {
+      "path": "tests/test_public_catalog.py",
+      "owner": "TV2",
+      "sha256": "8dba13b5e76be1c8b8d274076cbb428504a1507f5fb5923d77a1bd5e5a08e64a"
+    },
+    {
+      "path": "tests/test_publication_observer.py",
+      "owner": "TV3",
+      "sha256": "d01d04dc97c3f5bcb9fb213e4284859cf9a44ae0fa63f5b24da7cdc1a832b31d"
+    },
+    {
+      "path": "tests/test_quotes_continuous.py",
+      "owner": "TV2",
+      "sha256": "fa1ed7fb8c8c54e4b25bc6421b14c2708ee07d116e0dede7fff68d3fbb1f8ef5"
+    },
+    {
+      "path": "tests/test_rds_key_metadata.py",
+      "owner": "TV3",
+      "sha256": "c32cc538417bbd13d6c91ead272f9a2e7e42056f50506d0d2f34532e32e296c5"
+    },
+    {
+      "path": "tests/test_rds_reconciliation.py",
+      "owner": "TV3",
+      "sha256": "d96855b5d3be3de46da831dbc4c4976359106c8a7bd90e79f03c01ed3ddd2e92"
+    },
+    {
+      "path": "tests/test_recommendation_release.py",
+      "owner": "TV2",
+      "sha256": "1ad7ea428550c901dfb4c569c856b843f2aa9e962abe9169881da28e7da69814"
+    },
+    {
+      "path": "tests/test_recommendations.py",
+      "owner": "TV2",
+      "sha256": "5adc4113814701337150180878a643f8a43a908e01792db029bab1fd53ce2985"
+    },
+    {
+      "path": "tests/test_region_shards.py",
+      "owner": "TV2",
+      "sha256": "75af5dbe1da59efe6c3b30cad10799144c0a3f0bec2be786e189872eac0f64b5"
+    },
+    {
+      "path": "tests/test_regional_runtime.py",
+      "owner": "TV3",
+      "sha256": "4b0c5bcb0723966c17c38d95daf6a0b0bb3c0b0e0aea0496c6334a68647dbc25"
+    },
+    {
+      "path": "tests/test_regions.py",
+      "owner": "TV2",
+      "sha256": "3bd4f8f9d940e36306e8461241a238636f5734a663a52b2a320e6876915a6f89"
+    },
+    {
+      "path": "tests/test_registration.py",
+      "owner": "TV2",
+      "sha256": "0d6000a82b22deb73a27d83cb219a0c5657476e8ca45dbdfbb4c5f0067f78a57"
+    },
+    {
+      "path": "tests/test_review_fixes.py",
+      "owner": "TV2",
+      "sha256": "f98cdbfd4ed9fcfc98fcf4e0248108669e54e8c65e7c151e5ad8f04298e66bf9"
+    },
+    {
+      "path": "tests/test_s3.py",
+      "owner": "TV3",
+      "sha256": "e0627d6d9146c997aeff48d6fafce48d16b256bf8f59979c82b3755d0819605a"
+    },
+    {
+      "path": "tests/test_s3_sdk.py",
+      "owner": "TV3",
+      "sha256": "aceeda06e4762078cfa1302c80b8d12742aacf5e40eeae18e8471be6ad882d50"
+    },
+    {
+      "path": "tests/test_sdk.py",
+      "owner": "TV3",
+      "sha256": "e67e71064441f7b29c603509b57937d30867d5ec884c8b0083632ee98587145b"
+    },
+    {
+      "path": "tests/test_template_view.py",
+      "owner": "TV2",
+      "sha256": "bb36f45fb7110c59b812901d29699ae968a39f2a55064b2b4c25fb544de4efa7"
+    },
+    {
+      "path": "tests/test_termination_review.py",
+      "owner": "TV2",
+      "sha256": "0824b7e6d553db92b6acb92ed2c209475feb43a5cffd6348de645ee7280a0aa2"
+    },
+    {
+      "path": "tests/test_vpc_metadata.py",
+      "owner": "TV3",
+      "sha256": "126ed00dfec91988d1fb2bf80d52e6c38d4f5ae8fbca4134bf59a24184108e0f"
+    },
+    {
+      "path": "tests/test_wallet_migration.py",
+      "owner": "TV2",
+      "sha256": "cc49c638f323b8cb31dc30f06b287c1b6937f150455b885ef151f498170bb7a0"
+    },
+    {
+      "path": "tests/test_wallets.py",
+      "owner": "TV2",
+      "sha256": "6be4d71eecbdc08862e1eaaaca49896ef96a5e239566f2cc4b3750a3bc7c6b64"
+    },
+    {
+      "path": "tests/test_website_releases.py",
+      "owner": "TV2",
+      "sha256": "4e8fb8a1ed5a1b1be0ce5cdd71ffe19307ad3b5d63e9f9e7ac74d5840bc163b7"
+    },
+    {
+      "path": "tests/uploads.test.mjs",
+      "owner": "TV1",
+      "sha256": "208573e4fbbd0561b58d20ece7f2fac1fa9333285ad41719c4e6a27c3e798ef4"
+    },
+    {
+      "path": "tests/wallets.test.mjs",
+      "owner": "TV1",
+      "sha256": "1e3e8ac267985318f1eddfd6cc2010f82680402ec66fd5e2a81c8238d3145a23"
+    }
+  ],
+  "failure_details": [],
+  "limitations": [
+    "Unit/mock/SDK Stubber only; no AWS account, IAM, billing, load or restored production data was verified.",
+    "A support-fixture PASS does not mean all dependencies are present in the public repository."
+  ]
+}
