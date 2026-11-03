@@ -8,6 +8,9 @@ ROOT=Path(__file__).resolve().parents[1]
 HELPERS=('scripts/generate_infra.py','scripts/migrate_forecast_ledger.py','scripts/aws_lifecycle.py',
          'tests/test_domain.py','tests/test_processors.py','tests/test_quotes_continuous.py','tests/test_s3.py')
 
+def source_digest(raw):
+    return hashlib.sha256(raw.replace(b'\r\n',b'\n')).hexdigest()
+
 def registry(root):
     return json.loads((root/'team/file-ownership.json').read_text(encoding='utf-8'))['files']
 
@@ -15,8 +18,8 @@ def required_files(root):
     return sorted({row['path'] for row in registry(root) if row['path'].startswith('backend/') and row['path'].endswith('.py')}|set(HELPERS))
 
 def covered_files(root):
-    return {row['path']:hashlib.sha256((root/row['path']).read_bytes()).hexdigest() for row in registry(root)
-            if row['owner']=='TV4' and (row['path'].startswith(('backend/','tests/')) or row['path'] in {'scripts/check_tv4.py','infra/lifecycle.asl.json'})
+    return {row['path']:source_digest((root/row['path']).read_bytes()) for row in registry(root)
+            if row['owner']=='TV4' and (row['path'].startswith(('backend/','tests/','scripts/')) or row['path']=='infra/lifecycle.asl.json')
             and (root/row['path']).is_file()}
 
 def assemble(root,support,destination):
@@ -37,7 +40,7 @@ def assemble(root,support,destination):
 
 def run(root=ROOT,support=None,deps=None):
     root=Path(root).resolve();missing=[name for name in required_files(root) if not (root/name).is_file()]
-    common={'recorded_at':datetime.now(timezone.utc).isoformat(),'aws_calls':0,'aws_sdk_transport':'BLOCKED',
+    common={'recorded_at':datetime.now(timezone.utc).isoformat(),'aws_calls':0,'aws_sdk_transport':'BLOCKED','fingerprint_format':'UTF8_LF_SHA256',
             'full_product_acceptance':False,'covered_files':covered_files(root)}
     if missing and support is None:
         return {**common,'status':'BLOCKED_MISSING_DEPENDENCIES','passed':False,'scope':'LOCAL_REPOSITORY',

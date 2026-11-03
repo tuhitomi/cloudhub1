@@ -25,3 +25,11 @@ Chỉ ghi PASS sau khi chạy thật. Báo riêng test bị bỏ qua, thiếu de
 Chỉ dùng tài nguyên thử đã được duyệt, kiểm lại account/Region, quota, ledger, inventory và ngân sách trước mỗi vòng. Đối chiếu theo từng mẫu/profile/Region và phiên bản: tạo → truy cập/ghi → backup → thu hồi/audit → restore → đọc/checksum → dọn.
 
 Giữ nguồn khi backup bắt buộc lỗi; phân biệt deleted, retained, residual, unknown và billable. Chỉ công bố số đo hiệu năng với phép đo phù hợp, bao gồm lỗi/throttling. Không dùng trạng thái stack hoặc mock để thay bằng chứng dữ liệu.
+
+## Hồi quy TV4
+
+`python -m unittest discover -s tests -p test_tv4_release_tools.py -v` kiểm manifest, source drift, path và gate đóng gói ngay trên checkout hiện tại.
+
+`python scripts/check_tv4.py --out /path/outside/repository/result.json` yêu cầu dependency thật của repo. Thiếu file trả BLOCKED và nonzero. `--support-source` chỉ phục vụ một vòng local fixture được gắn nhãn riêng, ghi SHA từng file hỗ trợ; không đưa các file đó vào commit của TV4.
+
+CI dùng `--allow-missing-dependencies` để công bố blocker khi các owner chưa tích hợp; trạng thái JSON vẫn passed=false, tests_run=0. CI xanh cho phần local đang có không chứng minh hồi quy tích hợp hoặc AWS đã đạt. Không dùng tuỳ chọn này để phê duyệt phát hành.

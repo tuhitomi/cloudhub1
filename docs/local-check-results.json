@@ -1,34 +1,43 @@
 {
-  "status": "LOCAL_CHECKS_PASS",
-  "recorded_at": "2026-10-30T00:36:22.346725+07:00",
-  "scope": "Syntax, ownership, locale consistency and four available frontend suites",
-  "commands": [
-    "python scripts/check_team_ownership.py",
-    "python scripts/check_local.py"
-  ],
+  "recorded_at": "2026-11-03T18:16:16.573087+00:00",
+  "scope": "LOCAL_ONLY",
+  "passed": true,
+  "basic": {
+    "scope": "LOCAL_AVAILABLE_SOURCE_AND_FRONTEND",
+    "checks": {
+      "python_syntax": 62,
+      "javascript_syntax": 29,
+      "json": 23
+    },
+    "locales": 8,
+    "locale_keys": 1244,
+    "node_suites": [
+      "tests/i18n.test.mjs",
+      "tests/cockpit.test.mjs",
+      "tests/shell-view.test.mjs",
+      "tests/template-view.test.mjs"
+    ],
+    "frontend_passed": 25,
+    "aws_calls": 0,
+    "full_application_integration_verified": false
+  },
   "ownership": {
-    "present": 81,
-    "planned": 328,
-    "pending": 247,
+    "present": 147,
+    "planned": 343,
+    "pending": 196,
+    "exactly_one_owner_per_present_file": true,
     "unassigned": 0
   },
-  "checks": {
-    "python_syntax": 13,
-    "javascript_syntax": 29,
-    "json": 14
+  "tv4_support_fixture_tests": 149,
+  "broader_python_support_fixture_tests": 546,
+  "release_tool_tests_on_repository": 9,
+  "repository_tv4_gate": {
+    "status": "BLOCKED_MISSING_DEPENDENCIES",
+    "passed": false,
+    "tests_run": 0,
+    "missing_files": 53
   },
-  "locales": 8,
-  "locale_keys": 1244,
-  "frontend_passed": 25,
-  "node_suites": [
-    "tests/i18n.test.mjs",
-    "tests/cockpit.test.mjs",
-    "tests/shell-view.test.mjs",
-    "tests/template-view.test.mjs"
-  ],
-  "markdown_links_checked": true,
-  "old_checker_entry_point_compatible": true,
   "aws_calls": 0,
-  "full_application_integration_verified": false,
-  "limitations": "Other suites and end-to-end AWS checks require the missing modules and separately authorized resources"
+  "aws_deployed": false,
+  "full_application_acceptance": false
 }

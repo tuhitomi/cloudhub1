@@ -1,0 +1,67 @@
+{
+  "version": "0.8.0-local",
+  "primary_region": "ap-southeast-1",
+  "continuous_enabled": false,
+  "continuous_budget_action": "ALERT_ONLY_PRESERVE_SOURCE",
+  "direct_upload_enabled": false,
+  "direct_upload_verifications": {},
+  "quote_ttl_seconds": 120,
+  "budget_cycle": "PROJECT_LIFETIME",
+  "ledger_migration": "PREVIEW_AND_REVIEW_REQUIRED",
+  "file_profile": {
+    "id": "files",
+    "max_file_bytes": 5242880,
+    "max_total_bytes": 52428800,
+    "max_files": 100,
+    "max_writes": 256,
+    "aws_verified": false
+  },
+  "aws_test_plan": {
+    "status": "BLOCKED_PENDING_CURRENT_BUDGET_AND_NATIVE_VERIFICATION",
+    "templates": [
+      "T07",
+      "T05",
+      "T02"
+    ],
+    "regions": [
+      "ap-southeast-1"
+    ],
+    "new_complete_lifecycle_chains": 2,
+    "max_parallel_workloads": 1,
+    "data_per_chain": "one 5 MiB object plus bounded index.html",
+    "estimated_total_usd": null,
+    "reason": "Read current Billing/credits, retained assets and approved regional prices first. Do not reuse the old ledger balance.",
+    "cleanup": "backup, verify restored SHA-256, retire source and restored environment, delete disposable recovery points and isolated staging versions, audit schedules/distributions/buckets/functions; preserve user assets",
+    "scope": "T07 standard quote; T05 modes; T07 files and T02 files source/restore chains; no automatic cross-Region expansion",
+    "budget_requires_fresh_native_read": true
+  },
+  "continuous_threshold_milliusd": null,
+  "continuous_recipient_requires_verification": true,
+  "continuous_verifications": {},
+  "verification_contract": {
+    "scope": [
+      "template_id",
+      "region",
+      "configuration_keys"
+    ],
+    "configuration_keys": "SHA-256 from catalog.configuration_key; only native-tested exact profiles",
+    "continuous_required": [
+      "passed",
+      "old_callback_verified",
+      "schedule_transition_verified",
+      "source_preservation_verified",
+      "configuration_keys"
+    ],
+    "direct_required": [
+      "passed",
+      "upload_verified",
+      "backup_restore_verified",
+      "iam_reviewed",
+      "configuration_keys"
+    ],
+    "T02_additional": [
+      "content_switch_verified"
+    ],
+    "home_additive_proofs": "regions/<home>/verifications_parameter; preserves existing price-document proofs; absent/invalid proof closes feature"
+  }
+}

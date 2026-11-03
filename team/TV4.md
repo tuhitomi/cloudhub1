@@ -97,3 +97,7 @@ Owner chịu trách nhiệm tích hợp và review. File chưa có trên nhánh 
 | `tests/test_product_rollout_compatibility.py` | KH20 |
 | `tests/test_test_visibility.py` | KH20 |
 | `tests/test_user_notifications.py` | KH20 |
+
+## Kết quả tích hợp tuần 9–10
+
+Xem docs/TV4_WEEK9_WEEK10.md và các kết quả test tương ứng. Phần code TV4 được tích hợp và kiểm local; native regression còn chờ các module TV2/TV3. AWS acceptance, số liệu tải và phát hành thật vẫn cần quyền, ngân sách và minh chứng mới. Không coi việc có commit là đã hoàn thành nghiệm thu.

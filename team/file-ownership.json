@@ -688,7 +688,7 @@
       "owner": "TV4",
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
-      "generated": false
+      "generated": true
     },
     {
       "path": "docs/openapi.json",
@@ -766,6 +766,20 @@
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
+    },
+    {
+      "path": "docs/tv4-native-prerequisites.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Actual local regression or explicit dependency gate",
+      "generated": true
+    },
+    {
+      "path": "docs/tv4-regression-results.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Actual local regression or explicit dependency gate",
+      "generated": true
     },
     {
       "path": "docs/tv4-release-manifest.json",

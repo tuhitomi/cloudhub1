@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-11-03T18:15:27.436155+00:00",
+  "scope": "LOCAL_SUPPORT_FIXTURE",
+  "passed": true,
+  "tests_run": 546,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "support_file_count": 196,
+  "blocked_network_attempts": 0,
+  "loopback_connections": 2,
+  "aws_calls": 0,
+  "failure_details": [],
+  "purpose": "Broader regression for the shared Worker.fail ownership/Region guard; not native AWS acceptance"
+}

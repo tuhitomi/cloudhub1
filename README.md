@@ -66,3 +66,11 @@ Phân công theo báo cáo v2. Owner là người theo dõi triển khai, tích 
 - [Kiểm thử](docs/testing.md), [nguồn và kết quả kiểm tra trước đây](docs/source-record.json).
 
 Cấu hình thật, credentials, dữ liệu tài khoản và bằng chứng vận hành riêng không đưa vào repo. Mọi lần tạo tài nguyên AWS cần xác nhận đúng account, Region, quyền, dự toán và cách thu hồi; việc xem được mã không tự cấp quyền triển khai.
+
+## Công việc TV4 tuần 9 và 10
+
+Vòng đời, Scheduler, worker, quản trị/thông báo và các công cụ TV4 đã được tích hợp vào nhánh này. Xem [kết quả và blocker](docs/TV4_WEEK9_WEEK10.md), [runbook vận hành](docs/OPERATIONS_RUNBOOK.md) và [kịch bản demo](docs/DEMO_RUNBOOK.md).
+
+Repo vẫn cần các module API/driver của TV2/TV3 trước khi chạy đầy đủ. CI phân biệt test release-tool chạy trực tiếp với hồi quy TV4 đang chờ dependency; kết quả local dùng support source được gắn nhãn fixture, không phải AWS PASS.
+
+Các tài liệu `report-traceability`/`team-allocation` cũ được giữ để đối chiếu lịch sử. Phân công hiện tại là báo cáo v2, KH01–KH24 và `team/file-ownership.json`; bảng cũ có T10/A19 hoặc giờ kế hoạch khác không mở rộng phạm vi sản phẩm.
