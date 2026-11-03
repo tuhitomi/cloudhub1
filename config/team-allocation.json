@@ -1,0 +1,425 @@
+{
+  "recorded_date": "2026-10-13",
+  "status": "PLANNED_ASSIGNMENT_NOT_ACTUAL_EFFORT",
+  "source": "config/report-items.json",
+  "source_sha256": "1c9f822376cd0452989bcc313882f80b2daf2cbe36642455ca716dac8d2ced1c",
+  "basis": "Reallocate original estimates; never infer actual or remaining effort.",
+  "work_hours": 760,
+  "reserve_hours": 80,
+  "total_hours": 840,
+  "requested_capacity": {
+    "work_hours": 500,
+    "reserve_hours": 60,
+    "total_hours": 560,
+    "people": 4,
+    "weeks": 10,
+    "max_hours_per_person_week": 14
+  },
+  "capacity_gap": {
+    "work_hours": 260,
+    "reserve_hours": 20,
+    "total_hours": 280
+  },
+  "excluded": [
+    {
+      "report_code": "A19",
+      "template_id": "T10",
+      "original_hours": 40,
+      "reason": "Removed from current allocation at explicit user request; original report retained."
+    }
+  ],
+  "per_person": {
+    "TV1": {
+      "work": 190,
+      "reserve": 20
+    },
+    "TV2": {
+      "work": 190,
+      "reserve": 20
+    },
+    "TV3": {
+      "work": 190,
+      "reserve": 20
+    },
+    "TV4": {
+      "work": 190,
+      "reserve": 20
+    }
+  },
+  "tasks": [
+    {
+      "id": "A01",
+      "report_code": "A01",
+      "owner": "TV1",
+      "planned_hours": 16,
+      "kind": "WORK",
+      "title": "Yêu cầu, luồng người dùng và tiêu chí nghiệm thu",
+      "deliverable": "Checklist F00–F08, luồng chọn nhu cầu → dự toán → tạo → quản lý; tiêu chí từng T01–T09 và các trạng thái lỗi.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A02",
+      "report_code": "A02",
+      "owner": "TV1",
+      "planned_hours": 20,
+      "kind": "WORK",
+      "title": "Repository và CI",
+      "deliverable": "Cấu hình kiểm tra Python/JS/schema/IaC, hướng dẫn nhánh và PR; kiểm tra nguồn không chứa credentials hoặc binary.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A03",
+      "report_code": "A03",
+      "owner": "TV2",
+      "planned_hours": 32,
+      "kind": "WORK",
+      "title": "Hạ tầng nền và quyền triển khai",
+      "deliverable": "CloudFormation control plane/network, IAM và role theo phạm vi; cấu hình tài khoản/region, kiểm tra quota, cấu hình host S3/CloudFront.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A04",
+      "report_code": "A04",
+      "owner": "TV2",
+      "planned_hours": 32,
+      "kind": "WORK",
+      "title": "Cognito và xác thực/phân quyền",
+      "deliverable": "Đăng ký, xác thực email, đăng nhập/refresh/reset; mặc định user và quota do admin đặt; kiểm quyền chủ sở hữu tại API.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A05",
+      "report_code": "A05",
+      "owner": "TV1",
+      "planned_hours": 48,
+      "kind": "WORK",
+      "title": "Frontend và luồng quản lý",
+      "deliverable": "Danh mục, luồng tạo bốn bước, tổng quan/chi tiết/tác vụ, gia hạn/đổi chế độ/kết thúc, backup/restore và UI quản trị; trạng thái loading/empty/error, responsive/focus.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A06",
+      "report_code": "A06",
+      "owner": "TV3",
+      "planned_hours": 32,
+      "kind": "WORK",
+      "title": "DynamoDB, API và trạng thái bền vững",
+      "deliverable": "API môi trường/tác vụ/bản sao; dữ liệu, khóa, conditional update, giao dịch quota, idempotency và kiểm tra quyền sở hữu; OpenAPI và lỗi thống nhất.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A07",
+      "report_code": "A07",
+      "owner": "TV3",
+      "planned_hours": 40,
+      "kind": "WORK",
+      "title": "Điều phối tạo/khôi phục",
+      "deliverable": "Hợp đồng driver, router/worker, HTTP 202 + operation_id; workflow tạo stack/chờ/readiness/rollback/restore, lưu trạng thái và xử lý retry.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A08",
+      "report_code": "A08",
+      "owner": "TV4",
+      "planned_hours": 40,
+      "kind": "WORK",
+      "title": "Chế độ vận hành và xử lý đến hạn",
+      "deliverable": "Scheduler/Step Functions cho AUTO_RENEW/AUTO_OFF; ledger cộng dồn, deadline/revision, lịch cũ, đổi chế độ sát hạn, đồng bộ lịch lỗi, pause/resume và giữ nguồn khi backup lỗi.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A09",
+      "report_code": "A09",
+      "owner": "TV3",
+      "planned_hours": 36,
+      "kind": "WORK",
+      "title": "Dự toán và hạn mức",
+      "deliverable": "Đơn giá/giả định, kỳ tham chiếu/kỳ đầu/gia hạn/giữ dữ liệu; budget cộng dồn và quota, chi phí ghi nhận có phạm vi/độ trễ; không bảo đảm hóa đơn.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A10",
+      "report_code": "A10",
+      "owner": "TV1",
+      "planned_hours": 32,
+      "kind": "WORK",
+      "title": "T01 — Máy Linux: EC2/EBS",
+      "deliverable": "IaC/driver, IAM, SSH, ghi dữ liệu /data, snapshot/restore, pause/resume, thu hồi và kiểm kê; kiểm thử và hướng dẫn T01.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A11",
+      "report_code": "A11",
+      "owner": "TV2",
+      "planned_hours": 24,
+      "kind": "WORK",
+      "title": "T02 — Website tĩnh: S3/CloudFront",
+      "deliverable": "IaC/driver, HTTPS, upload/read file, backup/restore/checksum, thu hồi và kiểm kê; kiểm thử và hướng dẫn T02.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A12",
+      "report_code": "A12",
+      "owner": "TV3",
+      "planned_hours": 40,
+      "kind": "WORK",
+      "title": "T03 — Web và cơ sở dữ liệu: EC2/RDS",
+      "deliverable": "IaC/driver, Secrets Manager, đọc/ghi PostgreSQL, snapshot/restore và kiểm dữ liệu, thu hồi và kiểm kê; kiểm thử và hướng dẫn T03.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A13",
+      "report_code": "A13",
+      "owner": "TV4",
+      "planned_hours": 40,
+      "kind": "WORK",
+      "title": "T04 — Web chịu tải: ALB/ASG",
+      "deliverable": "Cấu hình ALB/ASG, health check/giới hạn scale, tích hợp web/RDS của T03, vòng đời dữ liệu/restore/cleanup; kiểm thử và hướng dẫn T04.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A14",
+      "report_code": "A14",
+      "owner": "TV2",
+      "planned_hours": 20,
+      "kind": "WORK",
+      "title": "T05 — Website trên máy chủ: EC2/web server",
+      "deliverable": "Cấu hình web và nội dung /data trên helper Linux, truy cập, backup/restore, pause/resume/cleanup; kiểm thử và hướng dẫn T05.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A15",
+      "report_code": "A15",
+      "owner": "TV2",
+      "planned_hours": 24,
+      "kind": "WORK",
+      "title": "T07 — Kho file và chia sẻ: S3",
+      "deliverable": "Upload/download file riêng tư, liên kết có hạn, backup/restore/checksum/cleanup; kiểm thử quyền và hướng dẫn T07.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A16",
+      "report_code": "A16",
+      "owner": "TV4",
+      "planned_hours": 36,
+      "kind": "WORK",
+      "title": "T06 — Docker: ECS Fargate",
+      "deliverable": "IaC/driver, image ECR đã duyệt và digest, readiness, dữ liệu bền vững S3, backup/restore/cleanup; kiểm thử và hướng dẫn T06.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A17",
+      "report_code": "A17",
+      "owner": "TV3",
+      "planned_hours": 32,
+      "kind": "WORK",
+      "title": "T09 — API serverless: API Gateway/Lambda/DynamoDB",
+      "deliverable": "IaC/driver, gọi API có Cognito, đọc/ghi dữ liệu, backup/restore và quyền chủ sở hữu, cleanup; kiểm thử và hướng dẫn T09.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A18",
+      "report_code": "A18",
+      "owner": "TV1",
+      "planned_hours": 40,
+      "kind": "WORK",
+      "title": "T08 — Ổ đĩa dùng chung: EC2/EFS",
+      "deliverable": "IaC/driver, mount target/security group, đọc/ghi từ hai máy, backup/restore/checksum, gỡ phụ thuộc và cleanup; kiểm thử và hướng dẫn T08.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A20",
+      "report_code": "A20",
+      "owner": "TV2",
+      "planned_hours": 36,
+      "kind": "WORK",
+      "title": "CloudWatch/SNS và backend quản trị",
+      "deliverable": "Chỉ số/log/cảnh báo, thông báo sắp hết hạn, quản trị user/quota/signup-defaults, toàn bộ môi trường và thu hồi admin; kiểm thử role và cấu hình nhận cảnh báo.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A21",
+      "report_code": "A21",
+      "owner": "TV4",
+      "planned_hours": 48,
+      "kind": "WORK",
+      "title": "Kiểm kê và hạn lưu dữ liệu",
+      "deliverable": "Audit deleted/retained/residual/unknown/billable, bảo vệ tài nguyên dùng chung, retry thu hồi, retention, xóa/export backup và khóa đồng thời.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A22.1",
+      "report_code": "A22",
+      "owner": "TV1",
+      "planned_hours": 20,
+      "kind": "WORK",
+      "title": "Kiểm thử tích hợp UI và luồng sử dụng",
+      "deliverable": "Ca tạo → theo dõi → truy cập → backup → restore → kết thúc; lỗi mạng/gửi lặp/giữ form, thiếu dữ liệu và ảnh desktop/mobile; kết quả local/AWS tách riêng.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A22.2",
+      "report_code": "A22",
+      "owner": "TV2",
+      "planned_hours": 16,
+      "kind": "WORK",
+      "title": "Kiểm thử xác thực và quyền quản trị",
+      "deliverable": "Email trùng, mã sai/hết hạn/gửi lại, sai mật khẩu/reset; user chưa verified, owner chéo, role/admin và quota mặc định không tự nâng.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A22.3",
+      "report_code": "A22",
+      "owner": "TV3",
+      "planned_hours": 4,
+      "kind": "WORK",
+      "title": "Kiểm thử tích hợp API/workflow",
+      "deliverable": "Kiểm contract HTTP 202, operation_id, lỗi chuẩn, phản hồi retry/idempotency và giao dịch quota trong bộ kiểm thử hiện có; kiểm riêng T03/T09.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A22.4",
+      "report_code": "A22",
+      "owner": "TV4",
+      "planned_hours": 8,
+      "kind": "WORK",
+      "title": "Kiểm thử lỗi vòng đời và bảo vệ nguồn",
+      "deliverable": "Gia hạn sát hạn/lịch cũ, đồng bộ Scheduler lỗi, backup lỗi giữ nguồn, retry có giới hạn và cleanup còn sót; kiểm riêng T04/T06.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A23.1",
+      "report_code": "A23",
+      "owner": "TV1",
+      "planned_hours": 8,
+      "kind": "WORK",
+      "title": "Đo trải nghiệm giao diện",
+      "deliverable": "Đo bố cục 360/390/768/1440, focus/reduced motion, phản hồi form và khả năng đọc tiền/trạng thái; ghi lỗi và sửa.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A23.2",
+      "report_code": "A23",
+      "owner": "TV4",
+      "planned_hours": 12,
+      "kind": "WORK",
+      "title": "Đo tải và thời gian xử lý",
+      "deliverable": "Harness và số đo API/tác vụ, kích hoạt deadline/quét dự phòng, kiểm ASG. Bám concurrency demo hiện hành 10; không xin tăng quota hoặc tuyên bố SLA chưa đo.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A24.1",
+      "report_code": "A24",
+      "owner": "TV1",
+      "planned_hours": 6,
+      "kind": "WORK",
+      "title": "Bàn giao giao diện và hướng dẫn người dùng",
+      "deliverable": "Hướng dẫn sử dụng, luồng demo frontend, T01/T08 và minh chứng UI; checklist nghiệm thu sản phẩm.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A24.2",
+      "report_code": "A24",
+      "owner": "TV2",
+      "planned_hours": 6,
+      "kind": "WORK",
+      "title": "Bàn giao triển khai và quản trị",
+      "deliverable": "Hướng dẫn cấu hình AWS/Cognito/IAM/CI và frontend hosting, T02/T05/T07, đăng ký cảnh báo và quản trị tài khoản.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A24.3",
+      "report_code": "A24",
+      "owner": "TV3",
+      "planned_hours": 6,
+      "kind": "WORK",
+      "title": "Bàn giao API/dữ liệu/dự toán",
+      "deliverable": "OpenAPI, hợp đồng driver/dữ liệu, hướng dẫn API/T03/T09, bảng đơn giá/giả định và giới hạn phép đo.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A24.4",
+      "report_code": "A24",
+      "owner": "TV4",
+      "planned_hours": 6,
+      "kind": "WORK",
+      "title": "Bàn giao vận hành và thu hồi",
+      "deliverable": "Runbook Scheduler/workflow/backup/restore/retention/audit, T04/T06, danh sách tài nguyên billable và cách xử lý lỗi.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A25.1",
+      "report_code": "A25",
+      "owner": "TV1",
+      "planned_hours": 20,
+      "kind": "RESERVE",
+      "title": "Quỹ dự phòng của người phụ trách",
+      "deliverable": "20 giờ giữ lại cho học dịch vụ/sửa lỗi/tích hợp thuộc các đầu việc đã giao; chỉ ghi giờ dùng khi thực tế phát sinh.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A25.2",
+      "report_code": "A25",
+      "owner": "TV2",
+      "planned_hours": 20,
+      "kind": "RESERVE",
+      "title": "Quỹ dự phòng của người phụ trách",
+      "deliverable": "20 giờ giữ lại cho học dịch vụ/sửa lỗi/tích hợp thuộc các đầu việc đã giao; chỉ ghi giờ dùng khi thực tế phát sinh.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A25.3",
+      "report_code": "A25",
+      "owner": "TV3",
+      "planned_hours": 20,
+      "kind": "RESERVE",
+      "title": "Quỹ dự phòng của người phụ trách",
+      "deliverable": "20 giờ giữ lại cho học dịch vụ/sửa lỗi/tích hợp thuộc các đầu việc đã giao; chỉ ghi giờ dùng khi thực tế phát sinh.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    },
+    {
+      "id": "A25.4",
+      "report_code": "A25",
+      "owner": "TV4",
+      "planned_hours": 20,
+      "kind": "RESERVE",
+      "title": "Quỹ dự phòng của người phụ trách",
+      "deliverable": "20 giờ giữ lại cho học dịch vụ/sửa lỗi/tích hợp thuộc các đầu việc đã giao; chỉ ghi giờ dùng khi thực tế phát sinh.",
+      "status": "PLANNED_ASSIGNMENT",
+      "actual_hours": null
+    }
+  ]
+}
