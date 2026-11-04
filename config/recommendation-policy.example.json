@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "resource_headroom_percent": 0,
+  "max_benchmark_age_days": 30,
+  "observed_quotas": {}
+}
