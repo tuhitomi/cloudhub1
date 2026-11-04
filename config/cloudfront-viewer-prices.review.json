@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "approved": true,
+  "updated_at": "2026-10-19T06:52:04.094414+00:00",
+  "price_version": "20261003000426",
+  "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv",
+  "edge_rates": {
+    "ZA": {
+      "cloudfront_transfer_gib": {
+        "value": "0.1100000000",
+        "sku": "84Z32PF576RHPTMX",
+        "rate_code": "84Z32PF576RHPTMX.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0120000000",
+        "sku": "STAW4JYR23PMGDK7",
+        "rate_code": "STAW4JYR23PMGDK7.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "AU": {
+      "cloudfront_transfer_gib": {
+        "value": "0.1140000000",
+        "sku": "8JNNPNBQD9DSHV5K",
+        "rate_code": "8JNNPNBQD9DSHV5K.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0125000000",
+        "sku": "XXEA4SCG9TSQCDF2",
+        "rate_code": "XXEA4SCG9TSQCDF2.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "ME": {
+      "cloudfront_requests_10000": {
+        "value": "0.0120000000",
+        "sku": "9BETCR5FAVJ6V76R",
+        "rate_code": "9BETCR5FAVJ6V76R.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_transfer_gib": {
+        "value": "0.1100000000",
+        "sku": "KJKQCFWRY9KUWY4S",
+        "rate_code": "KJKQCFWRY9KUWY4S.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "AP": {
+      "cloudfront_transfer_gib": {
+        "value": "0.1200000000",
+        "sku": "A86N9S7CGUKZHH8P",
+        "rate_code": "A86N9S7CGUKZHH8P.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0120000000",
+        "sku": "W6KHTEW6VCKTZFTR",
+        "rate_code": "W6KHTEW6VCKTZFTR.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "JP": {
+      "cloudfront_transfer_gib": {
+        "value": "0.1140000000",
+        "sku": "CME9BRJSS2F5PBYE",
+        "rate_code": "CME9BRJSS2F5PBYE.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0120000000",
+        "sku": "EJZT492VM8J2VQTQ",
+        "rate_code": "EJZT492VM8J2VQTQ.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "SA": {
+      "cloudfront_requests_10000": {
+        "value": "0.0220000000",
+        "sku": "FUWQBJC8EW2AP9J4",
+        "rate_code": "FUWQBJC8EW2AP9J4.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_transfer_gib": {
+        "value": "0.1100000000",
+        "sku": "ZT3N6V49SHDM9P3G",
+        "rate_code": "ZT3N6V49SHDM9P3G.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "IN": {
+      "cloudfront_requests_10000": {
+        "value": "0.0120000000",
+        "sku": "GJTTXSYXV43ANXTQ",
+        "rate_code": "GJTTXSYXV43ANXTQ.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_transfer_gib": {
+        "value": "0.1090000000",
+        "sku": "XVZYVSAH88373VKR",
+        "rate_code": "XVZYVSAH88373VKR.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "US": {
+      "cloudfront_transfer_gib": {
+        "value": "0.0850000000",
+        "sku": "GV2WFGX37Q9PDSHF",
+        "rate_code": "GV2WFGX37Q9PDSHF.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0100000000",
+        "sku": "NPFD6SEH9MXS8M4J",
+        "rate_code": "NPFD6SEH9MXS8M4J.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "EU": {
+      "cloudfront_transfer_gib": {
+        "value": "0.0850000000",
+        "sku": "VU3485RNDU6HBQF6",
+        "rate_code": "VU3485RNDU6HBQF6.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0120000000",
+        "sku": "YA5QZD7XG45UGHCH",
+        "rate_code": "YA5QZD7XG45UGHCH.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    },
+    "CA": {
+      "cloudfront_transfer_gib": {
+        "value": "0.0850000000",
+        "sku": "YNZW9TGPQWEQM4JS",
+        "rate_code": "YNZW9TGPQWEQM4JS.JRTCKXETXF.Q3Z75P77EN",
+        "aws_unit": "GB",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      },
+      "cloudfront_requests_10000": {
+        "value": "0.0100000000",
+        "sku": "ZG984ETY8SNCPH2B",
+        "rate_code": "ZG984ETY8SNCPH2B.JRTCKXETXF.6YS6EN2CT7",
+        "aws_unit": "Requests",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+      }
+    }
+  },
+  "viewers": {
+    "US": {
+      "approved": true,
+      "updated_at": "2026-10-19T06:52:04.094414+00:00",
+      "units": {
+        "cloudfront_transfer_gib": "0.0850000000",
+        "cloudfront_requests_10000": "0.0120000000"
+      },
+      "price_class": "PriceClass_100",
+      "viewer_billing_groups": [
+        "US",
+        "CA"
+      ],
+      "charged_groups": [
+        "US",
+        "CA",
+        "EU"
+      ],
+      "selection": "MAX_ELIGIBLE_EDGE_RATE",
+      "price_version": "20261003000426",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+    },
+    "EU": {
+      "approved": true,
+      "updated_at": "2026-10-19T06:52:04.094414+00:00",
+      "units": {
+        "cloudfront_transfer_gib": "0.0850000000",
+        "cloudfront_requests_10000": "0.0120000000"
+      },
+      "price_class": "PriceClass_100",
+      "viewer_billing_groups": [
+        "EU"
+      ],
+      "charged_groups": [
+        "US",
+        "CA",
+        "EU"
+      ],
+      "selection": "MAX_ELIGIBLE_EDGE_RATE",
+      "price_version": "20261003000426",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+    },
+    "APAC": {
+      "approved": true,
+      "updated_at": "2026-10-19T06:52:04.094414+00:00",
+      "units": {
+        "cloudfront_transfer_gib": "0.0850000000",
+        "cloudfront_requests_10000": "0.0120000000"
+      },
+      "price_class": "PriceClass_100",
+      "viewer_billing_groups": [
+        "AP",
+        "JP",
+        "AU",
+        "IN"
+      ],
+      "charged_groups": [
+        "US",
+        "CA",
+        "EU"
+      ],
+      "selection": "MAX_ELIGIBLE_EDGE_RATE",
+      "price_version": "20261003000426",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+    },
+    "OTHER": {
+      "approved": true,
+      "updated_at": "2026-10-19T06:52:04.094414+00:00",
+      "units": {
+        "cloudfront_transfer_gib": "0.0850000000",
+        "cloudfront_requests_10000": "0.0120000000"
+      },
+      "price_class": "PriceClass_100",
+      "viewer_billing_groups": [
+        "ME",
+        "ZA",
+        "SA"
+      ],
+      "charged_groups": [
+        "US",
+        "CA",
+        "EU"
+      ],
+      "selection": "MAX_ELIGIBLE_EDGE_RATE",
+      "price_version": "20261003000426",
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudFront/current/index.csv"
+    }
+  },
+  "reviewed_at": "2026-10-19T07:20:31.186006+00:00",
+  "review_scope": "Official On-Demand SKU dimensions and first paid tier. T02 PriceClass_100 maximum eligible edge-rate envelope; viewer geography retained; no Free Tier/credits deduction or local POP promise."
+}
