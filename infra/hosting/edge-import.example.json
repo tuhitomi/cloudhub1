@@ -1,0 +1,178 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "FrontendDistribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Enabled": true,
+          "DefaultRootObject": "index.html",
+          "HttpVersion": "http2",
+          "PriceClass": "PriceClass_100",
+          "Origins": [
+            {
+              "Id": "private-s3",
+              "DomainName": {
+                "Ref": "OriginDomain"
+              },
+              "S3OriginConfig": {
+                "OriginAccessIdentity": ""
+              },
+              "OriginAccessControlId": {
+                "Ref": "OriginAccess"
+              }
+            },
+            {
+              "Fn::If": [
+                "HasUiContextOrigin",
+                {
+                  "Id": "ui-context-api",
+                  "DomainName": {
+                    "Ref": "UiApiOriginDomain"
+                  },
+                  "CustomOriginConfig": {
+                    "OriginProtocolPolicy": "https-only",
+                    "OriginSSLProtocols": [
+                      "TLSv1.2"
+                    ]
+                  },
+                  "OriginCustomHeaders": [
+                    {
+                      "HeaderName": "X-CloudHub-Edge-Key",
+                      "HeaderValue": {
+                        "Ref": "UiEdgeSecret"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Ref": "AWS::NoValue"
+                }
+              ]
+            }
+          ],
+          "DefaultCacheBehavior": {
+            "TargetOriginId": "private-s3",
+            "ViewerProtocolPolicy": "redirect-to-https",
+            "AllowedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "CachedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "Compress": true,
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "ResponseHeadersPolicyId": "67f7725c-6f97-4210-82d7-5512b31e9d03"
+          },
+          "ViewerCertificate": {
+            "CloudFrontDefaultCertificate": true
+          },
+          "CacheBehaviors": [
+            {
+              "Fn::If": [
+                "HasUiContextOrigin",
+                {
+                  "PathPattern": "/ui-context",
+                  "TargetOriginId": "ui-context-api",
+                  "ViewerProtocolPolicy": "https-only",
+                  "AllowedMethods": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "CachedMethods": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "Compress": true,
+                  "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+                  "OriginRequestPolicyId": {
+                    "Ref": "UiCountryOriginPolicy"
+                  }
+                },
+                {
+                  "Ref": "AWS::NoValue"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "OriginAccess": {
+      "Type": "AWS::CloudFront::OriginAccessControl",
+      "Properties": {
+        "OriginAccessControlConfig": {
+          "Name": "cloudhub-source-oac",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4"
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "UiCountryOriginPolicy": {
+      "Type": "AWS::CloudFront::OriginRequestPolicy",
+      "Condition": "HasUiContextOrigin",
+      "Properties": {
+        "OriginRequestPolicyConfig": {
+          "Name": "cloudhub-source-ui-country",
+          "Comment": "Generated country only; no viewer Host, auth or cookies",
+          "CookiesConfig": {
+            "CookieBehavior": "none"
+          },
+          "QueryStringsConfig": {
+            "QueryStringBehavior": "none"
+          },
+          "HeadersConfig": {
+            "HeaderBehavior": "whitelist",
+            "Headers": [
+              "CloudFront-Viewer-Country"
+            ]
+          }
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    }
+  },
+  "Parameters": {
+    "UiEdgeSecret": {
+      "Type": "String",
+      "NoEcho": true,
+      "MinLength": 32,
+      "MaxLength": 128,
+      "AllowedPattern": "[A-Za-z0-9_-]{32,128}",
+      "Description": "Random origin-only secret. Never include in public config or logs."
+    },
+    "UiApiOriginDomain": {
+      "Type": "String",
+      "Default": "",
+      "AllowedPattern": "(|[a-z0-9]+\\.execute-api\\.[a-z]{2}-[a-z]+-[0-9]\\.amazonaws\\.com)",
+      "Description": "Existing API hostname from ApiUrl output. Set after initial creation to avoid Cognito/CloudFront dependency cycle."
+    },
+    "OriginDomain": {
+      "Type": "String",
+      "Description": "Explicit regional S3 REST endpoint; not a website endpoint"
+    }
+  },
+  "Conditions": {
+    "HasUiContextOrigin": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "UiApiOriginDomain"
+            },
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "Description": "ILLUSTRATIVE ONLY: generate a native inventory and reviewed plan before deployment."
+}

@@ -1,0 +1,7 @@
+{
+  "data_migration_verified": false,
+  "identity_verified": false,
+  "inflight_operations_reconciled": false,
+  "target_health_verified": false,
+  "rollback_data_plan_reviewed": false
+}

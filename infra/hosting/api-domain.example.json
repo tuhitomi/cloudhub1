@@ -1,0 +1,62 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "ApiDomain": {
+      "Type": "AWS::ApiGatewayV2::DomainName",
+      "Properties": {
+        "DomainName": "api.example.com",
+        "DomainNameConfigurations": [
+          {
+            "CertificateArn": {
+              "Ref": "CertificateArn"
+            },
+            "EndpointType": "REGIONAL",
+            "SecurityPolicy": "TLS_1_2"
+          }
+        ]
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "ApiMapping": {
+      "Type": "AWS::ApiGatewayV2::ApiMapping",
+      "Properties": {
+        "ApiId": "api123",
+        "DomainName": {
+          "Ref": "ApiDomain"
+        },
+        "Stage": "$default"
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    }
+  },
+  "Parameters": {
+    "CertificateArn": {
+      "Type": "String",
+      "Description": "Issued ACM certificate in this API Region"
+    }
+  },
+  "Outputs": {
+    "RegionalDomainName": {
+      "Value": {
+        "Fn::GetAtt": [
+          "ApiDomain",
+          "RegionalDomainName"
+        ]
+      }
+    },
+    "RegionalHostedZoneId": {
+      "Value": {
+        "Fn::GetAtt": [
+          "ApiDomain",
+          "RegionalHostedZoneId"
+        ]
+      }
+    },
+    "ApiUrl": {
+      "Value": "https://api.example.com"
+    }
+  },
+  "Description": "ILLUSTRATIVE ONLY: generate a native inventory and reviewed plan before deployment."
+}

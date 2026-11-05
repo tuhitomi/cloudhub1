@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "account_id": "REQUIRED_12_DIGITS",
+  "region": "ap-northeast-1",
+  "profile": "REQUIRED_PROFILE",
+  "stack_name": "cloudhub-platform-tokyo",
+  "regional_inputs": {
+    "VpcId": "REQUIRED_TARGET_VPC",
+    "PublicSubnetId": "REQUIRED_TARGET_SUBNET",
+    "PublicSubnet2Id": "REQUIRED_TARGET_SUBNET",
+    "DbSubnet1Id": "REQUIRED_TARGET_SUBNET",
+    "DbSubnet2Id": "REQUIRED_TARGET_SUBNET",
+    "AvailabilityZone": "REQUIRED_CLASSIC_TARGET_AZ",
+    "AmiId": "REQUIRED_TARGET_AL2023_AMI",
+    "SshCidr": "REQUIRED_APPROVED_IPV4_CIDR",
+    "PostgresVersion": "REQUIRED_ORDERABLE_VERSION",
+    "ApprovedImage": "REQUIRED_TARGET_ECR_DIGEST"
+  },
+  "prices_file": null,
+  "budget_usd": null,
+  "cash_budget_usd": null,
+  "approval_reference": ""
+}
