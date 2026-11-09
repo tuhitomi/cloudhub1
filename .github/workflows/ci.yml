@@ -20,8 +20,17 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: python scripts/check_team_ownership.py
       - run: python scripts/check_local.py
-      - name: TV4 release-tool unit tests
-        run: python -m unittest discover -s tests -p test_tv4_release_tools.py -v
       - run: python -m pip install -r requirements-dev.txt
-      - name: TV4 integration regressions or explicit dependency blocker
-        run: python scripts/check_tv4.py --allow-missing-dependencies --out "${{ runner.temp }}/tv4-integration.json"
+      - name: TV4 repository regressions (missing modules fail)
+        run: python scripts/check_tv4.py --out "${{ runner.temp }}/tv4-integration.json"
+      - name: Full Python, frontend, OpenAPI and IaC validation (no AWS)
+        run: python scripts/check_product_release.py --out "${{ runner.temp }}/main-integration.json"
+      - name: Save local validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-validation-results
+          path: |
+            ${{ runner.temp }}/tv4-integration.json
+            ${{ runner.temp }}/main-integration.json
+          if-no-files-found: warn

@@ -8,13 +8,15 @@ Giữ T01–T09, ba Region và tám locale hiện có. Không bật feature gate
 
 ```sh
 npm ci --ignore-scripts
+python -m pip install -r requirements-dev.txt
 python scripts/check_team_ownership.py
 python scripts/check_local.py
 python -m unittest discover -s tests -p test_tv4_release_tools.py -v
-python scripts/check_tv4.py --out /path/outside/repository/tv4-native.json
+python scripts/check_tv4.py --out tv4-checks.private.json
+python scripts/check_product_release.py --out main-checks.private.json
 ```
 
-Nếu mã API/driver của các thành viên chưa đủ, lệnh cuối trả BLOCKED và mã thoát 2; không đổi tên kết quả thành PASS. Có thể kiểm trên bản nguồn đầy đủ được cung cấp riêng:
+Main đã có đủ mã của các thành viên và chạy trực tiếp, không cần `--support-source`. Thiếu module trên một checkout cũ vẫn trả BLOCKED và mã thoát 2; không đổi tên kết quả thành PASS. Chỉ khi nghiên cứu bản nguồn chưa tích hợp mới dùng chế độ fixture riêng:
 
 ```sh
 python scripts/check_tv4.py --support-source /path/to/complete/team/source --out /path/outside/repository/tv4-fixture.json
@@ -34,14 +36,14 @@ Cho người xem đối chiếu ba ca owner/Region sai ở nhánh MarkFailure: p
 6. Khôi phục thành môi trường mới, dùng quote/quota hiện tại; đọc lại marker/SHA từ đích. Phân biệt hạ tầng sẵn sàng và dữ liệu đã kiểm.
 7. Dọn đúng môi trường thử và bản sao được phép, kiểm lại schedule/stack/tài nguyên giữ lại và ledger. Giữ bằng chứng đúng mẫu/profile/Region/artifact.
 
-Lần bổ sung TV4 này không thực hiện vòng AWS trên. Chỉ tiêu API đọc p95 dưới 2 giây với 20 người dùng, trả operation ID dưới 2 giây, kích hoạt hết hạn trong 2 phút và sweep mỗi 5 phút cần phép đo AWS riêng; unit test không chứng minh các chỉ tiêu đó.
+Lượt chốt nguồn main ngày 09/11/2026 không thực hiện vòng AWS trên. Chỉ tiêu API đọc p95 dưới 2 giây với 20 người dùng, trả operation ID dưới 2 giây, kích hoạt hết hạn trong 2 phút và sweep mỗi 5 phút cần phép đo AWS riêng; unit test không chứng minh các chỉ tiêu đó.
 
 ## Chuẩn bị manifest
 
 ```sh
-python scripts/prepare_product_release.py --results docs/tv4-week10-results.json --out docs/tv4-release-manifest.json
+python scripts/prepare_product_release.py --results tv4-checks.private.json --out source-manifest.private.json
 ```
 
-Manifest kiểm nguồn khớp kết quả test, ghi file thiếu và giữ NOT_DEPLOYED. Kết quả fixture không mở gate đóng gói. Khi đã đủ nguồn, test native và review mục tiêu, công cụ packet yêu cầu thêm `--deployment-target` chứa account_id, primary_region và stack_name được duyệt; không còn account production mặc định.
+Manifest kiểm nguồn khớp kết quả test, ghi file thiếu và giữ aws_deployed=false. Bản kiểm nguồn hiện tại ở main-integration-manifest.json; không ghi đè manifest fixture lịch sử. Kết quả fixture không mở gate đóng gói. Khi đã đủ nguồn, test native và review mục tiêu, công cụ packet yêu cầu thêm `--deployment-target` chứa account_id, primary_region và stack_name được duyệt; không còn account production mặc định.
 
 Fingerprint nguồn tuần 10 dùng UTF8_LF_SHA256 để Windows CRLF và Git LF không gây drift giả. SHA của dữ liệu người dùng, bản sao và ZIP triển khai vẫn tính trên byte thật; không áp dụng chuẩn hóa này cho tệp dữ liệu.

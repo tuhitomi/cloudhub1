@@ -33,7 +33,7 @@ docs/            Hướng dẫn và kết quả kiểm tra
 team/            Trách nhiệm thành viên và kế hoạch
 ```
 
-Repository đang được tích hợp theo từng phân hệ. Một số module xác thực, API, workflow và công cụ triển khai chưa có trên nhánh hiện tại; vì vậy clone này chưa chạy được toàn bộ ứng dụng độc lập. Website AWS và trạng thái tích hợp mã trong repository cần được kiểm chứng riêng.
+Mã frontend, API, xác thực, workflow và driver của bốn thành viên đã được gộp vào `main`. Bộ kiểm thử chạy trực tiếp từ checkout này, không cần bổ sung mã nguồn bên ngoài. Để sử dụng với AWS vẫn cần cấu hình riêng, hạ tầng, giá và quyền đã được operator kiểm; kết quả tích hợp nguồn không xác nhận phiên bản đang phục vụ trên website.
 
 ## Kiểm tra nhanh
 
@@ -41,11 +41,14 @@ Yêu cầu Python 3.13 và Node.js 22 trở lên:
 
 ```sh
 npm ci --ignore-scripts
+python -m pip install -r requirements-dev.txt
 python scripts/check_team_ownership.py
 python scripts/check_local.py
+python scripts/check_tv4.py --out tv4-checks.private.json
+python scripts/check_product_release.py --out main-checks.private.json
 ```
 
-Các lệnh này kiểm ownership, cú pháp, bản dịch và những suite frontend hiện đủ dependency; chúng không gọi AWS. Phạm vi và kết quả thực tế nằm trong [hướng dẫn kiểm thử](docs/testing.md) và [kết quả local](docs/local-check-results.json).
+Các lệnh này kiểm ownership, cú pháp, bản dịch, toàn bộ test Python/frontend, OpenAPI và các cấu hình IaC trong release checker. Runner đầy đủ dùng thông tin AWS giả và chặn transport bên ngoài; chỉ cho phép HTTP loopback của fixture. File `*.private.json` được Git bỏ qua. Phạm vi và kết quả thực tế nằm trong [hướng dẫn kiểm thử](docs/testing.md) và [báo cáo chốt main](docs/MAIN_INTEGRATION_STATUS.md).
 
 ## Nhóm thực hiện
 
@@ -71,6 +74,6 @@ Cấu hình thật, credentials, dữ liệu tài khoản và bằng chứng v�
 
 Vòng đời, Scheduler, worker, quản trị/thông báo và các công cụ TV4 đã được tích hợp vào nhánh này. Xem [kết quả và blocker](docs/TV4_WEEK9_WEEK10.md), [runbook vận hành](docs/OPERATIONS_RUNBOOK.md) và [kịch bản demo](docs/DEMO_RUNBOOK.md).
 
-Repo vẫn cần các module API/driver của TV2/TV3 trước khi chạy đầy đủ. CI phân biệt test release-tool chạy trực tiếp với hồi quy TV4 đang chờ dependency; kết quả local dùng support source được gắn nhãn fixture, không phải AWS PASS.
+Các blocker thiếu module ở lần kiểm 04/11 đã được gỡ sau khi TV2/TV3/TV1 tích hợp. CI hiện bắt buộc chạy hồi quy trực tiếp từ repo và toàn bộ release checker; thiếu module hoặc test bị bỏ qua làm kiểm tra thất bại. Kết quả fixture ngày 04/11 vẫn giữ nguyên như bằng chứng lịch sử, kết quả mới nằm trong [main-integration-results.json](docs/main-integration-results.json).
 
-Các tài liệu `report-traceability`/`team-allocation` cũ được giữ để đối chiếu lịch sử. Phân công hiện tại là báo cáo v2, KH01–KH24 và `team/file-ownership.json`; bảng cũ có T10/A19 hoặc giờ kế hoạch khác không mở rộng phạm vi sản phẩm.
+Phân công hiện tại là báo cáo v2, KH01–KH24 và `team/file-ownership.json`. Bốn tài liệu kế hoạch cũ đã được thành viên loại bỏ bằng commit revert; không còn được tính là module chờ tích hợp. Không mở T10 hoặc thay đổi capability trong lần chốt nguồn này.

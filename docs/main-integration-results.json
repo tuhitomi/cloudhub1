@@ -1,0 +1,262 @@
+{
+  "schema": 1,
+  "checked_at": "2026-11-09T12:55:36.284604+00:00",
+  "timezone": "Asia/Bangkok",
+  "repository": "https://github.com/tuhitomi/cloudhub1",
+  "reviewed_base_commit": "76caaccaf94af7544bd51638a4f736c88364a312",
+  "branch_heads": [
+    {
+      "name": "TV1",
+      "sha": "6b83c8886588761b95bfab6260c77d5a774f3152",
+      "protected": false
+    },
+    {
+      "name": "Tv3",
+      "sha": "f6b94932aad88c65941e6f0f82a4163956b13453",
+      "protected": false
+    },
+    {
+      "name": "main",
+      "sha": "76caaccaf94af7544bd51638a4f736c88364a312",
+      "protected": false
+    }
+  ],
+  "open_pull_requests_at_inspection": [],
+  "all_remote_branch_heads_are_ancestors_of_main": true,
+  "scope": "LOCAL_REPOSITORY",
+  "support_file_count": 0,
+  "checks": {
+    "recorded_at": "2026-11-09T12:53:50.534756+00:00",
+    "timezone": "Asia/Bangkok",
+    "mode": "LOCAL_ONLY",
+    "passed": true,
+    "checks": [
+      {
+        "name": "python_syntax",
+        "passed": true,
+        "files": 200
+      },
+      {
+        "name": "python_LOCAL_mock_stubber",
+        "passed": true,
+        "count": 549,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "failure_details": []
+      },
+      {
+        "name": "frontend_LOCAL_DOM_mock",
+        "passed": true,
+        "tests": 229,
+        "pass": 229,
+        "fail": 0,
+        "skipped": 0,
+        "failure_details": []
+      },
+      {
+        "name": "openapi_schema",
+        "passed": true
+      },
+      {
+        "name": "existing_locale_packs",
+        "passed": true,
+        "languages": 8,
+        "messages_per_language": 1244
+      },
+      {
+        "name": "cfn_lint_control",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      },
+      {
+        "name": "cfn_lint_control_external",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      },
+      {
+        "name": "cfn_lint_control_shared",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      },
+      {
+        "name": "cfn_lint_T02_standard",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      },
+      {
+        "name": "cfn_lint_T02_files",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      },
+      {
+        "name": "cfn_lint_T07_standard",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      },
+      {
+        "name": "cfn_lint_T07_files",
+        "passed": true,
+        "blocking": [],
+        "warnings": []
+      }
+    ],
+    "aws_resources_created": 0,
+    "aws_deployments": 0,
+    "aws_native_validation": "NOT_PART_OF_LOCAL_RUN",
+    "physical_mobile_tested": false,
+    "aws_load_tested": false,
+    "limits": [
+      "DOM tests do not prove visual quality or real service permissions.",
+      "This LOCAL runner does not inspect AWS lifecycle, credits or billing; use separate native evidence."
+    ],
+    "scope": "LOCAL_REPOSITORY",
+    "support_file_count": 0,
+    "aws_calls": 0,
+    "blocked_external_network_attempts": 0,
+    "loopback_fixture_connections": 2
+  },
+  "tv4": {
+    "recorded_at": "2026-11-09T12:52:50.653621+00:00",
+    "aws_calls": 0,
+    "aws_sdk_transport": "BLOCKED",
+    "fingerprint_format": "UTF8_LF_SHA256",
+    "full_product_acceptance": false,
+    "covered_files": {
+      "backend/cloudhub/admin_directory.py": "7d32c550cbb840e8ea79d5579478b1fc13b6135caf47b3a0b7b39c6fb251998c",
+      "backend/cloudhub/announcements.py": "f75e13384f93c79348f86ec14ace32fd79c0df26377f890d9232ec9845c814dc",
+      "backend/cloudhub/archive.py": "1e213b740c3609a46724686c2ac9c24f7630e3f5fdbd8661cd00b0cc19ed48fb",
+      "backend/cloudhub/backup_export.py": "1e33cd8eea45e670bfacdda0dca077801323eca7efce3bda396b75d80867c461",
+      "backend/cloudhub/driver_router.py": "28a6609436589ed0bd1b9c2167704cf10fc74c6a7c4e478a3e10bebfdce096e4",
+      "backend/cloudhub/lifecycle.py": "9341e4c775d71c390b3936451383a328f385738d93d845b63cb1bfa74923d3b6",
+      "backend/cloudhub/lifecycle_scheduler.py": "4b7c3f1fdfad8298f3cdd91ef76801aedbac31b29e5f8643f1f83c3cd829a06d",
+      "backend/cloudhub/notification_email.py": "c8fa647950f42c20e026202870368e311a2103f1a48d16759a271a22f8040407",
+      "backend/cloudhub/notifications.py": "4b277e94101dae776a7f159e06bf1a004f3fed724c36c315148363b2ef9a86ac",
+      "backend/cloudhub/operating_policy.py": "c0005dcea8cc1937f10cd7d4dd7357fa94e908e06fa057254e29ad11c01008b4",
+      "backend/cloudhub/portal.py": "5994f42a13ad5906795403a09a3ffe48cff1ade3e1007415e9ddaa718ebb9d4f",
+      "backend/cloudhub/portal_api.py": "0577971275afc781af4c4af938066a9d6ef3f0a6150f6b487818c2216139eed1",
+      "backend/cloudhub/recovery_actions.py": "cc999344d1a9376e77cbe561bafdaffd07b0c90f6fe64099fff90778918adb55",
+      "backend/cloudhub/runtime.py": "23d8e09e4006cb852957bd994e5d314e9226478792ee5e52f922be7849b5993a",
+      "backend/cloudhub/test_visibility.py": "e1c5a5de9f064b9ac31c4f176df5e2afdfefcf8fe56a208530161bb64ca322eb",
+      "backend/cloudhub/worker.py": "39878b4fe64fedf86979e885c8bc2f15ab292c9e8901c2023a64f924ed391d4a",
+      "infra/lifecycle.asl.json": "f30cfb1ee3046b00754a66a7dff91e36e2109b009ffece3cdbe310d8a99b4967",
+      "scripts/announcement_infra.py": "5e0f2888c60be3b97f15c9323177751ee9bc10c01bdd4a31a26b2497b2cd6cbd",
+      "scripts/archive_test_data.py": "b53e215c9ac8fbf19f700f2fda816c60e3621736045e0ceb962c9b3b1b1bb910",
+      "scripts/benchmark.py": "dc1f6940da9b7b6f48b36ca4df9e3942d44042b350fa4490b9fe67a46ed5edef",
+      "scripts/check.py": "66bfb2e5df471cd0644da58087e37fc1c3cb84994eb71f75cceec2756b3ebc37",
+      "scripts/check_leader_handoff.py": "9803a4fb93076f08bdd6f528562c533583d884ca15f3e4f5f24a36a5fb4a7fbe",
+      "scripts/check_local.py": "d1769322e17b012f1dc05168ee0aa7dd5f538bb98575e961c77e31d655181c82",
+      "scripts/check_product_release.py": "3598f309e2e5a9916638be461d7bd15cfe4e4b83f967845968ef98b3539f1e84",
+      "scripts/check_team_ownership.py": "ccd869744725c0ef6e261047d93903180c4a29561a1efc0b6eb09c7da875c900",
+      "scripts/check_tv4.py": "46f8d90d89a1d0b09d2c496f3a04e19d422082dcd4451c9271a290d231bb84ca",
+      "scripts/generate_codeowners.py": "4daf5cc062e9b13b0403fc5ff749fbe782df4cd477da886af2f4b5ab0ad52218",
+      "scripts/lifecycle_http.py": "37abdc7d968efccec95d7f0f759bc7264d838cfc7efa6ec01ac632a76dcf4db2",
+      "scripts/measure_expiry.py": "38626ba7c5796647863cf5d33e6c391d823b9b26290dbc6348c884d2ee85c285",
+      "scripts/measure_product_local.py": "aae57013f1fd46dd29bab15679849d213c469f44387a89c71d3ed58297130335",
+      "scripts/notification_infra.py": "8242c66ba9ce616b82f6695de65bfe6ad3ca8098c4262ca15eb6e1d9f80abbb5",
+      "scripts/package_console.py": "159310be0608a0e00b70b58c663c7509ee117c3af84ed890d8a5a456cd26f794",
+      "scripts/portal_infra.py": "ac034115e6cd46f95f4716a134b9273ef85ce4f086fec0635909c9afd4c5598e",
+      "scripts/prepare_product_0_8_packet.py": "d4974c8477825b0acbc649d8331862aacf3075d7211030a5cae9d5068765575d",
+      "scripts/prepare_product_release.py": "afc97f8e0e1047e47baedd1464eec29883edfdd7711d12cce194d65464d5559b",
+      "scripts/prepare_recommendations_release.py": "558f5e4842ce7bc6f3ac5d3602f3e2b4bb2f57ec13b978635c8ff042c1f906c0",
+      "scripts/product_completion_infra.py": "a46ff2197511d721781354e1a4d3b2be2b049db56dc78cca8837d15ebb9412a5",
+      "scripts/product_release_preflight.py": "6c454b01b39f73d484d5084a634ca0c57263dd04cff98604d928ebdfe2160194",
+      "scripts/recommendation_infra.py": "d87e4295eeae6f4856f702911a2ba68f38e61964d8361c36a3b23342ac79ff4c",
+      "scripts/region_i18n_infra.py": "904543ac4f017cbd882b740027f31ab4e584cd86c2960d620736cc115bbc3582",
+      "tests/test_admin_directory.py": "7d2416138316eac11406b1b55a8e57c77280ef5ae012fecbb9d650d049f1f60e",
+      "tests/test_announcements.py": "a2a3421f74f95adcb2a66d5f56be4271e7d972ddf0ced644fb983fe8df20a666",
+      "tests/test_construction_retry.py": "d1cd1db6c1b9a3599253543fe33cec170dcc990af33d68cd719e4ca7598cfc69",
+      "tests/test_lifecycle.py": "972f490da3cd9edadb69e013a9334ea39f4cfc4515252287ba5f6f70744cbc66",
+      "tests/test_lifecycle_http.py": "24260efbfcfed878e5fc2239694e8f06936db7b451c56452f0df38549e390162",
+      "tests/test_lifecycle_resume.py": "f867978aed04552810c5ef0627a44c243f67cdfc7266a97f17ec7487375a884c",
+      "tests/test_lifecycle_scheduler.py": "866a9a1a4a388a0b49fa7d3d940fee59cabd88cb89743b93bbab0c1d0ee6b8fe",
+      "tests/test_local_validation.py": "700d63cabf616d47fd42d25140b03d0bd3f97d73def1d6512109fec8b0c535b0",
+      "tests/test_portal.py": "096fde71c4bcf66d22d3f6a3fee2cfae9be2c2fe4727288a321a558ebe4a9ecd",
+      "tests/test_portal_sdk.py": "0f2de6acfe5e97dbbe7cd3879d0ad774412cf5da490f20c394991c4c19fcfc56",
+      "tests/test_product_rollout_compatibility.py": "967abd2038d920c98ad00ed6f45b6ef0d65d083650686b85b5ad445846c52783",
+      "tests/test_test_visibility.py": "fbc321484659288804defa8ecec29063452fbdc19ca82ad1f094364c85826ed3",
+      "tests/test_tv4_failure_paths.py": "372e5482bec4de1256c9cce19b6c346a12b5e383bc6fb4ef25aaa1716dc01393",
+      "tests/test_tv4_release_tools.py": "f7d459d2b902aec7e962e4934e952c0e9341d60c071cf52ce3e0c9d754aa653b",
+      "tests/test_user_notifications.py": "b35d9c67cd69716172d3ce3e70885c2937c364ae127a93eab7d5780e0db62bb2"
+    },
+    "status": "LOCAL_TV4_TESTS_PASSED",
+    "passed": true,
+    "scope": "LOCAL_REPOSITORY",
+    "tests_run": 152,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "blocked_network_attempts": 0,
+    "suites": [
+      "test_admin_directory",
+      "test_announcements",
+      "test_construction_retry",
+      "test_lifecycle",
+      "test_lifecycle_http",
+      "test_lifecycle_resume",
+      "test_lifecycle_scheduler",
+      "test_local_validation",
+      "test_portal",
+      "test_portal_sdk",
+      "test_product_rollout_compatibility",
+      "test_test_visibility",
+      "test_tv4_failure_paths",
+      "test_tv4_release_tools",
+      "test_user_notifications"
+    ],
+    "support_files": [],
+    "failure_details": [],
+    "limitations": [
+      "Unit/mock/SDK Stubber only; no AWS account, IAM, billing, load or restored production data was verified.",
+      "A support-fixture PASS does not mean all dependencies are present in the public repository."
+    ]
+  },
+  "aws_deployments": 0,
+  "aws_resources_created": 0,
+  "aws_billing_checked": false,
+  "website_served_revision_checked": false,
+  "runtime_gates_changed": false,
+  "limitations": [
+    "Native repository unit/mock/SDK Stubber and DOM tests only; no AWS lifecycle/load or physical browser acceptance in this review.",
+    "Existing cloud deployment is unchanged; this source integration is not an AWS release."
+  ],
+  "ownership": {
+    "present": 343,
+    "planned": 343,
+    "pending": 0,
+    "unassigned": 0,
+    "retired_planning_files": 4
+  },
+  "offline_package": {
+    "mode": "LOCAL_PACKAGE_NOT_UPLOADED",
+    "sha256": "168670dca7a31b35aad065ac69c8aa9082b70fcabb25afe223f57754488e95df",
+    "bytes": 16841541,
+    "entries": 2266,
+    "dependencies": {
+      "boto3": "1.43.110",
+      "botocore": "1.43.110",
+      "s3transfer": "0.19.2",
+      "jmespath": "1.1.0",
+      "python-dateutil": "2.9.0.post0",
+      "urllib3": "2.8.0",
+      "six": "1.17.0"
+    },
+    "template_sha256": "59f2f405071a0926afe01787a6d2072c3652861441fc2149ddc617d5f4dd528a",
+    "runtime": "python3.13",
+    "architecture": "x86_64",
+    "uploaded": false,
+    "used_placeholder_bucket": true,
+    "binary_committed": false
+  },
+  "local_toolchain": {
+    "python": "3.13.0",
+    "node": "v24.20.0",
+    "platform": "win32"
+  }
+}

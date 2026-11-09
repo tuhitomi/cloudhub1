@@ -9,7 +9,7 @@
     "TV4"
   ],
   "leader": "TV4",
-  "allow_pending_files": true,
+  "allow_pending_files": false,
   "files": [
     {
       "path": ".gitattributes",
@@ -614,20 +614,6 @@
       "generated": false
     },
     {
-      "path": "config/report-items.json",
-      "owner": "TV4",
-      "task": "KH24",
-      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
-      "generated": false
-    },
-    {
-      "path": "config/team-allocation.json",
-      "owner": "TV4",
-      "task": "KH24",
-      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
-      "generated": false
-    },
-    {
       "path": "docs/DEMO_RUNBOOK.md",
       "owner": "TV4",
       "task": "KH24",
@@ -639,6 +625,13 @@
       "owner": "TV4",
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "docs/MAIN_INTEGRATION_STATUS.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Current-main integration validation, release review and evidence",
       "generated": false
     },
     {
@@ -691,6 +684,20 @@
       "generated": true
     },
     {
+      "path": "docs/main-integration-manifest.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Current-main integration validation, release review and evidence",
+      "generated": true
+    },
+    {
+      "path": "docs/main-integration-results.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Current-main integration validation, release review and evidence",
+      "generated": true
+    },
+    {
       "path": "docs/openapi.json",
       "owner": "TV2",
       "task": "KH22",
@@ -719,13 +726,6 @@
       "generated": false
     },
     {
-      "path": "docs/report-traceability.md",
-      "owner": "TV4",
-      "task": "KH24",
-      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
-      "generated": false
-    },
-    {
       "path": "docs/requirements.md",
       "owner": "TV4",
       "task": "KH24",
@@ -744,13 +744,6 @@
       "owner": "TV4",
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
-      "generated": false
-    },
-    {
-      "path": "docs/team-allocation.md",
-      "owner": "TV4",
-      "task": "KH24",
-      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
       "generated": false
     },
     {
@@ -2168,6 +2161,13 @@
       "generated": false
     },
     {
+      "path": "tests/test_local_validation.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Current-main integration validation, release review and evidence",
+      "generated": false
+    },
+    {
       "path": "tests/test_platform_target.py",
       "owner": "TV3",
       "task": "KH19",
@@ -2411,6 +2411,44 @@
       "task": "KH17",
       "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
       "generated": false
+    }
+  ],
+  "retired_files": [
+    {
+      "path": "config/report-items.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false,
+      "retired_by_commit": "91802ab1d2e1cdb2578c23130fcc6099ebb0e178",
+      "reason_retired": "Legacy planning documents were removed by the existing member revert; v2 ownership remains authoritative."
+    },
+    {
+      "path": "config/team-allocation.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false,
+      "retired_by_commit": "91802ab1d2e1cdb2578c23130fcc6099ebb0e178",
+      "reason_retired": "Legacy planning documents were removed by the existing member revert; v2 ownership remains authoritative."
+    },
+    {
+      "path": "docs/report-traceability.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false,
+      "retired_by_commit": "91802ab1d2e1cdb2578c23130fcc6099ebb0e178",
+      "reason_retired": "Legacy planning documents were removed by the existing member revert; v2 ownership remains authoritative."
+    },
+    {
+      "path": "docs/team-allocation.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Review legacy planning documents contributed on main; report v2 is the current allocation",
+      "generated": false,
+      "retired_by_commit": "91802ab1d2e1cdb2578c23130fcc6099ebb0e178",
+      "reason_retired": "Legacy planning documents were removed by the existing member revert; v2 ownership remains authoritative."
     }
   ]
 }

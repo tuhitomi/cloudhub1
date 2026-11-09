@@ -25,7 +25,7 @@ Với GitHub Desktop: clone URL, tạo/chọn nhánh của mình, kiểm từng 
 
 ## Kiểm thử
 
-`check_local.py` chỉ kiểm phần mã hiện có và các suite frontend đủ dependency, không gọi AWS. Sau khi đủ các module và cài dependencies trong `requirements-dev.txt`, chạy thêm Python unit/integration và toàn bộ frontend theo docs/testing.md. Báo rõ test không chạy được và nguyên nhân.
+`check_local.py` kiểm cú pháp/bản dịch và bốn suite frontend, không gọi AWS. Main đã có đủ module ứng dụng; sau khi cài `requirements-dev.txt`, chạy `python scripts/check_product_release.py --out main-checks.private.json` để kiểm đầy đủ Python/frontend/OpenAPI/IaC trong môi trường offline. Xem docs/testing.md. CI từ chối thiếu module và test bị bỏ qua; báo rõ test không chạy được và nguyên nhân.
 
 Không chạy script deployment, migration, load test hoặc vòng đời AWS chỉ để kiểm một PR tài liệu. Những tác vụ đó cần config, tài nguyên thử, quyền và ngân sách riêng. Review tác dụng phụ trước khi chạy script.
 
