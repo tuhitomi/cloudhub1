@@ -1,0 +1,63 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "FrontendA": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "HostedZoneId": "ZEXAMPLE",
+        "Name": "app.example.com.",
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": "example.cloudfront.net",
+          "HostedZoneId": "Z2FDTNDATAQYW2",
+          "EvaluateTargetHealth": false
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "FrontendAAAA": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "HostedZoneId": "ZEXAMPLE",
+        "Name": "app.example.com.",
+        "Type": "AAAA",
+        "AliasTarget": {
+          "DNSName": "example.cloudfront.net",
+          "HostedZoneId": "Z2FDTNDATAQYW2",
+          "EvaluateTargetHealth": false
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "ApiA": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "HostedZoneId": "ZEXAMPLE",
+        "Name": "api.example.com.",
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": {
+            "Ref": "ApiTargetDomain"
+          },
+          "HostedZoneId": {
+            "Ref": "ApiTargetZone"
+          },
+          "EvaluateTargetHealth": false
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    }
+  },
+  "Parameters": {
+    "ApiTargetDomain": {
+      "Type": "String"
+    },
+    "ApiTargetZone": {
+      "Type": "String"
+    }
+  },
+  "Description": "ILLUSTRATIVE ONLY: generate a native inventory and reviewed plan before deployment."
+}

@@ -1,0 +1,30 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "Certificate": {
+      "Type": "AWS::CertificateManager::Certificate",
+      "Properties": {
+        "DomainName": "api.example.com",
+        "ValidationMethod": "DNS",
+        "CertificateTransparencyLoggingPreference": "ENABLED",
+        "CertificateExport": "DISABLED",
+        "DomainValidationOptions": [
+          {
+            "DomainName": "api.example.com",
+            "HostedZoneId": "ZEXAMPLE"
+          }
+        ]
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    }
+  },
+  "Outputs": {
+    "CertificateArn": {
+      "Value": {
+        "Ref": "Certificate"
+      }
+    }
+  },
+  "Description": "ILLUSTRATIVE ONLY: generate a native inventory and reviewed plan before deployment."
+}

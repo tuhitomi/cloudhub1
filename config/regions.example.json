@@ -1,0 +1,9 @@
+{
+  "control_region": "ap-southeast-1",
+  "validation_regions": [],
+  "regions": {
+    "ap-southeast-1": {"enabled": true, "prepared": true},
+    "ap-northeast-1": {"enabled": false, "prepared": false, "verifications": {}},
+    "us-east-1": {"enabled": false, "prepared": false, "verifications": {}}
+  }
+}

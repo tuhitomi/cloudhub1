@@ -1,0 +1,21 @@
+{
+  "ACCOUNT_ID": "REQUIRED_12_DIGITS",
+  "PRIMARY_REGION": "ap-southeast-1",
+  "SHARED_STACK_REGION": "ap-southeast-1",
+  "SHARED_EDGE_STACK_NAME": "",
+  "ROOT_DOMAIN": "",
+  "FRONTEND_DOMAIN": "",
+  "API_DOMAIN": "",
+  "DNS_PROVIDER": "external",
+  "ROUTE53_HOSTED_ZONE_ID": "",
+  "FRONTEND_CERTIFICATE_ARN": "",
+  "API_CERTIFICATE_ARN": "",
+  "REDIRECT_DOMAIN": "",
+  "IPV6_ENABLED": true,
+  "API_STAGE": "$default",
+  "API_MAPPING_KEY": "",
+  "COGNITO_REGION": "ap-southeast-1",
+  "TRANSITION_ORIGINS": [],
+  "ADDITIONAL_MONTHLY_BUDGET_USD": 0,
+  "DNS_CHANGE_APPROVED": false
+}

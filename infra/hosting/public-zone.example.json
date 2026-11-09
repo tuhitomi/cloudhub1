@@ -1,0 +1,43 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "PublicZone": {
+      "Type": "AWS::Route53::HostedZone",
+      "Properties": {
+        "Name": "example.com",
+        "HostedZoneConfig": {
+          "Comment": "CloudHub shared public DNS; preserve on regional removal"
+        },
+        "HostedZoneTags": [
+          {
+            "Key": "project",
+            "Value": "CloudHub"
+          }
+        ]
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    }
+  },
+  "Outputs": {
+    "HostedZoneId": {
+      "Value": {
+        "Ref": "PublicZone"
+      }
+    },
+    "NameServers": {
+      "Value": {
+        "Fn::Join": [
+          ",",
+          {
+            "Fn::GetAtt": [
+              "PublicZone",
+              "NameServers"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "Description": "ILLUSTRATIVE ONLY: generate a native inventory and reviewed plan before deployment."
+}
