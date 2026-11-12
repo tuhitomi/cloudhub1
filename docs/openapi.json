@@ -6160,7 +6160,7 @@
             "description": "For a detail preview supply template_id, region and profile_id together. hours defaults to 1."
           }
         ],
-        "description": "Unauthenticated allowlisted product metadata. No request body, owner selector, quote, reservation, resource identifier, account data or credentials. GET only. Query-free response has all T01–T09 and current signup defaults. Detail preview uses the existing regional estimator. Amounts are indicative and cannot authorize creation. All responses use Cache-Control: no-store.",
+        "description": "Unauthenticated allowlisted product metadata. No request body, owner selector, quote, reservation, resource identifier, account data or credentials. GET only. Query-free response has all T01–T09 and current signup defaults. Detail preview uses the existing regional estimator. Amounts are indicative and cannot authorize creation. Successful responses are cacheable for 60 seconds (Cache-Control: public, max-age=60) and are gzip-compressed when the client sends Accept-Encoding: gzip; error responses use Cache-Control: no-store.",
         "responses": {
           "200": {
             "description": "Public product metadata or indicative detail preview.",

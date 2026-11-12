@@ -103,6 +103,13 @@
       "generated": false
     },
     {
+      "path": "backend/cloudhub/api_entry.py",
+      "owner": "TV2",
+      "task": "KH05",
+      "reason": "Xây dựng hợp đồng HTTP, tích hợp JWT Cognito và kiểm owner/admin tại backend; kết quả là API tài khoản và cơ chế phân quyền đối tượng.",
+      "generated": false
+    },
+    {
       "path": "backend/cloudhub/application_driver.py",
       "owner": "TV3",
       "task": "KH10",
@@ -702,6 +709,13 @@
       "owner": "TV2",
       "task": "KH22",
       "reason": "Chốt OpenAPI và cấu trúc lỗi; rà soát cấu hình giá, quota, ví và dữ liệu trả về; sửa lỗi API, kiểm tra hồi quy và hướng dẫn cấu hình backend.",
+      "generated": false
+    },
+    {
+      "path": "docs/performance.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
@@ -1531,6 +1545,13 @@
       "generated": false
     },
     {
+      "path": "scripts/performance_infra.py",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
+    },
+    {
       "path": "scripts/portal_infra.py",
       "owner": "TV4",
       "task": "KH16",
@@ -2165,6 +2186,13 @@
       "owner": "TV4",
       "task": "KH24",
       "reason": "Current-main integration validation, release review and evidence",
+      "generated": false
+    },
+    {
+      "path": "tests/test_performance.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {

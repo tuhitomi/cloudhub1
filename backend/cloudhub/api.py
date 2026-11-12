@@ -43,6 +43,57 @@ def public(row):
     return result
 
 def handler(event, context=None):
+    """Route the request, then gzip large JSON bodies when the client accepts it."""
+    return compress(event, route(event, context))
+
+# Public catalog projection: identical for every anonymous viewer, so a warm
+# execution environment reuses it briefly instead of re-reading prices and
+# Region policy on each request. Errors are never cached.
+PUBLIC_CACHE = {}
+PUBLIC_CACHE_LIMIT = 64
+
+def public_cache_seconds():
+    try:return max(0, min(300, int(os.getenv('PUBLIC_CATALOG_CACHE_SECONDS', '60'))))
+    except ValueError:return 0
+
+def public_catalog_response(query, now=None):
+    from .public_catalog import read as public_catalog
+    ttl = public_cache_seconds()
+    key = json.dumps(query or {}, sort_keys=True)
+    now = time.monotonic() if now is None else now
+    hit = PUBLIC_CACHE.get(key)
+    if ttl and hit and 0 <= now - hit[0] < ttl:
+        body, state = hit[1], 'HIT'
+    else:
+        body, state = public_catalog(SERVICE, query), 'MISS'
+        if ttl:
+            if len(PUBLIC_CACHE) >= PUBLIC_CACHE_LIMIT:PUBLIC_CACHE.clear()
+            PUBLIC_CACHE[key] = (now, body)
+    result = response(200, body)
+    result['headers'].update({'cache-control': f'public, max-age={ttl}' if ttl else 'no-store', 'x-cloudhub-cache': state})
+    return result
+
+COMPRESS_MIN_BYTES = 1024
+
+def compress(event, result):
+    """gzip JSON responses over 1 KiB for clients that send Accept-Encoding: gzip."""
+    headers = {str(k).lower(): str(v) for k, v in (event.get('headers') or {}).items()}
+    accepted = [part.split(';')[0].strip().lower() for part in headers.get('accept-encoding', '').split(',')]
+    if not isinstance(result, dict) or result.get('isBase64Encoded') or not isinstance(result.get('body'), str):
+        return result
+    out_headers = result.get('headers') or {}
+    if 'gzip' not in accepted or out_headers.get('content-encoding') or not str(out_headers.get('content-type', '')).startswith('application/json'):
+        return result
+    raw = result['body'].encode('utf-8')
+    if len(raw) < COMPRESS_MIN_BYTES:
+        return result
+    import gzip
+    packed = gzip.compress(raw, compresslevel=6, mtime=0)
+    vary = out_headers.get('vary')
+    return {**result, 'isBase64Encoded': True, 'body': base64.b64encode(packed).decode('ascii'),
+            'headers': {**out_headers, 'content-encoding': 'gzip', 'vary': (vary + ', ' if vary else '') + 'Accept-Encoding'}}
+
+def route(event, context=None):
     global SERVICE, DISPATCH
     started=time.perf_counter();timings={}
     if event.get('rawPath')=='/ui-context' and event.get('requestContext',{}).get('http',{}).get('method')=='GET':
@@ -52,8 +103,7 @@ def handler(event, context=None):
         from .runtime import build_service, dispatch, enqueue_dispatch
         SERVICE, DISPATCH = build_service(), enqueue_dispatch if os.getenv("ASYNC_DISPATCH_FUNCTION") else dispatch
     if event.get('rawPath')=='/public/catalog' and event.get('requestContext',{}).get('http',{}).get('method')=='GET':
-        from .public_catalog import read as public_catalog
-        try:return response(200,public_catalog(SERVICE,event.get('queryStringParameters')))
+        try:return public_catalog_response(event.get('queryStringParameters'))
         except HubError as exc:return response(exc.status,{'error':{'code':exc.code,'message':exc.message}})
         except Exception:
             log.exception('Public catalog unavailable')
