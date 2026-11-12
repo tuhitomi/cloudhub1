@@ -17,6 +17,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `backend/cloudhub/admin_directory.py` | TV4 | KH16 | Có mã/tài liệu |
 | `backend/cloudhub/announcements.py` | TV4 | KH16 | Có mã/tài liệu |
 | `backend/cloudhub/api.py` | TV2 | KH05 | Có mã/tài liệu |
+| `backend/cloudhub/api_entry.py` | TV2 | KH05 | Có mã/tài liệu |
 | `backend/cloudhub/application_driver.py` | TV3 | KH10 | Có mã/tài liệu |
 | `backend/cloudhub/applications.py` | TV2 | KH08 | Có mã/tài liệu |
 | `backend/cloudhub/archive.py` | TV4 | KH15 | Có mã/tài liệu |
@@ -103,6 +104,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `docs/main-integration-manifest.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/main-integration-results.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/openapi.json` | TV2 | KH22 | Có mã/tài liệu |
+| `docs/performance.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/platform-portability-runbook.md` | TV3 | KH23 | Có mã/tài liệu |
 | `docs/pricing-and-capacity.md` | TV2 | KH07 | Có mã/tài liệu |
 | `docs/product-scope.md` | TV4 | KH24 | Có mã/tài liệu |
@@ -221,6 +223,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/notification_infra.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/notification_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/package_console.py` | TV4 | KH16 | Có mã/tài liệu |
+| `scripts/performance_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/portal_infra.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/portal_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/preflight.py` | TV3 | KH09 | Có mã/tài liệu |
@@ -312,6 +315,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `tests/test_lifecycle_resume.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_lifecycle_scheduler.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_local_validation.py` | TV4 | KH24 | Có mã/tài liệu |
+| `tests/test_performance.py` | TV4 | KH24 | Có mã/tài liệu |
 | `tests/test_platform_target.py` | TV3 | KH19 | Có mã/tài liệu |
 | `tests/test_portal.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_portal_sdk.py` | TV4 | KH20 | Có mã/tài liệu |

@@ -261,6 +261,8 @@ def build_template(frontend_url=None, existing_data=None, shared_edge=None):
     extend_announcements(template)
     from template_view_infra import extend as extend_template_view
     extend_template_view(template)
+    from performance_infra import extend as extend_performance
+    extend_performance(template)
     from hosting import PROTECTED_TYPES,retain,regional_shared
     for resource in template['Resources'].values():
         if resource['Type'] in PROTECTED_TYPES:retain(resource)

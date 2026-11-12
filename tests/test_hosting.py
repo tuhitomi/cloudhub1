@@ -79,9 +79,13 @@ class HostingTests(unittest.TestCase):
         d=e['Resources']['FrontendDistribution']['Properties']['DistributionConfig']
         self.assertEqual(d['Aliases'],['app.example.com']);self.assertEqual(d['ViewerCertificate']['MinimumProtocolVersion'],'TLSv1.2_2021')
         self.assertFalse(d.get('CustomErrorResponses'));self.assertEqual(d['Origins'][0]['S3OriginConfig']['OriginAccessIdentity'],'')
-        for path in ('config.js','index.html'):
-            b=next(x for x in d['CacheBehaviors'] if x.get('PathPattern')==path)
-            self.assertEqual(b['CachePolicyId'],'4135ea2d-6df8-44a3-9df3-4b5a84be39ad')
+        # config.js stays uncached; HTML and assets use the short edge TTL policy.
+        b=next(x for x in d['CacheBehaviors'] if x.get('PathPattern')=='config.js')
+        self.assertEqual(b['CachePolicyId'],'4135ea2d-6df8-44a3-9df3-4b5a84be39ad')
+        b=next(x for x in d['CacheBehaviors'] if x.get('PathPattern')=='index.html')
+        self.assertEqual(b['CachePolicyId'],{'Ref':'FrontendEdgeCachePolicy'})
+        self.assertEqual(d['DefaultCacheBehavior']['CachePolicyId'],{'Ref':'FrontendEdgeCachePolicy'})
+        self.assertEqual(d['PriceClass'],'PriceClass_200')
         country=next(b['Fn::If'][1] for b in d['CacheBehaviors'] if 'Fn::If' in b)
         self.assertEqual(country['PathPattern'],'/ui-context');self.assertEqual(country['AllowedMethods'],['GET','HEAD'])
 

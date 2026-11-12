@@ -8,7 +8,7 @@
           "Enabled": true,
           "DefaultRootObject": "index.html",
           "HttpVersion": "http2",
-          "PriceClass": "PriceClass_100",
+          "PriceClass": "PriceClass_200",
           "Origins": [
             {
               "Id": "private-s3",
@@ -66,7 +66,9 @@
               "HEAD"
             ],
             "Compress": true,
-            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "CachePolicyId": {
+              "Ref": "FrontendEdgeCachePolicy"
+            },
             "ResponseHeadersPolicyId": "67f7725c-6f97-4210-82d7-5512b31e9d03"
           },
           "ViewerCertificate": {
@@ -89,7 +91,9 @@
                 "HEAD"
               ],
               "Compress": true,
-              "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+              "CachePolicyId": {
+                "Ref": "FrontendEdgeCachePolicy"
+              },
               "ResponseHeadersPolicyId": "67f7725c-6f97-4210-82d7-5512b31e9d03",
               "PathPattern": "index.html"
             },
@@ -181,6 +185,33 @@
       },
       "DeletionPolicy": "Retain",
       "UpdateReplacePolicy": "Retain"
+    },
+    "FrontendEdgeCachePolicy": {
+      "Type": "AWS::CloudFront::CachePolicy",
+      "Properties": {
+        "CachePolicyConfig": {
+          "Name": {
+            "Fn::Sub": "${AWS::StackName}-frontend-edge"
+          },
+          "Comment": "CloudHub frontend: short edge TTL, gzip and brotli, no cookies/query/headers in key",
+          "MinTTL": 60,
+          "DefaultTTL": 60,
+          "MaxTTL": 300,
+          "ParametersInCacheKeyAndForwardedToOrigin": {
+            "EnableAcceptEncodingGzip": true,
+            "EnableAcceptEncodingBrotli": true,
+            "CookiesConfig": {
+              "CookieBehavior": "none"
+            },
+            "HeadersConfig": {
+              "HeaderBehavior": "none"
+            },
+            "QueryStringsConfig": {
+              "QueryStringBehavior": "none"
+            }
+          }
+        }
+      }
     }
   },
   "Parameters": {
