@@ -8118,6 +8118,310 @@
           }
         }
       }
+    },
+    "/environments/{environment_id}/terminal": {
+      "post": {
+        "operationId": "startTerminal",
+        "summary": "Start a Session Manager shell on the owned T01/T05/T08 instance.",
+        "description": "No SSH key or inbound port. IAM allows only CloudHub-managed instances. At most 2 active sessions per environment.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environment_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^env-[a-f0-9]{24}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TerminalStart"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Session started",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TerminalSession"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "404": {
+            "description": "Not owned"
+          },
+          "409": {
+            "description": "State, verification, price or quota conflict"
+          }
+        }
+      },
+      "get": {
+        "operationId": "listTerminals",
+        "summary": "Active terminal sessions of the environment (no tokens).",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environment_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^env-[a-f0-9]{24}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sessions"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "404": {
+            "description": "Not owned"
+          },
+          "409": {
+            "description": "State, verification, price or quota conflict"
+          }
+        }
+      }
+    },
+    "/environments/{environment_id}/terminal/{session_id}": {
+      "post": {
+        "operationId": "endTerminal",
+        "summary": "Terminate an owned terminal session.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environment_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^env-[a-f0-9]{24}$"
+            }
+          },
+          {
+            "in": "path",
+            "name": "session_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 96
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session ended",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TerminalEnd"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "404": {
+            "description": "Not owned"
+          },
+          "409": {
+            "description": "State, verification, price or quota conflict"
+          }
+        }
+      }
+    },
+    "/environments/{environment_id}/resize": {
+      "get": {
+        "operationId": "resizeOptions",
+        "summary": "Machine types reachable without changing disks, with verification and cost difference.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environment_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^env-[a-f0-9]{24}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Options",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResizeOptions"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "404": {
+            "description": "Not owned"
+          },
+          "409": {
+            "description": "State, verification, price or quota conflict"
+          }
+        }
+      },
+      "post": {
+        "operationId": "resizeEnvironment",
+        "summary": "Change the EC2 instance type through the environment CloudFormation stack.",
+        "description": "EC2 stop/start; instance ID, disks and data are kept; public IPv4 may change. Failed updates roll back to the previous type.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environment_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^env-[a-f0-9]{24}$"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResizeInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Resize accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "404": {
+            "description": "Not owned"
+          },
+          "409": {
+            "description": "State, verification, price or quota conflict"
+          }
+        }
+      }
+    },
+    "/environments/{environment_id}/cost-series": {
+      "get": {
+        "operationId": "costSeries",
+        "summary": "Daily estimate next to the last reconciled Cost Explorer actuals.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "environment_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^env-[a-f0-9]{24}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Series",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CostSeries"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "404": {
+            "description": "Not owned"
+          },
+          "409": {
+            "description": "State, verification, price or quota conflict"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -8293,6 +8597,35 @@
                     "type": "integer",
                     "enum": [
                       16
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "instance_type",
+                  "root_gib",
+                  "data_gib"
+                ],
+                "properties": {
+                  "instance_type": {
+                    "type": "string",
+                    "enum": [
+                      "t3.small"
+                    ]
+                  },
+                  "root_gib": {
+                    "type": "integer",
+                    "enum": [
+                      16
+                    ]
+                  },
+                  "data_gib": {
+                    "type": "integer",
+                    "enum": [
+                      8
                     ]
                   }
                 }
@@ -8544,6 +8877,77 @@
                   "min_instances",
                   "max_instances",
                   "max_records",
+                  "max_record_bytes",
+                  "db_multi_az"
+                ],
+                "properties": {
+                  "instance_type": {
+                    "type": "string",
+                    "enum": [
+                      "t3.micro"
+                    ]
+                  },
+                  "root_gib": {
+                    "type": "integer",
+                    "enum": [
+                      16
+                    ]
+                  },
+                  "db_class": {
+                    "type": "string",
+                    "enum": [
+                      "db.t3.micro"
+                    ]
+                  },
+                  "db_gib": {
+                    "type": "integer",
+                    "enum": [
+                      20
+                    ]
+                  },
+                  "min_instances": {
+                    "type": "integer",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "max_instances": {
+                    "type": "integer",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "max_records": {
+                    "type": "integer",
+                    "enum": [
+                      32
+                    ]
+                  },
+                  "max_record_bytes": {
+                    "type": "integer",
+                    "enum": [
+                      256
+                    ]
+                  },
+                  "db_multi_az": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "instance_type",
+                  "root_gib",
+                  "db_class",
+                  "db_gib",
+                  "min_instances",
+                  "max_instances",
+                  "max_records",
                   "max_record_bytes"
                 ],
                 "properties": {
@@ -8657,6 +9061,77 @@
                     "type": "integer",
                     "enum": [
                       256
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "instance_type",
+                  "root_gib",
+                  "db_class",
+                  "db_gib",
+                  "min_instances",
+                  "max_instances",
+                  "max_records",
+                  "max_record_bytes",
+                  "db_multi_az"
+                ],
+                "properties": {
+                  "instance_type": {
+                    "type": "string",
+                    "enum": [
+                      "t3.micro"
+                    ]
+                  },
+                  "root_gib": {
+                    "type": "integer",
+                    "enum": [
+                      16
+                    ]
+                  },
+                  "db_class": {
+                    "type": "string",
+                    "enum": [
+                      "db.t3.micro"
+                    ]
+                  },
+                  "db_gib": {
+                    "type": "integer",
+                    "enum": [
+                      20
+                    ]
+                  },
+                  "min_instances": {
+                    "type": "integer",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "max_instances": {
+                    "type": "integer",
+                    "enum": [
+                      2
+                    ]
+                  },
+                  "max_records": {
+                    "type": "integer",
+                    "enum": [
+                      32
+                    ]
+                  },
+                  "max_record_bytes": {
+                    "type": "integer",
+                    "enum": [
+                      256
+                    ]
+                  },
+                  "db_multi_az": {
+                    "type": "boolean",
+                    "enum": [
+                      true
                     ]
                   }
                 }
@@ -9113,6 +9588,35 @@
                 "type": "object",
                 "additionalProperties": false,
                 "required": [
+                  "instance_type",
+                  "root_gib",
+                  "data_gib"
+                ],
+                "properties": {
+                  "instance_type": {
+                    "type": "string",
+                    "enum": [
+                      "t3.small"
+                    ]
+                  },
+                  "root_gib": {
+                    "type": "integer",
+                    "enum": [
+                      16
+                    ]
+                  },
+                  "data_gib": {
+                    "type": "integer",
+                    "enum": [
+                      8
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
                   "max_files",
                   "max_file_bytes",
                   "max_total_bytes",
@@ -9356,6 +9860,77 @@
                   "min_instances",
                   "max_instances",
                   "max_records",
+                  "max_record_bytes",
+                  "db_multi_az"
+                ],
+                "properties": {
+                  "instance_type": {
+                    "type": "string",
+                    "enum": [
+                      "t3.micro"
+                    ]
+                  },
+                  "root_gib": {
+                    "type": "integer",
+                    "enum": [
+                      16
+                    ]
+                  },
+                  "db_class": {
+                    "type": "string",
+                    "enum": [
+                      "db.t3.micro"
+                    ]
+                  },
+                  "db_gib": {
+                    "type": "integer",
+                    "enum": [
+                      20
+                    ]
+                  },
+                  "min_instances": {
+                    "type": "integer",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "max_instances": {
+                    "type": "integer",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "max_records": {
+                    "type": "integer",
+                    "enum": [
+                      32
+                    ]
+                  },
+                  "max_record_bytes": {
+                    "type": "integer",
+                    "enum": [
+                      256
+                    ]
+                  },
+                  "db_multi_az": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "instance_type",
+                  "root_gib",
+                  "db_class",
+                  "db_gib",
+                  "min_instances",
+                  "max_instances",
+                  "max_records",
                   "max_record_bytes"
                 ],
                 "properties": {
@@ -9469,6 +10044,77 @@
                     "type": "integer",
                     "enum": [
                       256
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "instance_type",
+                  "root_gib",
+                  "db_class",
+                  "db_gib",
+                  "min_instances",
+                  "max_instances",
+                  "max_records",
+                  "max_record_bytes",
+                  "db_multi_az"
+                ],
+                "properties": {
+                  "instance_type": {
+                    "type": "string",
+                    "enum": [
+                      "t3.micro"
+                    ]
+                  },
+                  "root_gib": {
+                    "type": "integer",
+                    "enum": [
+                      16
+                    ]
+                  },
+                  "db_class": {
+                    "type": "string",
+                    "enum": [
+                      "db.t3.micro"
+                    ]
+                  },
+                  "db_gib": {
+                    "type": "integer",
+                    "enum": [
+                      20
+                    ]
+                  },
+                  "min_instances": {
+                    "type": "integer",
+                    "enum": [
+                      1
+                    ]
+                  },
+                  "max_instances": {
+                    "type": "integer",
+                    "enum": [
+                      2
+                    ]
+                  },
+                  "max_records": {
+                    "type": "integer",
+                    "enum": [
+                      32
+                    ]
+                  },
+                  "max_record_bytes": {
+                    "type": "integer",
+                    "enum": [
+                      256
+                    ]
+                  },
+                  "db_multi_az": {
+                    "type": "boolean",
+                    "enum": [
+                      true
                     ]
                   }
                 }
@@ -14596,6 +15242,221 @@
             "type": "string",
             "minLength": 10,
             "maxLength": 500
+          }
+        }
+      },
+      "TerminalStart": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "node": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "TerminalSession": {
+        "type": "object",
+        "required": [
+          "session_id",
+          "stream_url",
+          "token"
+        ],
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "stream_url": {
+            "type": "string",
+            "pattern": "^wss://ssmmessages\\."
+          },
+          "token": {
+            "type": "string",
+            "description": "One-time Session Manager token for this browser only; never stored by CloudHub."
+          },
+          "instance_index": {
+            "type": "integer"
+          },
+          "region": {
+            "type": "string"
+          },
+          "started_at": {
+            "type": "integer"
+          }
+        }
+      },
+      "TerminalEnd": {
+        "type": "object",
+        "required": [
+          "session_id",
+          "status"
+        ],
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "ENDED"
+            ]
+          },
+          "ended_at": {
+            "type": "integer",
+            "nullable": true
+          }
+        }
+      },
+      "ResizeOptions": {
+        "type": "object",
+        "required": [
+          "environment_id",
+          "supported",
+          "targets"
+        ],
+        "properties": {
+          "environment_id": {
+            "type": "string"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "current_instance_type": {
+            "type": "string"
+          },
+          "interruption": {
+            "type": "string"
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "configuration_id": {
+                  "type": "string"
+                },
+                "instance_type": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "verified": {
+                  "type": "boolean"
+                },
+                "delta_milliusd": {
+                  "type": "integer",
+                  "nullable": true
+                },
+                "remaining_hours": {
+                  "type": "string"
+                },
+                "prices_available": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ResizeInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "configuration_id",
+          "expected_revision",
+          "expected_delta_milliusd",
+          "confirmed"
+        ],
+        "properties": {
+          "configuration_id": {
+            "type": "string"
+          },
+          "expected_revision": {
+            "type": "integer"
+          },
+          "expected_delta_milliusd": {
+            "type": "integer",
+            "description": "Exact value from GET .../resize; acts as the quote fingerprint."
+          },
+          "confirmed": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        }
+      },
+      "CostSeries": {
+        "type": "object",
+        "required": [
+          "environment_id",
+          "days"
+        ],
+        "properties": {
+          "environment_id": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "USD"
+            ]
+          },
+          "hourly_estimate_milliusd": {
+            "type": "integer",
+            "nullable": true
+          },
+          "report_status": {
+            "type": "string"
+          },
+          "estimated_total_milliusd": {
+            "type": "integer",
+            "nullable": true
+          },
+          "actual_total_milliusd": {
+            "type": "integer",
+            "nullable": true
+          },
+          "difference_milliusd": {
+            "type": "integer",
+            "nullable": true
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "days": {
+            "type": "array",
+            "maxItems": 62,
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "running_hours": {
+                  "type": "number"
+                },
+                "estimated_milliusd": {
+                  "type": "integer",
+                  "nullable": true
+                },
+                "actual_milliusd": {
+                  "type": "integer",
+                  "nullable": true,
+                  "description": "null means no Cost Explorer data for that day, never zero."
+                },
+                "actual_is_estimated_by_aws": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         }
       }

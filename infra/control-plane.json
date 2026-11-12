@@ -2246,6 +2246,42 @@
                 "Resource": "*"
               }
             ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "ssm:StartSession",
+                "Resource": {
+                  "Fn::Sub": "arn:${AWS::Partition}:ec2:*:${AWS::AccountId}:instance/*"
+                },
+                "Condition": {
+                  "StringEquals": {
+                    "ssm:resourceTag/cloudhub:managed": "true"
+                  }
+                }
+              },
+              {
+                "Effect": "Allow",
+                "Action": "ssm:StartSession",
+                "Resource": {
+                  "Fn::Sub": "arn:${AWS::Partition}:ssm:*:${AWS::AccountId}:document/SSM-SessionManagerRunShell"
+                },
+                "Condition": {
+                  "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true"
+                  }
+                }
+              },
+              {
+                "Effect": "Allow",
+                "Action": "ssm:TerminateSession",
+                "Resource": {
+                  "Fn::Sub": "arn:${AWS::Partition}:ssm:*:${AWS::AccountId}:session/${AWS::StackName}-api-*"
+                }
+              }
+            ]
           }
         ],
         "Events": {
@@ -2963,6 +2999,26 @@
               },
               "Method": "POST",
               "Path": "/admin/spend-guard"
+            }
+          },
+          "FeatureRoute0": {
+            "Type": "HttpApi",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "Method": "GET",
+              "Path": "/environments/{environment_id}/{feature}"
+            }
+          },
+          "FeatureRoute1": {
+            "Type": "HttpApi",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "Method": "POST",
+              "Path": "/environments/{environment_id}/terminal/{session_id}"
             }
           }
         },
@@ -3735,6 +3791,18 @@
                   "xray:GetSamplingStatisticSummaries"
                 ],
                 "Resource": "*"
+              }
+            ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "cloudformation:GetTemplate",
+                "Resource": {
+                  "Fn::Sub": "arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/cloudhub-env-*/*"
+                }
               }
             ]
           }
@@ -5983,6 +6051,39 @@
           "Fn::GetAtt": [
             "IdentityWebAcl",
             "Arn"
+          ]
+        }
+      }
+    },
+    "EnvironmentResizePolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "Description": "InstanceType change of CloudHub-managed EC2 through the environment stack",
+        "Roles": [
+          {
+            "Ref": "EnvironmentCfRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "ec2:ModifyInstanceAttribute",
+                "ec2:StopInstances",
+                "ec2:StartInstances"
+              ],
+              "Resource": "*",
+              "Condition": {
+                "StringEquals": {
+                  "ec2:ResourceTag/cloudhub:managed": "true",
+                  "aws:RequestedRegion": {
+                    "Ref": "AWS::Region"
+                  }
+                }
+              }
+            }
           ]
         }
       }

@@ -29,6 +29,22 @@ def route(service, method, path, body, key, owner, admin, claims, query, public,
                 return value,202
         raise HubError('NOT_FOUND','Announcement route not found.',404)
     if method=='GET' and path=='/limits':return service.limits(owner),200
+    match=re.fullmatch(r'/environments/(env-[a-f0-9]{24})/(terminal|resize|cost-series)(?:/([A-Za-z0-9._@+=-]{1,96}))?',path)
+    if match:
+        eid,feature,extra=match.groups()
+        if feature=='terminal':
+            from . import terminal
+            if method=='POST' and extra is None:return terminal.start(service,owner,eid,body),201
+            if method=='POST' and extra is not None:return terminal.end(service,owner,eid,extra),200
+            if method=='GET' and extra is None:return {'items':[{k:r[k] for k in ('session_id','instance_id','started_at','status')} for r in terminal.active_sessions(service,owner,eid)]},200
+        if feature=='resize' and extra is None:
+            from . import resize
+            if method=='GET':return resize.targets(service,owner,eid),200
+            if method=='POST':return resize.begin(service,owner,eid,key,body,admin),202
+        if feature=='cost-series' and extra is None and method=='GET':
+            from .cost_series import series
+            return series(service,owner,eid),200
+        raise HubError('NOT_FOUND','Route not found.',404)
     if path=='/admin/spend-guard':
         from . import spend_guard
         if method=='GET':return spend_guard.view(service),200

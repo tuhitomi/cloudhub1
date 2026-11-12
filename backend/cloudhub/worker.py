@@ -63,6 +63,15 @@ class Worker:
                     op['result']={'application_revision':env['application_revision'],'data_schema':1,'data_preserved':True,'ready_checked':True}
                     s.finish(op,env);expiry=s.expire(env['environment_id']);return {'operation_id':oid,'done':True,'failed':False,'expiry_operation_id':expiry['operation_id'] if expiry else None}
                 s.save(op,env);return {'operation_id':oid,'done':False,'failed':False}
+            if op['phase']=='RESIZE':
+                from .resize import step as resize_step
+                driver=self.driver.driver(env) if hasattr(self.driver,'driver') else self.driver
+                if resize_step(driver,env,op,before_mutation=checkpoint_mutation):
+                    env['configuration_history']=(env.get('configuration_history',[])+[{'configuration':op['resize_from'],'replaced_at':int(s.clock()),'operation_id':oid}])[-20:]
+                    env['configuration']=op['resize_target'];env['status']='READY';env['needs_admin']=False
+                    op['result']={'instance_type':op['resize_target']['instance_type'],'data_preserved':True,'ready_checked':True}
+                    s.finish(op,env);expiry=s.expire(env['environment_id']);return {'operation_id':oid,'done':True,'failed':False,'expiry_operation_id':expiry['operation_id'] if expiry else None}
+                s.save(op,env);return {'operation_id':oid,'done':False,'failed':False}
             if op['phase']=='PUBLISH_RELEASE':
                 from .releases import publish
                 driver=self.driver.driver(env) if hasattr(self.driver,'driver') else self.driver
@@ -317,6 +326,11 @@ class Worker:
             op.update(status='FAILED',finished_at=int(s.clock()))
             s.save(*rows)
             print(json.dumps({'event':'CloudHubOperationFailed','operation_id':oid,'error':op['error']}))
+            return {'operation_id':oid,'done':True,'failed':True}
+        if op['action']=='resize' and str(error).startswith('RESIZE_ROLLED_BACK'):
+            # CloudFormation restored the previous instance type; the source never changed.
+            env.update(status='READY',last_resize_error=op['error']);s.finish(op,env,'FAILED')
+            print(json.dumps({'event':'CloudHubOperationFailed','operation_id':oid,'environment_id':env['environment_id'],'error':op['error'],'source_preserved':True}))
             return {'operation_id':oid,'done':True,'failed':True}
         env["needs_admin"] = True
         env["status"] = "CREATE_FAILED" if op["action"] in {"create", "restore"} else "ERROR_RETAINED"

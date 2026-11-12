@@ -54,7 +54,7 @@ def rds_template(env,settings,recovery=None):
             'DBSubnetGroupName':name(env,'-db'),'SubnetIds':settings['db_subnet_ids'],'Tags':tags(env)}}}
     props={'DBInstanceIdentifier':name(env,'-db'),'DBInstanceClass':'db.t3.micro','Engine':'postgres',
         'DBSubnetGroupName':ref('DatabaseSubnets'),'VPCSecurityGroups':[ref('DatabaseGroup')],'PubliclyAccessible':False,
-        'ManageMasterUserPassword':True,'MultiAZ':False,'BackupRetentionPeriod':0,'DeleteAutomatedBackups':True,
+        'ManageMasterUserPassword':True,'MultiAZ':bool(config.get('db_multi_az')),'BackupRetentionPeriod':0,'DeleteAutomatedBackups':True,
         'DeletionProtection':False,'CopyTagsToSnapshot':True,'StorageType':'gp3','Tags':tags(env),
         'EngineLifecycleSupport':'open-source-rds-extended-support-disabled'}
     if recovery:

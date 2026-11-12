@@ -33,9 +33,9 @@ class ShardTests(unittest.TestCase):
     def test_all_catalog_proof_shapes_fit_one_standard_parameter_without_mutating_root(self):
         proofs={configuration_key(t,p['configuration']):{'passed':True,'region':TARGET,'provisioning_checks':2,'backup_restore_verified':True} for t in ACTIVE_TEMPLATES for p in configuration_profiles(t)}
         shard={'schema':1,'region':TARGET,'verifications':proofs}
-        self.assertEqual(len(proofs),20);self.assertLessEqual(len(json.dumps(shard,separators=(',',':')).encode()),4096)
+        self.assertEqual(len(proofs),24);self.assertLessEqual(len(json.dumps(shard,separators=(',',':')).encode()),4096)
         root=self.root();before=deepcopy(root);result,loader=self.run_config(root,shard)
-        self.assertEqual(len(result['regions'][TARGET]['verifications']),20);self.assertTrue(result['regions'][HOME]['enabled'])
+        self.assertEqual(len(result['regions'][TARGET]['verifications']),24);self.assertTrue(result['regions'][HOME]['enabled'])
         self.assertEqual(root,before);loader.assert_called_once_with(PATH)
     def test_unavailable_or_wrong_region_shard_never_uses_stale_proof(self):
         for shard in [{'pricing_unavailable':True,'schema':1,'region':TARGET,'verifications':{'stale':{}}},{'schema':1,'region':HOME,'verifications':{}},{'region':TARGET,'verifications':{}},{'schema':1,'region':TARGET,'verifications':[]}]:

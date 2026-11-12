@@ -31,10 +31,10 @@ class ConfigurationChoicesTests(unittest.TestCase):
         rows=catalog(ACTIVE_TEMPLATES)
         self.assertEqual({r['template_id'] for r in rows},ACTIVE_TEMPLATES)
         for row in rows:
-            self.assertEqual(len(row['configuration_options']),3 if row['template_id'] in {'T02','T07'} else 2)
+            # files (T02/T07), small (T01/T05) and ha (T03/T04) are a third, separately gated profile.
+            self.assertEqual(len(row['configuration_options']),3 if row['template_id'] in {'T01','T02','T03','T04','T05','T07'} else 2)
             self.assertTrue(row['configuration_options'][0]['create_enabled'])
-            self.assertFalse(row['configuration_options'][1]['create_enabled'])
-            if row['template_id'] in {'T02','T07'}:self.assertFalse(row['configuration_options'][2]['create_enabled'])
+            for extra in row['configuration_options'][1:]:self.assertFalse(extra['create_enabled'])
             self.assertEqual(row['configuration_options'][0]['configuration'],configuration(row['template_id']))
     def test_verification_requires_both_construction_paths_and_verified_backup_restore(self):
         key=configuration_key('T01',cfg('T01'))

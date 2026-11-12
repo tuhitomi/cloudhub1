@@ -7,7 +7,7 @@ import {appendEnvironmentClock} from './cockpit.js';
 
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 const text=key=>t('workspace.'+key);
-const statuses={READY:'ui.d654065d13f4',PAUSED:'ui.a919ce7fbdb6',PAUSING:'ui.e40cc1b782e8',RESTARTING:'ui.75f9ad677614',PROVISIONING:'ui.da7b559f5be4',BACKING_UP:'ui.ed47bc2df524',RETIRING:'ui.37488d76a81a',DELETED:'ui.412c1c534007',DELETING:'ui.07242e5e6f7d',DELETE_FAILED:'ui.75035719dd9a',RESIDUAL:'ui.58ba0d41d54f',ERROR_RETAINED:'ui.b4b193b11b9b',CREATE_FAILED:'ui.667c6ae33cc5'};
+const statuses={RESIZING:'cloud.statusResizing',READY:'ui.d654065d13f4',PAUSED:'ui.a919ce7fbdb6',PAUSING:'ui.e40cc1b782e8',RESTARTING:'ui.75f9ad677614',PROVISIONING:'ui.da7b559f5be4',BACKING_UP:'ui.ed47bc2df524',RETIRING:'ui.37488d76a81a',DELETED:'ui.412c1c534007',DELETING:'ui.07242e5e6f7d',DELETE_FAILED:'ui.75035719dd9a',RESIDUAL:'ui.58ba0d41d54f',ERROR_RETAINED:'ui.b4b193b11b9b',CREATE_FAILED:'ui.667c6ae33cc5'};
 function badge(env){const n=el('span',t(statuses[env.status]||'common.unknown'),'status-pill');n.dataset.status=env.status;return n;}
 function invoke(action,onError){return ()=>Promise.resolve().then(action).catch(onError);}
 function svg(path){const n=el('span',null,'quick-icon');n.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+path+'"/></svg>';return n;}
@@ -60,6 +60,7 @@ export function renderWorkspaceEnvironments(host,items,ctx){
   if(['T03','T04','T08','T09'].includes(env.template_id))actions.append(button(t('ui.0ce3732c6c81'),()=>openRecords(env),unready));
   if(['T01','T05'].includes(env.template_id))actions.append(button(t('ui.7b014eaf12f3'),()=>downloadKey(env.environment_id),unready));
   if(env.template_id==='T09')actions.append(button(t('ui.bfbaad232cbe'),()=>readOwnedApi(env),unready||!env.access_address));
+  ctx.cloudTools?.(actions,env);
   card.append(actions);portal.environmentExtras(card,env);
   const menu=el('details',null,'environment-more');menu.append(el('summary',text('manage')));const management=el('div',null,'environment-secondary-actions');lifecycle.controls(management,env);if(management.firstElementChild?.textContent===t('ui.e12d6fabf98e'))management.firstElementChild.remove();menu.append(management);card.append(menu);
   if(env.cleanup_report){const report=el('details',null,'environment-cleanup');report.append(el('summary',text('cleanupReport')));appendCleanupReport(report,env.cleanup_report);card.append(report);}

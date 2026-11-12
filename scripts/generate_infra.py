@@ -265,6 +265,8 @@ def build_template(frontend_url=None, existing_data=None, shared_edge=None):
     extend_performance(template)
     from resilience_infra import extend as extend_resilience
     extend_resilience(template)
+    from feature_infra import extend as extend_features
+    extend_features(template)
     from hosting import PROTECTED_TYPES,retain,regional_shared
     for resource in template['Resources'].values():
         if resource['Type'] in PROTECTED_TYPES:retain(resource)

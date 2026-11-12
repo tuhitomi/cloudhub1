@@ -63,6 +63,18 @@ def configuration_profiles(code):
         'T03':'Cơ sở dữ liệu 20 GiB','T04':'Cơ sở dữ liệu 20 GiB','T06':'Docker 0,25 vCPU · RAM 512 MiB','T08':'Hai máy · root 16 GiB mỗi máy','T09':'API · bộ nhớ Lambda 128 MiB'}
     profiles=[{'id':'standard','label':base_labels[code],'configuration':base,'description':description},
             {'id':'expanded','label':label,'configuration':extra,'description':description}]
+    if code in {'T01','T05'}:
+        # Larger machine with the standard disks; needs its own reviewed EC2 rate
+        # (ec2_hour.t3.small) and AWS proof. Standard <-> small is the resize pair.
+        # More types would push a Region's proof shard past the 4 KiB Standard
+        # SSM parameter (tests/test_region_shards.py); add them with a new shard layout.
+        profiles.append({'id':'small','label':'t3.small · 2 GiB RAM · ổ dữ liệu 8 GiB','configuration':{**base,'instance_type':'t3.small'},
+            'description':'Máy t3.small (2 vCPU, 2 GiB RAM), cùng ổ đĩa với cấu hình chuẩn; đổi qua lại được khi đang chạy, giữ nguyên dữ liệu.'})
+    if code in {'T03','T04'}:
+        # High availability: synchronous standby in a second AZ. Closed until a
+        # separate provisioning and failover proof exists for this exact profile.
+        profiles.append({'id':'ha','label':'PostgreSQL Multi-AZ · 20 GiB','configuration':{**base,'db_multi_az':True},
+            'description':'RDS PostgreSQL có bản standby đồng bộ ở Availability Zone thứ hai; tự chuyển đổi khi AZ chính gặp sự cố. Chi phí DB khoảng gấp đôi.'})
     if code in {'T02','T07'}:
         profiles.append({'id':'files','label':'Files: 5 MiB each / 50 MiB total','description':'Direct S3 uploads; separately verified configuration. Existing profiles are unchanged.',
             'configuration':{'max_files':100,'max_file_bytes':5*1024*1024,'max_total_bytes':50*1024*1024,'max_writes':256}})

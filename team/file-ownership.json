@@ -215,6 +215,13 @@
       "generated": false
     },
     {
+      "path": "backend/cloudhub/cost_series.py",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
+      "generated": false
+    },
+    {
       "path": "backend/cloudhub/data_api_app.py",
       "owner": "TV3",
       "task": "KH12",
@@ -425,6 +432,13 @@
       "generated": false
     },
     {
+      "path": "backend/cloudhub/resize.py",
+      "owner": "TV3",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
+      "generated": false
+    },
+    {
       "path": "backend/cloudhub/runtime.py",
       "owner": "TV4",
       "task": "KH13",
@@ -489,6 +503,13 @@
     },
     {
       "path": "backend/cloudhub/templates.py",
+      "owner": "TV3",
+      "task": "KH10",
+      "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
+      "generated": false
+    },
+    {
+      "path": "backend/cloudhub/terminal.py",
       "owner": "TV3",
       "task": "KH10",
       "reason": "Xây dựng driver T01, T03, T04, T05 với EC2, EBS, RDS và ALB/ASG; bổ sung readiness, snapshot và cấu hình ứng dụng được duyệt.",
@@ -678,6 +699,13 @@
     },
     {
       "path": "docs/backup-restore.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "docs/cloud-features.md",
       "owner": "TV4",
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
@@ -884,6 +912,13 @@
       "owner": "TV1",
       "task": "KH02",
       "reason": "Xây dựng form chọn mẫu, profile, Region, thời hạn và chính sách; hiển thị tư vấn, dự toán và xác nhận trước khi gửi lệnh tạo.",
+      "generated": false
+    },
+    {
+      "path": "frontend/cloud-tools.js",
+      "owner": "TV1",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
@@ -1125,6 +1160,13 @@
       "generated": false
     },
     {
+      "path": "frontend/ssm-session.js",
+      "owner": "TV1",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
+      "generated": false
+    },
+    {
       "path": "frontend/style.css",
       "owner": "TV1",
       "task": "KH01",
@@ -1136,6 +1178,13 @@
       "owner": "TV1",
       "task": "KH04",
       "reason": "Tích hợp màn hình publish, rollback, đổi ứng dụng, quản trị và thông báo; bổ sung locale, giao diện sáng tối và hiển thị lỗi theo hợp đồng API.",
+      "generated": false
+    },
+    {
+      "path": "frontend/terminal-screen.js",
+      "owner": "TV1",
+      "task": "KH03",
+      "reason": "Xây dựng dashboard, chi tiết môi trường, tiến trình operation và danh sách bản sao; tích hợp gia hạn, kết thúc, sao lưu, khôi phục và thao tác tệp.",
       "generated": false
     },
     {
@@ -1419,6 +1468,13 @@
       "generated": false
     },
     {
+      "path": "scripts/cloud_features_openapi.py",
+      "owner": "TV2",
+      "task": "KH08",
+      "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
+      "generated": false
+    },
+    {
       "path": "scripts/cloudfront_viewer_prices.py",
       "owner": "TV2",
       "task": "KH07",
@@ -1448,6 +1504,13 @@
     },
     {
       "path": "scripts/edge_waf.py",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
+    },
+    {
+      "path": "scripts/feature_infra.py",
       "owner": "TV3",
       "task": "KH09",
       "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
@@ -1951,6 +2014,13 @@
       "generated": false
     },
     {
+      "path": "tests/cloud-tools.test.mjs",
+      "owner": "TV1",
+      "task": "KH17",
+      "reason": "Kiểm thử đầu cuối trên trình duyệt: tạo, gia hạn, backup/restore, tệp và publish; kiểm reload, quote hết hạn, lỗi mạng, locale và màn hình quản trị.",
+      "generated": false
+    },
+    {
       "path": "tests/cockpit.test.mjs",
       "owner": "TV1",
       "task": "KH17",
@@ -2106,6 +2176,13 @@
     },
     {
       "path": "tests/test_benchmark_tools.py",
+      "owner": "TV3",
+      "task": "KH19",
+      "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
+      "generated": false
+    },
+    {
+      "path": "tests/test_cloud_features.py",
       "owner": "TV3",
       "task": "KH19",
       "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",

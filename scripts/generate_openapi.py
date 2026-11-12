@@ -127,6 +127,8 @@ from template_view_openapi import extend as extend_template_view
 extend_template_view(doc)
 from spend_guard_openapi import extend as extend_spend_guard
 extend_spend_guard(doc)
+from cloud_features_openapi import extend as extend_cloud_features
+extend_cloud_features(doc)
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--hosting-config',type=Path)

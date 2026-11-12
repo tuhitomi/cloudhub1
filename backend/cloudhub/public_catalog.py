@@ -3,7 +3,7 @@ from .catalog import ACTIVE_TEMPLATES,catalog
 from .registration import defaults
 from .errors import HubError
 
-CONFIG_KEYS={'instance_type','root_gib','data_gib','db_class','db_gib','min_instances','max_instances',
+CONFIG_KEYS={'instance_type','root_gib','data_gib','db_class','db_gib','db_multi_az','min_instances','max_instances',
  'max_records','max_record_bytes','max_files','max_file_bytes','max_total_bytes','max_writes',
  'cpu','memory_mib','tasks','nodes','efs_encrypted','billing','lambda_memory_mib'}
 ESTIMATE_KEYS={'currency','region','price_updated_at','approved','total_milliusd','units','unit_regions',

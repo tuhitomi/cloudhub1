@@ -28,6 +28,11 @@ RATE_REQUIREMENTS={
     'T10':BASE_RATES|{'redshift_rpu_hour','redshift_gib_month','redshift_snapshot_gib_month','s3_gib_month','s3_requests_1000','secret_month','secret_requests_10000'}
 }
 
+def ec2_rate_key(cfg):
+    """t3.micro keeps the historical ec2_hour unit; larger types need their own reviewed rate."""
+    kind=cfg.get('instance_type','t3.micro')
+    return 'ec2_hour' if kind=='t3.micro' else 'ec2_hour.'+kind
+
 class Estimator:
     def __init__(self, rates=None):
         self.rates = rates or {}
@@ -48,6 +53,7 @@ class Estimator:
             from .workload_cost import apply
             return apply(self,template_id,duration_hours,cfg,self.estimate(template_id,duration_hours,renewal=renewal,backup=backup,configuration=cfg),workload)
         required = set(RATE_REQUIREMENTS[template_id])
+        if 'ec2_hour' in required:required=required-{'ec2_hour'}|{ec2_rate_key(cfg)}
         if template_id=='T02' and (cfg.get('max_file_bytes',0)>8192 or 'cloudfront_functions_million' in self.rates.get('units',{})):required.add('cloudfront_functions_million')
         overrides=self.rates.get('template_rate_overrides',{}).get(template_id,{})
         rate_units={**self.rates.get('units',{}),**overrides.get('units',{})}
@@ -95,7 +101,7 @@ class Estimator:
                 "cloudfront_requests": u["cloudfront_requests_10000"], "logs": Decimal("0.1") * u["logs_gib"],
                 "control_plane": u["control_plane_session"]}
         elif template_id in {'T01','T05'}:
-            lines = {"compute": hours * u["ec2_hour"], "storage": hours * (cfg['root_gib']+cfg['data_gib']) / 730 * u["ebs_gib_month"],
+            lines = {"compute": hours * u[ec2_rate_key(cfg)], "storage": hours * (cfg['root_gib']+cfg['data_gib']) / 730 * u["ebs_gib_month"],
                      "ipv4": hours * u["ipv4_hour"], "backup": Decimal(cfg['data_gib']) * retention * u["snapshot_gib_month"],
                      "transfer": u["transfer_gib"], "logs": Decimal("0.1") * u["logs_gib"],
                      "control_plane": u["control_plane_session"]}
@@ -106,7 +112,9 @@ class Estimator:
                 nodes=2 if template_id in {'T04','T08'} else 1
                 lines.update(compute=hours*nodes*u['ec2_hour'],root_storage=hours*nodes*cfg['root_gib']/730*u['ebs_gib_month'],ipv4=hours*nodes*u['ipv4_hour'])
             if template_id in {'T03','T04'}:
-                lines.update(database=hours*u['rds_hour'],db_storage=hours*cfg['db_gib']/730*u['rds_gib_month'],backup=cfg['db_gib']*retention*u['rds_snapshot_gib_month'],
+                # Multi-AZ bills the standby instance and its storage as well.
+                az=2 if cfg.get('db_multi_az') else 1
+                lines.update(database=hours*az*u['rds_hour'],db_storage=hours*az*cfg['db_gib']/730*u['rds_gib_month'],backup=cfg['db_gib']*retention*u['rds_snapshot_gib_month'],
                     secrets=hours/730*u['secret_month']+Decimal('.1')*u['secret_requests_10000'])
             if template_id in {'T04','T06'}:lines.update(load_balancer=hours*(u['alb_hour']+u['alb_lcu_hour']),alb_ipv4=hours*2*u['ipv4_hour'])
             if template_id in {'T06','T07','T09','T10'}:

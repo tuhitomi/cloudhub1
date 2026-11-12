@@ -1,4 +1,5 @@
 import {renderWorkspaceDashboard,renderWorkspaceEnvironments,renderWorkspaceDetailTools} from './workspace-view.js';
+import {appendCloudTools} from './cloud-tools.js';
 import {appendCleanupReport,backupAvailability,explainDisabled,restoreReview} from './product-view.js';
 import {createUploader} from './uploads.js';
 import {templateText,backupScope,profileLabel} from './catalog-text.js';
@@ -152,7 +153,8 @@ async function refresh(){
   if(!backups.items.length)$('#backups').append(element('p',tr("ui.d07fc1d14e9d")));
   }catch(error){if(run===refreshGeneration)overviewError=tr("ui.05f8a29580e9")+error.message+(overviewUpdated?tr("ui.a2bbb3a84fb0"):tr("ui.d2ff18494efd"));throw error;}finally{if(run===refreshGeneration){overviewLoading=false;renderShell();}}
 }
-function renderEnvironments(){renderWorkspaceEnvironments($('#environments'),portal.filter(cachedEnvironments).filter(e=>e.status!=='DELETED'),{portal,lifecycle,element,button,timestamp,openFiles,openRecords,downloadKey,readOwnedApi,operations,appendOperationTracker,appendCleanupReport,accessInstructions,configurationLabel:environmentConfigurationLabel,onError:showError});}
+function renderEnvironments(){renderWorkspaceEnvironments($('#environments'),portal.filter(cachedEnvironments).filter(e=>e.status!=='DELETED'),{portal,lifecycle,element,button,timestamp,openFiles,openRecords,downloadKey,readOwnedApi,operations,appendOperationTracker,appendCleanupReport,accessInstructions,configurationLabel:environmentConfigurationLabel,onError:showError,
+  cloudTools:(actions,env)=>appendCloudTools(actions,env,{api,post,keyFor:idempotency,track,refresh,onError:showError})});}
 let fileListing;const directUploader=createUploader({post,keyFor:idempotency});
 async function openFiles(env){
   if(fileBusy)return;
