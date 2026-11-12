@@ -143,7 +143,18 @@
           "Aliases": [
             "app.example.com"
           ],
-          "IPV6Enabled": true
+          "IPV6Enabled": true,
+          "WebACLId": {
+            "Fn::If": [
+              "HasFrontendWebAcl",
+              {
+                "Ref": "FrontendWebAclArn"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          }
         }
       },
       "DeletionPolicy": "Retain",
@@ -242,6 +253,12 @@
       "Default": "",
       "AllowedPattern": "(|/[A-Za-z0-9_-]+)",
       "Description": "Raw API stage path; empty for $default, independent of public API mapping"
+    },
+    "FrontendWebAclArn": {
+      "Type": "String",
+      "Default": "",
+      "AllowedPattern": "(|arn:aws:wafv2:us-east-1:[0-9]{12}:global/webacl/.+)",
+      "Description": "WebAclArn output of the us-east-1 edge WAF stack; empty for none"
     }
   },
   "Conditions": {
@@ -251,6 +268,18 @@
           "Fn::Equals": [
             {
               "Ref": "UiApiOriginDomain"
+            },
+            ""
+          ]
+        }
+      ]
+    },
+    "HasFrontendWebAcl": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "FrontendWebAclArn"
             },
             ""
           ]

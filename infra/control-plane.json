@@ -217,6 +217,28 @@
       ],
       "Default": "Disabled",
       "Description": "Lambda SnapStart for the API function. Enabled removes most cold start time; Python SnapStart bills snapshot cache and restores (~6 USD/month at 1536 MB)."
+    },
+    "MonthlyBudgetUsd": {
+      "Type": "Number",
+      "Default": 0,
+      "MinValue": 0,
+      "Description": "Actual monthly AWS cost budget for this account. 0 disables the budget and spend guard."
+    },
+    "SpendGuardThresholdPercent": {
+      "Type": "Number",
+      "Default": 100,
+      "MinValue": 50,
+      "MaxValue": 200,
+      "Description": "Percent of MonthlyBudgetUsd (actual cost) at which new creations and renewals are frozen."
+    },
+    "IdentityWafEnabled": {
+      "Type": "String",
+      "AllowedValues": [
+        "false",
+        "true"
+      ],
+      "Default": "false",
+      "Description": "Attach a regional AWS WAF web ACL to the Cognito user pool (about 7 USD/month plus requests)."
     }
   },
   "Conditions": {
@@ -290,6 +312,26 @@
           "Ref": "ApiSnapStart"
         },
         "Enabled"
+      ]
+    },
+    "HasSpendBudget": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "MonthlyBudgetUsd"
+            },
+            0
+          ]
+        }
+      ]
+    },
+    "HasIdentityWaf": {
+      "Fn::Equals": [
+        {
+          "Ref": "IdentityWafEnabled"
+        },
+        "true"
       ]
     }
   },
@@ -2188,6 +2230,22 @@
                 ]
               }
             ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "xray:PutTraceSegments",
+                  "xray:PutTelemetryRecords",
+                  "xray:GetSamplingRules",
+                  "xray:GetSamplingTargets",
+                  "xray:GetSamplingStatisticSummaries"
+                ],
+                "Resource": "*"
+              }
+            ]
           }
         ],
         "Events": {
@@ -2886,6 +2944,26 @@
                 "ThrottlingBurstLimit": 2
               }
             }
+          },
+          "SpendGuardGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "Method": "GET",
+              "Path": "/admin/spend-guard"
+            }
+          },
+          "SpendGuardPost": {
+            "Type": "HttpApi",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "Method": "POST",
+              "Path": "/admin/spend-guard"
+            }
           }
         },
         "AutoPublishAlias": "live",
@@ -2897,7 +2975,8 @@
               "None"
             ]
           }
-        }
+        },
+        "Tracing": "Active"
       }
     },
     "ApiFunctionLog": {
@@ -3642,8 +3721,25 @@
                 }
               }
             ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "xray:PutTraceSegments",
+                  "xray:PutTelemetryRecords",
+                  "xray:GetSamplingRules",
+                  "xray:GetSamplingTargets",
+                  "xray:GetSamplingStatisticSummaries"
+                ],
+                "Resource": "*"
+              }
+            ]
           }
-        ]
+        ],
+        "Tracing": "Active"
       }
     },
     "WorkerFunctionLog": {
@@ -3782,8 +3878,25 @@
                 }
               }
             ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "xray:PutTraceSegments",
+                  "xray:PutTelemetryRecords",
+                  "xray:GetSamplingRules",
+                  "xray:GetSamplingTargets",
+                  "xray:GetSamplingStatisticSummaries"
+                ],
+                "Resource": "*"
+              }
+            ]
           }
-        ]
+        ],
+        "Tracing": "Active"
       }
     },
     "ExpiryFunctionLog": {
@@ -4544,8 +4657,25 @@
                 }
               }
             ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "xray:PutTraceSegments",
+                  "xray:PutTelemetryRecords",
+                  "xray:GetSamplingRules",
+                  "xray:GetSamplingTargets",
+                  "xray:GetSamplingStatisticSummaries"
+                ],
+                "Resource": "*"
+              }
+            ]
           }
-        ]
+        ],
+        "Tracing": "Active"
       }
     },
     "SweepFunctionLog": {
@@ -4580,8 +4710,27 @@
                 "Ref": "WorkerFunction"
               }
             }
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "xray:PutTraceSegments",
+                  "xray:PutTelemetryRecords",
+                  "xray:GetSamplingRules",
+                  "xray:GetSamplingTargets",
+                  "xray:GetSamplingStatisticSummaries"
+                ],
+                "Resource": "*"
+              }
+            ]
           }
-        ]
+        ],
+        "Tracing": {
+          "Enabled": true
+        }
       }
     },
     "FallbackScan": {
@@ -4880,7 +5029,7 @@
           "Fn::Sub": "${AWS::StackName}-operations"
         },
         "DashboardBody": {
-          "Fn::Sub": "{\"widgets\": [{\"type\": \"metric\", \"x\": 0, \"y\": 0, \"width\": 12, \"height\": 6, \"properties\": {\"title\": \"HTTP API latency / errors\", \"region\": \"${AWS::Region}\", \"metrics\": [[\"AWS/ApiGateway\", \"Latency\", \"ApiId\", \"${HttpApi}\", {\"stat\": \"p95\"}], [\"AWS/ApiGateway\", \"5xx\", \"ApiId\", \"${HttpApi}\", {\"stat\": \"Sum\"}]], \"period\": 60}}, {\"type\": \"metric\", \"x\": 12, \"y\": 0, \"width\": 12, \"height\": 6, \"properties\": {\"title\": \"Lifecycle failures and Lambda errors\", \"region\": \"${AWS::Region}\", \"metrics\": [[\"CloudHub\", \"OperationFailed\"], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${WorkerFunction}\"], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${SweepFunction}\"]], \"stat\": \"Sum\", \"period\": 60}}, {\"type\": \"metric\", \"x\": 0, \"y\": 6, \"width\": 24, \"height\": 6, \"properties\": {\"title\": \"API Lambda duration and concurrency\", \"region\": \"${AWS::Region}\", \"period\": 60, \"metrics\": [[\"AWS/Lambda\", \"Duration\", \"FunctionName\", \"${ApiFunction}\", {\"stat\": \"p50\"}], [\"...\", {\"stat\": \"p95\"}], [\"AWS/Lambda\", \"ConcurrentExecutions\", \"FunctionName\", \"${ApiFunction}\", {\"stat\": \"Maximum\", \"yAxis\": \"right\"}], [\"AWS/Lambda\", \"Throttles\", \"FunctionName\", \"${ApiFunction}\", {\"stat\": \"Sum\", \"yAxis\": \"right\"}]]}}]}"
+          "Fn::Sub": "{\"widgets\": [{\"type\": \"metric\", \"x\": 0, \"y\": 0, \"width\": 12, \"height\": 6, \"properties\": {\"title\": \"HTTP API latency / errors\", \"region\": \"${AWS::Region}\", \"metrics\": [[\"AWS/ApiGateway\", \"Latency\", \"ApiId\", \"${HttpApi}\", {\"stat\": \"p95\"}], [\"AWS/ApiGateway\", \"5xx\", \"ApiId\", \"${HttpApi}\", {\"stat\": \"Sum\"}]], \"period\": 60}}, {\"type\": \"metric\", \"x\": 12, \"y\": 0, \"width\": 12, \"height\": 6, \"properties\": {\"title\": \"Lifecycle failures and Lambda errors\", \"region\": \"${AWS::Region}\", \"metrics\": [[\"CloudHub\", \"OperationFailed\"], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${WorkerFunction}\"], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${SweepFunction}\"]], \"stat\": \"Sum\", \"period\": 60}}, {\"type\": \"metric\", \"x\": 0, \"y\": 6, \"width\": 24, \"height\": 6, \"properties\": {\"title\": \"API Lambda duration and concurrency\", \"region\": \"${AWS::Region}\", \"period\": 60, \"metrics\": [[\"AWS/Lambda\", \"Duration\", \"FunctionName\", \"${ApiFunction}\", {\"stat\": \"p50\"}], [\"...\", {\"stat\": \"p95\"}], [\"AWS/Lambda\", \"ConcurrentExecutions\", \"FunctionName\", \"${ApiFunction}\", {\"stat\": \"Maximum\", \"yAxis\": \"right\"}], [\"AWS/Lambda\", \"Throttles\", \"FunctionName\", \"${ApiFunction}\", {\"stat\": \"Sum\", \"yAxis\": \"right\"}]]}}, {\"type\": \"metric\", \"x\": 0, \"y\": 12, \"width\": 24, \"height\": 6, \"properties\": {\"title\": \"Lifecycle executions (Step Functions)\", \"region\": \"${AWS::Region}\", \"period\": 300, \"stat\": \"Sum\", \"metrics\": [[\"AWS/States\", \"ExecutionsStarted\", \"StateMachineArn\", \"${StateMachine}\"], [\".\", \"ExecutionsSucceeded\", \".\", \".\"], [\".\", \"ExecutionsFailed\", \".\", \".\"], [\".\", \"ExecutionsTimedOut\", \".\", \".\"]]}}]}"
         }
       }
     },
@@ -5513,6 +5662,330 @@
         ],
         "Threshold": 2000
       }
+    },
+    "SpendGuardTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Condition": "HasSpendBudget"
+    },
+    "SpendGuardTopicPolicy": {
+      "Type": "AWS::SNS::TopicPolicy",
+      "Condition": "HasSpendBudget",
+      "Properties": {
+        "Topics": [
+          {
+            "Ref": "SpendGuardTopic"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "AwsBudgetsPublish",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "budgets.amazonaws.com"
+              },
+              "Action": "SNS:Publish",
+              "Resource": {
+                "Ref": "SpendGuardTopic"
+              },
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "ArnLike": {
+                  "aws:SourceArn": {
+                    "Fn::Sub": "arn:${AWS::Partition}:budgets::${AWS::AccountId}:*"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "MonthlyBudget": {
+      "Type": "AWS::Budgets::Budget",
+      "Condition": "HasSpendBudget",
+      "DependsOn": "SpendGuardTopicPolicy",
+      "Properties": {
+        "Budget": {
+          "BudgetName": {
+            "Fn::Sub": "${AWS::StackName}-monthly"
+          },
+          "BudgetType": "COST",
+          "TimeUnit": "MONTHLY",
+          "BudgetLimit": {
+            "Amount": {
+              "Ref": "MonthlyBudgetUsd"
+            },
+            "Unit": "USD"
+          }
+        },
+        "NotificationsWithSubscribers": [
+          {
+            "Notification": {
+              "NotificationType": "ACTUAL",
+              "ComparisonOperator": "GREATER_THAN",
+              "Threshold": 80,
+              "ThresholdType": "PERCENTAGE"
+            },
+            "Subscribers": [
+              {
+                "SubscriptionType": "SNS",
+                "Address": {
+                  "Ref": "SpendGuardTopic"
+                }
+              }
+            ]
+          },
+          {
+            "Notification": {
+              "NotificationType": "FORECASTED",
+              "ComparisonOperator": "GREATER_THAN",
+              "Threshold": 100,
+              "ThresholdType": "PERCENTAGE"
+            },
+            "Subscribers": [
+              {
+                "SubscriptionType": "SNS",
+                "Address": {
+                  "Ref": "SpendGuardTopic"
+                }
+              }
+            ]
+          },
+          {
+            "Notification": {
+              "NotificationType": "ACTUAL",
+              "ComparisonOperator": "GREATER_THAN",
+              "Threshold": {
+                "Ref": "SpendGuardThresholdPercent"
+              },
+              "ThresholdType": "PERCENTAGE"
+            },
+            "Subscribers": [
+              {
+                "SubscriptionType": "SNS",
+                "Address": {
+                  "Ref": "SpendGuardTopic"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SpendGuardFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Condition": "HasSpendBudget",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": "${AWS::StackName}-spend-guard"
+        },
+        "CodeUri": "../backend/",
+        "Handler": "cloudhub.spend_guard.sns_handler",
+        "Runtime": "python3.13",
+        "Architectures": [
+          "x86_64"
+        ],
+        "Timeout": 30,
+        "MemorySize": 256,
+        "Environment": {
+          "Variables": {
+            "TABLE_NAME": {
+              "Ref": "Table"
+            },
+            "ALERT_TOPIC_ARN": {
+              "Ref": "AlertTopic"
+            },
+            "SPEND_GUARD_BUDGET_NAME": {
+              "Fn::Sub": "${AWS::StackName}-monthly"
+            },
+            "SPEND_GUARD_THRESHOLD_PERCENT": {
+              "Ref": "SpendGuardThresholdPercent"
+            }
+          }
+        },
+        "Policies": [
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:GetItem",
+                  "dynamodb:PutItem",
+                  "dynamodb:ConditionCheckItem"
+                ],
+                "Resource": {
+                  "Fn::GetAtt": [
+                    "Table",
+                    "Arn"
+                  ]
+                },
+                "Condition": {
+                  "ForAllValues:StringEquals": {
+                    "dynamodb:LeadingKeys": [
+                      "G#SPEND_GUARD"
+                    ]
+                  }
+                }
+              },
+              {
+                "Effect": "Allow",
+                "Action": "sns:Publish",
+                "Resource": {
+                  "Ref": "AlertTopic"
+                }
+              }
+            ]
+          },
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "xray:PutTraceSegments",
+                  "xray:PutTelemetryRecords",
+                  "xray:GetSamplingRules",
+                  "xray:GetSamplingTargets",
+                  "xray:GetSamplingStatisticSummaries"
+                ],
+                "Resource": "*"
+              }
+            ]
+          }
+        ],
+        "Events": {
+          "Budget": {
+            "Type": "SNS",
+            "Properties": {
+              "Topic": {
+                "Ref": "SpendGuardTopic"
+              }
+            }
+          }
+        },
+        "Tracing": "Active"
+      }
+    },
+    "SpendGuardFunctionLog": {
+      "Type": "AWS::Logs::LogGroup",
+      "Condition": "HasSpendBudget",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Sub": "/aws/lambda/${AWS::StackName}-spend-guard"
+        },
+        "RetentionInDays": 14
+      }
+    },
+    "SpendGuardErrorAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Condition": "HasSpendBudget",
+      "Properties": {
+        "AlarmDescription": "Budget notification could not be turned into a spend freeze",
+        "Namespace": "AWS/Lambda",
+        "MetricName": "Errors",
+        "Dimensions": [
+          {
+            "Name": "FunctionName",
+            "Value": {
+              "Ref": "SpendGuardFunction"
+            }
+          }
+        ],
+        "Statistic": "Sum",
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopic"
+          }
+        ]
+      }
+    },
+    "IdentityWebAcl": {
+      "Type": "AWS::WAFv2::WebACL",
+      "Condition": "HasIdentityWaf",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-identity"
+        },
+        "Scope": "REGIONAL",
+        "DefaultAction": {
+          "Allow": {}
+        },
+        "Description": "CloudHub Cognito user pool: IP reputation and per-IP rate limit",
+        "Rules": [
+          {
+            "Name": "AWSManagedRulesAmazonIpReputationList",
+            "Priority": 0,
+            "OverrideAction": {
+              "None": {}
+            },
+            "Statement": {
+              "ManagedRuleGroupStatement": {
+                "VendorName": "AWS",
+                "Name": "AWSManagedRulesAmazonIpReputationList"
+              }
+            },
+            "VisibilityConfig": {
+              "SampledRequestsEnabled": true,
+              "CloudWatchMetricsEnabled": true,
+              "MetricName": "AWSManagedRulesAmazonIpReputationList"
+            }
+          },
+          {
+            "Name": "PerIpRateLimit",
+            "Priority": 1,
+            "Action": {
+              "Block": {}
+            },
+            "Statement": {
+              "RateBasedStatement": {
+                "Limit": 100,
+                "AggregateKeyType": "IP",
+                "EvaluationWindowSec": 300
+              }
+            },
+            "VisibilityConfig": {
+              "SampledRequestsEnabled": true,
+              "CloudWatchMetricsEnabled": true,
+              "MetricName": "PerIpRateLimit"
+            }
+          }
+        ],
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": true,
+          "CloudWatchMetricsEnabled": true,
+          "MetricName": "CloudHubIdentity"
+        }
+      }
+    },
+    "IdentityWebAclAssociation": {
+      "Type": "AWS::WAFv2::WebACLAssociation",
+      "Condition": "HasIdentityWaf",
+      "Properties": {
+        "ResourceArn": {
+          "Fn::GetAtt": [
+            "UserPool",
+            "Arn"
+          ]
+        },
+        "WebACLArn": {
+          "Fn::GetAtt": [
+            "IdentityWebAcl",
+            "Arn"
+          ]
+        }
+      }
     }
   },
   "Outputs": {
@@ -5574,6 +6047,12 @@
     "Region": {
       "Value": {
         "Ref": "AWS::Region"
+      }
+    },
+    "SpendGuardTopic": {
+      "Condition": "HasSpendBudget",
+      "Value": {
+        "Ref": "SpendGuardTopic"
       }
     }
   },

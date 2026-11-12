@@ -125,6 +125,8 @@ from admin_directory_openapi import extend as extend_admin_directory
 extend_admin_directory(doc)
 from template_view_openapi import extend as extend_template_view
 extend_template_view(doc)
+from spend_guard_openapi import extend as extend_spend_guard
+extend_spend_guard(doc)
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--hosting-config',type=Path)

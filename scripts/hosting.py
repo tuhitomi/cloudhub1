@@ -284,6 +284,8 @@ def configure_edge(shared,c):
     # config.js stays uncached (see performance_infra).
     from performance_infra import tune_distribution
     tune_distribution(r,{'Fn::Sub':'${AWS::StackName}-frontend-edge'})
+    from edge_waf import attach
+    attach(result)
     if c.get('REDIRECT_DOMAIN'):
         r['CanonicalRedirect']=retain({'Type':'AWS::CloudFront::Function','Properties':{'Name':{'Fn::Sub':'${AWS::StackName}-canonical'},'AutoPublish':True,
             'FunctionConfig':{'Comment':'Canonical hostname only; no error rewrite','Runtime':'cloudfront-js-2.0'},'FunctionCode':redirect_code(c['FRONTEND_DOMAIN'],c['REDIRECT_DOMAIN'])}})

@@ -175,6 +175,9 @@ class Service(QuoteMixin, LedgerMixin, LifecycleMixin, PortalMixin):
         return pk, fingerprint, old
 
     def quota(self, owner, amount, increase=1):
+        if increase > 0:
+            from .spend_guard import assert_open
+            assert_open(self)
         user = self.store.get("Q#" + owner) or {"pk": "Q#" + owner, "active": 0}
         glob = self.store.get("Q#GLOBAL") or {"pk": "Q#GLOBAL", "active": 0, "reserved_milliusd": 0}
         if increase > 0 and (user["active"] + increase > user.get('max_active',self.user_limit) or glob["active"] + increase > self.total_limit):

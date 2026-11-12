@@ -29,6 +29,10 @@ def route(service, method, path, body, key, owner, admin, claims, query, public,
                 return value,202
         raise HubError('NOT_FOUND','Announcement route not found.',404)
     if method=='GET' and path=='/limits':return service.limits(owner),200
+    if path=='/admin/spend-guard':
+        from . import spend_guard
+        if method=='GET':return spend_guard.view(service),200
+        if method=='POST':return spend_guard.set_state(service,owner,body,int(service.clock())),200
     if path=='/admin/signup-defaults':
         from .registration import defaults, set_defaults
         if method=='GET':return defaults(service),200

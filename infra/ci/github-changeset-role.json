@@ -1,0 +1,154 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "GitHub Actions OIDC role that can only propose CloudHub change sets",
+  "Parameters": {
+    "GitHubRepository": {
+      "Type": "String",
+      "Default": "tuhitomi/cloudhub1",
+      "AllowedPattern": "[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+"
+    },
+    "StackName": {
+      "Type": "String",
+      "Default": "cloudhub",
+      "AllowedPattern": "[A-Za-z][A-Za-z0-9-]{0,127}"
+    },
+    "ArtifactBucket": {
+      "Type": "String",
+      "AllowedPattern": "[a-z0-9.-]{3,63}"
+    },
+    "CreateOidcProvider": {
+      "Type": "String",
+      "AllowedValues": [
+        "true",
+        "false"
+      ],
+      "Default": "true",
+      "Description": "false when the account already has the GitHub OIDC provider"
+    }
+  },
+  "Conditions": {
+    "NewProvider": {
+      "Fn::Equals": [
+        {
+          "Ref": "CreateOidcProvider"
+        },
+        "true"
+      ]
+    }
+  },
+  "Resources": {
+    "GitHubOidcProvider": {
+      "Type": "AWS::IAM::OIDCProvider",
+      "Condition": "NewProvider",
+      "Properties": {
+        "Url": "https://token.actions.githubusercontent.com",
+        "ClientIdList": [
+          "sts.amazonaws.com"
+        ]
+      }
+    },
+    "ChangeSetRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "Description": "Propose (never execute) CloudHub change sets from the aws-changeset GitHub environment",
+        "MaxSessionDuration": 3600,
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Principal": {
+                "Federated": {
+                  "Fn::Sub": "arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
+                }
+              },
+              "Condition": {
+                "StringEquals": {
+                  "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+                  "token.actions.githubusercontent.com:sub": {
+                    "Fn::Sub": "repo:${GitHubRepository}:environment:aws-changeset"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "propose-change-set",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Sid": "ChangeSets",
+                  "Effect": "Allow",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${StackName}/*"
+                  },
+                  "Action": [
+                    "cloudformation:CreateChangeSet",
+                    "cloudformation:DescribeChangeSet",
+                    "cloudformation:DeleteChangeSet",
+                    "cloudformation:ListChangeSets",
+                    "cloudformation:DescribeStacks",
+                    "cloudformation:GetTemplateSummary"
+                  ]
+                },
+                {
+                  "Sid": "SamTransform",
+                  "Effect": "Allow",
+                  "Action": "cloudformation:CreateChangeSet",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:cloudformation:${AWS::Region}:aws:transform/Serverless-2016-10-31"
+                  }
+                },
+                {
+                  "Sid": "Validate",
+                  "Effect": "Allow",
+                  "Action": [
+                    "cloudformation:ValidateTemplate"
+                  ],
+                  "Resource": "*"
+                },
+                {
+                  "Sid": "Artifacts",
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:PutObject",
+                    "s3:GetObject"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:s3:::${ArtifactBucket}/ci/*"
+                  }
+                },
+                {
+                  "Sid": "NoExecute",
+                  "Effect": "Deny",
+                  "Resource": "*",
+                  "Action": [
+                    "cloudformation:ExecuteChangeSet",
+                    "cloudformation:UpdateStack",
+                    "cloudformation:CreateStack",
+                    "cloudformation:DeleteStack",
+                    "iam:PassRole"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "RoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "ChangeSetRole",
+          "Arn"
+        ]
+      }
+    }
+  }
+}

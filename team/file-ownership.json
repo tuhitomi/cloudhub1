@@ -33,6 +33,13 @@
       "generated": false
     },
     {
+      "path": ".github/workflows/changeset.yml",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": ".github/workflows/ci.yml",
       "owner": "TV4",
       "task": "KH24",
@@ -453,6 +460,13 @@
       "generated": false
     },
     {
+      "path": "backend/cloudhub/spend_guard.py",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
+      "generated": false
+    },
+    {
       "path": "backend/cloudhub/stack_driver.py",
       "owner": "TV3",
       "task": "KH09",
@@ -734,6 +748,13 @@
     },
     {
       "path": "docs/product-scope.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "docs/reliability-security.md",
       "owner": "TV4",
       "task": "KH24",
       "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
@@ -1153,6 +1174,13 @@
       "generated": false
     },
     {
+      "path": "infra/ci/github-changeset-role.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": "infra/container/Dockerfile",
       "owner": "TV3",
       "task": "KH11",
@@ -1196,6 +1224,13 @@
     },
     {
       "path": "infra/hosting/edge-import.example.json",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
+    },
+    {
+      "path": "infra/hosting/edge-waf.example.json",
       "owner": "TV3",
       "task": "KH09",
       "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
@@ -1377,6 +1412,13 @@
       "generated": false
     },
     {
+      "path": "scripts/ci_deploy_role.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": "scripts/cloudfront_viewer_prices.py",
       "owner": "TV2",
       "task": "KH07",
@@ -1391,10 +1433,24 @@
       "generated": false
     },
     {
+      "path": "scripts/compare_json.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": "scripts/configure_frontend.py",
       "owner": "TV1",
       "task": "KH01",
       "reason": "Xây dựng khung giao diện, điều hướng, danh mục và các màn hình tài khoản; kết quả là luồng đăng ký, xác minh, đăng nhập và đăng xuất trên web.",
+      "generated": false
+    },
+    {
+      "path": "scripts/edge_waf.py",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
       "generated": false
     },
     {
@@ -1720,6 +1776,13 @@
       "generated": false
     },
     {
+      "path": "scripts/resilience_infra.py",
+      "owner": "TV3",
+      "task": "KH09",
+      "reason": "Thiết lập SAM/CloudFormation, mạng hai AZ, role, secret và tham số; tách tài nguyên chung khỏi workload và chuẩn bị cấu hình triển khai theo Region.",
+      "generated": false
+    },
+    {
       "path": "scripts/restore_aws_frontend.py",
       "owner": "TV3",
       "task": "KH09",
@@ -1738,6 +1801,13 @@
       "owner": "TV3",
       "task": "KH19",
       "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
+      "generated": false
+    },
+    {
+      "path": "scripts/spend_guard_openapi.py",
+      "owner": "TV2",
+      "task": "KH07",
+      "reason": "Xây dựng estimator, quote, reservation, ví và ledger; kiểm ngân sách cá nhân và nền tảng, giá theo Region và số liệu chi phí tùy chọn.",
       "generated": false
     },
     {
@@ -2319,6 +2389,13 @@
       "owner": "TV2",
       "task": "KH18",
       "reason": "Kiểm thử API và giao dịch đồng thời: owner chéo, replay, quote dùng lại, thiếu giá, vượt quota/ngân sách và xung đột version; sửa lỗi nghiệp vụ phát hiện được.",
+      "generated": false
+    },
+    {
+      "path": "tests/test_resilience.py",
+      "owner": "TV4",
+      "task": "KH20",
+      "reason": "TV4 lifecycle fault regression and release review",
       "generated": false
     },
     {

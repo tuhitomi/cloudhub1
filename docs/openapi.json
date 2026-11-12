@@ -8045,6 +8045,79 @@
           }
         }
       }
+    },
+    "/admin/spend-guard": {
+      "get": {
+        "operationId": "getSpendGuard",
+        "summary": "Read the AWS spend guard state and its last 20 changes.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current guard",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpendGuard"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "403": {
+            "description": "Administrator required"
+          }
+        }
+      },
+      "post": {
+        "operationId": "setSpendGuard",
+        "summary": "Freeze or release the spend guard with an audited reason.",
+        "description": "AWS Budgets freezes the guard automatically when actual monthly cost crosses SpendGuardThresholdPercent. It never releases itself; an administrator releases it after reviewing billing. Independent of the internal forecast wallets and platform budget.",
+        "security": [
+          {
+            "CognitoAccessToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpendGuardInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated guard",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpendGuard"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Cognito JWT required"
+          },
+          "403": {
+            "description": "Administrator required"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -14447,6 +14520,82 @@
                 }
               }
             }
+          }
+        }
+      },
+      "SpendGuard": {
+        "type": "object",
+        "required": [
+          "frozen",
+          "history"
+        ],
+        "properties": {
+          "frozen": {
+            "type": "boolean",
+            "description": "True blocks create, restore, renew and resume; end, backup and export stay available."
+          },
+          "source": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "AWS_BUDGETS",
+              "ADMIN",
+              null
+            ]
+          },
+          "changed_at": {
+            "type": "integer",
+            "nullable": true
+          },
+          "changed_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "budget_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "threshold_percent": {
+            "type": "number",
+            "nullable": true
+          },
+          "actual_usd": {
+            "type": "number",
+            "nullable": true
+          },
+          "limit_usd": {
+            "type": "number",
+            "nullable": true
+          },
+          "history": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        }
+      },
+      "SpendGuardInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "frozen",
+          "reason"
+        ],
+        "properties": {
+          "frozen": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 500
           }
         }
       }

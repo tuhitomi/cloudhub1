@@ -7,6 +7,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `.gitattributes` | TV4 | KH24 | Có mã/tài liệu |
 | `.github/CODEOWNERS.example` | TV4 | KH24 | Có mã/tài liệu |
 | `.github/pull_request_template.md` | TV4 | KH24 | Có mã/tài liệu |
+| `.github/workflows/changeset.yml` | TV4 | KH24 | Có mã/tài liệu |
 | `.github/workflows/ci.yml` | TV4 | KH24 | Có mã/tài liệu |
 | `.gitignore` | TV4 | KH24 | Có mã/tài liệu |
 | `README.md` | TV4 | KH24 | Có mã/tài liệu |
@@ -67,6 +68,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `backend/cloudhub/s3_files.py` | TV2 | KH08 | Có mã/tài liệu |
 | `backend/cloudhub/s3_template.py` | TV3 | KH12 | Có mã/tài liệu |
 | `backend/cloudhub/service.py` | TV2 | KH06 | Có mã/tài liệu |
+| `backend/cloudhub/spend_guard.py` | TV2 | KH07 | Có mã/tài liệu |
 | `backend/cloudhub/stack_driver.py` | TV3 | KH09 | Có mã/tài liệu |
 | `backend/cloudhub/store.py` | TV2 | KH06 | Có mã/tài liệu |
 | `backend/cloudhub/template_view.py` | TV2 | KH08 | Có mã/tài liệu |
@@ -108,6 +110,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `docs/platform-portability-runbook.md` | TV3 | KH23 | Có mã/tài liệu |
 | `docs/pricing-and-capacity.md` | TV2 | KH07 | Có mã/tài liệu |
 | `docs/product-scope.md` | TV4 | KH24 | Có mã/tài liệu |
+| `docs/reliability-security.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/requirements.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/security.md` | TV2 | KH05 | Có mã/tài liệu |
 | `docs/source-record.json` | TV4 | KH24 | Có mã/tài liệu |
@@ -167,6 +170,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `frontend/workspace-ui.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/workspace-view.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/workspace.css` | TV1 | KH03 | Có mã/tài liệu |
+| `infra/ci/github-changeset-role.json` | TV4 | KH24 | Có mã/tài liệu |
 | `infra/container/Dockerfile` | TV3 | KH11 | Có mã/tài liệu |
 | `infra/control-plane.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/api-domain.example.json` | TV3 | KH09 | Có mã/tài liệu |
@@ -174,6 +178,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `infra/hosting/certificate-frontend.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/edge-domain.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/edge-import.example.json` | TV3 | KH09 | Có mã/tài liệu |
+| `infra/hosting/edge-waf.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/public-zone.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/shared-routing.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/lifecycle.asl.json` | TV4 | KH13 | Có mã/tài liệu |
@@ -199,9 +204,12 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/check_t02_publication.py` | TV3 | KH19 | Có mã/tài liệu |
 | `scripts/check_team_ownership.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/check_tv4.py` | TV4 | KH20 | Có mã/tài liệu |
+| `scripts/ci_deploy_role.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/cloudfront_viewer_prices.py` | TV2 | KH07 | Có mã/tài liệu |
 | `scripts/cognito_messages.py` | TV2 | KH05 | Có mã/tài liệu |
+| `scripts/compare_json.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/configure_frontend.py` | TV1 | KH01 | Có mã/tài liệu |
+| `scripts/edge_waf.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/generate_benchmark_scenarios.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/generate_codeowners.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/generate_hosting_examples.py` | TV3 | KH09 | Có mã/tài liệu |
@@ -248,9 +256,11 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/region_i18n_infra.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/region_i18n_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/regional_runtime.py` | TV3 | KH09 | Có mã/tài liệu |
+| `scripts/resilience_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/restore_aws_frontend.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/review_evidence.py` | TV3 | KH19 | Có mã/tài liệu |
 | `scripts/run_validation.py` | TV3 | KH19 | Có mã/tài liệu |
+| `scripts/spend_guard_openapi.py` | TV2 | KH07 | Có mã/tài liệu |
 | `scripts/template_view_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/template_view_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/test_visibility_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
@@ -334,6 +344,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `tests/test_regional_runtime.py` | TV3 | KH19 | Có mã/tài liệu |
 | `tests/test_regions.py` | TV2 | KH18 | Có mã/tài liệu |
 | `tests/test_registration.py` | TV2 | KH18 | Có mã/tài liệu |
+| `tests/test_resilience.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_review_fixes.py` | TV2 | KH18 | Có mã/tài liệu |
 | `tests/test_s3.py` | TV3 | KH19 | Có mã/tài liệu |
 | `tests/test_s3_sdk.py` | TV3 | KH19 | Có mã/tài liệu |

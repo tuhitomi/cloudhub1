@@ -24,6 +24,11 @@ class LifecycleMixin:
         if user['active']>user.get('max_active',self.user_limit) or glob['active']>self.total_limit:
             deny('QUOTA_EXCEEDED','Hạn mức hiện tại không cho phép tiếp tục kỳ vận hành.')
         if profile and profile.get('enabled') is False:deny('ACCOUNT_DISABLED','Tài khoản đã bị quản trị khóa.',403)
+        from . import spend_guard
+        guard=spend_guard.active(self)
+        if guard:
+            # Fence the guard row too: releasing it makes a retried decision re-evaluate.
+            rows.append(guard);deny('SPEND_GUARD_ACTIVE',spend_guard.MESSAGE,details=spend_guard.details(guard))
         refusal=budget_refusal(self,user,glob,amount)
         if refusal:
             deny('BUDGET_EXCEEDED','Ví dự toán không đủ cho kỳ tiếp theo.' if refusal['budget_scope']=='ACCOUNT_WALLET' else 'Ngân sách chung không đủ cho kỳ tiếp theo; số dư ví cá nhân được giữ nguyên.',details=refusal)
