@@ -1,0 +1,184 @@
+{
+ "tool": "load_ramp",
+ "targets": [
+  [
+   "api.cloudhub1.me",
+   "/ui-context",
+   0.5
+  ],
+  [
+   "cloudhub1.me",
+   "/",
+   0.4
+  ],
+  [
+   "api.cloudhub1.me",
+   "/public/catalog",
+   0.1
+  ]
+ ],
+ "stages": [
+  {
+   "users": 10,
+   "started_at": 1794544805,
+   "seconds": 90.5,
+   "requests": 1380,
+   "throughput_rps": 15.3,
+   "endpoints": {
+    "api.cloudhub1.me/public/catalog": {
+     "requests": 115,
+     "ok": 115,
+     "codes": {
+      "200": 115
+     },
+     "p50_ms": 198,
+     "p95_ms": 610,
+     "p99_ms": 913
+    },
+    "api.cloudhub1.me/ui-context": {
+     "requests": 695,
+     "ok": 695,
+     "codes": {
+      "200": 695
+     },
+     "p50_ms": 128,
+     "p95_ms": 305,
+     "p99_ms": 528
+    },
+    "cloudhub1.me/": {
+     "requests": 570,
+     "ok": 570,
+     "codes": {
+      "200": 570
+     },
+     "p50_ms": 108,
+     "p95_ms": 302,
+     "p99_ms": 527
+    }
+   },
+   "error_5xx_rate": 0.0
+  },
+  {
+   "users": 25,
+   "started_at": 1794544915,
+   "seconds": 90.6,
+   "requests": 3483,
+   "throughput_rps": 38.4,
+   "endpoints": {
+    "api.cloudhub1.me/public/catalog": {
+     "requests": 326,
+     "ok": 326,
+     "codes": {
+      "200": 326
+     },
+     "p50_ms": 165,
+     "p95_ms": 433,
+     "p99_ms": 896
+    },
+    "api.cloudhub1.me/ui-context": {
+     "requests": 1769,
+     "ok": 1769,
+     "codes": {
+      "200": 1769
+     },
+     "p50_ms": 118,
+     "p95_ms": 297,
+     "p99_ms": 426
+    },
+    "cloudhub1.me/": {
+     "requests": 1388,
+     "ok": 1388,
+     "codes": {
+      "200": 1388
+     },
+     "p50_ms": 108,
+     "p95_ms": 283,
+     "p99_ms": 416
+    }
+   },
+   "error_5xx_rate": 0.0
+  },
+  {
+   "users": 50,
+   "started_at": 1794545026,
+   "seconds": 90.7,
+   "requests": 6910,
+   "throughput_rps": 76.2,
+   "endpoints": {
+    "api.cloudhub1.me/public/catalog": {
+     "requests": 699,
+     "ok": 460,
+     "codes": {
+      "200": 460,
+      "429": 239
+     },
+     "p50_ms": 187,
+     "p95_ms": 422,
+     "p99_ms": 735
+    },
+    "api.cloudhub1.me/ui-context": {
+     "requests": 3406,
+     "ok": 3406,
+     "codes": {
+      "200": 3406
+     },
+     "p50_ms": 124,
+     "p95_ms": 298,
+     "p99_ms": 488
+    },
+    "cloudhub1.me/": {
+     "requests": 2805,
+     "ok": 2805,
+     "codes": {
+      "200": 2805
+     },
+     "p50_ms": 109,
+     "p95_ms": 239,
+     "p99_ms": 416
+    }
+   },
+   "error_5xx_rate": 0.0
+  },
+  {
+   "users": 100,
+   "started_at": 1794545137,
+   "seconds": 90.9,
+   "requests": 13370,
+   "throughput_rps": 147.2,
+   "endpoints": {
+    "api.cloudhub1.me/public/catalog": {
+     "requests": 1279,
+     "ok": 466,
+     "codes": {
+      "200": 466,
+      "429": 813
+     },
+     "p50_ms": 239,
+     "p95_ms": 924,
+     "p99_ms": 1609
+    },
+    "api.cloudhub1.me/ui-context": {
+     "requests": 6764,
+     "ok": 6764,
+     "codes": {
+      "200": 6764
+     },
+     "p50_ms": 150,
+     "p95_ms": 345,
+     "p99_ms": 580
+    },
+    "cloudhub1.me/": {
+     "requests": 5327,
+     "ok": 5327,
+     "codes": {
+      "200": 5327
+     },
+     "p50_ms": 113,
+     "p95_ms": 304,
+     "p99_ms": 813
+    }
+   },
+   "error_5xx_rate": 0.0
+  }
+ ]
+}

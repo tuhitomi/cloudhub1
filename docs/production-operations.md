@@ -36,7 +36,7 @@ Kiểm chứng sau khi thực thi:
 
 ### Quota Lambda
 
-Đã gửi yêu cầu tăng `Concurrent executions` của Lambda ở ap-southeast-1 từ 10 lên 1.000 qua Service Quotas (miễn phí, chờ AWS duyệt). Alarm `account-concurrency-80pct` đang dùng ngưỡng 10; sau khi quota tăng, cập nhật tham số `AccountConcurrencyLimit` của stack `cloudhub-observability`.
+Đã gửi yêu cầu tăng `Concurrent executions` của Lambda ở ap-southeast-1 từ 10 lên 1.000 qua Service Quotas (case 179452889900816, miễn phí). AWS duyệt lúc 11:39 ngày 13/11/2026; `get-account-settings` trả `ConcurrentExecutions: 1000`. Tham số `AccountConcurrencyLimit` của stack `cloudhub-observability` cập nhật lên 1.000 bằng change set `raise-concurrency-quota` (chỉ `Modify ConcurrencyAlarm`). Kết quả thử tải sau khi tăng quota ở mục 2.1.
 
 ## 2. Thử tải 20 người dùng đồng thời
 
@@ -57,6 +57,25 @@ Kiểm chứng sau khi thực thi:
 
 - Gửi yêu cầu tăng quota Lambda concurrent executions qua Service Quotas (miễn phí; AWS thường duyệt khi tài khoản đã xác minh xong).
 - Đưa `/public/catalog` qua cache: mã của PR #2 đã có cache 60 s trong Lambda và `Cache-Control: public, max-age=60`. Cách triệt để hơn là route `/public/catalog` qua CloudFront với TTL 60 s, khi đó API chỉ nhận tối đa khoảng 1 request/phút cho mỗi POP. Sau đó nâng throttle của route lên 25–50 request/s qua quy trình phát hành của stack điều khiển.
+
+## 2.1 Thử tải tăng dần sau khi tăng quota (tự co giãn)
+
+`python scripts/load_ramp.py --stages 10,25,50,100 --seconds 90`, chạy ngày 13/11/2026 từ 11:40 đến 11:47 (giờ Việt Nam), sau khi quota tăng lên 1.000. Mỗi mức gồm N người dùng ảo giữ kết nối, nghỉ 0,5 s giữa các request, chạy 90 s; mức sau bắt đầu sau 20 s nghỉ. Lưu lượng trộn 50 % `/ui-context`, 40 % trang chủ, 10 % `/public/catalog`. Kết quả gốc nằm trong `docs/loadtest/ramp-2026-11-13.json`.
+
+| Người dùng | Request | Thông lượng | Lỗi 5xx | `/ui-context` p50 / p95 | Trang chủ p50 / p95 | Lambda concurrency (max/phút) |
+|---|---|---|---|---|---|---|
+| 10 | 1.380 | 15,3 req/s | 0 | 128 / 305 ms | 108 / 302 ms | 5–8 |
+| 25 | 3.483 | 38,4 req/s | 0 | 118 / 297 ms | 108 / 283 ms | 14–17 |
+| 50 | 6.910 | 76,2 req/s | 0 | 124 / 298 ms | 109 / 239 ms | 19–22 |
+| 100 | 13.370 | **147,2 req/s** | **0** | 150 / 345 ms | 113 / 304 ms | 25–30 |
+
+Tổng cộng 25.143 request trong khoảng 7 phút. Không có request nào lỗi 5xx hoặc timeout, và CloudWatch ghi nhận `Throttles = 0`.
+
+**Nhận xét**
+
+- **Lambda tự co giãn theo tải.** Số môi trường chạy song song tăng từ 5 lên 30 khi tải tăng 10 lần, không cần cấu hình thêm. Mức đỉnh 30 gấp 3 lần quota cũ: trước khi tăng quota, mức 25 người dùng trở lên sẽ bị trả 503.
+- **Thông lượng tăng gần tuyến tính** (15 → 147 req/s, gấp 9,6 lần khi tải gấp 10 lần), trong khi p95 của `/ui-context` gần như giữ nguyên (khoảng 300 ms, lên 345 ms ở 100 người dùng). Mỗi môi trường xử lý khoảng 5 req/s; tải 100 người dùng chỉ dùng 3 % quota mới.
+- **`/public/catalog` vẫn bị throttle có chủ đích** ở 5 req/s: không có 429 ở mức 10 và 25 người dùng, 239/699 request bị 429 ở mức 50 và 813/1.279 ở mức 100. Đây là giới hạn của route trong stack điều khiển, không phải giới hạn của Lambda. Cần tăng lên 25 req/s (`PUBLIC_ROUTE_RATE` trong `scripts/performance_infra.py`) khi phát hành stack điều khiển.
 
 ## 3. Diễn tập khôi phục dữ liệu (DynamoDB PITR)
 

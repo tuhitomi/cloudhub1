@@ -106,6 +106,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `docs/cloud-features.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/deployment.md` | TV3 | KH23 | Có mã/tài liệu |
 | `docs/linux-efs-handoff.md` | TV3 | KH23 | Có mã/tài liệu |
+| `docs/loadtest/ramp-2026-11-13.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/local-check-results.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/main-integration-manifest.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/main-integration-results.json` | TV4 | KH24 | Có mã/tài liệu |
@@ -236,6 +237,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/infra_extensions.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/lifecycle_http.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/lifecycle_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
+| `scripts/load_ramp.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/measure_expiry.py` | TV4 | KH14 | Có mã/tài liệu |
 | `scripts/measure_product_local.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/migrate_account_wallets.py` | TV2 | KH07 | Có mã/tài liệu |

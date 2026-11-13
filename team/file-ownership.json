@@ -726,6 +726,13 @@
       "generated": false
     },
     {
+      "path": "docs/loadtest/ramp-2026-11-13.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": "docs/local-check-results.json",
       "owner": "TV4",
       "task": "KH24",
@@ -1633,6 +1640,13 @@
       "owner": "TV2",
       "task": "KH08",
       "reason": "Tích hợp capability, tư vấn và API thao tác tệp, bản ghi, xuất bản, ứng dụng; kết quả là hợp đồng API thống nhất với frontend và worker.",
+      "generated": false
+    },
+    {
+      "path": "scripts/load_ramp.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
       "generated": false
     },
     {
