@@ -140,5 +140,43 @@ class InfrastructureTests(unittest.TestCase):
         self.assertEqual(keys['CookiesConfig'], {'CookieBehavior': 'none'})
 
 
+
+class EdgeSecurityTests(unittest.TestCase):
+    def tuned(self):
+        from performance_infra import tune_distribution, MANAGED_SECURITY_HEADERS
+        resources = {'FrontendDistribution': {'Properties': {'DistributionConfig': {
+            'DefaultCacheBehavior': {'ResponseHeadersPolicyId': MANAGED_SECURITY_HEADERS, 'CachePolicyId': 'x'},
+            'CacheBehaviors': [{'PathPattern': 'config.js', 'CachePolicyId': 'disabled', 'ResponseHeadersPolicyId': MANAGED_SECURITY_HEADERS},
+                               {'PathPattern': '/ui-context', 'ResponseHeadersPolicyId': 'custom-kept'}]}}}}
+        tune_distribution(resources, 'cache', 'https://api.example.com')
+        return resources
+
+    def test_http3_and_custom_headers_replace_only_the_managed_policy(self):
+        r = self.tuned(); config = r['FrontendDistribution']['Properties']['DistributionConfig']
+        self.assertEqual(config['HttpVersion'], 'http2and3')
+        self.assertEqual(config['DefaultCacheBehavior']['ResponseHeadersPolicyId'], {'Ref': 'FrontendSecurityHeaders'})
+        self.assertEqual(config['CacheBehaviors'][0]['ResponseHeadersPolicyId'], {'Ref': 'FrontendSecurityHeaders'})
+        self.assertEqual(config['CacheBehaviors'][0]['CachePolicyId'], 'disabled')
+        self.assertEqual(config['CacheBehaviors'][1]['ResponseHeadersPolicyId'], 'custom-kept')
+
+    def test_csp_is_strict_and_starts_report_only(self):
+        cfg = self.tuned()['FrontendSecurityHeaders']['Properties']['ResponseHeadersPolicyConfig']
+        headers = {h['Header']: h['Value'] for h in cfg['CustomHeadersConfig']['Items']}
+        csp = headers['Content-Security-Policy-Report-Only']
+        self.assertNotIn('Content-Security-Policy', headers)
+        self.assertNotIn('unsafe-inline', csp); self.assertNotIn('unsafe-eval', csp)
+        self.assertIn("script-src 'self'", csp); self.assertIn("object-src 'none'", csp)
+        self.assertIn('https://api.example.com', csp); self.assertIn('wss://*.amazonaws.com', csp)
+        self.assertIn('camera=()', headers['Permissions-Policy'])
+        hsts = cfg['SecurityHeadersConfig']['StrictTransportSecurity']
+        self.assertTrue(hsts['Preload'] and hsts['IncludeSubdomains']); self.assertGreaterEqual(hsts['AccessControlMaxAgeSec'], 31536000)
+        self.assertTrue(cfg['ServerTimingHeadersConfig']['Enabled'])
+
+    def test_enforced_mode_uses_the_real_header(self):
+        from performance_infra import security_headers_policy
+        cfg = security_headers_policy('n', enforce_csp=True)['Properties']['ResponseHeadersPolicyConfig']
+        self.assertIn('Content-Security-Policy', {h['Header'] for h in cfg['CustomHeadersConfig']['Items']})
+
+
 if __name__ == '__main__':
     unittest.main()

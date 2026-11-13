@@ -283,7 +283,7 @@ def configure_edge(shared,c):
     # Nearby Asian edges, short edge TTL with compression for HTML/assets;
     # config.js stays uncached (see performance_infra).
     from performance_infra import tune_distribution
-    tune_distribution(r,{'Fn::Sub':'${AWS::StackName}-frontend-edge'})
+    tune_distribution(r,{'Fn::Sub':'${AWS::StackName}-frontend-edge'},'https://'+c['API_DOMAIN'])
     from edge_waf import attach
     attach(result)
     if c.get('REDIRECT_DOMAIN'):

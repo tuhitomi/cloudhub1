@@ -37,21 +37,66 @@ def edge_cache_policy(name):
             'QueryStringsConfig': {'QueryStringBehavior': 'none'}}}}}
 
 
-def tune_distribution(resources, policy_name):
+MANAGED_SECURITY_HEADERS = '67f7725c-6f97-4210-82d7-5512b31e9d03'  # AWS "SecurityHeadersPolicy"
+# The frontend has no inline script/style/handlers and loads everything from
+# its own origin; it only connects to the API, Cognito, S3 (signed upload and
+# download URLs) and Session Manager WebSockets.
+CSP_BASE = ["default-src 'self'", "script-src 'self'", "style-src 'self'", "img-src 'self' data:", "font-src 'self'",
+            "object-src 'none'", "base-uri 'self'", "frame-ancestors 'self'", "form-action 'self' https://*.amazonaws.com"]
+PERMISSIONS_POLICY = 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()'
+
+
+def content_security_policy(api_origin=None, enforce=False):
+    connect = ["'self'", 'https://*.amazonaws.com', 'https://*.amazoncognito.com', 'wss://*.amazonaws.com']
+    if api_origin:
+        connect.insert(1, api_origin.rstrip('/'))
+    # Browsers ignore upgrade-insecure-requests in a Report-Only policy and log a warning.
+    return '; '.join(CSP_BASE[:5] + ['connect-src ' + ' '.join(connect)] + CSP_BASE[5:] + (['upgrade-insecure-requests'] if enforce else []))
+
+
+def security_headers_policy(name, api_origin=None, enforce_csp=False):
+    """Replaces the managed SecurityHeadersPolicy: same protections plus CSP,
+    Permissions-Policy, HSTS preload and Server-Timing. The CSP starts in
+    Report-Only mode; switch enforce_csp once the browser console stays clean."""
+    csp_header = 'Content-Security-Policy' if enforce_csp else 'Content-Security-Policy-Report-Only'
+    return {'Type': 'AWS::CloudFront::ResponseHeadersPolicy', 'Properties': {'ResponseHeadersPolicyConfig': {
+        'Name': name, 'Comment': 'CloudHub frontend security headers, CSP and Server-Timing',
+        'SecurityHeadersConfig': {
+            'StrictTransportSecurity': {'AccessControlMaxAgeSec': 63072000, 'IncludeSubdomains': True, 'Preload': True, 'Override': True},
+            'ContentTypeOptions': {'Override': True},
+            'FrameOptions': {'FrameOption': 'SAMEORIGIN', 'Override': True},
+            'ReferrerPolicy': {'ReferrerPolicy': 'strict-origin-when-cross-origin', 'Override': True},
+            'XSSProtection': {'Protection': True, 'ModeBlock': True, 'Override': True}},
+        'CustomHeadersConfig': {'Items': [
+            {'Header': csp_header, 'Value': content_security_policy(api_origin, enforce_csp), 'Override': True},
+            {'Header': 'Permissions-Policy', 'Value': PERMISSIONS_POLICY, 'Override': True},
+            {'Header': 'Cross-Origin-Opener-Policy', 'Value': 'same-origin', 'Override': True}]},
+        'ServerTimingHeadersConfig': {'Enabled': True, 'SamplingRate': 100}}}}
+
+
+def tune_distribution(resources, policy_name, api_origin=None, headers_name=None):
     """Apply the edge settings to FrontendDistribution if this template owns it."""
     dist = resources.get('FrontendDistribution')
     if not dist:
         return False
     config = dist['Properties']['DistributionConfig']
     resources['FrontendEdgeCachePolicy'] = edge_cache_policy(policy_name)
+    resources['FrontendSecurityHeaders'] = security_headers_policy(headers_name or {'Fn::Sub': '${AWS::StackName}-frontend-headers'}, api_origin)
     config['PriceClass'] = FRONTEND_PRICE_CLASS
+    # HTTP/3 (QUIC): faster connection setup on lossy mobile networks; HTTP/2 stays as fallback.
+    config['HttpVersion'] = 'http2and3'
     config['DefaultCacheBehavior']['CachePolicyId'] = {'Ref': 'FrontendEdgeCachePolicy'}
     config['DefaultCacheBehavior']['Compress'] = True
+    behaviors = [config['DefaultCacheBehavior']]
     for behavior in config.get('CacheBehaviors', []):
         body = behavior['Fn::If'][1] if 'Fn::If' in behavior else behavior
+        behaviors.append(body)
         if body.get('PathPattern') == 'index.html':
             body['CachePolicyId'] = {'Ref': 'FrontendEdgeCachePolicy'}
             body['Compress'] = True
+    for body in behaviors:
+        if body.get('ResponseHeadersPolicyId') in (None, MANAGED_SECURITY_HEADERS):
+            body['ResponseHeadersPolicyId'] = {'Ref': 'FrontendSecurityHeaders'}
     return True
 
 

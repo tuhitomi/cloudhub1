@@ -86,6 +86,8 @@ class HostingTests(unittest.TestCase):
         self.assertEqual(b['CachePolicyId'],{'Ref':'FrontendEdgeCachePolicy'})
         self.assertEqual(d['DefaultCacheBehavior']['CachePolicyId'],{'Ref':'FrontendEdgeCachePolicy'})
         self.assertEqual(d['PriceClass'],'PriceClass_200')
+        self.assertEqual(d['HttpVersion'],'http2and3');self.assertEqual(d['DefaultCacheBehavior']['ResponseHeadersPolicyId'],{'Ref':'FrontendSecurityHeaders'})
+        self.assertIn('https://',json.dumps(e['Resources']['FrontendSecurityHeaders']))
         country=next(b['Fn::If'][1] for b in d['CacheBehaviors'] if 'Fn::If' in b)
         self.assertEqual(country['PathPattern'],'/ui-context');self.assertEqual(country['AllowedMethods'],['GET','HEAD'])
 

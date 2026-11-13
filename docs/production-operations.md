@@ -14,6 +14,30 @@ Change set: `PriceClass_100 → PriceClass_200` và cache policy `FrontendEdgeCa
 | Cache | Miss mọi lần | Hit (Age tăng dần) |
 | p50 / p95 | 1.322 / 2.812 ms | **531 / 1.326 ms** |
 
+### HTTP/3 và header bảo mật (đợt 2, ngày 13/11)
+
+`tune_distribution` thêm:
+
+- `HttpVersion: http2and3`. Trình duyệt hỗ trợ QUIC sẽ dùng HTTP/3 (bắt tay gộp TCP và TLS, chịu mất gói tốt hơn trên mạng di động); các trình duyệt khác vẫn dùng HTTP/2.
+- Response headers policy `FrontendSecurityHeaders`, thay cho policy có sẵn `SecurityHeadersPolicy` của AWS:
+  - HSTS 2 năm, có `includeSubDomains; preload`. Giữ `X-Content-Type-Options`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy` và `X-XSS-Protection`.
+  - `Content-Security-Policy-Report-Only`: chỉ cho phép script và style từ `'self'`, không `unsafe-inline` hay `unsafe-eval`, `object-src 'none'`, `frame-ancestors 'self'`. `connect-src` gồm API, Cognito, S3 và WebSocket Session Manager. Frontend không có script, style hay event handler inline nên CSP chặt vẫn chạy được. Sau khi console trình duyệt không còn vi phạm thì chuyển `enforce_csp=True`.
+  - `Permissions-Policy`: tắt camera, micro, định vị, thanh toán, USB. Thêm `Cross-Origin-Opener-Policy: same-origin`.
+  - `Server-Timing` (lấy mẫu 100 %): DevTools hiện thời gian xử lý tại CloudFront, cache hit/miss và độ trễ origin cho từng request.
+
+Change set chỉ gồm `Modify FrontendDistribution` (không thay thế) và `Add FrontendSecurityHeaders`. Đã thực thi ngày 13/11.
+
+Kiểm chứng sau khi thực thi:
+
+- `Alt-Svc: h3=":443"; ma=86400`. Trình duyệt dùng `h2` ở lần tải đầu, sau đó chuyển sang `h3` (`PerformanceNavigationTiming.nextHopProtocol`).
+- Có đủ các header HSTS preload, CSP report-only, Permissions-Policy, COOP và Server-Timing (ví dụ `cdn-pop;desc="HAN51-P1"`, `cdn-upstream-connect;dur=71`, `cdn-upstream-fbl;dur=129`). Edge phục vụ là HAN51 (Hà Nội).
+- Khi tải trang và mở hộp thoại tư vấn, cấu hình: không có sự kiện `securitypolicyviolation` nào. Console chỉ báo `upgrade-insecure-requests` bị bỏ qua ở chế độ report-only; code đã sửa để chỉ thêm chỉ thị này khi CSP chuyển sang chế độ chặn.
+- Trang vẫn hiển thị đủ 9 mẫu; `/ui-context`, API và catalog trả 200.
+
+### Quota Lambda
+
+Đã gửi yêu cầu tăng `Concurrent executions` của Lambda ở ap-southeast-1 từ 10 lên 1.000 qua Service Quotas (miễn phí, chờ AWS duyệt). Alarm `account-concurrency-80pct` đang dùng ngưỡng 10; sau khi quota tăng, cập nhật tham số `AccountConcurrencyLimit` của stack `cloudhub-observability`.
+
 ## 2. Thử tải 20 người dùng đồng thời
 
 `loadtest`: 20 người dùng ảo, giữ kết nối như trình duyệt, nghỉ 0,5 s giữa các request, 120 s, trộn 40 % `/public/catalog`, 30 % `/ui-context`, 30 % trang chủ. Tổng 3.499 request, 28,9 request/s.
