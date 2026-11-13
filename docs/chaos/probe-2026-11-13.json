@@ -1,0 +1,9902 @@
+{
+ "tool": "chaos_probe",
+ "started_at": 1794549673,
+ "samples": [
+  {
+   "t": 0.0,
+   "at": "13:01:13",
+   "home": {
+    "status": 200,
+    "ms": 478,
+    "cache": "Miss from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 542,
+    "cache": "Miss from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 200,
+    "ms": 304,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 1.3,
+   "at": "13:01:14",
+   "home": {
+    "status": 200,
+    "ms": 208,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 189,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 200,
+    "ms": 1226,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 2.9,
+   "at": "13:01:16",
+   "home": {
+    "status": 200,
+    "ms": 1126,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 1155,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "api": {
+    "status": 200,
+    "ms": 422,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 5.7,
+   "at": "13:01:18",
+   "home": {
+    "status": 200,
+    "ms": 308,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 195,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "api": {
+    "status": 200,
+    "ms": 260,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 6.7,
+   "at": "13:01:19",
+   "home": {
+    "status": 200,
+    "ms": 118,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 113,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "api": {
+    "status": 200,
+    "ms": 411,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 7.7,
+   "at": "13:01:20",
+   "home": {
+    "status": 200,
+    "ms": 239,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 104,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "api": {
+    "status": 200,
+    "ms": 228,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 8.7,
+   "at": "13:01:21",
+   "home": {
+    "status": 200,
+    "ms": 269,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 195,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "api": {
+    "status": 200,
+    "ms": 263,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 9.7,
+   "at": "13:01:22",
+   "home": {
+    "status": 200,
+    "ms": 284,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 106,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "api": {
+    "status": 200,
+    "ms": 252,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 10.7,
+   "at": "13:01:23",
+   "home": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 129,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "api": {
+    "status": 200,
+    "ms": 389,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 11.7,
+   "at": "13:01:24",
+   "home": {
+    "status": 200,
+    "ms": 253,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 98,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "api": {
+    "status": 200,
+    "ms": 226,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 12.7,
+   "at": "13:01:25",
+   "home": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 185,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "api": {
+    "status": 200,
+    "ms": 252,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 13.7,
+   "at": "13:01:26",
+   "home": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 87,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "api": {
+    "status": 200,
+    "ms": 252,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 14.7,
+   "at": "13:01:27",
+   "home": {
+    "status": 200,
+    "ms": 1132,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 177,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "api": {
+    "status": 200,
+    "ms": 192,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 16.2,
+   "at": "13:01:29",
+   "home": {
+    "status": 200,
+    "ms": 132,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 119,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "api": {
+    "status": 200,
+    "ms": 274,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 17.2,
+   "at": "13:01:30",
+   "home": {
+    "status": 200,
+    "ms": 156,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "api": {
+    "status": 200,
+    "ms": 200,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 18.2,
+   "at": "13:01:31",
+   "home": {
+    "status": 200,
+    "ms": 133,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 309,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "api": {
+    "status": 200,
+    "ms": 243,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 19.2,
+   "at": "13:01:32",
+   "home": {
+    "status": 200,
+    "ms": 104,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 159,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "api": {
+    "status": 200,
+    "ms": 289,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 20.2,
+   "at": "13:01:33",
+   "home": {
+    "status": 200,
+    "ms": 183,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 451,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "api": {
+    "status": 200,
+    "ms": 318,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 21.2,
+   "at": "13:01:34",
+   "home": {
+    "status": 200,
+    "ms": 434,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 166,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "api": {
+    "status": 200,
+    "ms": 293,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 22.2,
+   "at": "13:01:35",
+   "home": {
+    "status": 200,
+    "ms": 340,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 208,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "api": {
+    "status": 200,
+    "ms": 247,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 23.2,
+   "at": "13:01:36",
+   "home": {
+    "status": 200,
+    "ms": 132,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 132,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "api": {
+    "status": 200,
+    "ms": 400,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 24.2,
+   "at": "13:01:37",
+   "home": {
+    "status": 200,
+    "ms": 218,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 156,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "api": {
+    "status": 200,
+    "ms": 283,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 25.2,
+   "at": "13:01:38",
+   "home": {
+    "status": 200,
+    "ms": 303,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 378,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "api": {
+    "status": 200,
+    "ms": 279,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 26.2,
+   "at": "13:01:39",
+   "home": {
+    "status": 200,
+    "ms": 456,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 88,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "api": {
+    "status": 200,
+    "ms": 178,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 27.2,
+   "at": "13:01:40",
+   "home": {
+    "status": 200,
+    "ms": 154,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 206,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "api": {
+    "status": 200,
+    "ms": 276,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 28.2,
+   "at": "13:01:41",
+   "home": {
+    "status": 200,
+    "ms": 205,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "api": {
+    "status": 200,
+    "ms": 349,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 29.2,
+   "at": "13:01:42",
+   "home": {
+    "status": 200,
+    "ms": 126,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 115,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "api": {
+    "status": 200,
+    "ms": 195,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 30.2,
+   "at": "13:01:43",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 115,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "api": {
+    "status": 200,
+    "ms": 257,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 31.2,
+   "at": "13:01:44",
+   "home": {
+    "status": 200,
+    "ms": 167,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 172,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "api": {
+    "status": 200,
+    "ms": 208,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 32.2,
+   "at": "13:01:45",
+   "home": {
+    "status": 200,
+    "ms": 253,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 505,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "api": {
+    "status": 200,
+    "ms": 671,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 33.6,
+   "at": "13:01:46",
+   "home": {
+    "status": 200,
+    "ms": 229,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 167,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "api": {
+    "status": 200,
+    "ms": 305,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 34.6,
+   "at": "13:01:47",
+   "home": {
+    "status": 200,
+    "ms": 260,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "api": {
+    "status": 200,
+    "ms": 304,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 35.6,
+   "at": "13:01:48",
+   "home": {
+    "status": 200,
+    "ms": 151,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "api": {
+    "status": 200,
+    "ms": 223,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 36.6,
+   "at": "13:01:49",
+   "home": {
+    "status": 200,
+    "ms": 481,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 355,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "api": {
+    "status": 200,
+    "ms": 308,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 37.7,
+   "at": "13:01:50",
+   "home": {
+    "status": 200,
+    "ms": 129,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 109,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "api": {
+    "status": 200,
+    "ms": 309,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 38.7,
+   "at": "13:01:51",
+   "home": {
+    "status": 200,
+    "ms": 204,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 165,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "api": {
+    "status": 200,
+    "ms": 249,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 39.7,
+   "at": "13:01:52",
+   "home": {
+    "status": 200,
+    "ms": 105,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 123,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "api": {
+    "status": 200,
+    "ms": 220,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 40.7,
+   "at": "13:01:53",
+   "home": {
+    "status": 200,
+    "ms": 118,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 141,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "api": {
+    "status": 200,
+    "ms": 212,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 41.7,
+   "at": "13:01:54",
+   "home": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 175,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "api": {
+    "status": 200,
+    "ms": 227,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 42.7,
+   "at": "13:01:55",
+   "home": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 215,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "api": {
+    "status": 200,
+    "ms": 341,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 43.7,
+   "at": "13:01:56",
+   "home": {
+    "status": 200,
+    "ms": 182,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 122,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "api": {
+    "status": 200,
+    "ms": 250,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 44.7,
+   "at": "13:01:57",
+   "home": {
+    "status": 200,
+    "ms": 155,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 146,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "api": {
+    "status": 200,
+    "ms": 222,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 45.7,
+   "at": "13:01:58",
+   "home": {
+    "status": 200,
+    "ms": 243,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 195,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "api": {
+    "status": 200,
+    "ms": 273,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 46.7,
+   "at": "13:01:59",
+   "home": {
+    "status": 200,
+    "ms": 276,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 107,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "api": {
+    "status": 200,
+    "ms": 225,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 47.7,
+   "at": "13:02:00",
+   "home": {
+    "status": 200,
+    "ms": 244,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 246,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "api": {
+    "status": 200,
+    "ms": 243,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 48.7,
+   "at": "13:02:01",
+   "home": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 163,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "api": {
+    "status": 200,
+    "ms": 204,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 49.7,
+   "at": "13:02:02",
+   "home": {
+    "status": 200,
+    "ms": 215,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 158,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "api": {
+    "status": 200,
+    "ms": 309,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 50.7,
+   "at": "13:02:03",
+   "home": {
+    "status": 200,
+    "ms": 103,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 139,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "api": {
+    "status": 200,
+    "ms": 290,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 51.7,
+   "at": "13:02:04",
+   "home": {
+    "status": 200,
+    "ms": 145,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "api": {
+    "status": 200,
+    "ms": 312,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 52.7,
+   "at": "13:02:05",
+   "home": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "api": {
+    "status": 200,
+    "ms": 214,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 53.7,
+   "at": "13:02:06",
+   "home": {
+    "status": 200,
+    "ms": 210,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 203,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "api": {
+    "status": 200,
+    "ms": 218,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 54.8,
+   "at": "13:02:07",
+   "home": {
+    "status": 200,
+    "ms": 150,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 116,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "api": {
+    "status": 200,
+    "ms": 289,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 55.8,
+   "at": "13:02:08",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 225,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "api": {
+    "status": 200,
+    "ms": 1270,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 57.4,
+   "at": "13:02:10",
+   "home": {
+    "status": 200,
+    "ms": 529,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 227,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "api": {
+    "status": 200,
+    "ms": 790,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 58.9,
+   "at": "13:02:12",
+   "home": {
+    "status": 200,
+    "ms": 570,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 946,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "api": {
+    "status": 200,
+    "ms": 495,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 60.9,
+   "at": "13:02:14",
+   "home": {
+    "status": 200,
+    "ms": 680,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 545,
+    "cache": "Miss from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 503,
+    "ms": 607,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 62.8,
+   "at": "13:02:15",
+   "home": {
+    "status": 200,
+    "ms": 314,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 282,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "api": {
+    "status": 503,
+    "ms": 520,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 63.9,
+   "at": "13:02:17",
+   "home": {
+    "status": 200,
+    "ms": 574,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 585,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "api": {
+    "status": 503,
+    "ms": 544,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 65.6,
+   "at": "13:02:18",
+   "home": {
+    "status": 200,
+    "ms": 273,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 618,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "api": {
+    "status": 503,
+    "ms": 260,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 66.7,
+   "at": "13:02:19",
+   "home": {
+    "status": 200,
+    "ms": 428,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 503,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "api": {
+    "status": 503,
+    "ms": 1623,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 69.3,
+   "at": "13:02:22",
+   "home": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 190,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "api": {
+    "status": 503,
+    "ms": 313,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 70.3,
+   "at": "13:02:23",
+   "home": {
+    "status": 200,
+    "ms": 279,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 98,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "api": {
+    "status": 503,
+    "ms": 305,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 71.3,
+   "at": "13:02:24",
+   "home": {
+    "status": 200,
+    "ms": 778,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 176,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "api": {
+    "status": 503,
+    "ms": 211,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 72.5,
+   "at": "13:02:25",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 391,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "api": {
+    "status": 503,
+    "ms": 422,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 73.5,
+   "at": "13:02:26",
+   "home": {
+    "status": 200,
+    "ms": 95,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "api": {
+    "status": 503,
+    "ms": 263,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 74.5,
+   "at": "13:02:27",
+   "home": {
+    "status": 200,
+    "ms": 338,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 230,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "api": {
+    "status": 503,
+    "ms": 258,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 75.5,
+   "at": "13:02:28",
+   "home": {
+    "status": 200,
+    "ms": 176,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 214,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "api": {
+    "status": 503,
+    "ms": 344,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 76.5,
+   "at": "13:02:29",
+   "home": {
+    "status": 200,
+    "ms": 637,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 183,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "api": {
+    "status": 503,
+    "ms": 476,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 77.8,
+   "at": "13:02:30",
+   "home": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 197,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "api": {
+    "status": 503,
+    "ms": 301,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 78.8,
+   "at": "13:02:31",
+   "home": {
+    "status": 200,
+    "ms": 665,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "api": {
+    "status": 503,
+    "ms": 262,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 79.8,
+   "at": "13:02:32",
+   "home": {
+    "status": 200,
+    "ms": 206,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 250,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "api": {
+    "status": 503,
+    "ms": 229,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 80.8,
+   "at": "13:02:33",
+   "home": {
+    "status": 200,
+    "ms": 256,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 387,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "api": {
+    "status": 503,
+    "ms": 301,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 81.8,
+   "at": "13:02:34",
+   "home": {
+    "status": 200,
+    "ms": 489,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 248,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "api": {
+    "status": 503,
+    "ms": 383,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 82.9,
+   "at": "13:02:36",
+   "home": {
+    "status": 200,
+    "ms": 423,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 95,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "api": {
+    "status": 503,
+    "ms": 228,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 83.9,
+   "at": "13:02:37",
+   "home": {
+    "status": 200,
+    "ms": 387,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 132,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "api": {
+    "status": 503,
+    "ms": 757,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 85.2,
+   "at": "13:02:38",
+   "home": {
+    "status": 200,
+    "ms": 163,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 198,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "api": {
+    "status": 503,
+    "ms": 1308,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 86.9,
+   "at": "13:02:40",
+   "home": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 143,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "api": {
+    "status": 503,
+    "ms": 269,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 87.9,
+   "at": "13:02:41",
+   "home": {
+    "status": 200,
+    "ms": 174,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 182,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "api": {
+    "status": 503,
+    "ms": 386,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 88.9,
+   "at": "13:02:42",
+   "home": {
+    "status": 200,
+    "ms": 135,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "api": {
+    "status": 503,
+    "ms": 253,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 89.9,
+   "at": "13:02:43",
+   "home": {
+    "status": 200,
+    "ms": 221,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 225,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "api": {
+    "status": 503,
+    "ms": 217,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 90.9,
+   "at": "13:02:44",
+   "home": {
+    "status": 200,
+    "ms": 143,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 135,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "api": {
+    "status": 503,
+    "ms": 256,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 91.9,
+   "at": "13:02:45",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "api": {
+    "status": 503,
+    "ms": 259,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 92.9,
+   "at": "13:02:46",
+   "home": {
+    "status": 200,
+    "ms": 169,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 107,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "api": {
+    "status": 503,
+    "ms": 221,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 93.9,
+   "at": "13:02:47",
+   "home": {
+    "status": 200,
+    "ms": 89,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 139,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "api": {
+    "status": 503,
+    "ms": 219,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 94.9,
+   "at": "13:02:48",
+   "home": {
+    "status": 200,
+    "ms": 128,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 217,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "api": {
+    "status": 503,
+    "ms": 211,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 95.9,
+   "at": "13:02:49",
+   "home": {
+    "status": 200,
+    "ms": 152,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 90,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "api": {
+    "status": 503,
+    "ms": 194,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 96.9,
+   "at": "13:02:50",
+   "home": {
+    "status": 200,
+    "ms": 128,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 169,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "api": {
+    "status": 503,
+    "ms": 206,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 97.9,
+   "at": "13:02:51",
+   "home": {
+    "status": 200,
+    "ms": 145,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "api": {
+    "status": 503,
+    "ms": 238,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 98.9,
+   "at": "13:02:52",
+   "home": {
+    "status": 200,
+    "ms": 140,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 1132,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "api": {
+    "status": 503,
+    "ms": 230,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 100.4,
+   "at": "13:02:53",
+   "home": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 225,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "api": {
+    "status": 503,
+    "ms": 177,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 101.4,
+   "at": "13:02:54",
+   "home": {
+    "status": 200,
+    "ms": 95,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 130,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "api": {
+    "status": 503,
+    "ms": 451,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 102.4,
+   "at": "13:02:55",
+   "home": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 143,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "api": {
+    "status": 503,
+    "ms": 185,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 103.4,
+   "at": "13:02:56",
+   "home": {
+    "status": 200,
+    "ms": 90,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "api": {
+    "status": 503,
+    "ms": 186,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 104.4,
+   "at": "13:02:57",
+   "home": {
+    "status": 200,
+    "ms": 248,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 100,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "api": {
+    "status": 503,
+    "ms": 262,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 105.4,
+   "at": "13:02:58",
+   "home": {
+    "status": 200,
+    "ms": 226,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 115,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "api": {
+    "status": 503,
+    "ms": 217,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 106.4,
+   "at": "13:02:59",
+   "home": {
+    "status": 200,
+    "ms": 116,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 95,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "api": {
+    "status": 503,
+    "ms": 187,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 107.4,
+   "at": "13:03:00",
+   "home": {
+    "status": 200,
+    "ms": 150,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 360,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "api": {
+    "status": 503,
+    "ms": 253,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 108.4,
+   "at": "13:03:01",
+   "home": {
+    "status": 200,
+    "ms": 150,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 118,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "api": {
+    "status": 503,
+    "ms": 229,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 109.4,
+   "at": "13:03:02",
+   "home": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 100,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "api": {
+    "status": 503,
+    "ms": 210,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 110.4,
+   "at": "13:03:03",
+   "home": {
+    "status": 200,
+    "ms": 102,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 95,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "api": {
+    "status": 503,
+    "ms": 268,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 111.4,
+   "at": "13:03:04",
+   "home": {
+    "status": 200,
+    "ms": 338,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 87,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "api": {
+    "status": 503,
+    "ms": 439,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 112.4,
+   "at": "13:03:05",
+   "home": {
+    "status": 200,
+    "ms": 113,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 105,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "api": {
+    "status": 503,
+    "ms": 198,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 113.4,
+   "at": "13:03:06",
+   "home": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "api": {
+    "status": 503,
+    "ms": 274,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 114.4,
+   "at": "13:03:07",
+   "home": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 156,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "api": {
+    "status": 503,
+    "ms": 193,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 115.4,
+   "at": "13:03:08",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 215,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "api": {
+    "status": 503,
+    "ms": 203,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 116.4,
+   "at": "13:03:09",
+   "home": {
+    "status": 200,
+    "ms": 159,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 280,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "api": {
+    "status": 503,
+    "ms": 215,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 117.4,
+   "at": "13:03:10",
+   "home": {
+    "status": 200,
+    "ms": 89,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 93,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "api": {
+    "status": 503,
+    "ms": 215,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 118.4,
+   "at": "13:03:11",
+   "home": {
+    "status": 200,
+    "ms": 108,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 172,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "api": {
+    "status": 503,
+    "ms": 254,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 119.4,
+   "at": "13:03:12",
+   "home": {
+    "status": 200,
+    "ms": 139,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 104,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "api": {
+    "status": 503,
+    "ms": 215,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 120.4,
+   "at": "13:03:13",
+   "home": {
+    "status": 200,
+    "ms": 255,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "api": {
+    "status": 503,
+    "ms": 292,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 121.4,
+   "at": "13:03:14",
+   "home": {
+    "status": 200,
+    "ms": 214,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 82,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "api": {
+    "status": 503,
+    "ms": 184,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 122.4,
+   "at": "13:03:15",
+   "home": {
+    "status": 200,
+    "ms": 57,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 164,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "60"
+   },
+   "api": {
+    "status": 503,
+    "ms": 297,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 123.4,
+   "at": "13:03:16",
+   "home": {
+    "status": 200,
+    "ms": 56,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 438,
+    "cache": "Miss from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": null
+   },
+   "api": {
+    "status": 503,
+    "ms": 182,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 124.4,
+   "at": "13:03:17",
+   "home": {
+    "status": 200,
+    "ms": 31,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 51,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": null
+   },
+   "api": {
+    "status": 503,
+    "ms": 195,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 125.4,
+   "at": "13:03:18",
+   "home": {
+    "status": 200,
+    "ms": 44,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 69,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "1"
+   },
+   "api": {
+    "status": 503,
+    "ms": 309,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 126.4,
+   "at": "13:03:19",
+   "home": {
+    "status": 200,
+    "ms": 54,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 135,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "2"
+   },
+   "api": {
+    "status": 503,
+    "ms": 191,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 127.4,
+   "at": "13:03:20",
+   "home": {
+    "status": 200,
+    "ms": 58,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 35,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "3"
+   },
+   "api": {
+    "status": 503,
+    "ms": 329,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 128.4,
+   "at": "13:03:21",
+   "home": {
+    "status": 200,
+    "ms": 64,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 64,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "4"
+   },
+   "api": {
+    "status": 503,
+    "ms": 312,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 129.4,
+   "at": "13:03:22",
+   "home": {
+    "status": 200,
+    "ms": 46,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 159,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "5"
+   },
+   "api": {
+    "status": 503,
+    "ms": 268,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 130.4,
+   "at": "13:03:23",
+   "home": {
+    "status": 200,
+    "ms": 53,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 71,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "6"
+   },
+   "api": {
+    "status": 503,
+    "ms": 190,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 131.4,
+   "at": "13:03:24",
+   "home": {
+    "status": 200,
+    "ms": 214,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 69,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "7"
+   },
+   "api": {
+    "status": 503,
+    "ms": 190,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 132.4,
+   "at": "13:03:25",
+   "home": {
+    "status": 200,
+    "ms": 76,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 33,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "8"
+   },
+   "api": {
+    "status": 503,
+    "ms": 253,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 133.4,
+   "at": "13:03:26",
+   "home": {
+    "status": 200,
+    "ms": 101,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 66,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "9"
+   },
+   "api": {
+    "status": 503,
+    "ms": 206,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 134.4,
+   "at": "13:03:27",
+   "home": {
+    "status": 200,
+    "ms": 174,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 97,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "10"
+   },
+   "api": {
+    "status": 503,
+    "ms": 189,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 135.4,
+   "at": "13:03:28",
+   "home": {
+    "status": 200,
+    "ms": 44,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 124,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "11"
+   },
+   "api": {
+    "status": 503,
+    "ms": 230,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 136.4,
+   "at": "13:03:29",
+   "home": {
+    "status": 200,
+    "ms": 90,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 58,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "12"
+   },
+   "api": {
+    "status": 503,
+    "ms": 295,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 137.4,
+   "at": "13:03:30",
+   "home": {
+    "status": 200,
+    "ms": 103,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "13"
+   },
+   "api": {
+    "status": 503,
+    "ms": 364,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 138.4,
+   "at": "13:03:31",
+   "home": {
+    "status": 200,
+    "ms": 48,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 88,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "14"
+   },
+   "api": {
+    "status": 503,
+    "ms": 270,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 139.4,
+   "at": "13:03:32",
+   "home": {
+    "status": 200,
+    "ms": 36,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 51,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "15"
+   },
+   "api": {
+    "status": 503,
+    "ms": 215,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 140.4,
+   "at": "13:03:33",
+   "home": {
+    "status": 200,
+    "ms": 81,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 77,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "16"
+   },
+   "api": {
+    "status": 503,
+    "ms": 203,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 141.4,
+   "at": "13:03:34",
+   "home": {
+    "status": 200,
+    "ms": 93,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 24,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "17"
+   },
+   "api": {
+    "status": 503,
+    "ms": 223,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 142.4,
+   "at": "13:03:35",
+   "home": {
+    "status": 200,
+    "ms": 1030,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 98,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "19"
+   },
+   "api": {
+    "status": 503,
+    "ms": 211,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 143.7,
+   "at": "13:03:36",
+   "home": {
+    "status": 200,
+    "ms": 67,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 60,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "20"
+   },
+   "api": {
+    "status": 503,
+    "ms": 230,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 144.8,
+   "at": "13:03:37",
+   "home": {
+    "status": 200,
+    "ms": 62,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 77,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "21"
+   },
+   "api": {
+    "status": 503,
+    "ms": 238,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 145.8,
+   "at": "13:03:38",
+   "home": {
+    "status": 200,
+    "ms": 65,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 44,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "22"
+   },
+   "api": {
+    "status": 503,
+    "ms": 234,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 146.8,
+   "at": "13:03:39",
+   "home": {
+    "status": 200,
+    "ms": 62,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 54,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "23"
+   },
+   "api": {
+    "status": 503,
+    "ms": 269,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 147.8,
+   "at": "13:03:40",
+   "home": {
+    "status": 200,
+    "ms": 253,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 58,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "24"
+   },
+   "api": {
+    "status": 503,
+    "ms": 263,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 148.8,
+   "at": "13:03:41",
+   "home": {
+    "status": 200,
+    "ms": 105,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 30,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "25"
+   },
+   "api": {
+    "status": 503,
+    "ms": 216,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 149.8,
+   "at": "13:03:42",
+   "home": {
+    "status": 200,
+    "ms": 34,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 52,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "26"
+   },
+   "api": {
+    "status": 503,
+    "ms": 223,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 150.8,
+   "at": "13:03:43",
+   "home": {
+    "status": 200,
+    "ms": 109,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 87,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "27"
+   },
+   "api": {
+    "status": 503,
+    "ms": 231,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 151.8,
+   "at": "13:03:44",
+   "home": {
+    "status": 200,
+    "ms": 31,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 60,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "28"
+   },
+   "api": {
+    "status": 503,
+    "ms": 202,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 152.8,
+   "at": "13:03:45",
+   "home": {
+    "status": 200,
+    "ms": 56,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 66,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "29"
+   },
+   "api": {
+    "status": 503,
+    "ms": 237,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 153.8,
+   "at": "13:03:46",
+   "home": {
+    "status": 200,
+    "ms": 120,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 46,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "30"
+   },
+   "api": {
+    "status": 503,
+    "ms": 220,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 154.8,
+   "at": "13:03:47",
+   "home": {
+    "status": 200,
+    "ms": 88,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 74,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "31"
+   },
+   "api": {
+    "status": 503,
+    "ms": 249,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 155.8,
+   "at": "13:03:48",
+   "home": {
+    "status": 200,
+    "ms": 57,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 61,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "32"
+   },
+   "api": {
+    "status": 503,
+    "ms": 246,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 156.8,
+   "at": "13:03:49",
+   "home": {
+    "status": 200,
+    "ms": 94,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 404,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "33"
+   },
+   "api": {
+    "status": 503,
+    "ms": 240,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 157.8,
+   "at": "13:03:50",
+   "home": {
+    "status": 200,
+    "ms": 68,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 594,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "34"
+   },
+   "api": {
+    "status": 503,
+    "ms": 466,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 158.9,
+   "at": "13:03:52",
+   "home": {
+    "status": 200,
+    "ms": 35,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "35"
+   },
+   "api": {
+    "status": 503,
+    "ms": 223,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 159.9,
+   "at": "13:03:53",
+   "home": {
+    "status": 200,
+    "ms": 35,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 38,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "36"
+   },
+   "api": {
+    "status": 503,
+    "ms": 231,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 160.9,
+   "at": "13:03:54",
+   "home": {
+    "status": 200,
+    "ms": 50,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 35,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "37"
+   },
+   "api": {
+    "status": 503,
+    "ms": 183,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 161.9,
+   "at": "13:03:55",
+   "home": {
+    "status": 200,
+    "ms": 64,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 57,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "38"
+   },
+   "api": {
+    "status": 503,
+    "ms": 204,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 162.9,
+   "at": "13:03:56",
+   "home": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 78,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "39"
+   },
+   "api": {
+    "status": 503,
+    "ms": 244,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 163.9,
+   "at": "13:03:57",
+   "home": {
+    "status": 200,
+    "ms": 32,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 70,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "40"
+   },
+   "api": {
+    "status": 503,
+    "ms": 186,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 164.9,
+   "at": "13:03:58",
+   "home": {
+    "status": 200,
+    "ms": 53,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 33,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "41"
+   },
+   "api": {
+    "status": 503,
+    "ms": 262,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 165.9,
+   "at": "13:03:59",
+   "home": {
+    "status": 200,
+    "ms": 90,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 63,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "42"
+   },
+   "api": {
+    "status": 503,
+    "ms": 267,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 166.9,
+   "at": "13:04:00",
+   "home": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 62,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "43"
+   },
+   "api": {
+    "status": 503,
+    "ms": 275,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 167.9,
+   "at": "13:04:01",
+   "home": {
+    "status": 200,
+    "ms": 57,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 58,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "44"
+   },
+   "api": {
+    "status": 503,
+    "ms": 193,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 168.9,
+   "at": "13:04:02",
+   "home": {
+    "status": 200,
+    "ms": 33,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 40,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "45"
+   },
+   "api": {
+    "status": 503,
+    "ms": 180,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 169.9,
+   "at": "13:04:03",
+   "home": {
+    "status": 200,
+    "ms": 66,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 73,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "46"
+   },
+   "api": {
+    "status": 503,
+    "ms": 188,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 170.9,
+   "at": "13:04:04",
+   "home": {
+    "status": 200,
+    "ms": 73,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 61,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "47"
+   },
+   "api": {
+    "status": 503,
+    "ms": 251,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 171.9,
+   "at": "13:04:05",
+   "home": {
+    "status": 200,
+    "ms": 46,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 31,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "48"
+   },
+   "api": {
+    "status": 503,
+    "ms": 202,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 172.9,
+   "at": "13:04:06",
+   "home": {
+    "status": 200,
+    "ms": 77,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 109,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "49"
+   },
+   "api": {
+    "status": 503,
+    "ms": 206,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 173.9,
+   "at": "13:04:07",
+   "home": {
+    "status": 200,
+    "ms": 108,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 78,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "50"
+   },
+   "api": {
+    "status": 503,
+    "ms": 277,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 174.9,
+   "at": "13:04:08",
+   "home": {
+    "status": 200,
+    "ms": 60,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 48,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "51"
+   },
+   "api": {
+    "status": 503,
+    "ms": 199,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 175.9,
+   "at": "13:04:09",
+   "home": {
+    "status": 200,
+    "ms": 33,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 69,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "52"
+   },
+   "api": {
+    "status": 503,
+    "ms": 184,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 176.9,
+   "at": "13:04:10",
+   "home": {
+    "status": 200,
+    "ms": 77,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 48,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "53"
+   },
+   "api": {
+    "status": 503,
+    "ms": 197,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 177.9,
+   "at": "13:04:11",
+   "home": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 45,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "54"
+   },
+   "api": {
+    "status": 503,
+    "ms": 197,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 178.9,
+   "at": "13:04:12",
+   "home": {
+    "status": 200,
+    "ms": 45,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 49,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "55"
+   },
+   "api": {
+    "status": 503,
+    "ms": 194,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 179.9,
+   "at": "13:04:13",
+   "home": {
+    "status": 200,
+    "ms": 70,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 43,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "56"
+   },
+   "api": {
+    "status": 503,
+    "ms": 243,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 180.9,
+   "at": "13:04:14",
+   "home": {
+    "status": 200,
+    "ms": 248,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "57"
+   },
+   "api": {
+    "status": 503,
+    "ms": 204,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 181.9,
+   "at": "13:04:15",
+   "home": {
+    "status": 200,
+    "ms": 98,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "58"
+   },
+   "api": {
+    "status": 503,
+    "ms": 179,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 182.9,
+   "at": "13:04:16",
+   "home": {
+    "status": 200,
+    "ms": 90,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "59"
+   },
+   "api": {
+    "status": 503,
+    "ms": 186,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 183.9,
+   "at": "13:04:17",
+   "home": {
+    "status": 200,
+    "ms": 107,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 156,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "60"
+   },
+   "api": {
+    "status": 503,
+    "ms": 229,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 184.9,
+   "at": "13:04:18",
+   "home": {
+    "status": 200,
+    "ms": 165,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 512,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": null
+   },
+   "api": {
+    "status": 503,
+    "ms": 393,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 186.0,
+   "at": "13:04:19",
+   "home": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 122,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "1"
+   },
+   "api": {
+    "status": 503,
+    "ms": 277,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 187.0,
+   "at": "13:04:20",
+   "home": {
+    "status": 200,
+    "ms": 111,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 176,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "2"
+   },
+   "api": {
+    "status": 503,
+    "ms": 266,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 188.0,
+   "at": "13:04:21",
+   "home": {
+    "status": 200,
+    "ms": 146,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "3"
+   },
+   "api": {
+    "status": 503,
+    "ms": 283,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 189.0,
+   "at": "13:04:22",
+   "home": {
+    "status": 200,
+    "ms": 91,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "4"
+   },
+   "api": {
+    "status": 503,
+    "ms": 193,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 190.0,
+   "at": "13:04:23",
+   "home": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 151,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "5"
+   },
+   "api": {
+    "status": 503,
+    "ms": 250,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 191.0,
+   "at": "13:04:24",
+   "home": {
+    "status": 200,
+    "ms": 1357,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 128,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "7"
+   },
+   "api": {
+    "status": 503,
+    "ms": 271,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 192.7,
+   "at": "13:04:25",
+   "home": {
+    "status": 200,
+    "ms": 116,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 171,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "8"
+   },
+   "api": {
+    "status": 503,
+    "ms": 245,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 193.7,
+   "at": "13:04:26",
+   "home": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 95,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "9"
+   },
+   "api": {
+    "status": 503,
+    "ms": 257,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 194.7,
+   "at": "13:04:27",
+   "home": {
+    "status": 200,
+    "ms": 187,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 177,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "10"
+   },
+   "api": {
+    "status": 503,
+    "ms": 213,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 195.7,
+   "at": "13:04:28",
+   "home": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 124,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "11"
+   },
+   "api": {
+    "status": 503,
+    "ms": 212,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 196.7,
+   "at": "13:04:29",
+   "home": {
+    "status": 200,
+    "ms": 215,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 222,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "12"
+   },
+   "api": {
+    "status": 503,
+    "ms": 252,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 197.7,
+   "at": "13:04:30",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 111,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "13"
+   },
+   "api": {
+    "status": 503,
+    "ms": 254,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 198.7,
+   "at": "13:04:31",
+   "home": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 153,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "14"
+   },
+   "api": {
+    "status": 503,
+    "ms": 395,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 199.7,
+   "at": "13:04:32",
+   "home": {
+    "status": 200,
+    "ms": 143,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 102,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "15"
+   },
+   "api": {
+    "status": 503,
+    "ms": 244,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 200.7,
+   "at": "13:04:33",
+   "home": {
+    "status": 200,
+    "ms": 245,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 146,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "16"
+   },
+   "api": {
+    "status": 503,
+    "ms": 658,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 201.8,
+   "at": "13:04:34",
+   "home": {
+    "status": 200,
+    "ms": 259,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 195,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "17"
+   },
+   "api": {
+    "status": 503,
+    "ms": 249,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 202.8,
+   "at": "13:04:35",
+   "home": {
+    "status": 200,
+    "ms": 198,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 126,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "18"
+   },
+   "api": {
+    "status": 503,
+    "ms": 251,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 203.8,
+   "at": "13:04:36",
+   "home": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 180,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "19"
+   },
+   "api": {
+    "status": 503,
+    "ms": 309,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 204.8,
+   "at": "13:04:37",
+   "home": {
+    "status": 200,
+    "ms": 213,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 102,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "20"
+   },
+   "api": {
+    "status": 503,
+    "ms": 254,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 205.8,
+   "at": "13:04:38",
+   "home": {
+    "status": 200,
+    "ms": 108,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 130,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "21"
+   },
+   "api": {
+    "status": 503,
+    "ms": 227,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 206.8,
+   "at": "13:04:39",
+   "home": {
+    "status": 200,
+    "ms": 158,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 138,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "22"
+   },
+   "api": {
+    "status": 503,
+    "ms": 351,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 207.8,
+   "at": "13:04:40",
+   "home": {
+    "status": 200,
+    "ms": 258,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 124,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "23"
+   },
+   "api": {
+    "status": 503,
+    "ms": 246,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 208.8,
+   "at": "13:04:41",
+   "home": {
+    "status": 200,
+    "ms": 102,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 87,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "24"
+   },
+   "api": {
+    "status": 503,
+    "ms": 197,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 209.8,
+   "at": "13:04:42",
+   "home": {
+    "status": 200,
+    "ms": 111,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 200,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "25"
+   },
+   "api": {
+    "status": 503,
+    "ms": 269,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 210.8,
+   "at": "13:04:43",
+   "home": {
+    "status": 200,
+    "ms": 93,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "26"
+   },
+   "api": {
+    "status": 503,
+    "ms": 206,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 211.8,
+   "at": "13:04:44",
+   "home": {
+    "status": 200,
+    "ms": 187,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 101,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "27"
+   },
+   "api": {
+    "status": 503,
+    "ms": 231,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 212.8,
+   "at": "13:04:45",
+   "home": {
+    "status": 200,
+    "ms": 232,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 105,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "28"
+   },
+   "api": {
+    "status": 503,
+    "ms": 241,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 213.8,
+   "at": "13:04:46",
+   "home": {
+    "status": 200,
+    "ms": 124,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 181,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "29"
+   },
+   "api": {
+    "status": 503,
+    "ms": 573,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 214.8,
+   "at": "13:04:47",
+   "home": {
+    "status": 200,
+    "ms": 262,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 139,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "30"
+   },
+   "api": {
+    "status": 503,
+    "ms": 410,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 215.8,
+   "at": "13:04:48",
+   "home": {
+    "status": 200,
+    "ms": 271,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 2322,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "33"
+   },
+   "api": {
+    "status": 503,
+    "ms": 207,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 218.6,
+   "at": "13:04:51",
+   "home": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 101,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "34"
+   },
+   "api": {
+    "status": 503,
+    "ms": 232,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 219.6,
+   "at": "13:04:52",
+   "home": {
+    "status": 200,
+    "ms": 153,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 159,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "35"
+   },
+   "api": {
+    "status": 503,
+    "ms": 289,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 220.6,
+   "at": "13:04:53",
+   "home": {
+    "status": 200,
+    "ms": 180,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 102,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "36"
+   },
+   "api": {
+    "status": 503,
+    "ms": 217,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 221.6,
+   "at": "13:04:54",
+   "home": {
+    "status": 200,
+    "ms": 421,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 100,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "37"
+   },
+   "api": {
+    "status": 503,
+    "ms": 204,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 222.6,
+   "at": "13:04:55",
+   "home": {
+    "status": 200,
+    "ms": 135,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "38"
+   },
+   "api": {
+    "status": 503,
+    "ms": 212,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 223.6,
+   "at": "13:04:56",
+   "home": {
+    "status": 200,
+    "ms": 126,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "39"
+   },
+   "api": {
+    "status": 503,
+    "ms": 196,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 224.6,
+   "at": "13:04:57",
+   "home": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 169,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "40"
+   },
+   "api": {
+    "status": 503,
+    "ms": 349,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 225.6,
+   "at": "13:04:58",
+   "home": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 193,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "41"
+   },
+   "api": {
+    "status": 503,
+    "ms": 230,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 226.6,
+   "at": "13:04:59",
+   "home": {
+    "status": 200,
+    "ms": 133,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 199,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "42"
+   },
+   "api": {
+    "status": 503,
+    "ms": 265,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 227.6,
+   "at": "13:05:00",
+   "home": {
+    "status": 200,
+    "ms": 152,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 1147,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "44"
+   },
+   "api": {
+    "status": 503,
+    "ms": 222,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 229.1,
+   "at": "13:05:02",
+   "home": {
+    "status": 200,
+    "ms": 256,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "44"
+   },
+   "api": {
+    "status": 503,
+    "ms": 244,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 230.1,
+   "at": "13:05:03",
+   "home": {
+    "status": 200,
+    "ms": 177,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "45"
+   },
+   "api": {
+    "status": 503,
+    "ms": 192,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 231.1,
+   "at": "13:05:04",
+   "home": {
+    "status": 200,
+    "ms": 151,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 192,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "46"
+   },
+   "api": {
+    "status": 503,
+    "ms": 267,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 232.1,
+   "at": "13:05:05",
+   "home": {
+    "status": 200,
+    "ms": 103,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 166,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "47"
+   },
+   "api": {
+    "status": 503,
+    "ms": 253,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 233.1,
+   "at": "13:05:06",
+   "home": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 172,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "48"
+   },
+   "api": {
+    "status": 503,
+    "ms": 198,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 234.1,
+   "at": "13:05:07",
+   "home": {
+    "status": 200,
+    "ms": 206,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 1108,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "50"
+   },
+   "api": {
+    "status": 503,
+    "ms": 235,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 235.7,
+   "at": "13:05:08",
+   "home": {
+    "status": 200,
+    "ms": 155,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 136,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "51"
+   },
+   "api": {
+    "status": 503,
+    "ms": 591,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 236.7,
+   "at": "13:05:09",
+   "home": {
+    "status": 200,
+    "ms": 298,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 374,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "52"
+   },
+   "api": {
+    "status": 503,
+    "ms": 379,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 237.7,
+   "at": "13:05:10",
+   "home": {
+    "status": 200,
+    "ms": 648,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 216,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "53"
+   },
+   "api": {
+    "status": 503,
+    "ms": 598,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 239.2,
+   "at": "13:05:12",
+   "home": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 191,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "54"
+   },
+   "api": {
+    "status": 503,
+    "ms": 228,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 240.2,
+   "at": "13:05:13",
+   "home": {
+    "status": 200,
+    "ms": 454,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 512,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "56"
+   },
+   "api": {
+    "status": 503,
+    "ms": 255,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 241.4,
+   "at": "13:05:14",
+   "home": {
+    "status": 200,
+    "ms": 281,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 113,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "57"
+   },
+   "api": {
+    "status": 503,
+    "ms": 222,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 242.4,
+   "at": "13:05:15",
+   "home": {
+    "status": 200,
+    "ms": 198,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 126,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "57"
+   },
+   "api": {
+    "status": 503,
+    "ms": 197,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 243.4,
+   "at": "13:05:16",
+   "home": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": "2026-11-13T05:55:10Z",
+    "age": "58"
+   },
+   "api": {
+    "status": 200,
+    "ms": 215,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 244.4,
+   "at": "13:05:17",
+   "home": {
+    "status": 200,
+    "ms": 456,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 587,
+    "cache": "Miss from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 200,
+    "ms": 474,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 245.9,
+   "at": "13:05:19",
+   "home": {
+    "status": 200,
+    "ms": 1126,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 341,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "api": {
+    "status": 200,
+    "ms": 205,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 247.6,
+   "at": "13:05:20",
+   "home": {
+    "status": 200,
+    "ms": 161,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 155,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "api": {
+    "status": 200,
+    "ms": 245,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 248.6,
+   "at": "13:05:21",
+   "home": {
+    "status": 200,
+    "ms": 145,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 112,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "api": {
+    "status": 200,
+    "ms": 335,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 249.6,
+   "at": "13:05:22",
+   "home": {
+    "status": 200,
+    "ms": 88,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 117,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "api": {
+    "status": 200,
+    "ms": 270,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 250.6,
+   "at": "13:05:23",
+   "home": {
+    "status": 200,
+    "ms": 134,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 142,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "api": {
+    "status": 200,
+    "ms": 261,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 251.6,
+   "at": "13:05:24",
+   "home": {
+    "status": 200,
+    "ms": 287,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 329,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "api": {
+    "status": 200,
+    "ms": 281,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 252.6,
+   "at": "13:05:25",
+   "home": {
+    "status": 200,
+    "ms": 241,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 268,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "api": {
+    "status": 200,
+    "ms": 855,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 254.0,
+   "at": "13:05:27",
+   "home": {
+    "status": 200,
+    "ms": 1166,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 128,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "api": {
+    "status": 200,
+    "ms": 271,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 255.5,
+   "at": "13:05:28",
+   "home": {
+    "status": 200,
+    "ms": 156,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 103,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "api": {
+    "status": 200,
+    "ms": 261,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 256.5,
+   "at": "13:05:29",
+   "home": {
+    "status": 200,
+    "ms": 215,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 1091,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "api": {
+    "status": 200,
+    "ms": 288,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 258.1,
+   "at": "13:05:31",
+   "home": {
+    "status": 200,
+    "ms": 122,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "api": {
+    "status": 200,
+    "ms": 328,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 259.1,
+   "at": "13:05:32",
+   "home": {
+    "status": 200,
+    "ms": 178,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "api": {
+    "status": 200,
+    "ms": 199,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 260.1,
+   "at": "13:05:33",
+   "home": {
+    "status": 200,
+    "ms": 123,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 136,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "api": {
+    "status": 200,
+    "ms": 234,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 261.1,
+   "at": "13:05:34",
+   "home": {
+    "status": 200,
+    "ms": 249,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 264,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "api": {
+    "status": 200,
+    "ms": 381,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 262.1,
+   "at": "13:05:35",
+   "home": {
+    "status": 200,
+    "ms": 274,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 235,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "api": {
+    "status": 200,
+    "ms": 310,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 263.1,
+   "at": "13:05:36",
+   "home": {
+    "status": 200,
+    "ms": 157,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 158,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "api": {
+    "status": 200,
+    "ms": 296,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 264.1,
+   "at": "13:05:37",
+   "home": {
+    "status": 200,
+    "ms": 179,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "api": {
+    "status": 200,
+    "ms": 220,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 265.1,
+   "at": "13:05:38",
+   "home": {
+    "status": 200,
+    "ms": 166,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "api": {
+    "status": 200,
+    "ms": 280,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 266.1,
+   "at": "13:05:39",
+   "home": {
+    "status": 200,
+    "ms": 165,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 260,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "api": {
+    "status": 200,
+    "ms": 276,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 267.1,
+   "at": "13:05:40",
+   "home": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 98,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "api": {
+    "status": 200,
+    "ms": 351,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 268.1,
+   "at": "13:05:41",
+   "home": {
+    "status": 200,
+    "ms": 106,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 153,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "api": {
+    "status": 200,
+    "ms": 249,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 269.1,
+   "at": "13:05:42",
+   "home": {
+    "status": 200,
+    "ms": 134,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "api": {
+    "status": 200,
+    "ms": 342,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 270.1,
+   "at": "13:05:43",
+   "home": {
+    "status": 200,
+    "ms": 133,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 124,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "api": {
+    "status": 200,
+    "ms": 201,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 271.1,
+   "at": "13:05:44",
+   "home": {
+    "status": 200,
+    "ms": 130,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 130,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "api": {
+    "status": 200,
+    "ms": 621,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 272.1,
+   "at": "13:05:45",
+   "home": {
+    "status": 200,
+    "ms": 310,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 243,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "api": {
+    "status": 200,
+    "ms": 397,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 273.1,
+   "at": "13:05:46",
+   "home": {
+    "status": 200,
+    "ms": 310,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 285,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "api": {
+    "status": 200,
+    "ms": 378,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 274.1,
+   "at": "13:05:47",
+   "home": {
+    "status": 200,
+    "ms": 245,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 260,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "api": {
+    "status": 200,
+    "ms": 341,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 275.1,
+   "at": "13:05:48",
+   "home": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 173,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "api": {
+    "status": 200,
+    "ms": 260,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 276.1,
+   "at": "13:05:49",
+   "home": {
+    "status": 200,
+    "ms": 130,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 120,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "api": {
+    "status": 200,
+    "ms": 199,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 277.1,
+   "at": "13:05:50",
+   "home": {
+    "status": 200,
+    "ms": 173,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 142,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "api": {
+    "status": 200,
+    "ms": 289,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 278.1,
+   "at": "13:05:51",
+   "home": {
+    "status": 200,
+    "ms": 118,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 165,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "api": {
+    "status": 200,
+    "ms": 366,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 279.1,
+   "at": "13:05:52",
+   "home": {
+    "status": 200,
+    "ms": 150,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 140,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "api": {
+    "status": 200,
+    "ms": 208,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 280.1,
+   "at": "13:05:53",
+   "home": {
+    "status": 200,
+    "ms": 244,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 147,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "api": {
+    "status": 200,
+    "ms": 252,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 281.1,
+   "at": "13:05:54",
+   "home": {
+    "status": 200,
+    "ms": 158,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 197,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "api": {
+    "status": 200,
+    "ms": 358,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 282.1,
+   "at": "13:05:55",
+   "home": {
+    "status": 200,
+    "ms": 292,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 311,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "api": {
+    "status": 200,
+    "ms": 630,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 283.4,
+   "at": "13:05:56",
+   "home": {
+    "status": 200,
+    "ms": 254,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 200,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "api": {
+    "status": 200,
+    "ms": 271,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 284.4,
+   "at": "13:05:57",
+   "home": {
+    "status": 200,
+    "ms": 344,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 153,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "api": {
+    "status": 200,
+    "ms": 250,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 285.4,
+   "at": "13:05:58",
+   "home": {
+    "status": 200,
+    "ms": 161,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "api": {
+    "status": 200,
+    "ms": 279,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 286.4,
+   "at": "13:05:59",
+   "home": {
+    "status": 200,
+    "ms": 175,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "api": {
+    "status": 200,
+    "ms": 1106,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 287.8,
+   "at": "13:06:00",
+   "home": {
+    "status": 200,
+    "ms": 158,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 177,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "api": {
+    "status": 200,
+    "ms": 218,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 288.8,
+   "at": "13:06:01",
+   "home": {
+    "status": 200,
+    "ms": 179,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 151,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "api": {
+    "status": 200,
+    "ms": 403,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 289.8,
+   "at": "13:06:02",
+   "home": {
+    "status": 200,
+    "ms": 230,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 172,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "api": {
+    "status": 200,
+    "ms": 253,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 290.8,
+   "at": "13:06:03",
+   "home": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 171,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "api": {
+    "status": 200,
+    "ms": 342,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 291.8,
+   "at": "13:06:04",
+   "home": {
+    "status": 200,
+    "ms": 136,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 251,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "api": {
+    "status": 200,
+    "ms": 336,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 292.8,
+   "at": "13:06:05",
+   "home": {
+    "status": 200,
+    "ms": 122,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 150,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "api": {
+    "status": 200,
+    "ms": 216,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 293.8,
+   "at": "13:06:06",
+   "home": {
+    "status": 200,
+    "ms": 285,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 220,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "api": {
+    "status": 200,
+    "ms": 249,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 294.8,
+   "at": "13:06:07",
+   "home": {
+    "status": 200,
+    "ms": 259,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 163,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "api": {
+    "status": 200,
+    "ms": 247,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 295.8,
+   "at": "13:06:08",
+   "home": {
+    "status": 200,
+    "ms": 1019,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 496,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "api": {
+    "status": 200,
+    "ms": 374,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 297.7,
+   "at": "13:06:10",
+   "home": {
+    "status": 200,
+    "ms": 850,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 905,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "api": {
+    "status": 200,
+    "ms": 390,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 299.8,
+   "at": "13:06:12",
+   "home": {
+    "status": 200,
+    "ms": 1312,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 140,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "api": {
+    "status": 200,
+    "ms": 284,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 301.6,
+   "at": "13:06:14",
+   "home": {
+    "status": 200,
+    "ms": 311,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 104,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "api": {
+    "status": 200,
+    "ms": 187,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 302.6,
+   "at": "13:06:15",
+   "home": {
+    "status": 200,
+    "ms": 48,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "0"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 130,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "api": {
+    "status": 200,
+    "ms": 298,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 303.6,
+   "at": "13:06:16",
+   "home": {
+    "status": 200,
+    "ms": 120,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 98,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "api": {
+    "status": 200,
+    "ms": 210,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 304.6,
+   "at": "13:06:17",
+   "home": {
+    "status": 200,
+    "ms": 123,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 116,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "60"
+   },
+   "api": {
+    "status": 200,
+    "ms": 284,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 305.6,
+   "at": "13:06:18",
+   "home": {
+    "status": 200,
+    "ms": 83,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 362,
+    "cache": "Miss from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 200,
+    "ms": 263,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 306.6,
+   "at": "13:06:19",
+   "home": {
+    "status": 200,
+    "ms": 76,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 77,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 200,
+    "ms": 323,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 307.6,
+   "at": "13:06:20",
+   "home": {
+    "status": 200,
+    "ms": 52,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 121,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "api": {
+    "status": 200,
+    "ms": 261,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 308.6,
+   "at": "13:06:21",
+   "home": {
+    "status": 200,
+    "ms": 58,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 75,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "api": {
+    "status": 200,
+    "ms": 221,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 309.6,
+   "at": "13:06:22",
+   "home": {
+    "status": 200,
+    "ms": 207,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 760,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "api": {
+    "status": 200,
+    "ms": 342,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 310.9,
+   "at": "13:06:24",
+   "home": {
+    "status": 200,
+    "ms": 47,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 370,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "api": {
+    "status": 200,
+    "ms": 326,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 311.9,
+   "at": "13:06:25",
+   "home": {
+    "status": 200,
+    "ms": 1013,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 93,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "api": {
+    "status": 200,
+    "ms": 254,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 313.2,
+   "at": "13:06:26",
+   "home": {
+    "status": 200,
+    "ms": 89,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 82,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "api": {
+    "status": 200,
+    "ms": 240,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 314.2,
+   "at": "13:06:27",
+   "home": {
+    "status": 200,
+    "ms": 32,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 120,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "api": {
+    "status": 200,
+    "ms": 384,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 315.2,
+   "at": "13:06:28",
+   "home": {
+    "status": 200,
+    "ms": 52,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 44,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "api": {
+    "status": 200,
+    "ms": 207,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 316.2,
+   "at": "13:06:29",
+   "home": {
+    "status": 200,
+    "ms": 72,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 81,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "api": {
+    "status": 200,
+    "ms": 193,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 317.2,
+   "at": "13:06:30",
+   "home": {
+    "status": 200,
+    "ms": 86,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 94,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "api": {
+    "status": 200,
+    "ms": 209,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 318.2,
+   "at": "13:06:31",
+   "home": {
+    "status": 200,
+    "ms": 38,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 83,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "api": {
+    "status": 200,
+    "ms": 412,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 319.2,
+   "at": "13:06:32",
+   "home": {
+    "status": 200,
+    "ms": 81,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 33,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "api": {
+    "status": 200,
+    "ms": 249,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 320.2,
+   "at": "13:06:33",
+   "home": {
+    "status": 200,
+    "ms": 84,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 92,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "api": {
+    "status": 200,
+    "ms": 233,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 321.2,
+   "at": "13:06:34",
+   "home": {
+    "status": 200,
+    "ms": 182,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 294,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "api": {
+    "status": 200,
+    "ms": 296,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 322.2,
+   "at": "13:06:35",
+   "home": {
+    "status": 200,
+    "ms": 219,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 178,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "api": {
+    "status": 200,
+    "ms": 198,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 323.2,
+   "at": "13:06:36",
+   "home": {
+    "status": 200,
+    "ms": 101,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 40,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "api": {
+    "status": 200,
+    "ms": 289,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 324.2,
+   "at": "13:06:37",
+   "home": {
+    "status": 200,
+    "ms": 49,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 64,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "api": {
+    "status": 200,
+    "ms": 248,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 325.2,
+   "at": "13:06:38",
+   "home": {
+    "status": 200,
+    "ms": 214,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 49,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "api": {
+    "status": 200,
+    "ms": 357,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 326.2,
+   "at": "13:06:39",
+   "home": {
+    "status": 200,
+    "ms": 206,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 355,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "api": {
+    "status": 200,
+    "ms": 276,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 327.2,
+   "at": "13:06:40",
+   "home": {
+    "status": 200,
+    "ms": 68,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 73,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "api": {
+    "status": 200,
+    "ms": 274,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 328.2,
+   "at": "13:06:41",
+   "home": {
+    "status": 200,
+    "ms": 37,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 72,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "api": {
+    "status": 200,
+    "ms": 267,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 329.2,
+   "at": "13:06:42",
+   "home": {
+    "status": 200,
+    "ms": 67,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 68,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "api": {
+    "status": 200,
+    "ms": 243,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 330.2,
+   "at": "13:06:43",
+   "home": {
+    "status": 200,
+    "ms": 61,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 35,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "api": {
+    "status": 200,
+    "ms": 193,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 331.2,
+   "at": "13:06:44",
+   "home": {
+    "status": 200,
+    "ms": 41,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "api": {
+    "status": 200,
+    "ms": 317,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 332.2,
+   "at": "13:06:45",
+   "home": {
+    "status": 200,
+    "ms": 160,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 432,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "api": {
+    "status": 200,
+    "ms": 450,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 333.3,
+   "at": "13:06:46",
+   "home": {
+    "status": 200,
+    "ms": 189,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 76,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "api": {
+    "status": 200,
+    "ms": 186,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 334.3,
+   "at": "13:06:47",
+   "home": {
+    "status": 200,
+    "ms": 138,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 137,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "28"
+   },
+   "api": {
+    "status": 200,
+    "ms": 427,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 335.3,
+   "at": "13:06:48",
+   "home": {
+    "status": 200,
+    "ms": 69,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 59,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "api": {
+    "status": 200,
+    "ms": 265,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 336.3,
+   "at": "13:06:49",
+   "home": {
+    "status": 200,
+    "ms": 51,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 144,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "api": {
+    "status": 200,
+    "ms": 232,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 337.3,
+   "at": "13:06:50",
+   "home": {
+    "status": 200,
+    "ms": 66,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 376,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "api": {
+    "status": 200,
+    "ms": 789,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 338.5,
+   "at": "13:06:51",
+   "home": {
+    "status": 200,
+    "ms": 94,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 93,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "api": {
+    "status": 200,
+    "ms": 318,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 339.5,
+   "at": "13:06:52",
+   "home": {
+    "status": 200,
+    "ms": 87,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 89,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "api": {
+    "status": 200,
+    "ms": 198,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 340.5,
+   "at": "13:06:53",
+   "home": {
+    "status": 200,
+    "ms": 39,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 76,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "api": {
+    "status": 200,
+    "ms": 206,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 341.5,
+   "at": "13:06:54",
+   "home": {
+    "status": 200,
+    "ms": 351,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 113,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "api": {
+    "status": 200,
+    "ms": 306,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 342.5,
+   "at": "13:06:55",
+   "home": {
+    "status": 200,
+    "ms": 52,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 56,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "api": {
+    "status": 200,
+    "ms": 222,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 343.5,
+   "at": "13:06:56",
+   "home": {
+    "status": 200,
+    "ms": 37,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 63,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "api": {
+    "status": 200,
+    "ms": 205,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 344.5,
+   "at": "13:06:57",
+   "home": {
+    "status": 200,
+    "ms": 59,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 41,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "api": {
+    "status": 200,
+    "ms": 192,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 345.5,
+   "at": "13:06:58",
+   "home": {
+    "status": 200,
+    "ms": 53,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 122,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "api": {
+    "status": 200,
+    "ms": 348,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 346.5,
+   "at": "13:06:59",
+   "home": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 255,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "api": {
+    "status": 200,
+    "ms": 267,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 347.5,
+   "at": "13:07:00",
+   "home": {
+    "status": 200,
+    "ms": 68,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 148,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "api": {
+    "status": 200,
+    "ms": 306,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 348.5,
+   "at": "13:07:01",
+   "home": {
+    "status": 200,
+    "ms": 38,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 67,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "api": {
+    "status": 200,
+    "ms": 205,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 349.5,
+   "at": "13:07:02",
+   "home": {
+    "status": 200,
+    "ms": 40,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 71,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "api": {
+    "status": 200,
+    "ms": 197,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 350.5,
+   "at": "13:07:03",
+   "home": {
+    "status": 200,
+    "ms": 54,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 39,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "api": {
+    "status": 200,
+    "ms": 185,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 351.5,
+   "at": "13:07:04",
+   "home": {
+    "status": 200,
+    "ms": 44,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 39,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "api": {
+    "status": 200,
+    "ms": 250,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 352.5,
+   "at": "13:07:05",
+   "home": {
+    "status": 200,
+    "ms": 38,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 70,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "api": {
+    "status": 200,
+    "ms": 234,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 353.5,
+   "at": "13:07:06",
+   "home": {
+    "status": 200,
+    "ms": 77,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 138,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "api": {
+    "status": 200,
+    "ms": 244,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 354.5,
+   "at": "13:07:07",
+   "home": {
+    "status": 200,
+    "ms": 34,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 45,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "api": {
+    "status": 200,
+    "ms": 219,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 355.5,
+   "at": "13:07:08",
+   "home": {
+    "status": 200,
+    "ms": 82,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 54,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "api": {
+    "status": 200,
+    "ms": 224,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 356.5,
+   "at": "13:07:09",
+   "home": {
+    "status": 200,
+    "ms": 45,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "54"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 83,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "api": {
+    "status": 200,
+    "ms": 239,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 357.5,
+   "at": "13:07:10",
+   "home": {
+    "status": 200,
+    "ms": 36,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 53,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "api": {
+    "status": 200,
+    "ms": 239,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 358.5,
+   "at": "13:07:11",
+   "home": {
+    "status": 200,
+    "ms": 35,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 47,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "api": {
+    "status": 200,
+    "ms": 228,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 359.5,
+   "at": "13:07:12",
+   "home": {
+    "status": 200,
+    "ms": 60,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 86,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "api": {
+    "status": 200,
+    "ms": 217,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 360.5,
+   "at": "13:07:13",
+   "home": {
+    "status": 200,
+    "ms": 71,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 205,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "api": {
+    "status": 200,
+    "ms": 216,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 361.5,
+   "at": "13:07:14",
+   "home": {
+    "status": 200,
+    "ms": 486,
+    "cache": "RefreshHit from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 372,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "api": {
+    "status": 200,
+    "ms": 776,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 363.2,
+   "at": "13:07:16",
+   "home": {
+    "status": 200,
+    "ms": 142,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "api": {
+    "status": 200,
+    "ms": 317,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 364.2,
+   "at": "13:07:17",
+   "home": {
+    "status": 200,
+    "ms": 104,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "api": {
+    "status": 200,
+    "ms": 354,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 365.2,
+   "at": "13:07:18",
+   "home": {
+    "status": 200,
+    "ms": 140,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 343,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "59"
+   },
+   "api": {
+    "status": 200,
+    "ms": 204,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 366.2,
+   "at": "13:07:19",
+   "home": {
+    "status": 200,
+    "ms": 280,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 115,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "60"
+   },
+   "api": {
+    "status": 200,
+    "ms": 228,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 367.2,
+   "at": "13:07:20",
+   "home": {
+    "status": 200,
+    "ms": 445,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 853,
+    "cache": "Miss from cloudfront",
+    "snapshot": null,
+    "age": null
+   },
+   "api": {
+    "status": 200,
+    "ms": 206,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 368.7,
+   "at": "13:07:21",
+   "home": {
+    "status": 200,
+    "ms": 106,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 128,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "1"
+   },
+   "api": {
+    "status": 200,
+    "ms": 483,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 369.7,
+   "at": "13:07:22",
+   "home": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 161,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "2"
+   },
+   "api": {
+    "status": 200,
+    "ms": 196,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 370.7,
+   "at": "13:07:23",
+   "home": {
+    "status": 200,
+    "ms": 91,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 163,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "3"
+   },
+   "api": {
+    "status": 200,
+    "ms": 305,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 371.7,
+   "at": "13:07:24",
+   "home": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 120,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "4"
+   },
+   "api": {
+    "status": 200,
+    "ms": 221,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 372.7,
+   "at": "13:07:25",
+   "home": {
+    "status": 200,
+    "ms": 299,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 339,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "5"
+   },
+   "api": {
+    "status": 200,
+    "ms": 263,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 373.7,
+   "at": "13:07:26",
+   "home": {
+    "status": 200,
+    "ms": 129,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 142,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "6"
+   },
+   "api": {
+    "status": 200,
+    "ms": 255,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 374.7,
+   "at": "13:07:27",
+   "home": {
+    "status": 200,
+    "ms": 141,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 146,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "7"
+   },
+   "api": {
+    "status": 200,
+    "ms": 233,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 375.7,
+   "at": "13:07:28",
+   "home": {
+    "status": 200,
+    "ms": 252,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 202,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "8"
+   },
+   "api": {
+    "status": 200,
+    "ms": 461,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 376.7,
+   "at": "13:07:29",
+   "home": {
+    "status": 200,
+    "ms": 503,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 237,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "9"
+   },
+   "api": {
+    "status": 200,
+    "ms": 194,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 377.7,
+   "at": "13:07:30",
+   "home": {
+    "status": 200,
+    "ms": 156,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 150,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "10"
+   },
+   "api": {
+    "status": 200,
+    "ms": 216,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 378.7,
+   "at": "13:07:31",
+   "home": {
+    "status": 200,
+    "ms": 134,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 131,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "11"
+   },
+   "api": {
+    "status": 200,
+    "ms": 221,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 379.7,
+   "at": "13:07:32",
+   "home": {
+    "status": 200,
+    "ms": 101,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 258,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "12"
+   },
+   "api": {
+    "status": 200,
+    "ms": 255,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 380.7,
+   "at": "13:07:33",
+   "home": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 100,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "13"
+   },
+   "api": {
+    "status": 200,
+    "ms": 219,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 381.7,
+   "at": "13:07:34",
+   "home": {
+    "status": 200,
+    "ms": 124,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "20"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "14"
+   },
+   "api": {
+    "status": 200,
+    "ms": 222,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 382.7,
+   "at": "13:07:35",
+   "home": {
+    "status": 200,
+    "ms": 299,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 242,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "15"
+   },
+   "api": {
+    "status": 200,
+    "ms": 459,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 383.7,
+   "at": "13:07:36",
+   "home": {
+    "status": 200,
+    "ms": 325,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 284,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "16"
+   },
+   "api": {
+    "status": 200,
+    "ms": 593,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 384.9,
+   "at": "13:07:38",
+   "home": {
+    "status": 200,
+    "ms": 258,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 314,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "17"
+   },
+   "api": {
+    "status": 200,
+    "ms": 488,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 385.9,
+   "at": "13:07:39",
+   "home": {
+    "status": 200,
+    "ms": 185,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 301,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "18"
+   },
+   "api": {
+    "status": 200,
+    "ms": 533,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 387.0,
+   "at": "13:07:40",
+   "home": {
+    "status": 200,
+    "ms": 326,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 294,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "19"
+   },
+   "api": {
+    "status": 200,
+    "ms": 383,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 388.0,
+   "at": "13:07:41",
+   "home": {
+    "status": 200,
+    "ms": 332,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 586,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "21"
+   },
+   "api": {
+    "status": 200,
+    "ms": 515,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 389.4,
+   "at": "13:07:42",
+   "home": {
+    "status": 200,
+    "ms": 188,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 639,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "22"
+   },
+   "api": {
+    "status": 200,
+    "ms": 588,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 390.8,
+   "at": "13:07:43",
+   "home": {
+    "status": 200,
+    "ms": 258,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "23"
+   },
+   "api": {
+    "status": 200,
+    "ms": 218,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 391.8,
+   "at": "13:07:44",
+   "home": {
+    "status": 200,
+    "ms": 191,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 205,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "24"
+   },
+   "api": {
+    "status": 200,
+    "ms": 209,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 392.8,
+   "at": "13:07:45",
+   "home": {
+    "status": 200,
+    "ms": 127,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 231,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "25"
+   },
+   "api": {
+    "status": 200,
+    "ms": 226,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 393.8,
+   "at": "13:07:46",
+   "home": {
+    "status": 200,
+    "ms": 128,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 171,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "26"
+   },
+   "api": {
+    "status": 200,
+    "ms": 259,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 394.8,
+   "at": "13:07:47",
+   "home": {
+    "status": 200,
+    "ms": 112,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 107,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "27"
+   },
+   "api": {
+    "status": 200,
+    "ms": 211,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 395.8,
+   "at": "13:07:48",
+   "home": {
+    "status": 200,
+    "ms": 1176,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 193,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "29"
+   },
+   "api": {
+    "status": 200,
+    "ms": 290,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 397.5,
+   "at": "13:07:50",
+   "home": {
+    "status": 200,
+    "ms": 138,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 192,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "30"
+   },
+   "api": {
+    "status": 200,
+    "ms": 234,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 398.5,
+   "at": "13:07:51",
+   "home": {
+    "status": 200,
+    "ms": 149,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "36"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 152,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "31"
+   },
+   "api": {
+    "status": 200,
+    "ms": 194,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 399.5,
+   "at": "13:07:52",
+   "home": {
+    "status": 200,
+    "ms": 135,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 217,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "32"
+   },
+   "api": {
+    "status": 200,
+    "ms": 350,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 400.5,
+   "at": "13:07:53",
+   "home": {
+    "status": 200,
+    "ms": 289,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 135,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "33"
+   },
+   "api": {
+    "status": 200,
+    "ms": 220,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 401.5,
+   "at": "13:07:54",
+   "home": {
+    "status": 200,
+    "ms": 636,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 185,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "34"
+   },
+   "api": {
+    "status": 200,
+    "ms": 495,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 402.8,
+   "at": "13:07:55",
+   "home": {
+    "status": 200,
+    "ms": 535,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 286,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "35"
+   },
+   "api": {
+    "status": 200,
+    "ms": 597,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 404.2,
+   "at": "13:07:57",
+   "home": {
+    "status": 200,
+    "ms": 367,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 286,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "37"
+   },
+   "api": {
+    "status": 200,
+    "ms": 248,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 405.2,
+   "at": "13:07:58",
+   "home": {
+    "status": 200,
+    "ms": 493,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "43"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 278,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "38"
+   },
+   "api": {
+    "status": 200,
+    "ms": 437,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 406.4,
+   "at": "13:07:59",
+   "home": {
+    "status": 200,
+    "ms": 197,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 362,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "39"
+   },
+   "api": {
+    "status": 200,
+    "ms": 529,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 407.5,
+   "at": "13:08:00",
+   "home": {
+    "status": 200,
+    "ms": 114,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 154,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "40"
+   },
+   "api": {
+    "status": 200,
+    "ms": 616,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 408.5,
+   "at": "13:08:01",
+   "home": {
+    "status": 200,
+    "ms": 125,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 134,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "41"
+   },
+   "api": {
+    "status": 200,
+    "ms": 204,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 409.5,
+   "at": "13:08:02",
+   "home": {
+    "status": 200,
+    "ms": 169,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 145,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "api": {
+    "status": 200,
+    "ms": 205,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 410.5,
+   "at": "13:08:03",
+   "home": {
+    "status": 200,
+    "ms": 102,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 90,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "42"
+   },
+   "api": {
+    "status": 200,
+    "ms": 280,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 411.5,
+   "at": "13:08:04",
+   "home": {
+    "status": 200,
+    "ms": 197,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 162,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "44"
+   },
+   "api": {
+    "status": 200,
+    "ms": 236,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 412.5,
+   "at": "13:08:05",
+   "home": {
+    "status": 200,
+    "ms": 191,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 161,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "45"
+   },
+   "api": {
+    "status": 200,
+    "ms": 255,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 413.5,
+   "at": "13:08:06",
+   "home": {
+    "status": 200,
+    "ms": 157,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 301,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "46"
+   },
+   "api": {
+    "status": 200,
+    "ms": 429,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 414.5,
+   "at": "13:08:07",
+   "home": {
+    "status": 200,
+    "ms": 236,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 251,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "47"
+   },
+   "api": {
+    "status": 200,
+    "ms": 499,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 415.5,
+   "at": "13:08:08",
+   "home": {
+    "status": 200,
+    "ms": 207,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "53"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 414,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "48"
+   },
+   "api": {
+    "status": 200,
+    "ms": 581,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 416.7,
+   "at": "13:08:09",
+   "home": {
+    "status": 200,
+    "ms": 437,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "55"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 146,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "49"
+   },
+   "api": {
+    "status": 200,
+    "ms": 255,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 417.7,
+   "at": "13:08:10",
+   "home": {
+    "status": 200,
+    "ms": 260,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "56"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 201,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "50"
+   },
+   "api": {
+    "status": 200,
+    "ms": 265,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 418.7,
+   "at": "13:08:11",
+   "home": {
+    "status": 200,
+    "ms": 191,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "57"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 151,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "51"
+   },
+   "api": {
+    "status": 200,
+    "ms": 297,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  },
+  {
+   "t": 419.7,
+   "at": "13:08:12",
+   "home": {
+    "status": 200,
+    "ms": 110,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "58"
+   },
+   "catalog": {
+    "status": 200,
+    "ms": 172,
+    "cache": "Hit from cloudfront",
+    "snapshot": null,
+    "age": "52"
+   },
+   "api": {
+    "status": 200,
+    "ms": 297,
+    "cache": null,
+    "snapshot": null,
+    "age": null
+   }
+  }
+ ],
+ "timeline": {
+  "home": [
+   {
+    "key": [
+     200,
+     "primary"
+    ],
+    "from": 0.0,
+    "to": 419.7,
+    "count": 393
+   }
+  ],
+  "catalog": [
+   {
+    "key": [
+     200,
+     "primary"
+    ],
+    "from": 0.0,
+    "to": 122.4,
+    "count": 112
+   },
+   {
+    "key": [
+     200,
+     "tokyo"
+    ],
+    "from": 123.4,
+    "to": 243.4,
+    "count": 116
+   },
+   {
+    "key": [
+     200,
+     "primary"
+    ],
+    "from": 244.4,
+    "to": 419.7,
+    "count": 165
+   }
+  ],
+  "api": [
+   {
+    "key": [
+     200,
+     "primary"
+    ],
+    "from": 0.0,
+    "to": 58.9,
+    "count": 55
+   },
+   {
+    "key": [
+     503,
+     "primary"
+    ],
+    "from": 60.9,
+    "to": 242.4,
+    "count": 172
+   },
+   {
+    "key": [
+     200,
+     "primary"
+    ],
+    "from": 243.4,
+    "to": 419.7,
+    "count": 166
+   }
+  ]
+ }
+}

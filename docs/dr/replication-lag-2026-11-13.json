@@ -1,0 +1,35 @@
+{
+ "tool": "replication_lag",
+ "table": "cloudhub-pages-Table-YSO9A8XFHAGM",
+ "from": "ap-southeast-1",
+ "to": "ap-northeast-1",
+ "probes": 20,
+ "lag_ms": {
+  "p50": 923,
+  "p95": 1284,
+  "max": 1481
+ },
+ "delete_lag_ms_max": 91,
+ "samples_ms": [
+  864,
+  1481,
+  582,
+  1075,
+  1044,
+  1284,
+  393,
+  988,
+  1008,
+  285,
+  490,
+  1141,
+  995,
+  1091,
+  699,
+  817,
+  253,
+  923,
+  851,
+  945
+ ]
+}

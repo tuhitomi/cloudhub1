@@ -100,6 +100,47 @@ def tune_distribution(resources, policy_name, api_origin=None, headers_name=None
     return True
 
 
+PUBLIC_API_PATH = '/public/catalog'
+PUBLIC_API_TTL = (60, 60, 300)
+
+
+def public_api_cache_policy(name):
+    """The catalog depends only on its query string (see cloudhub.api.public_catalog_response),
+    so the edge may share one cached copy per query between all viewers."""
+    low, default, high = PUBLIC_API_TTL
+    return {'Type': 'AWS::CloudFront::CachePolicy', 'Properties': {'CachePolicyConfig': {
+        'Name': name, 'Comment': 'CloudHub public catalog: 60 s shared edge cache keyed by query string',
+        'MinTTL': low, 'DefaultTTL': default, 'MaxTTL': high,
+        'ParametersInCacheKeyAndForwardedToOrigin': {
+            'EnableAcceptEncodingGzip': True, 'EnableAcceptEncodingBrotli': True,
+            'CookiesConfig': {'CookieBehavior': 'none'}, 'HeadersConfig': {'HeaderBehavior': 'none'},
+            'QueryStringsConfig': {'QueryStringBehavior': 'all'}}}}}
+
+
+def edge_api_cache(resources, origin_id='ui-context-api'):
+    """Serve GET /public/catalog from the frontend distribution with a 60 s edge TTL.
+
+    Load test (13/11/2026): the route throttle of 5 rps answered 813 of 1,279 catalog
+    requests with 429 at 100 users. With the edge cache each POP asks the API about
+    once a minute per distinct query, so viewers no longer reach the throttle.
+    The API origin and its secret header are the ones /ui-context already uses."""
+    dist = resources.get('FrontendDistribution')
+    if not dist:
+        return False
+    config = dist['Properties']['DistributionConfig']
+    origins = [o['Fn::If'][1] if 'Fn::If' in o else o for o in config['Origins']]
+    if origin_id not in {o['Id'] for o in origins}:
+        raise ValueError(f'Distribution has no {origin_id} origin')
+    resources['PublicApiCachePolicy'] = public_api_cache_policy({'Fn::Sub': '${AWS::StackName}-public-api'})
+    behavior = {'PathPattern': PUBLIC_API_PATH, 'TargetOriginId': origin_id, 'ViewerProtocolPolicy': 'https-only',
+                'AllowedMethods': ['GET', 'HEAD'], 'CachedMethods': ['GET', 'HEAD'], 'Compress': True,
+                'CachePolicyId': {'Ref': 'PublicApiCachePolicy'}}
+    if 'FrontendSecurityHeaders' in resources:
+        behavior['ResponseHeadersPolicyId'] = {'Ref': 'FrontendSecurityHeaders'}
+    config['CacheBehaviors'] = [b for b in config.get('CacheBehaviors', []) if b.get('PathPattern') != PUBLIC_API_PATH] + [behavior]
+    return True
+
+
 def extend(template):
     resources = template['Resources']
     params = template['Parameters']

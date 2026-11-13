@@ -103,13 +103,16 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `docs/TV4_WEEK9_WEEK10.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/architecture.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/backup-restore.md` | TV4 | KH24 | Có mã/tài liệu |
+| `docs/chaos/probe-2026-11-13.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/cloud-features.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/deployment.md` | TV3 | KH23 | Có mã/tài liệu |
+| `docs/dr/replication-lag-2026-11-13.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/linux-efs-handoff.md` | TV3 | KH23 | Có mã/tài liệu |
 | `docs/loadtest/ramp-2026-11-13.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/local-check-results.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/main-integration-manifest.json` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/main-integration-results.json` | TV4 | KH24 | Có mã/tài liệu |
+| `docs/multi-region-dr.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/openapi.json` | TV2 | KH22 | Có mã/tài liệu |
 | `docs/performance.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/platform-portability-runbook.md` | TV3 | KH23 | Có mã/tài liệu |
@@ -168,6 +171,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `frontend/quota-view.js` | TV1 | KH02 | Có mã/tài liệu |
 | `frontend/recommendations.js` | TV1 | KH02 | Có mã/tài liệu |
 | `frontend/redesign.css` | TV1 | KH01 | Có mã/tài liệu |
+| `frontend/rum.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/session.js` | TV1 | KH01 | Có mã/tài liệu |
 | `frontend/shell-view.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/ssm-session.js` | TV1 | KH03 | Có mã/tài liệu |
@@ -176,12 +180,17 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `frontend/terminal-screen.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/test-data-view.js` | TV1 | KH04 | Có mã/tài liệu |
 | `frontend/uploads.js` | TV1 | KH04 | Có mã/tài liệu |
+| `frontend/vendor/aws-rum-web/README.md` | TV1 | KH03 | Có mã/tài liệu |
+| `frontend/vendor/aws-rum-web/cwr.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/workspace-ui.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/workspace-view.js` | TV1 | KH03 | Có mã/tài liệu |
 | `frontend/workspace.css` | TV1 | KH03 | Có mã/tài liệu |
+| `infra/chaos/regional.json` | TV4 | KH24 | Có mã/tài liệu |
 | `infra/ci/github-changeset-role.json` | TV4 | KH24 | Có mã/tài liệu |
 | `infra/container/Dockerfile` | TV3 | KH11 | Có mã/tài liệu |
 | `infra/control-plane.json` | TV3 | KH09 | Có mã/tài liệu |
+| `infra/dr/tokyo.json` | TV4 | KH24 | Có mã/tài liệu |
+| `infra/experience/regional.json` | TV4 | KH24 | Có mã/tài liệu |
 | `infra/hosting/api-domain.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/certificate-api.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/hosting/certificate-frontend.example.json` | TV3 | KH09 | Có mã/tài liệu |
@@ -209,6 +218,8 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/benchmark_workloads.py` | TV3 | KH19 | Có mã/tài liệu |
 | `scripts/build_pages_live.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/build_pages_preview.py` | TV3 | KH09 | Có mã/tài liệu |
+| `scripts/chaos_infra.py` | TV4 | KH24 | Có mã/tài liệu |
+| `scripts/chaos_probe.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/check.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/check_leader_handoff.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/check_local.py` | TV4 | KH16 | Có mã/tài liệu |
@@ -222,7 +233,9 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/cognito_messages.py` | TV2 | KH05 | Có mã/tài liệu |
 | `scripts/compare_json.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/configure_frontend.py` | TV1 | KH01 | Có mã/tài liệu |
+| `scripts/dr_infra.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/edge_waf.py` | TV3 | KH09 | Có mã/tài liệu |
+| `scripts/experience_infra.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/feature_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/generate_benchmark_scenarios.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/generate_codeowners.py` | TV4 | KH16 | Có mã/tài liệu |
@@ -272,6 +285,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/region_i18n_infra.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/region_i18n_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/regional_runtime.py` | TV3 | KH09 | Có mã/tài liệu |
+| `scripts/replication_lag.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/resilience_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/restore_aws_frontend.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/review_evidence.py` | TV3 | KH19 | Có mã/tài liệu |
@@ -303,6 +317,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `tests/content-guard.test.mjs` | TV3 | KH19 | Có mã/tài liệu |
 | `tests/create-flow.test.mjs` | TV1 | KH17 | Có mã/tài liệu |
 | `tests/create-view.test.mjs` | TV1 | KH17 | Có mã/tài liệu |
+| `tests/edge-and-rum.test.mjs` | TV1 | KH17 | Có mã/tài liệu |
 | `tests/fixtures/recommendation-contract.json` | TV2 | KH18 | Có mã/tài liệu |
 | `tests/frontend.test.mjs` | TV1 | KH17 | Có mã/tài liệu |
 | `tests/guest-experience.test.mjs` | TV1 | KH17 | Có mã/tài liệu |
@@ -344,6 +359,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `tests/test_lifecycle_resume.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_lifecycle_scheduler.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_local_validation.py` | TV4 | KH24 | Có mã/tài liệu |
+| `tests/test_multi_region.py` | TV4 | KH20 | Có mã/tài liệu |
 | `tests/test_performance.py` | TV4 | KH24 | Có mã/tài liệu |
 | `tests/test_platform_target.py` | TV3 | KH19 | Có mã/tài liệu |
 | `tests/test_portal.py` | TV4 | KH20 | Có mã/tài liệu |

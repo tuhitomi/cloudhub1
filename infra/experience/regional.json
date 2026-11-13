@@ -1,0 +1,318 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudHub user-experience monitoring: Synthetics journey canary and CloudWatch RUM",
+  "Parameters": {
+    "FrontendDomain": {
+      "Type": "String",
+      "Default": "cloudhub1.me"
+    },
+    "AlertTopicArn": {
+      "Type": "String",
+      "Description": "Existing AlertTopic of the control-plane stack"
+    }
+  },
+  "Resources": {
+    "CanaryArtifacts": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        },
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "Id": "expire-artifacts",
+              "Status": "Enabled",
+              "ExpirationInDays": 30
+            }
+          ]
+        }
+      }
+    },
+    "CanaryRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "synthetics-canary",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:PutObject",
+                    "s3:GetObject"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "${CanaryArtifacts.Arn}/*"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:GetBucketLocation",
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "CanaryArtifacts",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:ListAllMyBuckets",
+                  "Resource": "*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/cwsyn-*"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "cloudwatch:PutMetricData",
+                  "Resource": "*",
+                  "Condition": {
+                    "StringEquals": {
+                      "cloudwatch:namespace": "CloudWatchSynthetics"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "JourneyCanary": {
+      "Type": "AWS::Synthetics::Canary",
+      "Properties": {
+        "Name": "cloudhub-journey",
+        "RuntimeVersion": "syn-nodejs-puppeteer-9.1",
+        "ExecutionRoleArn": {
+          "Fn::GetAtt": [
+            "CanaryRole",
+            "Arn"
+          ]
+        },
+        "ArtifactS3Location": {
+          "Fn::Sub": "s3://${CanaryArtifacts}/journey"
+        },
+        "ArtifactConfig": {
+          "S3Encryption": {
+            "EncryptionMode": "SSE_S3"
+          }
+        },
+        "Code": {
+          "Handler": "journey.handler",
+          "Script": "const synthetics = require('Synthetics');\nconst log = require('SyntheticsLogger');\nconst SITE = process.env.SITE_URL;\nconst TEMPLATES = Number(process.env.TEMPLATE_COUNT);\n\nasync function json(page, path) {\n  return page.evaluate(async path => {\n    const r = await fetch(path, {cache: 'no-store', credentials: 'omit'});\n    const body = r.ok ? await r.json() : null;\n    return {status: r.status, cache: r.headers.get('x-cache'), pop: r.headers.get('x-amz-cf-pop'),\n            snapshot: r.headers.get('x-amz-meta-snapshot-at'), items: body && Array.isArray(body.items) ? body.items.length : null,\n            country: body ? body.country_code || null : null};\n  }, path);\n}\n\nexports.handler = async function () {\n  const page = await synthetics.getPage();\n  await synthetics.executeStep('open-home', async function () {\n    const response = await page.goto(SITE, {waitUntil: 'domcontentloaded', timeout: 30000});\n    if (!response || response.status() !== 200) throw new Error('home page status ' + (response && response.status()));\n  });\n  await synthetics.executeStep('templates-rendered', async function () {\n    await page.waitForFunction(n => document.querySelectorAll('#catalog > *').length >= n, {timeout: 20000}, TEMPLATES);\n  });\n  await synthetics.executeStep('edge-catalog', async function () {\n    const r = await json(page, '/public/catalog');\n    log.info('edge catalog ' + JSON.stringify(r));\n    if (r.status !== 200 || r.items < TEMPLATES) throw new Error('edge catalog ' + JSON.stringify(r));\n  });\n  await synthetics.executeStep('ui-context', async function () {\n    const r = await json(page, '/ui-context');\n    log.info('ui-context ' + JSON.stringify(r));\n    if (r.status !== 200) throw new Error('ui-context ' + JSON.stringify(r));\n  });\n};\n"
+        },
+        "Schedule": {
+          "Expression": "rate(10 minutes)"
+        },
+        "RunConfig": {
+          "TimeoutInSeconds": 90,
+          "MemoryInMB": 1024,
+          "EnvironmentVariables": {
+            "SITE_URL": {
+              "Fn::Sub": "https://${FrontendDomain}/"
+            },
+            "TEMPLATE_COUNT": "9"
+          }
+        },
+        "SuccessRetentionPeriod": 7,
+        "FailureRetentionPeriod": 30,
+        "StartCanaryAfterCreation": true
+      }
+    },
+    "JourneyAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-journey-failing"
+        },
+        "AlarmDescription": "Synthetic user journey succeeds in fewer than 90 % of runs (2 of 3 twenty-minute windows)",
+        "Namespace": "CloudWatchSynthetics",
+        "MetricName": "SuccessPercent",
+        "Dimensions": [
+          {
+            "Name": "CanaryName",
+            "Value": {
+              "Ref": "JourneyCanary"
+            }
+          }
+        ],
+        "Statistic": "Average",
+        "Period": 1200,
+        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 2,
+        "Threshold": 90,
+        "ComparisonOperator": "LessThanThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ],
+        "OKActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ]
+      }
+    },
+    "RumIdentityPool": {
+      "Type": "AWS::Cognito::IdentityPool",
+      "Properties": {
+        "IdentityPoolName": "cloudhub_rum",
+        "AllowUnauthenticatedIdentities": true,
+        "AllowClassicFlow": true
+      }
+    },
+    "RumGuestRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "Description": "Anonymous browsers may only send RUM events to the CloudHub app monitor",
+        "MaxSessionDuration": 3600,
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Federated": "cognito-identity.amazonaws.com"
+              },
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Condition": {
+                "StringEquals": {
+                  "cognito-identity.amazonaws.com:aud": {
+                    "Ref": "RumIdentityPool"
+                  }
+                },
+                "ForAnyValue:StringLike": {
+                  "cognito-identity.amazonaws.com:amr": "unauthenticated"
+                }
+              }
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "put-rum-events",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "rum:PutRumEvents",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:rum:${AWS::Region}:${AWS::AccountId}:appmonitor/cloudhub-web"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "RumRoles": {
+      "Type": "AWS::Cognito::IdentityPoolRoleAttachment",
+      "Properties": {
+        "IdentityPoolId": {
+          "Ref": "RumIdentityPool"
+        },
+        "Roles": {
+          "unauthenticated": {
+            "Fn::GetAtt": [
+              "RumGuestRole",
+              "Arn"
+            ]
+          }
+        }
+      }
+    },
+    "RumMonitor": {
+      "Type": "AWS::RUM::AppMonitor",
+      "Properties": {
+        "Name": "cloudhub-web",
+        "Domain": {
+          "Ref": "FrontendDomain"
+        },
+        "CwLogEnabled": false,
+        "AppMonitorConfiguration": {
+          "AllowCookies": false,
+          "EnableXRay": false,
+          "SessionSampleRate": 1,
+          "Telemetries": [
+            "performance",
+            "errors"
+          ],
+          "IdentityPoolId": {
+            "Ref": "RumIdentityPool"
+          },
+          "GuestRoleArn": {
+            "Fn::GetAtt": [
+              "RumGuestRole",
+              "Arn"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "CanaryName": {
+      "Value": {
+        "Ref": "JourneyCanary"
+      }
+    },
+    "ArtifactBucket": {
+      "Value": {
+        "Ref": "CanaryArtifacts"
+      }
+    },
+    "RumConfig": {
+      "Description": "Contents of rum-config.json next to index.html",
+      "Value": {
+        "Fn::Sub": "{\"appMonitorId\":\"${RumMonitor.Id}\",\"identityPoolId\":\"${RumIdentityPool}\",\"guestRoleArn\":\"${RumGuestRole.Arn}\",\"region\":\"${AWS::Region}\",\"sessionSampleRate\":1}"
+      }
+    }
+  }
+}

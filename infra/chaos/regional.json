@@ -1,0 +1,262 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudHub chaos experiment (API outage) with stop condition and automatic rollback",
+  "Parameters": {
+    "TargetFunction": {
+      "Type": "String",
+      "Default": "cloudhub-pages-live-api"
+    },
+    "LifecycleStateMachineArn": {
+      "Type": "String",
+      "Description": "Workflow whose failures abort the experiment"
+    }
+  },
+  "Resources": {
+    "LifecycleFailureGuard": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-guard-lifecycle-failed"
+        },
+        "AlarmDescription": "Stop condition: a real environment workflow failed during the experiment",
+        "Namespace": "AWS/States",
+        "MetricName": "ExecutionsFailed",
+        "Dimensions": [
+          {
+            "Name": "StateMachineArn",
+            "Value": {
+              "Ref": "LifecycleStateMachineArn"
+            }
+          }
+        ],
+        "Statistic": "Sum",
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 0,
+        "ComparisonOperator": "GreaterThanThreshold",
+        "TreatMissingData": "notBreaching"
+      }
+    },
+    "ExperimentRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "states.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "inject-and-rollback",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "lambda:GetFunctionConcurrency",
+                    "lambda:PutFunctionConcurrency",
+                    "lambda:DeleteFunctionConcurrency"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:${TargetFunction}"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "cloudwatch:DescribeAlarms",
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "Experiment": {
+      "Type": "AWS::StepFunctions::StateMachine",
+      "Properties": {
+        "StateMachineName": {
+          "Fn::Sub": "${AWS::StackName}-api-outage"
+        },
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "ExperimentRole",
+            "Arn"
+          ]
+        },
+        "DefinitionString": "{\"Comment\": \"CloudHub chaos experiment: API outage with stop condition and rollback\", \"TimeoutSeconds\": 900, \"StartAt\": \"ValidateInput\", \"States\": {\"ValidateInput\": {\"Type\": \"Choice\", \"Choices\": [{\"And\": [{\"Variable\": \"$.duration_seconds\", \"IsNumeric\": true}, {\"Variable\": \"$.duration_seconds\", \"NumericGreaterThanEquals\": 30}, {\"Variable\": \"$.duration_seconds\", \"NumericLessThanEquals\": 600}], \"Next\": \"AddGuards\"}], \"Default\": \"InvalidInput\"}, \"InvalidInput\": {\"Type\": \"Fail\", \"Error\": \"InvalidInput\", \"Cause\": \"duration_seconds must be 30-600\"}, \"AddGuards\": {\"Type\": \"Pass\", \"Parameters\": {\"duration_seconds.$\": \"$.duration_seconds\", \"guard_alarms.$\": \"$$.Execution.Input.guard_alarms\", \"elapsed\": 0}, \"ResultPath\": \"$\", \"Next\": \"ReadBaseline\"}, \"ReadBaseline\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:lambda:getFunctionConcurrency\", \"Parameters\": {\"FunctionName\": \"${TargetFunction}\"}, \"ResultPath\": \"$.baseline\", \"Next\": \"BaselineFree\"}, \"BaselineFree\": {\"Type\": \"Choice\", \"Choices\": [{\"Variable\": \"$.baseline.ReservedConcurrentExecutions\", \"IsPresent\": true, \"Next\": \"BaselineHasReserved\"}], \"Default\": \"GuardBefore\"}, \"BaselineHasReserved\": {\"Type\": \"Fail\", \"Error\": \"PreconditionFailed\", \"Cause\": \"Target already has reserved concurrency; rollback could not restore it exactly\"}, \"GuardBefore\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:cloudwatch:describeAlarms\", \"Parameters\": {\"AlarmNames.$\": \"$.guard_alarms\", \"StateValue\": \"ALARM\"}, \"ResultSelector\": {\"firing.$\": \"States.ArrayLength($.MetricAlarms)\"}, \"ResultPath\": \"$.guard\", \"Next\": \"GuardsQuiet\"}, \"GuardsQuiet\": {\"Type\": \"Choice\", \"Choices\": [{\"Variable\": \"$.guard.firing\", \"NumericGreaterThan\": 0, \"Next\": \"GuardAlreadyFiring\"}], \"Default\": \"InjectFault\"}, \"GuardAlreadyFiring\": {\"Type\": \"Fail\", \"Error\": \"PreconditionFailed\", \"Cause\": \"A guard alarm is already in ALARM\"}, \"InjectFault\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:lambda:putFunctionConcurrency\", \"Parameters\": {\"FunctionName\": \"${TargetFunction}\", \"ReservedConcurrentExecutions\": 0}, \"ResultPath\": \"$.injected\", \"Catch\": [{\"ErrorEquals\": [\"States.ALL\"], \"ResultPath\": \"$.error\", \"Next\": \"RemoveFault\"}], \"Next\": \"Hold\"}, \"Hold\": {\"Type\": \"Wait\", \"Seconds\": 15, \"Next\": \"CheckGuards\"}, \"CheckGuards\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:cloudwatch:describeAlarms\", \"Parameters\": {\"AlarmNames.$\": \"$.guard_alarms\", \"StateValue\": \"ALARM\"}, \"ResultSelector\": {\"firing.$\": \"States.ArrayLength($.MetricAlarms)\"}, \"ResultPath\": \"$.guard\", \"Catch\": [{\"ErrorEquals\": [\"States.ALL\"], \"ResultPath\": \"$.error\", \"Next\": \"RemoveFault\"}], \"Next\": \"StopOrContinue\"}, \"StopOrContinue\": {\"Type\": \"Choice\", \"Choices\": [{\"Variable\": \"$.guard.firing\", \"NumericGreaterThan\": 0, \"Next\": \"StopConditionMet\"}], \"Default\": \"Tick\"}, \"StopConditionMet\": {\"Type\": \"Pass\", \"Result\": \"stop condition: guard alarm fired\", \"ResultPath\": \"$.stopped\", \"Next\": \"RemoveFault\"}, \"Tick\": {\"Type\": \"Pass\", \"Parameters\": {\"duration_seconds.$\": \"$.duration_seconds\", \"guard_alarms.$\": \"$.guard_alarms\", \"baseline.$\": \"$.baseline\", \"elapsed.$\": \"States.MathAdd($.elapsed, 15)\"}, \"Next\": \"DurationReached\"}, \"DurationReached\": {\"Type\": \"Choice\", \"Choices\": [{\"Variable\": \"$.elapsed\", \"NumericGreaterThanEqualsPath\": \"$.duration_seconds\", \"Next\": \"RemoveFault\"}], \"Default\": \"Hold\"}, \"RemoveFault\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:lambda:deleteFunctionConcurrency\", \"Parameters\": {\"FunctionName\": \"${TargetFunction}\"}, \"Retry\": [{\"ErrorEquals\": [\"States.ALL\"], \"IntervalSeconds\": 2, \"BackoffRate\": 2, \"MaxAttempts\": 6}], \"ResultPath\": null, \"Next\": \"VerifyRestored\"}, \"VerifyRestored\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:lambda:getFunctionConcurrency\", \"Parameters\": {\"FunctionName\": \"${TargetFunction}\"}, \"ResultPath\": \"$.after\", \"Next\": \"Restored\"}, \"Restored\": {\"Type\": \"Choice\", \"Choices\": [{\"Variable\": \"$.after.ReservedConcurrentExecutions\", \"IsPresent\": true, \"Next\": \"RestoreFailed\"}, {\"Variable\": \"$.stopped\", \"IsPresent\": true, \"Next\": \"StoppedByGuard\"}, {\"Variable\": \"$.error\", \"IsPresent\": true, \"Next\": \"ErrorRolledBack\"}], \"Default\": \"Completed\"}, \"RestoreFailed\": {\"Type\": \"Fail\", \"Error\": \"RestoreFailed\", \"Cause\": \"Reserved concurrency still set; restore manually\"}, \"StoppedByGuard\": {\"Type\": \"Fail\", \"Error\": \"StopConditionMet\", \"Cause\": \"Guard alarm fired; fault removed early\"}, \"ErrorRolledBack\": {\"Type\": \"Fail\", \"Error\": \"ExperimentError\", \"Cause\": \"Fault removed after an error\"}, \"Completed\": {\"Type\": \"Succeed\"}}}",
+        "DefinitionSubstitutions": {
+          "TargetFunction": {
+            "Ref": "TargetFunction"
+          }
+        }
+      }
+    },
+    "RestoreRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "states.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "rollback",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "lambda:DeleteFunctionConcurrency",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:${TargetFunction}"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "Restore": {
+      "Type": "AWS::StepFunctions::StateMachine",
+      "Properties": {
+        "StateMachineName": {
+          "Fn::Sub": "${AWS::StackName}-restore"
+        },
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "RestoreRole",
+            "Arn"
+          ]
+        },
+        "DefinitionString": "{\"Comment\": \"Safety net: remove the injected fault if the experiment was aborted or timed out\", \"StartAt\": \"RemoveFault\", \"States\": {\"RemoveFault\": {\"Type\": \"Task\", \"Resource\": \"arn:aws:states:::aws-sdk:lambda:deleteFunctionConcurrency\", \"Parameters\": {\"FunctionName\": \"${TargetFunction}\"}, \"Retry\": [{\"ErrorEquals\": [\"States.ALL\"], \"IntervalSeconds\": 2, \"BackoffRate\": 2, \"MaxAttempts\": 6}], \"End\": true}}}",
+        "DefinitionSubstitutions": {
+          "TargetFunction": {
+            "Ref": "TargetFunction"
+          }
+        }
+      }
+    },
+    "SafetyNetRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "events.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "start-restore",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "states:StartExecution",
+                  "Resource": {
+                    "Ref": "Restore"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "SafetyNet": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Run the restore workflow when the experiment ends without its own rollback",
+        "EventPattern": {
+          "source": [
+            "aws.states"
+          ],
+          "detail-type": [
+            "Step Functions Execution Status Change"
+          ],
+          "detail": {
+            "stateMachineArn": [
+              {
+                "Ref": "Experiment"
+              }
+            ],
+            "status": [
+              "ABORTED",
+              "TIMED_OUT"
+            ]
+          }
+        },
+        "Targets": [
+          {
+            "Id": "restore",
+            "Arn": {
+              "Ref": "Restore"
+            },
+            "RoleArn": {
+              "Fn::GetAtt": [
+                "SafetyNetRole",
+                "Arn"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "ExperimentArn": {
+      "Value": {
+        "Ref": "Experiment"
+      }
+    },
+    "GuardAlarm": {
+      "Value": {
+        "Ref": "LifecycleFailureGuard"
+      }
+    },
+    "StartInput": {
+      "Value": {
+        "Fn::Sub": "{\"duration_seconds\": 180, \"guard_alarms\": [\"${LifecycleFailureGuard}\"]}"
+      }
+    }
+  }
+}

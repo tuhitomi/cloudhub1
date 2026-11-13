@@ -10,9 +10,17 @@ export function createPublicPreview({cfg,login,isGuest=()=>true,fetcher=(...args
   const text=policy?t('preview.initialQuota',{count:number(policy.max_active),budget:money(policy.budget_milliusd)})+' '+t('preview.quotaDisclaimer'):t('preview.quotaUnavailable');
   $('#signup-policy').textContent=text;if(isGuest()){$('#limits-summary').textContent=text;renderQuotaVisual(null);}
  }
+ // The production frontend distribution caches /public/catalog at the edge (60 s) and
+ // fails over to a Tokyo snapshot; use it when this page is that site, else the API.
+ function edgeBase(){
+  try{const origin=globalThis.location?.origin;return origin&&origin.startsWith('https://')&&cfg.redirectUri&&new URL(cfg.redirectUri).origin===origin?origin:null;}catch{return null;}
+ }
  async function request(query='',signal){
   if(!cfg.configured)throw Error('not configured');
-  const response=await fetcher(cfg.apiBase+'/public/catalog'+query,{credentials:'omit',headers:{Accept:'application/json'},cache:'no-store',signal:signal||AbortSignal.timeout(8000)});
+  const options={credentials:'omit',headers:{Accept:'application/json'},cache:'no-store',signal:signal||AbortSignal.timeout(8000)},edge=edgeBase();
+  let response;
+  if(edge){try{response=await fetcher(edge+'/public/catalog'+query,options);}catch(error){if(options.signal.aborted)throw error;}}
+  if(!response?.ok)response=await fetcher(cfg.apiBase+'/public/catalog'+query,options);
   if(!response.ok)throw Error('preview unavailable');return response.json();
  }
  async function load(){
