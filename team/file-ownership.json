@@ -782,6 +782,13 @@
       "generated": false
     },
     {
+      "path": "docs/production-operations.md",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": "docs/reliability-security.md",
       "owner": "TV4",
       "task": "KH24",
@@ -1314,6 +1321,27 @@
       "generated": false
     },
     {
+      "path": "infra/observability/global-checks.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "infra/observability/regional.json",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
+      "path": "infra/security/baseline.json",
+      "owner": "TV3",
+      "task": "KH23",
+      "reason": "Rà soát role, security group, secret và cấu hình triển khai; xử lý tài nguyên thử còn sót, chốt IaC/driver và hướng dẫn triển khai, sao lưu, thu hồi.",
+      "generated": false
+    },
+    {
       "path": "package-lock.json",
       "owner": "TV1",
       "task": "KH01",
@@ -1657,6 +1685,13 @@
       "generated": false
     },
     {
+      "path": "scripts/observability_infra.py",
+      "owner": "TV4",
+      "task": "KH24",
+      "reason": "Tổ chức kiểm thử hồi quy chung, tổng hợp kết quả và rủi ro; chốt phiên bản repo, cấu hình phát hành, báo cáo và kịch bản trình diễn cuối tuần 10.",
+      "generated": false
+    },
+    {
       "path": "scripts/package_console.py",
       "owner": "TV4",
       "task": "KH16",
@@ -1864,6 +1899,13 @@
       "owner": "TV3",
       "task": "KH19",
       "reason": "Kiểm chứng tạo, truy cập, backup, restore và thu hồi T01–T09 với cấu hình chuẩn tại Singapore; đối chiếu dữ liệu và inventory, kiểm gate của tổ hợp chưa được mở.",
+      "generated": false
+    },
+    {
+      "path": "scripts/security_baseline_infra.py",
+      "owner": "TV3",
+      "task": "KH23",
+      "reason": "Rà soát role, security group, secret và cấu hình triển khai; xử lý tài nguyên thử còn sót, chốt IaC/driver và hướng dẫn triển khai, sao lưu, thu hồi.",
       "generated": false
     },
     {

@@ -1,0 +1,429 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudHub account security baseline: CloudTrail, CIS metric alarms, IAM Access Analyzer",
+  "Parameters": {
+    "AlertTopicArn": {
+      "Type": "String",
+      "AllowedPattern": "arn:aws:sns:[a-z0-9-]+:[0-9]{12}:.+"
+    }
+  },
+  "Resources": {
+    "TrailBucket": {
+      "Type": "AWS::S3::Bucket",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        },
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        },
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "Id": "expire-after-1-year",
+              "Status": "Enabled",
+              "ExpirationInDays": 365,
+              "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 30
+              }
+            }
+          ]
+        }
+      }
+    },
+    "TrailBucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "TrailBucket"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "AclCheck",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "cloudtrail.amazonaws.com"
+              },
+              "Action": "s3:GetBucketAcl",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "TrailBucket",
+                  "Arn"
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceArn": {
+                    "Fn::Sub": "arn:${AWS::Partition}:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}"
+                  }
+                }
+              }
+            },
+            {
+              "Sid": "Write",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "cloudtrail.amazonaws.com"
+              },
+              "Action": "s3:PutObject",
+              "Resource": {
+                "Fn::Sub": "${TrailBucket.Arn}/AWSLogs/${AWS::AccountId}/*"
+              },
+              "Condition": {
+                "StringEquals": {
+                  "s3:x-amz-acl": "bucket-owner-full-control",
+                  "aws:SourceArn": {
+                    "Fn::Sub": "arn:${AWS::Partition}:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}"
+                  }
+                }
+              }
+            },
+            {
+              "Sid": "TlsOnly",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Action": "s3:*",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "TrailBucket",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Sub": "${TrailBucket.Arn}/*"
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "TrailLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Sub": "/aws/cloudtrail/${AWS::StackName}"
+        },
+        "RetentionInDays": 90
+      }
+    },
+    "TrailLogRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "cloudtrail.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "deliver",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "${TrailLogGroup.Arn}"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "Trail": {
+      "Type": "AWS::CloudTrail::Trail",
+      "DependsOn": "TrailBucketPolicy",
+      "Properties": {
+        "TrailName": {
+          "Fn::Sub": "${AWS::StackName}"
+        },
+        "S3BucketName": {
+          "Ref": "TrailBucket"
+        },
+        "IsLogging": true,
+        "IsMultiRegionTrail": true,
+        "IncludeGlobalServiceEvents": true,
+        "EnableLogFileValidation": true,
+        "CloudWatchLogsLogGroupArn": {
+          "Fn::GetAtt": [
+            "TrailLogGroup",
+            "Arn"
+          ]
+        },
+        "CloudWatchLogsRoleArn": {
+          "Fn::GetAtt": [
+            "TrailLogRole",
+            "Arn"
+          ]
+        }
+      }
+    },
+    "AccessAnalyzer": {
+      "Type": "AWS::AccessAnalyzer::Analyzer",
+      "Properties": {
+        "AnalyzerName": {
+          "Fn::Sub": "${AWS::StackName}-account"
+        },
+        "Type": "ACCOUNT"
+      }
+    },
+    "RootUsageFilter": {
+      "Type": "AWS::Logs::MetricFilter",
+      "DependsOn": "Trail",
+      "Properties": {
+        "LogGroupName": {
+          "Ref": "TrailLogGroup"
+        },
+        "FilterPattern": "{ $.userIdentity.type = \"Root\" && $.userIdentity.invokedBy NOT EXISTS && $.eventType != \"AwsServiceEvent\" }",
+        "MetricTransformations": [
+          {
+            "MetricNamespace": "CloudHub/Security",
+            "MetricName": "RootUsage",
+            "MetricValue": "1",
+            "DefaultValue": 0
+          }
+        ]
+      }
+    },
+    "RootUsageAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-RootUsage"
+        },
+        "AlarmDescription": "Root account was used",
+        "Namespace": "CloudHub/Security",
+        "MetricName": "RootUsage",
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ]
+      }
+    },
+    "ConsoleNoMfaFilter": {
+      "Type": "AWS::Logs::MetricFilter",
+      "DependsOn": "Trail",
+      "Properties": {
+        "LogGroupName": {
+          "Ref": "TrailLogGroup"
+        },
+        "FilterPattern": "{ ($.eventName = \"ConsoleLogin\") && ($.additionalEventData.MFAUsed != \"Yes\") && ($.userIdentity.type = \"IAMUser\") && ($.responseElements.ConsoleLogin = \"Success\") }",
+        "MetricTransformations": [
+          {
+            "MetricNamespace": "CloudHub/Security",
+            "MetricName": "ConsoleNoMfa",
+            "MetricValue": "1",
+            "DefaultValue": 0
+          }
+        ]
+      }
+    },
+    "ConsoleNoMfaAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-ConsoleNoMfa"
+        },
+        "AlarmDescription": "Console sign-in without MFA",
+        "Namespace": "CloudHub/Security",
+        "MetricName": "ConsoleNoMfa",
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ]
+      }
+    },
+    "UnauthorizedCallsFilter": {
+      "Type": "AWS::Logs::MetricFilter",
+      "DependsOn": "Trail",
+      "Properties": {
+        "LogGroupName": {
+          "Ref": "TrailLogGroup"
+        },
+        "FilterPattern": "{ ($.errorCode = \"*UnauthorizedOperation\") || ($.errorCode = \"AccessDenied*\") }",
+        "MetricTransformations": [
+          {
+            "MetricNamespace": "CloudHub/Security",
+            "MetricName": "UnauthorizedCalls",
+            "MetricValue": "1",
+            "DefaultValue": 0
+          }
+        ]
+      }
+    },
+    "UnauthorizedCallsAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-UnauthorizedCalls"
+        },
+        "AlarmDescription": "Unauthorized or access-denied API calls",
+        "Namespace": "CloudHub/Security",
+        "MetricName": "UnauthorizedCalls",
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 10,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ]
+      }
+    },
+    "IamPolicyChangesFilter": {
+      "Type": "AWS::Logs::MetricFilter",
+      "DependsOn": "Trail",
+      "Properties": {
+        "LogGroupName": {
+          "Ref": "TrailLogGroup"
+        },
+        "FilterPattern": "{ ($.eventSource = \"iam.amazonaws.com\") && (($.eventName = \"DeleteGroupPolicy\") || ($.eventName = \"DeleteRolePolicy\") || ($.eventName = \"DeleteUserPolicy\") || ($.eventName = \"PutGroupPolicy\") || ($.eventName = \"PutRolePolicy\") || ($.eventName = \"PutUserPolicy\") || ($.eventName = \"CreatePolicy\") || ($.eventName = \"DeletePolicy\") || ($.eventName = \"CreatePolicyVersion\") || ($.eventName = \"DeletePolicyVersion\") || ($.eventName = \"AttachRolePolicy\") || ($.eventName = \"DetachRolePolicy\") || ($.eventName = \"AttachUserPolicy\") || ($.eventName = \"DetachUserPolicy\") || ($.eventName = \"AttachGroupPolicy\") || ($.eventName = \"DetachGroupPolicy\")) }",
+        "MetricTransformations": [
+          {
+            "MetricNamespace": "CloudHub/Security",
+            "MetricName": "IamPolicyChanges",
+            "MetricValue": "1",
+            "DefaultValue": 0
+          }
+        ]
+      }
+    },
+    "IamPolicyChangesAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-IamPolicyChanges"
+        },
+        "AlarmDescription": "IAM policy changed",
+        "Namespace": "CloudHub/Security",
+        "MetricName": "IamPolicyChanges",
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ]
+      }
+    },
+    "TrailChangesFilter": {
+      "Type": "AWS::Logs::MetricFilter",
+      "DependsOn": "Trail",
+      "Properties": {
+        "LogGroupName": {
+          "Ref": "TrailLogGroup"
+        },
+        "FilterPattern": "{ ($.eventName = \"CreateTrail\") || ($.eventName = \"UpdateTrail\") || ($.eventName = \"DeleteTrail\") || ($.eventName = \"StartLogging\") || ($.eventName = \"StopLogging\") }",
+        "MetricTransformations": [
+          {
+            "MetricNamespace": "CloudHub/Security",
+            "MetricName": "TrailChanges",
+            "MetricValue": "1",
+            "DefaultValue": 0
+          }
+        ]
+      }
+    },
+    "TrailChangesAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": {
+          "Fn::Sub": "${AWS::StackName}-TrailChanges"
+        },
+        "AlarmDescription": "CloudTrail configuration changed",
+        "Namespace": "CloudHub/Security",
+        "MetricName": "TrailChanges",
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "AlertTopicArn"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "TrailBucket": {
+      "Value": {
+        "Ref": "TrailBucket"
+      }
+    },
+    "Analyzer": {
+      "Value": {
+        "Fn::GetAtt": [
+          "AccessAnalyzer",
+          "Arn"
+        ]
+      }
+    }
+  }
+}

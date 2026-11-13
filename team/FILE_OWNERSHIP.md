@@ -114,6 +114,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `docs/platform-portability-runbook.md` | TV3 | KH23 | Có mã/tài liệu |
 | `docs/pricing-and-capacity.md` | TV2 | KH07 | Có mã/tài liệu |
 | `docs/product-scope.md` | TV4 | KH24 | Có mã/tài liệu |
+| `docs/production-operations.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/reliability-security.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/requirements.md` | TV4 | KH24 | Có mã/tài liệu |
 | `docs/security.md` | TV2 | KH05 | Có mã/tài liệu |
@@ -190,6 +191,9 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `infra/hosting/shared-routing.example.json` | TV3 | KH09 | Có mã/tài liệu |
 | `infra/lifecycle.asl.json` | TV4 | KH13 | Có mã/tài liệu |
 | `infra/network.json` | TV3 | KH09 | Có mã/tài liệu |
+| `infra/observability/global-checks.json` | TV4 | KH24 | Có mã/tài liệu |
+| `infra/observability/regional.json` | TV4 | KH24 | Có mã/tài liệu |
+| `infra/security/baseline.json` | TV3 | KH23 | Có mã/tài liệu |
 | `package-lock.json` | TV1 | KH01 | Có mã/tài liệu |
 | `package.json` | TV1 | KH01 | Có mã/tài liệu |
 | `requirements-dev.txt` | TV4 | KH24 | Có mã/tài liệu |
@@ -239,6 +243,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/migrate_regions.py` | TV2 | KH08 | Có mã/tài liệu |
 | `scripts/notification_infra.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/notification_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
+| `scripts/observability_infra.py` | TV4 | KH24 | Có mã/tài liệu |
 | `scripts/package_console.py` | TV4 | KH16 | Có mã/tài liệu |
 | `scripts/performance_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/portal_infra.py` | TV4 | KH16 | Có mã/tài liệu |
@@ -269,6 +274,7 @@ Phân công báo cáo v2. Owner chịu trách nhiệm tích hợp/review; kết 
 | `scripts/restore_aws_frontend.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/review_evidence.py` | TV3 | KH19 | Có mã/tài liệu |
 | `scripts/run_validation.py` | TV3 | KH19 | Có mã/tài liệu |
+| `scripts/security_baseline_infra.py` | TV3 | KH23 | Có mã/tài liệu |
 | `scripts/spend_guard_openapi.py` | TV2 | KH07 | Có mã/tài liệu |
 | `scripts/template_view_infra.py` | TV3 | KH09 | Có mã/tài liệu |
 | `scripts/template_view_openapi.py` | TV2 | KH08 | Có mã/tài liệu |
