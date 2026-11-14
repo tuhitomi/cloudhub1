@@ -1,0 +1,365 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "CloudHub production SLO dashboard and alarms (does not modify the control plane)",
+ "Parameters": {
+  "ControlStack": {
+   "Type": "String",
+   "Default": "cloudhub-pages-live"
+  },
+  "ApiId": {
+   "Type": "String",
+   "AllowedPattern": "[a-z0-9]{10}"
+  },
+  "TableName": {
+   "Type": "String"
+  },
+  "DistributionId": {
+   "Type": "String",
+   "AllowedPattern": "E[A-Z0-9]+"
+  },
+  "AlertTopicArn": {
+   "Type": "String",
+   "AllowedPattern": "arn:aws:sns:[a-z0-9-]+:[0-9]{12}:.+"
+  },
+  "AccountConcurrencyLimit": {
+   "Type": "Number",
+   "Default": 10,
+   "MinValue": 10,
+   "Description": "Current Lambda concurrent-executions quota; the alarm fires at 80 %."
+  }
+ },
+ "Resources": {
+  "SloDashboard": {
+   "Type": "AWS::CloudWatch::Dashboard",
+   "Properties": {
+    "DashboardName": {
+     "Fn::Sub": "${AWS::StackName}-slo"
+    },
+    "DashboardBody": {
+     "Fn::Sub": "{\"widgets\": [{\"type\": \"text\", \"x\": 0, \"y\": 0, \"width\": 24, \"height\": 2, \"properties\": {\"markdown\": \"# CloudHub production \\u00b7 SLO 99.5% non-5xx (30 ng\\u00e0y) \\u00b7 error budget 0.5%\\nBurn-rate alarms: 1 h > 14.4 ho\\u1eb7c 6 h > 6.0. T\\u00e0i kho\\u1ea3n Lambda concurrency \\u0111\\u01b0\\u1ee3c theo d\\u00f5i v\\u00ec gi\\u1edbi h\\u1ea1n t\\u00e0i kho\\u1ea3n m\\u1edbi r\\u1ea5t th\\u1ea5p.\"}}, {\"type\": \"metric\", \"x\": 0, \"y\": 2, \"width\": 8, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"Availability (non-5xx, %)\", \"view\": \"singleValue\", \"period\": 2592000, \"metrics\": [[\"AWS/ApiGateway\", \"Count\", \"ApiId\", \"${ApiId}\", {\"stat\": \"Sum\", \"period\": 2592000, \"id\": \"c\", \"visible\": false}], [\"AWS/ApiGateway\", \"5xx\", \"ApiId\", \"${ApiId}\", {\"stat\": \"Sum\", \"period\": 2592000, \"id\": \"e\", \"visible\": false}], [{\"expression\": \"IF(c > 0, 100 * (1 - e / c), 100)\", \"label\": \"30-day availability\", \"id\": \"a\"}], [{\"expression\": \"IF(c > 0, 100 * (1 - (e / c) / 0.005), 100)\", \"label\": \"error budget left %\", \"id\": \"b\"}]]}}, {\"type\": \"metric\", \"x\": 8, \"y\": 2, \"width\": 16, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"API requests and errors\", \"view\": \"timeSeries\", \"stacked\": false, \"metrics\": [[\"AWS/ApiGateway\", \"Count\", \"ApiId\", \"${ApiId}\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"requests\"}], [\"AWS/ApiGateway\", \"4xx\", \"ApiId\", \"${ApiId}\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"4xx (g\\u1ed3m 429 throttle)\"}], [\"AWS/ApiGateway\", \"5xx\", \"ApiId\", \"${ApiId}\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"5xx\"}]]}}, {\"type\": \"metric\", \"x\": 0, \"y\": 8, \"width\": 12, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"API latency (ms)\", \"view\": \"timeSeries\", \"metrics\": [[\"AWS/ApiGateway\", \"Latency\", \"ApiId\", \"${ApiId}\", {\"stat\": \"p50\", \"period\": 60, \"label\": \"p50\"}], [\"AWS/ApiGateway\", \"Latency\", \"ApiId\", \"${ApiId}\", {\"stat\": \"p95\", \"period\": 60, \"label\": \"p95\"}], [\"AWS/ApiGateway\", \"Latency\", \"ApiId\", \"${ApiId}\", {\"stat\": \"p99\", \"period\": 60, \"label\": \"p99\"}], [\"AWS/ApiGateway\", \"IntegrationLatency\", \"ApiId\", \"${ApiId}\", {\"stat\": \"p95\", \"period\": 60, \"label\": \"integration p95\"}]], \"annotations\": {\"horizontal\": [{\"value\": 2000, \"label\": \"m\\u1ee5c ti\\u00eau 2 s\"}]}}}, {\"type\": \"metric\", \"x\": 12, \"y\": 8, \"width\": 12, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"Lambda concurrency vs account quota\", \"view\": \"timeSeries\", \"metrics\": [[\"AWS/Lambda\", \"ClaimedAccountConcurrency\", {\"stat\": \"Maximum\", \"period\": 60, \"label\": \"claimed (account)\"}], [\"AWS/Lambda\", \"ConcurrentExecutions\", {\"stat\": \"Maximum\", \"period\": 60, \"label\": \"concurrent (account)\"}], [\"AWS/Lambda\", \"Throttles\", {\"stat\": \"Sum\", \"period\": 60, \"yAxis\": \"right\", \"label\": \"throttles (account)\"}]]}}, {\"type\": \"metric\", \"x\": 0, \"y\": 14, \"width\": 12, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"Lambda duration p95 (ms)\", \"view\": \"timeSeries\", \"metrics\": [[\"AWS/Lambda\", \"Duration\", \"FunctionName\", \"${ControlStack}-api\", {\"stat\": \"p95\", \"period\": 60, \"label\": \"api\"}], [\"AWS/Lambda\", \"Duration\", \"FunctionName\", \"${ControlStack}-worker\", {\"stat\": \"p95\", \"period\": 60, \"label\": \"worker\"}], [\"AWS/Lambda\", \"Duration\", \"FunctionName\", \"${ControlStack}-sweep\", {\"stat\": \"p95\", \"period\": 60, \"label\": \"sweep\"}], [\"AWS/Lambda\", \"Duration\", \"FunctionName\", \"${ControlStack}-expiry\", {\"stat\": \"p95\", \"period\": 60, \"label\": \"expiry\"}]]}}, {\"type\": \"metric\", \"x\": 12, \"y\": 14, \"width\": 12, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"Lambda errors\", \"view\": \"timeSeries\", \"metrics\": [[\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${ControlStack}-api\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"api\"}], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${ControlStack}-worker\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"worker\"}], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${ControlStack}-sweep\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"sweep\"}], [\"AWS/Lambda\", \"Errors\", \"FunctionName\", \"${ControlStack}-expiry\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"expiry\"}]]}}, {\"type\": \"metric\", \"x\": 0, \"y\": 20, \"width\": 12, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"DynamoDB metadata table\", \"view\": \"timeSeries\", \"metrics\": [[\"AWS/DynamoDB\", \"ConsumedReadCapacityUnits\", \"TableName\", \"${TableName}\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"RCU\"}], [\"AWS/DynamoDB\", \"ConsumedWriteCapacityUnits\", \"TableName\", \"${TableName}\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"WCU\"}], [\"AWS/DynamoDB\", \"ThrottledRequests\", \"TableName\", \"${TableName}\", {\"stat\": \"Sum\", \"period\": 60, \"yAxis\": \"right\", \"label\": \"throttled\"}]]}}, {\"type\": \"metric\", \"x\": 12, \"y\": 20, \"width\": 12, \"height\": 6, \"properties\": {\"region\": \"${AWS::Region}\", \"title\": \"Lifecycle workflow (Step Functions)\", \"view\": \"timeSeries\", \"period\": 300, \"metrics\": [[\"AWS/States\", \"ExecutionsStarted\", \"StateMachineArn\", \"arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${ControlStack}-lifecycle\", {\"stat\": \"Sum\", \"period\": 300, \"label\": \"started\"}], [\"AWS/States\", \"ExecutionsSucceeded\", \"StateMachineArn\", \"arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${ControlStack}-lifecycle\", {\"stat\": \"Sum\", \"period\": 300, \"label\": \"succeeded\"}], [\"AWS/States\", \"ExecutionsFailed\", \"StateMachineArn\", \"arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${ControlStack}-lifecycle\", {\"stat\": \"Sum\", \"period\": 300, \"label\": \"failed\"}], [\"AWS/States\", \"ExecutionTime\", \"StateMachineArn\", \"arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${ControlStack}-lifecycle\", {\"stat\": \"p95\", \"period\": 300, \"yAxis\": \"right\", \"label\": \"time p95 (ms)\"}]]}}, {\"type\": \"metric\", \"x\": 0, \"y\": 26, \"width\": 24, \"height\": 6, \"properties\": {\"region\": \"us-east-1\", \"title\": \"CloudFront cloudhub1.me (us-east-1, Global)\", \"view\": \"timeSeries\", \"metrics\": [[\"AWS/CloudFront\", \"Requests\", \"DistributionId\", \"${DistributionId}\", \"Region\", \"Global\", {\"stat\": \"Sum\", \"period\": 60, \"label\": \"requests\"}], [\"AWS/CloudFront\", \"4xxErrorRate\", \"DistributionId\", \"${DistributionId}\", \"Region\", \"Global\", {\"stat\": \"Average\", \"period\": 60, \"yAxis\": \"right\", \"label\": \"4xx %\"}], [\"AWS/CloudFront\", \"5xxErrorRate\", \"DistributionId\", \"${DistributionId}\", \"Region\", \"Global\", {\"stat\": \"Average\", \"period\": 60, \"yAxis\": \"right\", \"label\": \"5xx %\"}]]}}]}"
+    }
+   }
+  },
+  "ApiFastBurnAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-api-burn-1h"
+    },
+    "AlarmDescription": "Error-budget burn rate over 1 h above 14.4 (SLO 99.5% non-5xx)",
+    "Metrics": [
+     {
+      "Id": "errors",
+      "ReturnData": false,
+      "MetricStat": {
+       "Metric": {
+        "Namespace": "AWS/ApiGateway",
+        "MetricName": "5xx",
+        "Dimensions": [
+         {
+          "Name": "ApiId",
+          "Value": {
+           "Fn::Sub": "${ApiId}"
+          }
+         }
+        ]
+       },
+       "Period": 3600,
+       "Stat": "Sum"
+      }
+     },
+     {
+      "Id": "requests",
+      "ReturnData": false,
+      "MetricStat": {
+       "Metric": {
+        "Namespace": "AWS/ApiGateway",
+        "MetricName": "Count",
+        "Dimensions": [
+         {
+          "Name": "ApiId",
+          "Value": {
+           "Fn::Sub": "${ApiId}"
+          }
+         }
+        ]
+       },
+       "Period": 3600,
+       "Stat": "Sum"
+      }
+     },
+     {
+      "Id": "burn",
+      "ReturnData": true,
+      "Label": "burn rate",
+      "Expression": "IF(requests > 0, (errors / requests) / 0.005, 0)"
+     }
+    ],
+    "EvaluationPeriods": 1,
+    "Threshold": 14.4,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ],
+    "OKActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ]
+   }
+  },
+  "ApiSlowBurnAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-api-burn-6h"
+    },
+    "AlarmDescription": "Error-budget burn rate over 6 h above 6.0 (SLO 99.5% non-5xx)",
+    "Metrics": [
+     {
+      "Id": "errors",
+      "ReturnData": false,
+      "MetricStat": {
+       "Metric": {
+        "Namespace": "AWS/ApiGateway",
+        "MetricName": "5xx",
+        "Dimensions": [
+         {
+          "Name": "ApiId",
+          "Value": {
+           "Fn::Sub": "${ApiId}"
+          }
+         }
+        ]
+       },
+       "Period": 21600,
+       "Stat": "Sum"
+      }
+     },
+     {
+      "Id": "requests",
+      "ReturnData": false,
+      "MetricStat": {
+       "Metric": {
+        "Namespace": "AWS/ApiGateway",
+        "MetricName": "Count",
+        "Dimensions": [
+         {
+          "Name": "ApiId",
+          "Value": {
+           "Fn::Sub": "${ApiId}"
+          }
+         }
+        ]
+       },
+       "Period": 21600,
+       "Stat": "Sum"
+      }
+     },
+     {
+      "Id": "burn",
+      "ReturnData": true,
+      "Label": "burn rate",
+      "Expression": "IF(requests > 0, (errors / requests) / 0.005, 0)"
+     }
+    ],
+    "EvaluationPeriods": 1,
+    "Threshold": 6.0,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ],
+    "OKActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ]
+   }
+  },
+  "ApiLatencyAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-Latency"
+    },
+    "AlarmDescription": "HTTP API p95 latency above 2 s in 3 of 5 minutes",
+    "Namespace": "AWS/ApiGateway",
+    "MetricName": "Latency",
+    "Dimensions": [
+     {
+      "Name": "ApiId",
+      "Value": {
+       "Fn::Sub": "${ApiId}"
+      }
+     }
+    ],
+    "Period": 60,
+    "EvaluationPeriods": 5,
+    "Threshold": 2000,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ],
+    "ExtendedStatistic": "p95",
+    "DatapointsToAlarm": 3
+   }
+  },
+  "LambdaThrottleAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-Throttles"
+    },
+    "AlarmDescription": "Any Lambda invocation in the account was throttled",
+    "Namespace": "AWS/Lambda",
+    "MetricName": "Throttles",
+    "Dimensions": [],
+    "Period": 60,
+    "EvaluationPeriods": 1,
+    "Threshold": 0,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ],
+    "Statistic": "Sum"
+   }
+  },
+  "DynamoThrottleAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-ThrottledRequests"
+    },
+    "AlarmDescription": "DynamoDB metadata table throttled requests",
+    "Namespace": "AWS/DynamoDB",
+    "MetricName": "ThrottledRequests",
+    "Dimensions": [
+     {
+      "Name": "TableName",
+      "Value": {
+       "Fn::Sub": "${TableName}"
+      }
+     }
+    ],
+    "Period": 60,
+    "EvaluationPeriods": 1,
+    "Threshold": 0,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ],
+    "Statistic": "Sum"
+   }
+  },
+  "WorkflowFailureAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-ExecutionsFailed"
+    },
+    "AlarmDescription": "Lifecycle Step Functions execution failed or timed out",
+    "Namespace": "AWS/States",
+    "MetricName": "ExecutionsFailed",
+    "Dimensions": [
+     {
+      "Name": "StateMachineArn",
+      "Value": {
+       "Fn::Sub": "arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${ControlStack}-lifecycle"
+      }
+     }
+    ],
+    "Period": 300,
+    "EvaluationPeriods": 1,
+    "Threshold": 0,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ],
+    "Statistic": "Sum"
+   }
+  },
+  "ConcurrencyAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-account-concurrency-80pct"
+    },
+    "AlarmDescription": "Claimed Lambda concurrency above 80 % of the account quota",
+    "Metrics": [
+     {
+      "Id": "claimed",
+      "ReturnData": false,
+      "MetricStat": {
+       "Metric": {
+        "Namespace": "AWS/Lambda",
+        "MetricName": "ClaimedAccountConcurrency"
+       },
+       "Period": 60,
+       "Stat": "Maximum"
+      }
+     },
+     {
+      "Id": "ratio",
+      "ReturnData": true,
+      "Label": "quota used",
+      "Expression": {
+       "Fn::Sub": "claimed / ${AccountConcurrencyLimit}"
+      }
+     }
+    ],
+    "EvaluationPeriods": 3,
+    "DatapointsToAlarm": 2,
+    "Threshold": 0.8,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ]
+   }
+  },
+  "SloPage": {
+   "Type": "AWS::CloudWatch::CompositeAlarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-slo-page"
+    },
+    "AlarmDescription": "Page: fast or slow error-budget burn, or account concurrency exhausted",
+    "AlarmRule": {
+     "Fn::Sub": "ALARM(\"${ApiFastBurnAlarm}\") OR ALARM(\"${ApiSlowBurnAlarm}\") OR ALARM(\"${ConcurrencyAlarm}\")"
+    },
+    "AlarmActions": [
+     {
+      "Ref": "AlertTopicArn"
+     }
+    ]
+   }
+  }
+ },
+ "Outputs": {
+  "Dashboard": {
+   "Value": {
+    "Fn::Sub": "https://${AWS::Region}.console.aws.amazon.com/cloudwatch/home#dashboards/dashboard/${AWS::StackName}-slo"
+   }
+  }
+ }
+}

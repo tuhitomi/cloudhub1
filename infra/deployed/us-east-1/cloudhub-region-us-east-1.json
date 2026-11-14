@@ -1,0 +1,84 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "CloudHub private regional backup storage; no user workload compute",
+ "Resources": {
+  "BackupBucket": {
+   "Type": "AWS::S3::Bucket",
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain",
+   "Properties": {
+    "BucketName": "cloudhub-133130236086-us-east-1-backup",
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "OwnershipControls": {
+     "Rules": [
+      {
+       "ObjectOwnership": "BucketOwnerEnforced"
+      }
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "cloudhub:managed",
+      "Value": "true"
+     },
+     {
+      "Key": "cloudhub:purpose",
+      "Value": "regional-backup"
+     },
+     {
+      "Key": "cloudhub:region",
+      "Value": "us-east-1"
+     }
+    ]
+   }
+  },
+  "BackupPolicy": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "BackupBucket"
+    },
+    "PolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Effect": "Deny",
+       "Principal": "*",
+       "Action": "s3:*",
+       "Resource": [
+        "arn:aws:s3:::cloudhub-133130236086-us-east-1-backup",
+        "arn:aws:s3:::cloudhub-133130236086-us-east-1-backup/*"
+       ],
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ },
+ "Outputs": {
+  "BackupBucket": {
+   "Value": {
+    "Ref": "BackupBucket"
+   }
+  }
+ }
+}

@@ -1,0 +1,521 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "FrontendDistribution": {
+   "Type": "AWS::CloudFront::Distribution",
+   "Properties": {
+    "DistributionConfig": {
+     "Enabled": true,
+     "DefaultRootObject": "index.html",
+     "HttpVersion": "http2and3",
+     "PriceClass": "PriceClass_200",
+     "Origins": [
+      {
+       "Id": "private-s3",
+       "DomainName": {
+        "Ref": "OriginDomain"
+       },
+       "S3OriginConfig": {
+        "OriginAccessIdentity": ""
+       },
+       "OriginAccessControlId": {
+        "Ref": "OriginAccess"
+       }
+      },
+      {
+       "Id": "ui-context-api",
+       "DomainName": {
+        "Ref": "UiApiOriginDomain"
+       },
+       "CustomOriginConfig": {
+        "OriginProtocolPolicy": "https-only",
+        "OriginSSLProtocols": [
+         "TLSv1.2"
+        ]
+       },
+       "OriginCustomHeaders": [
+        {
+         "HeaderName": "X-CloudHub-Edge-Key",
+         "HeaderValue": {
+          "Ref": "UiEdgeSecret"
+         }
+        }
+       ],
+       "OriginPath": {
+        "Ref": "UiApiOriginPath"
+       }
+      },
+      {
+       "Id": "dr-s3",
+       "DomainName": {
+        "Ref": "DrBucketDomain"
+       },
+       "S3OriginConfig": {
+        "OriginAccessIdentity": ""
+       },
+       "OriginAccessControlId": {
+        "Ref": "OriginAccess"
+       },
+       "ConnectionAttempts": 3,
+       "ConnectionTimeout": 10
+      }
+     ],
+     "DefaultCacheBehavior": {
+      "TargetOriginId": "frontend-failover",
+      "ViewerProtocolPolicy": "redirect-to-https",
+      "AllowedMethods": [
+       "GET",
+       "HEAD"
+      ],
+      "CachedMethods": [
+       "GET",
+       "HEAD"
+      ],
+      "Compress": true,
+      "CachePolicyId": {
+       "Ref": "FrontendEdgeCachePolicy"
+      },
+      "ResponseHeadersPolicyId": {
+       "Ref": "FrontendSecurityHeaders"
+      },
+      "FunctionAssociations": [
+       {
+        "EventType": "viewer-request",
+        "FunctionARN": {
+         "Fn::GetAtt": [
+          "CanonicalRedirect",
+          "FunctionARN"
+         ]
+        }
+       }
+      ]
+     },
+     "ViewerCertificate": {
+      "AcmCertificateArn": {
+       "Ref": "FrontendCertificateArn"
+      },
+      "SslSupportMethod": "sni-only",
+      "MinimumProtocolVersion": "TLSv1.2_2021"
+     },
+     "CacheBehaviors": [
+      {
+       "TargetOriginId": "frontend-failover",
+       "ViewerProtocolPolicy": "redirect-to-https",
+       "AllowedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "CachedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "Compress": true,
+       "CachePolicyId": {
+        "Ref": "FrontendEdgeCachePolicy"
+       },
+       "ResponseHeadersPolicyId": {
+        "Ref": "FrontendSecurityHeaders"
+       },
+       "PathPattern": "index.html",
+       "FunctionAssociations": [
+        {
+         "EventType": "viewer-request",
+         "FunctionARN": {
+          "Fn::GetAtt": [
+           "CanonicalRedirect",
+           "FunctionARN"
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "TargetOriginId": "frontend-failover",
+       "ViewerProtocolPolicy": "redirect-to-https",
+       "AllowedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "CachedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "Compress": true,
+       "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+       "ResponseHeadersPolicyId": {
+        "Ref": "FrontendSecurityHeaders"
+       },
+       "PathPattern": "config.js",
+       "FunctionAssociations": [
+        {
+         "EventType": "viewer-request",
+         "FunctionARN": {
+          "Fn::GetAtt": [
+           "CanonicalRedirect",
+           "FunctionARN"
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "PathPattern": "/ui-context",
+       "TargetOriginId": "ui-context-api",
+       "ViewerProtocolPolicy": "https-only",
+       "AllowedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "CachedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "Compress": true,
+       "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+       "OriginRequestPolicyId": {
+        "Ref": "UiCountryOriginPolicy"
+       },
+       "FunctionAssociations": [
+        {
+         "EventType": "viewer-request",
+         "FunctionARN": {
+          "Fn::GetAtt": [
+           "CanonicalRedirect",
+           "FunctionARN"
+          ]
+         }
+        }
+       ],
+       "ResponseHeadersPolicyId": {
+        "Ref": "FrontendSecurityHeaders"
+       }
+      },
+      {
+       "PathPattern": "/public/catalog",
+       "TargetOriginId": "catalog-failover",
+       "ViewerProtocolPolicy": "https-only",
+       "AllowedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "CachedMethods": [
+        "GET",
+        "HEAD"
+       ],
+       "Compress": true,
+       "CachePolicyId": {
+        "Ref": "PublicApiCachePolicy"
+       },
+       "ResponseHeadersPolicyId": {
+        "Ref": "FrontendSecurityHeaders"
+       }
+      }
+     ],
+     "Aliases": [
+      "cloudhub1.me",
+      "www.cloudhub1.me"
+     ],
+     "IPV6Enabled": true,
+     "WebACLId": {
+      "Fn::If": [
+       "HasFrontendWebAcl",
+       {
+        "Ref": "FrontendWebAclArn"
+       },
+       {
+        "Ref": "AWS::NoValue"
+       }
+      ]
+     },
+     "OriginGroups": {
+      "Quantity": 2,
+      "Items": [
+       {
+        "Id": "frontend-failover",
+        "FailoverCriteria": {
+         "StatusCodes": {
+          "Quantity": 6,
+          "Items": [
+           403,
+           404,
+           500,
+           502,
+           503,
+           504
+          ]
+         }
+        },
+        "Members": {
+         "Quantity": 2,
+         "Items": [
+          {
+           "OriginId": "private-s3"
+          },
+          {
+           "OriginId": "dr-s3"
+          }
+         ]
+        }
+       },
+       {
+        "Id": "catalog-failover",
+        "FailoverCriteria": {
+         "StatusCodes": {
+          "Quantity": 4,
+          "Items": [
+           500,
+           502,
+           503,
+           504
+          ]
+         }
+        },
+        "Members": {
+         "Quantity": 2,
+         "Items": [
+          {
+           "OriginId": "ui-context-api"
+          },
+          {
+           "OriginId": "dr-s3"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   },
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain"
+  },
+  "OriginAccess": {
+   "Type": "AWS::CloudFront::OriginAccessControl",
+   "Properties": {
+    "OriginAccessControlConfig": {
+     "Name": "cloudhub-pages-live-oac",
+     "OriginAccessControlOriginType": "s3",
+     "SigningBehavior": "always",
+     "SigningProtocol": "sigv4"
+    }
+   },
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain"
+  },
+  "UiCountryOriginPolicy": {
+   "Type": "AWS::CloudFront::OriginRequestPolicy",
+   "Properties": {
+    "OriginRequestPolicyConfig": {
+     "Name": "cloudhub-pages-live-ui-country",
+     "CookiesConfig": {
+      "CookieBehavior": "none"
+     },
+     "QueryStringsConfig": {
+      "QueryStringBehavior": "none"
+     },
+     "HeadersConfig": {
+      "HeaderBehavior": "whitelist",
+      "Headers": [
+       "CloudFront-Viewer-Country"
+      ]
+     }
+    }
+   },
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain"
+  },
+  "CanonicalRedirect": {
+   "Type": "AWS::CloudFront::Function",
+   "Properties": {
+    "Name": {
+     "Fn::Sub": "${AWS::StackName}-canonical"
+    },
+    "AutoPublish": true,
+    "FunctionConfig": {
+     "Comment": "Canonical hostname only; no error rewrite",
+     "Runtime": "cloudfront-js-2.0"
+    },
+    "FunctionCode": "function handler(event) {\nvar r=event.request;\nif(r.headers.host.value.toLowerCase().split(':')[0]!==\"www.cloudhub1.me\")return r;\nvar q=[];Object.keys(r.querystring).forEach(function(k){var p=r.querystring[k];(p.multiValue||[p]).forEach(function(v){q.push(k+'='+v.value);});});\nreturn {statusCode:308,statusDescription:'Permanent Redirect',headers:{location:{value:'https://'+\"cloudhub1.me\"+r.uri+(q.length?'?'+q.join('&'):'')},'cache-control':{value:'public,max-age=300'}}};\n}"
+   },
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain"
+  },
+  "FrontendEdgeCachePolicy": {
+   "Type": "AWS::CloudFront::CachePolicy",
+   "Properties": {
+    "CachePolicyConfig": {
+     "Name": {
+      "Fn::Sub": "${AWS::StackName}-frontend-edge"
+     },
+     "Comment": "CloudHub frontend: short edge TTL, gzip and brotli, no cookies/query/headers in key",
+     "MinTTL": 60,
+     "DefaultTTL": 60,
+     "MaxTTL": 300,
+     "ParametersInCacheKeyAndForwardedToOrigin": {
+      "EnableAcceptEncodingGzip": true,
+      "EnableAcceptEncodingBrotli": true,
+      "CookiesConfig": {
+       "CookieBehavior": "none"
+      },
+      "HeadersConfig": {
+       "HeaderBehavior": "none"
+      },
+      "QueryStringsConfig": {
+       "QueryStringBehavior": "none"
+      }
+     }
+    }
+   }
+  },
+  "FrontendSecurityHeaders": {
+   "Type": "AWS::CloudFront::ResponseHeadersPolicy",
+   "Properties": {
+    "ResponseHeadersPolicyConfig": {
+     "Name": {
+      "Fn::Sub": "${AWS::StackName}-frontend-headers"
+     },
+     "Comment": "CloudHub frontend security headers, CSP and Server-Timing",
+     "SecurityHeadersConfig": {
+      "StrictTransportSecurity": {
+       "AccessControlMaxAgeSec": 63072000,
+       "IncludeSubdomains": true,
+       "Preload": true,
+       "Override": true
+      },
+      "ContentTypeOptions": {
+       "Override": true
+      },
+      "FrameOptions": {
+       "FrameOption": "SAMEORIGIN",
+       "Override": true
+      },
+      "ReferrerPolicy": {
+       "ReferrerPolicy": "strict-origin-when-cross-origin",
+       "Override": true
+      },
+      "XSSProtection": {
+       "Protection": true,
+       "ModeBlock": true,
+       "Override": true
+      }
+     },
+     "CustomHeadersConfig": {
+      "Items": [
+       {
+        "Header": "Content-Security-Policy-Report-Only",
+        "Value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.cloudhub1.me https://*.amazonaws.com https://*.amazoncognito.com wss://*.amazonaws.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self' https://*.amazonaws.com; upgrade-insecure-requests",
+        "Override": true
+       },
+       {
+        "Header": "Permissions-Policy",
+        "Value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+        "Override": true
+       },
+       {
+        "Header": "Cross-Origin-Opener-Policy",
+        "Value": "same-origin",
+        "Override": true
+       }
+      ]
+     },
+     "ServerTimingHeadersConfig": {
+      "Enabled": true,
+      "SamplingRate": 100
+     }
+    }
+   }
+  },
+  "PublicApiCachePolicy": {
+   "Type": "AWS::CloudFront::CachePolicy",
+   "Properties": {
+    "CachePolicyConfig": {
+     "Name": {
+      "Fn::Sub": "${AWS::StackName}-public-api"
+     },
+     "Comment": "CloudHub public catalog: 60 s shared edge cache keyed by query string",
+     "MinTTL": 60,
+     "DefaultTTL": 60,
+     "MaxTTL": 300,
+     "ParametersInCacheKeyAndForwardedToOrigin": {
+      "EnableAcceptEncodingGzip": true,
+      "EnableAcceptEncodingBrotli": true,
+      "CookiesConfig": {
+       "CookieBehavior": "none"
+      },
+      "HeadersConfig": {
+       "HeaderBehavior": "none"
+      },
+      "QueryStringsConfig": {
+       "QueryStringBehavior": "all"
+      }
+     }
+    }
+   }
+  }
+ },
+ "Parameters": {
+  "UiEdgeSecret": {
+   "Type": "String",
+   "NoEcho": true,
+   "MinLength": 32,
+   "AllowedPattern": "[A-Za-z0-9_-]{32,128}"
+  },
+  "UiApiOriginDomain": {
+   "Type": "String"
+  },
+  "OriginDomain": {
+   "Type": "String",
+   "Description": "Explicit regional S3 REST endpoint; not a website endpoint"
+  },
+  "FrontendCertificateArn": {
+   "Type": "String",
+   "Description": "Issued ACM certificate in us-east-1"
+  },
+  "UiApiOriginPath": {
+   "Type": "String",
+   "Default": "",
+   "AllowedPattern": "(|/[A-Za-z0-9_-]+)",
+   "Description": "Raw API stage path; empty for $default, independent of public API mapping"
+  },
+  "FrontendWebAclArn": {
+   "Type": "String",
+   "Default": "",
+   "AllowedPattern": "(|arn:aws:wafv2:us-east-1:[0-9]{12}:global/webacl/.+)",
+   "Description": "WebAclArn output of the us-east-1 edge WAF stack; empty for none"
+  },
+  "DrBucketDomain": {
+   "Type": "String",
+   "AllowedPattern": "[a-z0-9.-]+\\.s3\\.ap-northeast-1\\.amazonaws\\.com",
+   "Description": "Regional domain of the recovery bucket (stack cloudhub-dr-tokyo, output BucketRegionalDomain)"
+  }
+ },
+ "Outputs": {
+  "DistributionId": {
+   "Value": {
+    "Ref": "FrontendDistribution"
+   }
+  },
+  "DistributionDomain": {
+   "Value": {
+    "Fn::GetAtt": [
+     "FrontendDistribution",
+     "DomainName"
+    ]
+   }
+  }
+ },
+ "Conditions": {
+  "HasFrontendWebAcl": {
+   "Fn::Not": [
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "FrontendWebAclArn"
+      },
+      ""
+     ]
+    }
+   ]
+  }
+ }
+}

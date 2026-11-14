@@ -1,0 +1,237 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "CloudHub external health checks and CloudFront alarms (us-east-1)",
+ "Rules": {
+  "UsEast1": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Equals": [
+       {
+        "Ref": "AWS::Region"
+       },
+       "us-east-1"
+      ]
+     },
+     "AssertDescription": "Route 53 health-check and CloudFront metrics are in us-east-1"
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "FrontendDomain": {
+   "Type": "String",
+   "Default": "cloudhub1.me"
+  },
+  "ApiDomain": {
+   "Type": "String",
+   "Default": "api.cloudhub1.me"
+  },
+  "DistributionId": {
+   "Type": "String",
+   "AllowedPattern": "E[A-Z0-9]+"
+  },
+  "AlertEmail": {
+   "Type": "String",
+   "NoEcho": true,
+   "Description": "Receives the SNS confirmation and alerts"
+  }
+ },
+ "Resources": {
+  "GlobalAlerts": {
+   "Type": "AWS::SNS::Topic",
+   "Properties": {
+    "Subscription": [
+     {
+      "Protocol": "email",
+      "Endpoint": {
+       "Ref": "AlertEmail"
+      }
+     }
+    ]
+   }
+  },
+  "FrontendCheck": {
+   "Type": "AWS::Route53::HealthCheck",
+   "Properties": {
+    "HealthCheckConfig": {
+     "Type": "HTTPS",
+     "FullyQualifiedDomainName": {
+      "Ref": "FrontendDomain"
+     },
+     "ResourcePath": "/",
+     "Port": 443,
+     "RequestInterval": 30,
+     "FailureThreshold": 3,
+     "EnableSNI": true,
+     "Regions": [
+      "ap-southeast-1",
+      "ap-northeast-1",
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "HealthCheckTags": [
+     {
+      "Key": "Name",
+      "Value": "cloudhub-frontend"
+     },
+     {
+      "Key": "Project",
+      "Value": "CloudHub"
+     }
+    ]
+   }
+  },
+  "ApiCheck": {
+   "Type": "AWS::Route53::HealthCheck",
+   "Properties": {
+    "HealthCheckConfig": {
+     "Type": "HTTPS",
+     "FullyQualifiedDomainName": {
+      "Ref": "ApiDomain"
+     },
+     "ResourcePath": "/ui-context",
+     "Port": 443,
+     "RequestInterval": 30,
+     "FailureThreshold": 3,
+     "EnableSNI": true,
+     "Regions": [
+      "ap-southeast-1",
+      "ap-northeast-1",
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "HealthCheckTags": [
+     {
+      "Key": "Name",
+      "Value": "cloudhub-api"
+     },
+     {
+      "Key": "Project",
+      "Value": "CloudHub"
+     }
+    ]
+   }
+  },
+  "FrontendDownAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-frontend-down"
+    },
+    "AlarmDescription": "frontend failed health checks from several Regions",
+    "Namespace": "AWS/Route53",
+    "MetricName": "HealthCheckStatus",
+    "Dimensions": [
+     {
+      "Name": "HealthCheckId",
+      "Value": {
+       "Ref": "FrontendCheck"
+      }
+     }
+    ],
+    "Statistic": "Minimum",
+    "Period": 60,
+    "EvaluationPeriods": 3,
+    "DatapointsToAlarm": 2,
+    "Threshold": 1,
+    "ComparisonOperator": "LessThanThreshold",
+    "TreatMissingData": "breaching",
+    "AlarmActions": [
+     {
+      "Ref": "GlobalAlerts"
+     }
+    ],
+    "OKActions": [
+     {
+      "Ref": "GlobalAlerts"
+     }
+    ]
+   }
+  },
+  "ApiDownAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-api-down"
+    },
+    "AlarmDescription": "api failed health checks from several Regions",
+    "Namespace": "AWS/Route53",
+    "MetricName": "HealthCheckStatus",
+    "Dimensions": [
+     {
+      "Name": "HealthCheckId",
+      "Value": {
+       "Ref": "ApiCheck"
+      }
+     }
+    ],
+    "Statistic": "Minimum",
+    "Period": 60,
+    "EvaluationPeriods": 3,
+    "DatapointsToAlarm": 2,
+    "Threshold": 1,
+    "ComparisonOperator": "LessThanThreshold",
+    "TreatMissingData": "breaching",
+    "AlarmActions": [
+     {
+      "Ref": "GlobalAlerts"
+     }
+    ],
+    "OKActions": [
+     {
+      "Ref": "GlobalAlerts"
+     }
+    ]
+   }
+  },
+  "CloudFront5xxAlarm": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+    "AlarmName": {
+     "Fn::Sub": "${AWS::StackName}-cloudfront-5xx"
+    },
+    "AlarmDescription": "CloudFront 5xx error rate above 1 % for 5 minutes",
+    "Namespace": "AWS/CloudFront",
+    "MetricName": "5xxErrorRate",
+    "Dimensions": [
+     {
+      "Name": "DistributionId",
+      "Value": {
+       "Ref": "DistributionId"
+      }
+     },
+     {
+      "Name": "Region",
+      "Value": "Global"
+     }
+    ],
+    "Statistic": "Average",
+    "Period": 300,
+    "EvaluationPeriods": 1,
+    "Threshold": 1,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "TreatMissingData": "notBreaching",
+    "AlarmActions": [
+     {
+      "Ref": "GlobalAlerts"
+     }
+    ]
+   }
+  }
+ },
+ "Outputs": {
+  "FrontendCheckId": {
+   "Value": {
+    "Ref": "FrontendCheck"
+   }
+  },
+  "ApiCheckId": {
+   "Value": {
+    "Ref": "ApiCheck"
+   }
+  }
+ }
+}

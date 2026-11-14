@@ -1,0 +1,724 @@
+{
+ "account": "133130236086",
+ "compared_with": [
+  "origin/main",
+  "HEAD"
+ ],
+ "stacks": [
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-chaos",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-11-13 05:53:09.029000+00:00",
+   "resources": 7,
+   "template_sha256": "d9392b3084c51e894e1fa5fa28b7b710b433742d62fe6c0bbc58f3da1095678c",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-chaos.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-user-experience",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-11-13 05:53:07.914000+00:00",
+   "resources": 8,
+   "template_sha256": "46d410d06811c5066822d46dd71a44f911fc7571fa45a97266040ae7b3ef9c87",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-user-experience.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-security-baseline",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-11-13 00:06:19.409000+00:00",
+   "resources": 16,
+   "template_sha256": "259e66b5aaca6574de3c6cc218c88ddf4a7f59d45d35264f84f652a8f518ff69",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-security-baseline.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-observability",
+   "status": "UPDATE_COMPLETE",
+   "updated": "2026-11-13 05:23:16.168000+00:00",
+   "resources": 9,
+   "template_sha256": "6234639075cf285a93eb5bc78b39eb610c782a0026b8f7a23e7eb9195a39e569",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-observability.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-shared-routing",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-18 09:05:24.312000+00:00",
+   "resources": 5,
+   "template_sha256": "07186dc69f6dfc1223c4e42efc13dc9cfb72fe2f24cc3ec4e892abf25561f391",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-shared-routing.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-api-domain-sg",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-18 08:56:32.495000+00:00",
+   "resources": 2,
+   "template_sha256": "d9927e3752b41f5e54e2aab8527fb2b58d85ff632a250959c8749a7a49309b0d",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-api-domain-sg.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-shared-edge",
+   "status": "UPDATE_COMPLETE",
+   "updated": "2026-11-13 05:55:22.796000+00:00",
+   "resources": 7,
+   "template_sha256": "e31bdf2e93e0d5e2c0e1870a4c22663af1e55410f11a2fa23c77695fb5b26bba",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-shared-edge.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-cert-api",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-18 06:28:26.389000+00:00",
+   "resources": 1,
+   "template_sha256": "e0f4db83eca7897a9b736ec0b7efe44b9a5ac929bb67cdbec96dabff8ea7434d",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-cert-api.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-shared-zone",
+   "status": "UPDATE_COMPLETE",
+   "updated": "2026-10-18 06:30:55.082000+00:00",
+   "resources": 3,
+   "template_sha256": "af91ebf91704c094a163399d511cc0d0a667271103ee43d6172b597d9434b4d6",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-shared-zone.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-pages-live",
+   "status": "UPDATE_COMPLETE",
+   "updated": "2026-10-29 14:13:11.576000+00:00",
+   "resources": 119,
+   "template_sha256": "e3b9ef4f126ee3ab4d9b2f8a77dbe53a618e3ce9e60ba7521a1087e818d56979",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-pages-live.json"
+  },
+  {
+   "region": "ap-southeast-1",
+   "stack": "cloudhub-network",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-09 12:52:14.696000+00:00",
+   "resources": 14,
+   "template_sha256": "6223913163f1b6861ad6335a477f94f13a916ef2539b71d6679c9e870f5cc687",
+   "file": "infra/deployed/ap-southeast-1/cloudhub-network.json"
+  },
+  {
+   "region": "us-east-1",
+   "stack": "cloudhub-healthchecks",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-11-12 14:10:47.248000+00:00",
+   "resources": 6,
+   "template_sha256": "4243f58d704865b1db0c2a13df1ddee21148b40dc4fdb454f659a8f228dcc04d",
+   "file": "infra/deployed/us-east-1/cloudhub-healthchecks.json"
+  },
+  {
+   "region": "us-east-1",
+   "stack": "cloudhub-cert-frontend",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-18 06:28:24.602000+00:00",
+   "resources": 1,
+   "template_sha256": "0fd1dfebffd07f297a76272dbfc56cd9a5e9002f269c804d113f9207971e2c31",
+   "file": "infra/deployed/us-east-1/cloudhub-cert-frontend.json"
+  },
+  {
+   "region": "us-east-1",
+   "stack": "cloudhub-runtime-us-east-1",
+   "status": "UPDATE_COMPLETE",
+   "updated": "2026-10-15 02:11:41.165000+00:00",
+   "resources": 22,
+   "template_sha256": "7aa3b460261ff01a2eaacfea137d3e89d4c69ff08999de8b0533f53d432a8592",
+   "file": "infra/deployed/us-east-1/cloudhub-runtime-us-east-1.json"
+  },
+  {
+   "region": "us-east-1",
+   "stack": "cloudhub-region-us-east-1",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-14 14:51:20.786000+00:00",
+   "resources": 2,
+   "template_sha256": "9c8f230d5c43d694a31dc99753d41128ee7329de06a0049df125c08ccd3abbda",
+   "file": "infra/deployed/us-east-1/cloudhub-region-us-east-1.json"
+  },
+  {
+   "region": "ap-northeast-1",
+   "stack": "cloudhub-dr-tokyo",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-11-13 05:53:06.659000+00:00",
+   "resources": 8,
+   "template_sha256": "d878f3175a1dbe9e748b6f54e85bc719dee76b194d9bf21cfe3fbdbe8812ef42",
+   "file": "infra/deployed/ap-northeast-1/cloudhub-dr-tokyo.json"
+  },
+  {
+   "region": "ap-northeast-1",
+   "stack": "cloudhub-region-ap-northeast-1",
+   "status": "CREATE_COMPLETE",
+   "updated": "2026-10-14 14:51:18.976000+00:00",
+   "resources": 2,
+   "template_sha256": "59b2a819b240ac39a1f8d7a36f214edd3209c9fc3c0f44ae368e324d3afbc2fd",
+   "file": "infra/deployed/ap-northeast-1/cloudhub-region-ap-northeast-1.json"
+  }
+ ],
+ "lambda": [
+  {
+   "function": "cloudhub-pages-live-sweep",
+   "handler": "cloudhub.runtime.sweep_handler",
+   "runtime": "python3.13",
+   "last_modified": "2026-10-24T06:53:11.000+0000",
+   "code_sha256": "2fd18b74ccc2632183a9db4d6d39d4a61de98dfc17db7bfab28f79754e150100",
+   "modules": 66,
+   "modules_differing": {
+    "origin/main": [
+     "cloudhub/api.py",
+     "cloudhub/worker.py"
+    ],
+    "HEAD": [
+     "cloudhub/api.py",
+     "cloudhub/catalog.py",
+     "cloudhub/cost.py",
+     "cloudhub/lifecycle.py",
+     "cloudhub/portal_api.py",
+     "cloudhub/public_catalog.py",
+     "cloudhub/rds_template.py",
+     "cloudhub/service.py",
+     "cloudhub/worker.py"
+    ]
+   }
+  },
+  {
+   "function": "cloudhub-pages-live-api",
+   "handler": "cloudhub.api.handler",
+   "runtime": "python3.13",
+   "last_modified": "2026-10-29T14:13:22.000+0000",
+   "code_sha256": "16771a12db10b46c79ecbc13b2b42001351940e6bd51f6d4d0e8cb350281d900",
+   "modules": 67,
+   "modules_differing": {
+    "origin/main": [
+     "cloudhub/worker.py"
+    ],
+    "HEAD": [
+     "cloudhub/api.py",
+     "cloudhub/catalog.py",
+     "cloudhub/cost.py",
+     "cloudhub/lifecycle.py",
+     "cloudhub/portal_api.py",
+     "cloudhub/public_catalog.py",
+     "cloudhub/rds_template.py",
+     "cloudhub/service.py",
+     "cloudhub/worker.py"
+    ]
+   }
+  },
+  {
+   "function": "cloudhub-pages-live-expiry",
+   "handler": "cloudhub.runtime.expiry_handler",
+   "runtime": "python3.13",
+   "last_modified": "2026-10-24T06:53:07.000+0000",
+   "code_sha256": "2fd18b74ccc2632183a9db4d6d39d4a61de98dfc17db7bfab28f79754e150100",
+   "modules": 66,
+   "modules_differing": {
+    "origin/main": [
+     "cloudhub/api.py",
+     "cloudhub/worker.py"
+    ],
+    "HEAD": [
+     "cloudhub/api.py",
+     "cloudhub/catalog.py",
+     "cloudhub/cost.py",
+     "cloudhub/lifecycle.py",
+     "cloudhub/portal_api.py",
+     "cloudhub/public_catalog.py",
+     "cloudhub/rds_template.py",
+     "cloudhub/service.py",
+     "cloudhub/worker.py"
+    ]
+   }
+  },
+  {
+   "function": "cloudhub-pages-live-worker",
+   "handler": "cloudhub.worker.handler",
+   "runtime": "python3.13",
+   "last_modified": "2026-10-24T06:53:12.000+0000",
+   "code_sha256": "2fd18b74ccc2632183a9db4d6d39d4a61de98dfc17db7bfab28f79754e150100",
+   "modules": 66,
+   "modules_differing": {
+    "origin/main": [
+     "cloudhub/api.py",
+     "cloudhub/worker.py"
+    ],
+    "HEAD": [
+     "cloudhub/api.py",
+     "cloudhub/catalog.py",
+     "cloudhub/cost.py",
+     "cloudhub/lifecycle.py",
+     "cloudhub/portal_api.py",
+     "cloudhub/public_catalog.py",
+     "cloudhub/rds_template.py",
+     "cloudhub/service.py",
+     "cloudhub/worker.py"
+    ]
+   }
+  }
+ ],
+ "frontend": [
+  {
+   "key": "admin-directory-view.js",
+   "sha256": "2630d2893292082069b7013dd3358914219bbe50b1e1d0c3b62fcb8712534e15",
+   "last_modified": "2026-10-24 06:57:41+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "announcements.js",
+   "sha256": "4c9770a2ab26348ad2f1432cf430dd3ee9751db48dce7228cae2ca4b9252821b",
+   "last_modified": "2026-10-22 16:46:52+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "app.js",
+   "sha256": "a0fcd7e9bb85b4cacc7abffd65debfc0eb97fed217247fcd756a075ac17e82a2",
+   "last_modified": "2026-10-24 06:17:21+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "appearance.js",
+   "sha256": "6b99efb71ee5042dcb93b503febfc712848c28eaf79bc3f63aea8f1fdee0aed4",
+   "last_modified": "2026-10-20 03:37:11+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "architecture.js",
+   "sha256": "26a9e1c952beaeb7f26e10f6e98e82210158c5c1e22e36b8baf2b07d74a1c58a",
+   "last_modified": "2026-10-20 04:26:48+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "auth.js",
+   "sha256": "008375dd3d71598e5b00b864ecac25f6c46b14b9c5c13e629715529fd21b2f47",
+   "last_modified": "2026-10-18 11:59:10+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "catalog-text.js",
+   "sha256": "284cb284792d9f1e945beae19c1136eaa5feb47b4b2b49a8d77a327b0d712651",
+   "last_modified": "2026-10-18 15:02:34+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "catalog-view.js",
+   "sha256": "4e53a299346d5d953ca0a56a68300e5f43741f991e7b98145545156779442480",
+   "last_modified": "2026-10-20 14:40:18+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "cockpit.js",
+   "sha256": "375ff4de798b6fbb13ecb1df908793ba20e5b7795ce9ccff547b2b67381d28b9",
+   "last_modified": "2026-10-20 04:43:03+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "config.js",
+   "sha256": "e95139cbdc1a27220e147802da0c584d418ba481865c8923ffd47a8c5a88b2e4",
+   "last_modified": "2026-10-18 09:06:53+00:00",
+   "repo": "generated at deploy time"
+  },
+  {
+   "key": "create-flow.js",
+   "sha256": "1b6ca90e61836b1264245ac8736c04cfec93d2ef9c749a4cf6aa331c83c4c687",
+   "last_modified": "2026-10-24 00:58:38+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "create-journal.js",
+   "sha256": "2af61b17cd3299702d58783881bad1e065ff5e963a77e4e092d6e58d89834563",
+   "last_modified": "2026-10-19 13:22:49+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "create-view.js",
+   "sha256": "061f6fb1b2530943e0515e79f9465db5780853b84034d1add17bedbf9f5d56d8",
+   "last_modified": "2026-10-20 04:26:52+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "error-text.js",
+   "sha256": "b43ed020455c3368a8b12d3bcbe5799135cfffd07de39643534de85a2fde17d5",
+   "last_modified": "2026-11-12 12:57:16+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "i18n.js",
+   "sha256": "637b085f075202499bcc790de9ace227d77dd0f30881d551011fb321120bc7a3",
+   "last_modified": "2026-10-18 15:29:20+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "index.html",
+   "sha256": "0f1dd6cd3e011cfd763c433a5532133700d8411cf6c238e47e5ccf3dbdd4bb08",
+   "last_modified": "2026-11-13 05:57:21+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "lifecycle.js",
+   "sha256": "26290efc8797fb2e7dd976f45916386f6feff4a34320b81a8c1a7cf414c00913",
+   "last_modified": "2026-10-29 14:16:00+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "locale-en.js",
+   "sha256": "e0dc590b4c0e4728646334bcf96d22cac94b91f0b1f008116879dd028e0ce098",
+   "last_modified": "2026-11-12 12:57:14+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locale-source.js",
+   "sha256": "d1defff20233494aa94619b638d11ea300a161e31c58ee8caaf1048a196e71ae",
+   "last_modified": "2026-11-12 12:57:15+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/de.json",
+   "sha256": "8c1348dee6bf6a4b89291f3865691f5f49959e838d1be17eaecb3fe24964ea4b",
+   "last_modified": "2026-11-12 12:57:09+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/en.json",
+   "sha256": "5eb9e5e3fef9cd6ef0d33d73e72761ab5cb7f48a3fe23076caf0ac1bb4f5c236",
+   "last_modified": "2026-11-12 12:57:07+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/es.json",
+   "sha256": "10d508749dcf54f8aff2b563e4cc14b6d641e052e71035d3542e1f45c174fb8e",
+   "last_modified": "2026-11-12 12:57:10+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/fr.json",
+   "sha256": "9f5910cda59bfbf677043df358816a22ca46989787237652b200458bfa4b507c",
+   "last_modified": "2026-11-12 12:57:11+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/ja.json",
+   "sha256": "acb0c034f82bd87a2ad39687c7427d292b1b678fc587130380ff4647a5ae969e",
+   "last_modified": "2026-11-12 12:57:12+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/ko.json",
+   "sha256": "51a102911a5f60311f10d223777406cd354b06a2d0999ace3cf897d658d6a57e",
+   "last_modified": "2026-11-12 12:57:13+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/vi.json",
+   "sha256": "2c955f9b97814da7c35b3ea77c22a5ed5192075ea66a7f0b4c1b9d8176f4e604",
+   "last_modified": "2026-11-12 12:57:08+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "locales/zh-Hans.json",
+   "sha256": "30683650057aba7bdda38dcbf55e6d5af4f2a55dde9e2b3145b356251f633ace",
+   "last_modified": "2026-11-12 12:57:14+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "maintenance-banner.js",
+   "sha256": "08cd8aacfcddf1ae4fd1888c25ce7b578c3e101e0c07a0e1938772d6e0085104",
+   "last_modified": "2026-10-22 16:46:58+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "maintenance-page.js",
+   "sha256": "87d19bad74e10f092ff749ccd591332b26880e19f9b8f1f35c811d50be4f53e2",
+   "last_modified": "2026-10-22 16:46:58+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "maintenance.css",
+   "sha256": "4fa292653cd4d9371813febb55c6b541ac05ed512e2a21ac21bb1ddba593a9bb",
+   "last_modified": "2026-10-22 16:46:59+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "maintenance.html",
+   "sha256": "82579bba96b97ebb91720f4cea83d4d028254560d569d2287672a781f70f3b72",
+   "last_modified": "2026-10-22 16:46:59+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "maintenance.json",
+   "sha256": "fbf5c54d645543b99cceff6b95df80a5b90f08c2e8292dbf89afd5f4001587fb",
+   "last_modified": "2026-10-22 16:48:23+00:00",
+   "repo": "generated at deploy time"
+  },
+  {
+   "key": "notifications.js",
+   "sha256": "ee5fb0e4f1d7b4ce676208fb689ce6a7dd62e791308b41bbdcbdc9686e60c24a",
+   "last_modified": "2026-10-22 16:47:00+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "portal.js",
+   "sha256": "e9e9a7675686b013c9a62639c499a9a66d3fb02733e5578de86b13180eee635e",
+   "last_modified": "2026-11-12 12:57:16+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "presentation-data.js",
+   "sha256": "ecf422b6dfc69efe67675cfaf82f1e3c72bede8b5d44722f228c229fabafb49d",
+   "last_modified": "2026-10-19 08:03:14+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "product-view.js",
+   "sha256": "6d5f40ff9690f07cac6e1cba5f2e2058240edf3147d27bf46ed1f85f05de6c34",
+   "last_modified": "2026-10-19 13:48:40+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "public-preview.js",
+   "sha256": "0d0b2ca24142a6f77e156088f3f3b8514cb0a318fb0a04c8cc49756d8332da5d",
+   "last_modified": "2026-11-13 05:57:15+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "quota-view.js",
+   "sha256": "b3bf088464ec27ac1a6e84b3d308a390854ffa4083d165738dfec201605db20d",
+   "last_modified": "2026-11-12 12:57:17+00:00",
+   "repo": {
+    "origin/main": "differs",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "recommendations.js",
+   "sha256": "8a85288a167a39b681a25b2469854521405cf0a89decf2f2a7e0a6c9dcf588ab",
+   "last_modified": "2026-10-19 07:30:17+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "redesign.css",
+   "sha256": "9c43a50dd0ad5badee36a53a94120ee4d96fc5d1015fa4654b00d0964129c3e4",
+   "last_modified": "2026-10-20 04:26:48+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "rum-config.json",
+   "sha256": "2d5b43a23a76b47374f97f95ba73a89c248b1a2cb4f65416140853abcdcad7e7",
+   "last_modified": "2026-11-13 05:57:19+00:00",
+   "repo": "generated at deploy time"
+  },
+  {
+   "key": "rum.js",
+   "sha256": "93dcc61bb4d4a472a1cdb8c8ba1a2e5c1dd846343313f36e74d7def80919ac32",
+   "last_modified": "2026-11-13 05:57:16+00:00",
+   "repo": {
+    "origin/main": "missing",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "session.js",
+   "sha256": "de3b3649747472714b937bf75ef9cb34583b1551a09da3382ffac7c4944b3ac6",
+   "last_modified": "2026-10-19 13:22:50+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "shell-view.js",
+   "sha256": "6dd0591ddd62730c82ba7e45dc222861efd6e8c46534ad8f21629d4680a7c2d0",
+   "last_modified": "2026-10-20 14:40:28+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "style.css",
+   "sha256": "815a6372b8daa74a4ae14ca5942828fd0d0b7b7eccc9c3eacccda3bc0989df81",
+   "last_modified": "2026-10-19 07:30:17+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "template-view.js",
+   "sha256": "d45c877e61d78df70ddc68a7ffa25434d04e0f910727c10c01858ab6b0acdcbe",
+   "last_modified": "2026-10-29 14:16:08+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "test-data-view.js",
+   "sha256": "057f718b959271fae7e969f3457c332f48d3f93e315aaac43978cdac3ea2c2f5",
+   "last_modified": "2026-10-24 06:17:20+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "uploads.js",
+   "sha256": "8b36be0ce4c3f758699a71f3e1dc050df782ac5468a2a324d3c942d073b70611",
+   "last_modified": "2026-10-18 03:50:12+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "vendor/aws-rum-web/cwr.js",
+   "sha256": "5ae797609222afe8e1dedd7c7dfeb9809b0bba20b3769f46b3cd50c07e18e119",
+   "last_modified": "2026-11-13 05:57:18+00:00",
+   "repo": {
+    "origin/main": "missing",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "workspace-ui.js",
+   "sha256": "325f13f8bb58dcb5f656c3f82709e432d91c57b7458e306bfc0d01edb4be9463",
+   "last_modified": "2026-10-20 14:40:17+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  },
+  {
+   "key": "workspace-view.js",
+   "sha256": "fbbd81b81f6e1442a47f7333bfa89108e86feb6aac73d4142662eb5ea1d25909",
+   "last_modified": "2026-10-20 14:40:17+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "differs"
+   }
+  },
+  {
+   "key": "workspace.css",
+   "sha256": "acb038ebf4e01ede093081229b4dc5acfc99ed90fe6f593e677c317209a05164",
+   "last_modified": "2026-10-29 14:16:09+00:00",
+   "repo": {
+    "origin/main": "same",
+    "HEAD": "same"
+   }
+  }
+ ]
+}

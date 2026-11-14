@@ -1,0 +1,407 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "CloudHub disaster recovery in the recovery Region: replicated frontend and catalog snapshot",
+ "Rules": {
+  "RecoveryRegion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Equals": [
+       {
+        "Ref": "AWS::Region"
+       },
+       "ap-northeast-1"
+      ]
+     },
+     "AssertDescription": "Deploy in ap-northeast-1, away from the primary Region"
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "SourceBucket": {
+   "Type": "String",
+   "Description": "Private frontend bucket in the primary Region"
+  },
+  "DistributionId": {
+   "Type": "String",
+   "AllowedPattern": "E[A-Z0-9]+"
+  },
+  "CatalogUrl": {
+   "Type": "String",
+   "Default": "https://api.cloudhub1.me/public/catalog"
+  }
+ },
+ "Resources": {
+  "DrFrontendBucket": {
+   "Type": "AWS::S3::Bucket",
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain",
+   "Properties": {
+    "BucketName": {
+     "Fn::Sub": "cloudhub-dr-frontend-${AWS::AccountId}-${AWS::Region}"
+    },
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    },
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "OwnershipControls": {
+     "Rules": [
+      {
+       "ObjectOwnership": "BucketOwnerEnforced"
+      }
+     ]
+    },
+    "LifecycleConfiguration": {
+     "Rules": [
+      {
+       "Id": "expire-old-versions",
+       "Status": "Enabled",
+       "NoncurrentVersionExpiration": {
+        "NoncurrentDays": 30
+       },
+       "AbortIncompleteMultipartUpload": {
+        "DaysAfterInitiation": 1
+       }
+      }
+     ]
+    }
+   }
+  },
+  "DrFrontendBucketPolicy": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "DrFrontendBucket"
+    },
+    "PolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Sid": "CloudFrontOriginAccessControl",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+       },
+       "Action": "s3:GetObject",
+       "Resource": {
+        "Fn::Sub": "${DrFrontendBucket.Arn}/*"
+       },
+       "Condition": {
+        "StringEquals": {
+         "AWS:SourceArn": {
+          "Fn::Sub": "arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${DistributionId}"
+         }
+        }
+       }
+      },
+      {
+       "Sid": "TlsOnly",
+       "Effect": "Deny",
+       "Principal": "*",
+       "Action": "s3:*",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "DrFrontendBucket",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Sub": "${DrFrontendBucket.Arn}/*"
+        }
+       ],
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       }
+      }
+     ]
+    }
+   }
+  },
+  "ReplicationRole": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "Description": "S3 Cross-Region Replication of the CloudHub frontend into the recovery Region",
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "s3.amazonaws.com"
+       },
+       "Action": "sts:AssumeRole",
+       "Condition": {
+        "StringEquals": {
+         "aws:SourceAccount": {
+          "Ref": "AWS::AccountId"
+         }
+        }
+       }
+      }
+     ]
+    },
+    "Policies": [
+     {
+      "PolicyName": "replicate-frontend",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": [
+          "s3:GetReplicationConfiguration",
+          "s3:ListBucket"
+         ],
+         "Resource": {
+          "Fn::Sub": "arn:${AWS::Partition}:s3:::${SourceBucket}"
+         }
+        },
+        {
+         "Effect": "Allow",
+         "Action": [
+          "s3:GetObjectVersionForReplication",
+          "s3:GetObjectVersionAcl",
+          "s3:GetObjectVersionTagging"
+         ],
+         "Resource": {
+          "Fn::Sub": "arn:${AWS::Partition}:s3:::${SourceBucket}/*"
+         }
+        },
+        {
+         "Effect": "Allow",
+         "Action": [
+          "s3:ReplicateObject",
+          "s3:ReplicateDelete",
+          "s3:ReplicateTags"
+         ],
+         "Resource": {
+          "Fn::Sub": "${DrFrontendBucket.Arn}/*"
+         }
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "SnapshotRole": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       },
+       "Action": "sts:AssumeRole"
+      }
+     ]
+    },
+    "Policies": [
+     {
+      "PolicyName": "write-snapshot",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": "s3:PutObject",
+         "Resource": {
+          "Fn::Sub": "${DrFrontendBucket.Arn}/public/catalog"
+         }
+        },
+        {
+         "Effect": "Allow",
+         "Action": [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+         ],
+         "Resource": {
+          "Fn::GetAtt": [
+           "SnapshotLogs",
+           "Arn"
+          ]
+         }
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "SnapshotLogs": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": {
+     "Fn::Sub": "/aws/lambda/${AWS::StackName}-catalog-snapshot"
+    },
+    "RetentionInDays": 30
+   }
+  },
+  "SnapshotFunction": {
+   "Type": "AWS::Lambda::Function",
+   "DependsOn": "SnapshotLogs",
+   "Properties": {
+    "FunctionName": {
+     "Fn::Sub": "${AWS::StackName}-catalog-snapshot"
+    },
+    "Description": "Stores the public catalog in the recovery Region for CloudFront failover",
+    "Runtime": "python3.13",
+    "Handler": "index.handler",
+    "MemorySize": 256,
+    "Timeout": 30,
+    "Architectures": [
+     "arm64"
+    ],
+    "Role": {
+     "Fn::GetAtt": [
+      "SnapshotRole",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "BUCKET": {
+       "Ref": "DrFrontendBucket"
+      },
+      "KEY": "public/catalog",
+      "CATALOG_URL": {
+       "Ref": "CatalogUrl"
+      }
+     }
+    },
+    "Code": {
+     "ZipFile": "import json, os, time, urllib.request\nimport boto3\ns3 = boto3.client('s3')\n\n\ndef handler(event, context):\n    request = urllib.request.Request(os.environ['CATALOG_URL'], headers={\n        'Accept': 'application/json', 'User-Agent': 'CloudHub-DR-Snapshot/1'})\n    with urllib.request.urlopen(request, timeout=10) as response:\n        if response.status != 200:\n            raise RuntimeError(f'catalog returned {response.status}')\n        body = response.read()\n    data = json.loads(body)\n    # Keep the last good snapshot if the API answers with something unexpected.\n    if not isinstance(data.get('items'), list) or not data['items'] or 'signup_policy' not in data:\n        raise ValueError('unexpected catalog shape')\n    at = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())\n    s3.put_object(Bucket=os.environ['BUCKET'], Key=os.environ['KEY'], Body=body,\n                  ContentType='application/json', CacheControl='public, max-age=60',\n                  Metadata={'snapshot-at': at, 'source': 'cloudhub-dr-snapshot'})\n    return {'items': len(data['items']), 'bytes': len(body), 'snapshot_at': at}\n"
+    }
+   }
+  },
+  "SchedulerRole": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "scheduler.amazonaws.com"
+       },
+       "Action": "sts:AssumeRole",
+       "Condition": {
+        "StringEquals": {
+         "aws:SourceAccount": {
+          "Ref": "AWS::AccountId"
+         }
+        }
+       }
+      }
+     ]
+    },
+    "Policies": [
+     {
+      "PolicyName": "invoke-snapshot",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": "lambda:InvokeFunction",
+         "Resource": {
+          "Fn::GetAtt": [
+           "SnapshotFunction",
+           "Arn"
+          ]
+         }
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "SnapshotSchedule": {
+   "Type": "AWS::Scheduler::Schedule",
+   "Properties": {
+    "Description": "Refresh the recovery copy of the public catalog",
+    "ScheduleExpression": "rate(15 minutes)",
+    "FlexibleTimeWindow": {
+     "Mode": "OFF"
+    },
+    "Target": {
+     "Arn": {
+      "Fn::GetAtt": [
+       "SnapshotFunction",
+       "Arn"
+      ]
+     },
+     "RoleArn": {
+      "Fn::GetAtt": [
+       "SchedulerRole",
+       "Arn"
+      ]
+     },
+     "RetryPolicy": {
+      "MaximumRetryAttempts": 2,
+      "MaximumEventAgeInSeconds": 600
+     }
+    }
+   }
+  }
+ },
+ "Outputs": {
+  "BucketName": {
+   "Value": {
+    "Ref": "DrFrontendBucket"
+   }
+  },
+  "BucketArn": {
+   "Value": {
+    "Fn::GetAtt": [
+     "DrFrontendBucket",
+     "Arn"
+    ]
+   }
+  },
+  "BucketRegionalDomain": {
+   "Value": {
+    "Fn::GetAtt": [
+     "DrFrontendBucket",
+     "RegionalDomainName"
+    ]
+   }
+  },
+  "ReplicationRoleArn": {
+   "Value": {
+    "Fn::GetAtt": [
+     "ReplicationRole",
+     "Arn"
+    ]
+   }
+  },
+  "SnapshotFunctionName": {
+   "Value": {
+    "Ref": "SnapshotFunction"
+   }
+  }
+ }
+}

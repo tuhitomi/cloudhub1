@@ -1,0 +1,78 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "PublicZone": {
+   "Type": "AWS::Route53::HostedZone",
+   "Properties": {
+    "Name": "cloudhub1.me",
+    "HostedZoneConfig": {
+     "Comment": "CloudHub shared public DNS; preserve on regional removal"
+    },
+    "HostedZoneTags": [
+     {
+      "Key": "project",
+      "Value": "CloudHub"
+     }
+    ]
+   },
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain"
+  },
+  "PreservedMailMX": {
+   "Type": "AWS::Route53::RecordSet",
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain",
+   "Properties": {
+    "HostedZoneId": {
+     "Ref": "PublicZone"
+    },
+    "Name": "cloudhub1.me.",
+    "Type": "MX",
+    "TTL": "300",
+    "ResourceRecords": [
+     "15 eforward4.registrar-servers.com.",
+     "10 eforward2.registrar-servers.com.",
+     "20 eforward5.registrar-servers.com.",
+     "10 eforward3.registrar-servers.com.",
+     "10 eforward1.registrar-servers.com."
+    ]
+   }
+  },
+  "PreservedMailSPF": {
+   "Type": "AWS::Route53::RecordSet",
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain",
+   "Properties": {
+    "HostedZoneId": {
+     "Ref": "PublicZone"
+    },
+    "Name": "cloudhub1.me.",
+    "Type": "TXT",
+    "TTL": "300",
+    "ResourceRecords": [
+     "\"v=spf1 include:spf.efwd.registrar-servers.com ~all\""
+    ]
+   }
+  }
+ },
+ "Outputs": {
+  "HostedZoneId": {
+   "Value": {
+    "Ref": "PublicZone"
+   }
+  },
+  "NameServers": {
+   "Value": {
+    "Fn::Join": [
+     ",",
+     {
+      "Fn::GetAtt": [
+       "PublicZone",
+       "NameServers"
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

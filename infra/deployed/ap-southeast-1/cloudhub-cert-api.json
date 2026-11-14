@@ -1,0 +1,29 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "Certificate": {
+   "Type": "AWS::CertificateManager::Certificate",
+   "Properties": {
+    "DomainName": "api.cloudhub1.me",
+    "ValidationMethod": "DNS",
+    "CertificateTransparencyLoggingPreference": "ENABLED",
+    "CertificateExport": "DISABLED",
+    "DomainValidationOptions": [
+     {
+      "DomainName": "api.cloudhub1.me",
+      "HostedZoneId": "Z06945981DK1OW8ZAZZ7A"
+     }
+    ]
+   },
+   "DeletionPolicy": "Retain",
+   "UpdateReplacePolicy": "Retain"
+  }
+ },
+ "Outputs": {
+  "CertificateArn": {
+   "Value": {
+    "Ref": "Certificate"
+   }
+  }
+ }
+}
