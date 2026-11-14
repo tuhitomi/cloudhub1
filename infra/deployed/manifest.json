@@ -164,13 +164,12 @@
    "function": "cloudhub-pages-live-sweep",
    "handler": "cloudhub.runtime.sweep_handler",
    "runtime": "python3.13",
-   "last_modified": "2026-10-24T06:53:11.000+0000",
-   "code_sha256": "2fd18b74ccc2632183a9db4d6d39d4a61de98dfc17db7bfab28f79754e150100",
+   "last_modified": "2026-11-14T12:24:58.000+0000",
+   "code_sha256": "4a40437cda4f337b5b3cf3062dc8f75c56457b17e62e180f7a8ef3ec4349e0ee",
    "modules": 66,
    "modules_differing": {
     "origin/main": [
-     "cloudhub/api.py",
-     "cloudhub/worker.py"
+     "cloudhub/api.py"
     ],
     "HEAD": [
      "cloudhub/api.py",
@@ -189,13 +188,11 @@
    "function": "cloudhub-pages-live-api",
    "handler": "cloudhub.api.handler",
    "runtime": "python3.13",
-   "last_modified": "2026-10-29T14:13:22.000+0000",
-   "code_sha256": "16771a12db10b46c79ecbc13b2b42001351940e6bd51f6d4d0e8cb350281d900",
+   "last_modified": "2026-11-14T12:24:44.000+0000",
+   "code_sha256": "c514b1b8c0fca94ce7a1fd5d10531265cca08a0e04e46e9b0c7475d699a9aa35",
    "modules": 67,
    "modules_differing": {
-    "origin/main": [
-     "cloudhub/worker.py"
-    ],
+    "origin/main": [],
     "HEAD": [
      "cloudhub/api.py",
      "cloudhub/catalog.py",
@@ -213,13 +210,12 @@
    "function": "cloudhub-pages-live-expiry",
    "handler": "cloudhub.runtime.expiry_handler",
    "runtime": "python3.13",
-   "last_modified": "2026-10-24T06:53:07.000+0000",
-   "code_sha256": "2fd18b74ccc2632183a9db4d6d39d4a61de98dfc17db7bfab28f79754e150100",
+   "last_modified": "2026-11-14T12:24:54.000+0000",
+   "code_sha256": "4a40437cda4f337b5b3cf3062dc8f75c56457b17e62e180f7a8ef3ec4349e0ee",
    "modules": 66,
    "modules_differing": {
     "origin/main": [
-     "cloudhub/api.py",
-     "cloudhub/worker.py"
+     "cloudhub/api.py"
     ],
     "HEAD": [
      "cloudhub/api.py",
@@ -238,13 +234,12 @@
    "function": "cloudhub-pages-live-worker",
    "handler": "cloudhub.worker.handler",
    "runtime": "python3.13",
-   "last_modified": "2026-10-24T06:53:12.000+0000",
-   "code_sha256": "2fd18b74ccc2632183a9db4d6d39d4a61de98dfc17db7bfab28f79754e150100",
+   "last_modified": "2026-11-14T12:24:49.000+0000",
+   "code_sha256": "4a40437cda4f337b5b3cf3062dc8f75c56457b17e62e180f7a8ef3ec4349e0ee",
    "modules": 66,
    "modules_differing": {
     "origin/main": [
-     "cloudhub/api.py",
-     "cloudhub/worker.py"
+     "cloudhub/api.py"
     ],
     "HEAD": [
      "cloudhub/api.py",
