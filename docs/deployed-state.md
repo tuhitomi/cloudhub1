@@ -21,7 +21,7 @@ Ngày đối chiếu: 14/11/2026, tài khoản 133130236086. Số liệu chụp 
 
 ### Frontend
 
-- **Đã sửa trong lần đối chiếu này.** 13 file giao diện ví/quota và 3 file kiểm thử đã được upload lên production ngày 12/11 nhưng chưa từng commit. Commit `600c4dc` đưa chúng vào nhánh này.
+- **Đã sửa trong lần đối chiếu này.** 13 file giao diện ví/quota và 3 file kiểm thử đã được upload lên production ngày 12/11 nhưng chưa từng commit. Commit `5eed451` đưa chúng vào nhánh này.
 - **10 file locale** trên production bằng đúng bản của nhánh này, chỉ bớt 26 khóa của tính năng nhóm 3 (terminal, resize, chi phí). Mọi bản dịch còn lại giống từng chữ. Phần nhóm 3 chưa phát hành, vì backend tương ứng chưa được deploy.
 - `app.js`, `catalog-text.js`, `workspace-view.js` trên production giống `main`. Thay đổi nhóm 3 của ba file này cũng chưa phát hành.
 
