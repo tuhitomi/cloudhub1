@@ -29,6 +29,19 @@ test('creation fails closed until limits load and enforces remaining reservation
   await portal.loadLimits();assert.equal(portal.costAllowed({approved:true,total_milliusd:1999}),true);assert.equal(portal.costAllowed({approved:true,total_milliusd:2001}),false);
   responses.set('/limits',{...quota,remaining_environments:0});await portal.loadLimits();assert.equal(portal.costAllowed({approved:true,total_milliusd:0}),false);
 });
+test('sidebar and create wizard display personal balances only, including with legacy limits',async()=>{
+  const {portal,responses,$}=setup();
+  for(const wallet of [{balance_milliusd:8500,granted_milliusd:10000,committed_milliusd:1500},undefined]){
+    responses.set('/limits',{...quota,wallet,user_remaining_milliusd:8500,global_remaining_milliusd:123,remaining_milliusd:123});
+    await portal.loadLimits();
+    for(const selector of ['#quota-visual','#limits-summary','#create-limits']){
+      const text=$(selector).textContent;
+      assert.match(text,/8,500/);
+      assert.doesNotMatch(text,/0,123|ngân sách chung|ngân sách dự toán chung/i);
+    }
+    assert.equal(portal.costAllowed({approved:true,total_milliusd:200}),false);
+  }
+});
 test('history shares search, state and template filters and renders IDs as text',()=>{
   const {portal,$}=setup();const env={environment_id:'env-<img src=x>',template_id:'T01',status:'DELETED',retired_at:100};
   portal.renderHistory([env,{...env,environment_id:'env-active',status:'READY'}]);assert.equal($('#environment-history').querySelectorAll('article').length,1);assert.equal($('#environment-history').querySelectorAll('img').length,0);

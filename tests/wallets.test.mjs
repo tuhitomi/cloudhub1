@@ -8,19 +8,19 @@ import {createCreationFlow} from '../frontend/create-flow.js';
 await setLanguage('en',{persist:false});
 const limits=()=>({active:0,max_active:2,remaining_environments:2,user_budget_milliusd:10000,user_remaining_milliusd:10000,remaining_milliusd:123,global_remaining_milliusd:123,global_remaining_environments:4,
  wallet:{granted_milliusd:10000,balance_milliusd:10000,committed_milliusd:0},platform_budget:{remaining_milliusd:123}});
-test('a full personal wallet is not displayed as the nearly exhausted shared allowance',()=>{
+test('the quota card shows the personal wallet without the shared allowance',()=>{
  const {window}=parseHTML('<html><body><div id="quota-visual"></div></body></html>');globalThis.document=window.document;
  const value=limits();value.forecast={future_reserved_milliusd:0,accrued_estimate_milliusd:0,legacy_unallocated_milliusd:0};
  renderQuotaVisual(value);const text=document.body.textContent;
  assert.equal(document.querySelector('#quota-visual').hasAttribute('data-wallet'),true);
- assert.match(text,/Your forecast wallet/);assert.match(text,/10\.000/);assert.match(text,/0\.123/);
+ assert.match(text,/Your forecast wallet/);assert.match(text,/10\.000/);assert.doesNotMatch(text,/0\.123|shared platform|project budget/i);
  assert.match(text,/account lifetime/);assert.doesNotMatch(text,/project lifetime/);
  assert.equal(document.querySelectorAll('[role=progressbar]')[1].getAttribute('aria-valuenow'),'10000');
 });
-test('platform shortage preserves wallet and gives the exact separate reason',()=>{
+test('platform shortage preserves the wallet and hides shared allowance amounts',()=>{
  const value=limits(),decision=budgetDecision(value,{approved:true,total_milliusd:497});
  assert.equal(decision.allowed,false);assert.equal(decision.scope,'PLATFORM');
- assert.match(decision.message,/10\.000/);assert.match(decision.message,/0\.123/);assert.match(decision.message,/0\.497/);
+ assert.match(decision.message,/contact an administrator/i);assert.doesNotMatch(decision.message,/\d/);
  assert.equal(value.wallet.balance_milliusd,10000);
  assert.equal(errorText({code:'BUDGET_EXCEEDED',budget_scope:'PLATFORM',wallet_balance_milliusd:10000,platform_remaining_milliusd:123,required_milliusd:497}),decision.message+' (BUDGET_EXCEEDED)');
 });
@@ -42,6 +42,6 @@ test('wizard displays specific platform refusal while preserving form and confir
  const flow=createCreationFlow({estimate:async request=>({...request,approved:true,total_milliusd:497,first_period:{},renewal_period:{},after_shutdown:{},preview:{}}),
   create:async()=>{creates++;},costAllowed:q=>budgetDecision(value,q).allowed,costError:q=>budgetDecision(value,q).message,keyFor:()=> 'local-wallet-key'});
  flow.open({template_id:'T01',create_enabled:true});flow.change({estimateHours:'4'});await flow.next();await flow.next();
- assert.equal(flow.snapshot().step,2);assert.equal(flow.snapshot().form.estimateHours,'4');assert.match(flow.snapshot().error,/shared platform/);
+ assert.equal(flow.snapshot().step,2);assert.equal(flow.snapshot().form.estimateHours,'4');assert.match(flow.snapshot().error,/contact an administrator/i);
  flow.consent(true);await flow.submit();assert.equal(creates,0);assert.equal(flow.snapshot().consent,false);
 });

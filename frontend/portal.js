@@ -18,7 +18,13 @@ export function createPortal(ctx) {
   const announcementsUI=createAnnouncements({api,isAdmin});
   const testView=createTestDataView({notice,refresh:async()=>{await refresh();if(isAdmin())await loadAdmin();}});
   const accountSearch=createAccountSearch({api,path:testView.path,isAdmin,onItems:value=>{users=value;renderUsers();},onSummary:value=>testView.render('account',value),onError:error=>notice(error.message)});
-  function limitsText(value){if(value.wallet)return tr('wallet.summary',{balance:usd(value.wallet.balance_milliusd),granted:usd(value.wallet.granted_milliusd),platform:usd(value.global_remaining_milliusd)});const f=value.forecast;const suffix=f?' '+tr('ledger.summary',{future:usd(f.future_reserved_milliusd),accrued:usd(f.accrued_estimate_milliusd),legacy:usd(f.legacy_unallocated_milliusd)}):'';return tr("ui.8d81c3a0bc5b",{p0:(value.remaining_environments),p1:(usd(value.remaining_milliusd)),p2:(value.active),p3:(value.max_active)})+suffix;}
+  function limitsText(value){
+    if(value.wallet)return tr('wallet.summary',{balance:usd(value.wallet.balance_milliusd),granted:usd(value.wallet.granted_milliusd)});
+    const forecast=value.forecast;
+    const suffix=forecast?' '+tr('ledger.summary',{future:usd(forecast.future_reserved_milliusd),accrued:usd(forecast.accrued_estimate_milliusd),legacy:usd(forecast.legacy_unallocated_milliusd)}):'';
+    const available=value.active==null||value.max_active==null?tr('common.unknown'):Math.max(0,value.max_active-value.active);
+    return tr('ui.8d81c3a0bc5b',{p0:available,p1:usd(value.user_remaining_milliusd),p2:value.active??tr('common.unknown'),p3:value.max_active??tr('common.unknown')})+suffix;
+  }
   function renderLimits(){renderQuotaVisual(limits,{environments:allEnvironments,onRenew:env=>Promise.resolve(ctx.onRenew?.(env)).catch(error=>notice(error.message))});if(limits){$('#limits-summary').textContent=limitsText(limits);$('#create-limits').textContent=limitsText(limits);}}
   async function loadLimits(){limits=await api('/limits');renderLimits();return limits;}
   function costAllowed(quote){return budgetDecision(limits,quote).allowed;}

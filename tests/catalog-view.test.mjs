@@ -52,10 +52,10 @@ test('guest quota offers sign-in with policy details and account transition hide
 });
 test('quota meters use API values, preserve expanded details and never invent unknown budgets',()=>{
  const {$}=dom();renderQuotaVisual(null);assert.equal($('#quota-visual').hidden,true);assert.equal($('#quota-explanation').open,false);
- renderQuotaVisual({active:1,max_active:2,remaining_milliusd:2000,user_budget_milliusd:10000});
+ renderQuotaVisual({active:1,max_active:2,user_remaining_milliusd:2000,remaining_milliusd:123,user_budget_milliusd:10000});
  assert.equal($('#quota-explanation').open,false);assert.deepEqual([...document.querySelectorAll('[role="progressbar"]')].map(n=>n.getAttribute('aria-valuenow')),['1','2000']);
- assert.match($('#quota-visual').textContent,/2,000/);assert.match($('#quota-visual').textContent,/không phải.*AWS/i);
- $('#quota-explanation').open=true;renderQuotaVisual({active:1,max_active:2,remaining_milliusd:null,user_budget_milliusd:null});assert.equal($('#quota-explanation').open,true);
- assert.equal(document.querySelectorAll('[role="progressbar"]').length,1);assert.ok($('#quota-visual').textContent.includes(t('common.unknown')));assert.doesNotMatch($('#quota-visual').textContent,/0,000/);
+ assert.match($('#quota-visual').textContent,/2,000/);assert.match($('#quota-visual').textContent,/không phải.*AWS/i);assert.doesNotMatch($('#quota-visual').textContent,/0,123/);
+ $('#quota-explanation').open=true;renderQuotaVisual({active:1,max_active:2,remaining_milliusd:123,user_budget_milliusd:10000});assert.equal($('#quota-explanation').open,true);
+ assert.equal(document.querySelectorAll('[role="progressbar"]').length,1);assert.ok($('#quota-visual').textContent.includes(t('common.unknown')));assert.doesNotMatch($('#quota-visual').textContent,/0,123/);
  renderQuotaVisual(null);assert.equal($('#quota-visual').children.length,0);
 });

@@ -2,7 +2,7 @@ import {t,money} from './i18n.js';
 const aliases={"UNAUTHORIZED": "ui.767cdc9a7082", "ACCOUNT_DISABLED": "ui.871f88cb44d4", "EMAIL_NOT_VERIFIED": "ui.36b45c9ead3c", "TEMPLATE_UNAVAILABLE": "ui.a1da59da2e8e", "TEMPLATE_UNVERIFIED": "ui.581383befb9a", "CONFIGURATION_UNVERIFIED": "ui.581383befb9a", "CUMULATIVE_BUDGET_EXCEEDED": "ui.be44b2c62beb", "RECOVERY_REGION_MISMATCH": "error.CROSS_REGION_RESTORE"};
 export function errorText(error){
  if(error?.code==='BUDGET_EXCEEDED'&&error.budget_scope==='ACCOUNT_WALLET')return t('wallet.insufficient',{balance:money(error.wallet_balance_milliusd),required:money(error.required_milliusd)})+' (BUDGET_EXCEEDED)';
- if(error?.code==='BUDGET_EXCEEDED'&&error.budget_scope==='PLATFORM')return t('wallet.platformShort',{balance:money(error.wallet_balance_milliusd),available:money(error.platform_remaining_milliusd),required:money(error.required_milliusd)})+' (BUDGET_EXCEEDED)';
+ if(error?.code==='BUDGET_EXCEEDED'&&error.budget_scope==='PLATFORM')return t('wallet.platformShort')+' (BUDGET_EXCEEDED)';
  if(error?.code?.startsWith('ANNOUNCEMENT_'))return t('maintenance.error')+' ('+error.code+')';
  if(error?.code==='UPLOAD_NOT_VISIBLE')return t('upload.notVisible')+' (UPLOAD_NOT_VISIBLE)';
  if(error?.code==='UPLOAD_INCOMPLETE')return t('upload.incomplete')+' (UPLOAD_INCOMPLETE)';
